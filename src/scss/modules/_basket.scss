@@ -1,0 +1,23 @@
+.basket-page {
+    &__body {
+        @media (min-width: 1025px) {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 1024px) {
+            display: grid;
+            grid-gap: 5rem;
+
+            @media (max-width: 767px) {
+                grid-gap: 3rem;
+            }
+        }
+
+        &.scroll-grid {
+            display: grid;
+            grid-gap: 8.5rem;
+        }
+    }
+}

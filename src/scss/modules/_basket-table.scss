@@ -1,0 +1,80 @@
+.basket-table {
+    @media (min-width: 1025px) {
+        width: 85.3rem;
+    }
+
+    // .basket-table__head
+
+    &__head {
+        display: none;
+
+        @media (min-width: 768px) {
+            display: grid;
+            grid-template-columns: 10.5rem 1.9rem minmax(24.2rem, max-content) 2rem 6.7rem auto max-content;
+            grid-template-areas: 'title-1 . . . title-2 . title-3';
+            padding-bottom: 2rem;
+            border-bottom: 0.1rem solid #eaeaea;
+        }
+
+        @media (min-width: 1025px) {
+            grid-template-columns: 10.5rem 1.9rem minmax(24.2rem, max-content) 12.5rem 6.7rem auto max-content;
+        }
+    }
+
+    // .basket-table__title
+
+    &__title {
+        @extend %text-14;
+        //@extend %text-13;
+        //color: #505661;
+
+        &:nth-child(1) {
+            grid-area: title-1;
+        }
+
+        &:nth-child(2) {
+            grid-area: title-2;
+        }
+
+        &:nth-child(3) {
+            grid-area: title-3;
+        }
+    }
+
+    // .basket-table__item
+
+    &__item {
+        padding: 2rem 0;
+        border-bottom: 0.1rem solid #eaeaea;
+        grid-template-areas:
+            'image . title . counter . prices'
+            'image . . . counter . prices'
+            'image . list . counter . prices'
+            'image . . . counter . prices'
+            'image . buttons . counter . prices';
+        grid-template-columns: 10.5rem 1.9rem minmax(24.2rem, max-content) 12.5rem 6.7rem auto max-content;
+        grid-template-rows: max-content 1.4rem max-content 1.6rem max-content;
+        align-items: center;
+
+        @media (max-width: 1024px) {
+            grid-template-columns: 10.5rem 1.9rem minmax(24.2rem, max-content) 2rem 6.7rem auto max-content;
+        }
+
+        @media (max-width: 767px) {
+            grid-template-columns: 6.7rem 10.5rem - 6.7rem 1.9rem auto;
+            grid-template-rows: max-content 1.4rem max-content 1.6rem max-content 1.5rem max-content;
+            grid-template-areas:
+                'image image . title'
+                'image image . .'
+                'image image . list'
+                'image image . .'
+                'image image . buttons'
+                '. . . .'
+                'counter . . prices';
+
+            &:first-child {
+                padding-top: 0;
+            }
+        }
+    }
+}

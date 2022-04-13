@@ -1,0 +1,55 @@
+.counter {
+    @extend %flex-row-center;
+    // .counter__btn
+
+    &__btn {
+        @extend %vertical-align;
+        position: relative;
+        width: 1rem;
+        height: 1rem;
+
+        svg {
+            width: 1rem;
+
+            line {
+                transition: 0.3s stroke;
+            }
+        }
+
+        /* @extend %text-24;
+		font-weight: 500;
+		color: #9B9B9B; */
+
+        @media (any-hover: hover) {
+            &:hover {
+                svg line {
+                    stroke: $green;
+                }
+            }
+        }
+    }
+
+    // .counter__input
+
+    &__input {
+        @extend %text-14;
+        @extend %flex-center;
+        font-family: 'Raleway', sans-serif;
+        text-align: center;
+        font-weight: 500;
+        width: calc(6.7rem - 1rem * 2);
+        padding: 0 0.5rem;
+    }
+}
+
+.minus-btn {
+    svg {
+        height: 0.2rem;
+    }
+}
+
+.plus-btn {
+    svg {
+        height: 1rem;
+    }
+}

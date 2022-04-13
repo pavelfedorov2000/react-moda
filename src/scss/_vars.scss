@@ -1,0 +1,183 @@
+// colors
+$dark: #101112;
+$green: #479458;
+$red: #ee3333;
+
+$container: 150rem;
+$gap: 1.6rem;
+
+// Typography
+
+%text-10 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+%text-11 {
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+}
+
+%text-12 {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+}
+
+%text-13 {
+    font-size: 1.3rem;
+    line-height: 1.9rem;
+}
+
+%text-14 {
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+}
+
+%text-16 {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+}
+
+%text-17 {
+    font-size: 1.7rem;
+    line-height: 2.5rem;
+}
+
+%text-18 {
+    font-size: 1.8rem;
+    line-height: 2.7rem;
+}
+
+%text-20 {
+    font-size: 2rem;
+    line-height: 3rem;
+}
+
+%text-24 {
+    font-size: 2.4rem;
+    line-height: 2.9rem;
+}
+
+%text-25 {
+    font-size: 2.5rem;
+    line-height: 3.7rem;
+}
+
+%text-30 {
+    font-size: 3rem;
+    line-height: 4rem;
+}
+
+%text-35 {
+    font-size: 3.5rem;
+    line-height: 4.5rem;
+}
+
+%text-40 {
+    font-size: 4rem;
+    line-height: 52 / 40 * 100%;
+
+    @media (max-width: 1024px) {
+        font-size: 3.6rem;
+    }
+
+    @media (max-width: 500px) {
+        font-size: 2.4rem;
+    }
+}
+
+%text-48 {
+    font-size: 4.8rem;
+    line-height: 5.8rem;
+}
+
+// flex
+%vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+%flex-center {
+    @extend %vertical-align;
+    justify-content: center;
+}
+
+%flex-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+%flex-row-center {
+    @extend %flex-row;
+    align-items: center;
+}
+
+%flex-row-end {
+    @extend %flex-row;
+    align-items: flex-end;
+}
+
+%flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+%flex-col-center {
+    @extend %flex-col;
+    align-items: center;
+}
+
+%flex-col-end {
+    @extend %flex-col;
+    align-items: flex-end;
+}
+
+// positioning
+%pos-center-x {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+%pos-center-y {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+%pos-center-xy {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// background
+%cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+%bg-cover {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+%bg-contain {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@mixin scrollbar {
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 0.5rem;
+        border-radius: 0.4rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #c0c0c0;
+        border-radius: 0.4rem;
+    }
+}

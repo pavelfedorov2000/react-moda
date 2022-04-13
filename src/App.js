@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import classNames from 'classnames';
+import React, { useState } from 'react';
+import { Route } from 'react-router-dom';
+import { Header, Footer, Auth, DropBasket, Social } from './Components';
+import { Catalog, Cart } from './Pages';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const phone = '8 800 250 30 05';
+
+    const [visibleAsideBasket, setVisibleAsideBasket] = useState(false);
+    const [visibleAsideAuth, setVisibleAsideAuth] = useState(false);
+    const openAsideBasket = () => {
+        setVisibleAsideBasket(!visibleAsideBasket);
+    }
+    const closeAsideBasket = () => {
+        setVisibleAsideBasket(!visibleAsideBasket);
+    }
+    const openAsideAuth = () => {
+        setVisibleAsideAuth(!visibleAsideAuth);
+    }
+    const closeAsideAuth = () => {
+        setVisibleAsideAuth(!visibleAsideAuth);
+    }
+    return (
+        <div className="wrapper">
+            <Header onAsideBasketOpener={openAsideBasket} onAsideAuthOpener={openAsideAuth} phone={phone} />
+            <Route path="/" component={Catalog} exact />
+            <Route path="/cart" component={Cart} exact />
+            <Footer socials={Social} phone={phone} />
+            <div className={classNames('overlay', {
+                'active': visibleAsideBasket || visibleAsideAuth
+            })}>
+                <Auth onCloseAsideAuth={closeAsideAuth} visibleAsideAuth={visibleAsideAuth} socials={Social} />
+                <DropBasket onCloseAsideBasket={closeAsideBasket} visibleAsideBasket={visibleAsideBasket} />
+            </div>
+        </div>
+    );
 }
 
 export default App;

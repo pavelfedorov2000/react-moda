@@ -1,0 +1,153 @@
+{
+  "products": [
+    {
+      "id": 0,
+      "name": "Блузка",
+      "brand": "Loriata",
+      "sizes": [42, 44, 46],
+      "price": 21200,
+      "rating": 5
+    },
+    {
+      "id": 1,
+      "name": "Брюки",
+      "brand": "Loriata",
+      "sizes": [42, 46, 48],
+      "price": 21200,
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "name": "Пальто",
+      "brand": "Loriata",
+      "sizes": [44, 46, 48],
+      "price": 21200,
+      "discount": "40%",
+      "rating": 5
+    },
+    {
+      "id": 3,
+      "name": "Джемпер",
+      "brand": "Loriata",
+      "sizes": [42, 46, 50],
+      "price": 21200,
+      "rating": 4
+    },
+    {
+      "id": 4,
+      "name": "Джинсы",
+      "brand": "Loriata",
+      "sizes": [42, 44, 50],
+      "price": 21200,
+      "rating": 4
+    },
+    {
+      "id": 5,
+      "name": "Пижама",
+      "brand": "Loriata",
+      "sizes": [46, 48, 50],
+      "price": 21200,
+      "rating": 4
+    },
+    {
+      "id": 6,
+      "name": "Комбинезон",
+      "brand": "Loriata",
+      "sizes": [42, 44, 52],
+      "price": 21200,
+      "rating": 4
+    },
+    {
+      "id": 7,
+      "name": "Пиджак",
+      "brand": "Loriata",
+      "sizes": [44, 48, 52],
+      "price": 21200,
+      "rating": 4
+    },
+    {
+      "id": 8,
+      "name": "Платье",
+      "brand": "Loriata",
+      "sizes": [42, 44, 46],
+      "price": 21200,
+      "rating": 4
+    },
+    {
+      "id": 9,
+      "name": "Спортивный костюм",
+      "brand": "Loriata",
+      "sizes": [42, 44, 46],
+      "price": 21200,
+      "discount": "40%",
+      "rating": 3
+    },
+    {
+      "id": 10,
+      "name": "Шорты",
+      "brand": "Loriata",
+      "sizes": [42, 44, 46],
+      "price": 21200,
+      "rating": 3
+    },
+    {
+      "id": 11,
+      "name": "Юбка",
+      "brand": "Loriata",
+      "sizes": [42, 44, 46],
+      "price": 21200,
+      "rating": 3
+    },
+    {
+      "id": 12,
+      "name": "Пальто",
+      "brand": "Loriata",
+      "sizes": [42, 44, 46],
+      "price": 21200,
+      "rating": 2
+    },
+    {
+      "id": 13,
+      "name": "Брюки",
+      "brand": "Loriata",
+      "sizes": [42, 44, 46],
+      "price": 21200,
+      "rating": 2
+    },
+    {
+      "id": 14,
+      "name": "Пуховик",
+      "brand": "Rio Verti",
+      "sizes": [42, 44, 46],
+      "price": 23625,
+      "discount": "25%",
+      "rating": 2
+    },
+    {
+      "id": 15,
+      "name": "Джемпер",
+      "brand": "Loriata",
+      "sizes": [42, 44, 46],
+      "price": 12500,
+      "rating": 1
+    },
+    {
+      "id": 16,
+      "name": "Юбка",
+      "brand": "Loriata",
+      "sizes": [42, 44, 46],
+      "price": 5000,
+      "discount": "25%",
+      "rating": 1
+    },
+    {
+      "id": 17,
+      "name": "Пальто",
+      "brand": "Loriata",
+      "sizes": [42, 44, 46],
+      "price": 21200,
+      "discount": "40%",
+      "rating": 1
+    }
+  ]
+}
