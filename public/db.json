@@ -22,7 +22,7 @@
       "brand": "Loriata",
       "sizes": [44, 46, 48],
       "price": 21200,
-      "discount": "40%",
+      "discount": 40,
       "rating": 5
     },
     {
@@ -79,7 +79,7 @@
       "brand": "Loriata",
       "sizes": [42, 44, 46],
       "price": 21200,
-      "discount": "40%",
+      "discount": 40,
       "rating": 3
     },
     {
@@ -120,7 +120,7 @@
       "brand": "Rio Verti",
       "sizes": [42, 44, 46],
       "price": 23625,
-      "discount": "25%",
+      "discount": 25,
       "rating": 2
     },
     {
@@ -137,7 +137,7 @@
       "brand": "Loriata",
       "sizes": [42, 44, 46],
       "price": 5000,
-      "discount": "25%",
+      "discount": 25,
       "rating": 1
     },
     {
@@ -146,7 +146,7 @@
       "brand": "Loriata",
       "sizes": [42, 44, 46],
       "price": 21200,
-      "discount": "40%",
+      "discount": 40,
       "rating": 1
     }
   ]

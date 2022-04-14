@@ -8,15 +8,17 @@ export { default as Social } from './Social';
 export { default as SubscribeForm } from './SubscribeForm';
 export { default as Collection } from './Collection';
 
+export { default as SeoText } from './SeoText';
+
 export { default as Pagination } from './Pagination';
 
 export { default as AsideFilters } from './AsideFilters';
 export { default as CatalogFilters } from './CatalogFilters';
 export { default as CatalogView } from './CatalogView';
 export { default as CatalogCard } from './CatalogCard/CatalogCard';
+export { default as Loader } from './CatalogCard/Loader';
+//export { default as CatalogCardPopup } from './CatalogCard/CatalogCardPopup';
 
-export { default as Categories } from './Categories';
-export { default as SortSelect } from './SortSelect';
 export { default as CartItem } from './CartItem';
 
 export { default as DropBasket } from './DropBasket';

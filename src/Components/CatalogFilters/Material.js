@@ -1,49 +1,65 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+import checkIcon from '../../assets/images/icons/check.svg';
+import dropArr from '../../assets/images/icons/drop-arr-black.svg';
+import Buttons from './buttons';
 
-function Material(props) {
-    const material = {
-        "Основной материал": ['Акрил', 'Ангора', 'Бисер', 'Вискоза', 'Искусственная замша', 'Искусственная кожа'],
-        "Утеплитель": ['Акрил', 'Искусственный мех', 'Искусственный пух', 'Микрофибра', 'Полиамид', 'Полимер']
+function Material() {
+  const material = {
+    "Основной материал": ['Акрил', 'Ангора', 'Бисер', 'Вискоза', 'Искусственная замша', 'Искусственная кожа'],
+    "Утеплитель": ['Акрил', 'Искусственный мех', 'Искусственный пух', 'Микрофибра', 'Полиамид', 'Полимер']
+  };
+
+  const [visibleFilter, setVisibleFilter] = useState(false);
+
+  const toggleFilter = () => {
+    setVisibleFilter(!visibleFilter);
+  }
+
+  const filterRef = useRef();
+
+  const handleOutsideClick = (event) => {
+    const path = event.path || (event.composedPath && event.composedPath());
+    if (!path.includes(filterRef.current)) {
+      setVisibleFilter(false);
     }
-    return (
-        <fieldset className="catalog-filters__item catalog-filters__item--material">
-            <legend className="catalog-filters__item-title">
-                <span>Материал</span>
-                <span className="filter-output"></span>
-            </legend>
-            <div className="catalog-filters__item-drop catalog-drop-filter">
-                <div className="catalog-drop-filter__inner">
-                    <div className="catalog-drop-filter__body">
-                        <div className="catalog-drop-filter__cols">
-                            {Object.keys(material).map((key, i) => (
-                                <fieldset key={`col-${i}`} className="catalog-drop-filter__col">
-                                    <legend className="catalog-drop-filter__title">{key}</legend>
-                                    {material[key].map((material, j) => (
-                                        <label key={`material-${j}`} className="catalog-drop-filter__item">
-                                            <input className="check-box" type="checkbox" />
-                                            <span className="check-style"></span>
-                                            <span className="check-text">{material}</span>
-                                        </label>
-                                    ))}
-                                </fieldset>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-                <div className="catalog-drop-filter__buttons">
-                    <button className="btn catalog-drop-filter__btn btn--border" type="reset">
-                        Очистить все
-                        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M11.9929 3L8 6.99286L4.00714 3L3 4.00714L6.99286 8L3 11.9929L4.00714 13L8 9.00714L11.9929 13L13 11.9929L9.00714 8L13 4.00714L11.9929 3Z"
-                                fill="#479458" />
-                        </svg>
-                    </button>
-                    <button className="btn catalog-drop-filter__btn" type="submit">Применить</button>
-                </div>
+  }
+
+  useEffect(() => {
+    document.body.addEventListener('click', handleOutsideClick);
+  }, []);
+  return (
+    <fieldset ref={filterRef} className="catalog-filters__item catalog-filters__item--material">
+      <legend onClick={toggleFilter} className="catalog-filters__item-title" style={{ backgroundImage: `url(${dropArr})` }}>
+        <span>Материал</span>
+        <span className="filter-output"></span>
+      </legend>
+      {visibleFilter &&
+        <div className="catalog-filters__item-drop catalog-drop-filter">
+          <div className="catalog-drop-filter__inner">
+            <div className="catalog-drop-filter__body">
+              <div className="catalog-drop-filter__cols">
+                {Object.keys(material).map((key, i) => (
+                  <fieldset key={`col-${i}`} className="catalog-drop-filter__col">
+                    <legend className="catalog-drop-filter__title">{key}</legend>
+                    {material[key].map((material, j) => (
+                      <label key={`material-${j}`} className="catalog-drop-filter__item">
+                        <input className="check-box" type="checkbox" />
+                        <span class="check-style">
+                          <span style={{ backgroundImage: `url(${checkIcon})` }}></span>
+                        </span>
+                        <span className="check-text">{material}</span>
+                      </label>
+                    ))}
+                  </fieldset>
+                ))}
+              </div>
             </div>
-        </fieldset>
-    );
+          </div>
+          <Buttons />
+        </div>
+      }
+    </fieldset>
+  );
 }
 
 export default Material;

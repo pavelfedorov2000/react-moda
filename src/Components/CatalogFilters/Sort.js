@@ -1,28 +1,55 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import checkIcon from '../../assets/images/icons/check.svg';
+import dropArr from '../../assets/images/icons/drop-arr-black.svg';
 
-function Sort() {
-    const sortFilters = ['По возрастанию цены', 'По убыванию цены', 'По популярности', 'По новинкам', 'По скидкам'];
-    return (
-        <fieldset className="catalog-filters__item catalog-filters__item--sort">
-            <legend className="catalog-filters__item-title">
-                <span>Сортировать</span>
-            </legend>
-            <div className="catalog-filters__item-drop catalog-drop-filter">
-                <div className="catalog-drop-filter__inner">
-                    {sortFilters.map((filter, i) => (
-                        <label key={`filter-${i}`} className="catalog-drop-filter__item">
-                            <input className="radio-box" type="radio" name="sort_filter" />
-                            <span className="radio-style">
-                                <span style={{ backgroundImage: `url(${checkIcon})` }}></span>
-                            </span>
-                            <span className="radio-text">{filter}</span>
-                        </label>
-                    ))}
-                </div>
-            </div>
-        </fieldset>
-    );
+function Sort({ sortFilters, onClickSort, activeSortBy }) {
+
+  const filterRef = useRef();
+
+  const [visibleFilter, setVisibleFilter] = useState(false);
+
+  const [radio, setRadio] = useState(false);
+
+  const toggleRadio = () => {
+    setRadio(!radio);
+  }
+
+  const toggleFilter = () => {
+    setVisibleFilter(!visibleFilter);
+  }
+
+  const handleOutsideClick = (event) => {
+    const path = event.path || (event.composedPath && event.composedPath());
+    if (!path.includes(filterRef.current)) {
+      setVisibleFilter(false);
+    }
+  }
+
+  useEffect(() => {
+    document.body.addEventListener('click', handleOutsideClick);
+  }, []);
+  return (
+    <fieldset ref={filterRef} className="catalog-filters__item catalog-filters__item--sort">
+      <legend className="catalog-filters__item-title" style={{ backgroundImage: `url(${dropArr})` }} onClick={toggleFilter}>
+        <span>Сортировать</span>
+      </legend>
+      {visibleFilter &&
+        <div className="catalog-filters__item-drop catalog-drop-filter">
+          <div className="catalog-drop-filter__inner">
+            {sortFilters && sortFilters.map((filter, i) => (
+              <label onClick={() => onClickSort(filter)} key={`filter-${i}`} className="catalog-drop-filter__item">
+                <input onChange={toggleRadio} className="radio-box" type="radio" name="sort_filter" checked={activeSortBy === filter.type ? true : false} />
+                <span className="radio-style">
+                  <span style={{ backgroundImage: `url(${checkIcon})` }}></span>
+                </span>
+                <span className="radio-text">{filter}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+      }
+    </fieldset>
+  );
 }
 
 export default Sort;
