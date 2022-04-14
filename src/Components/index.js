@@ -17,7 +17,9 @@ export { default as CatalogFilters } from './CatalogFilters';
 export { default as CatalogView } from './CatalogView';
 export { default as CatalogCard } from './CatalogCard/CatalogCard';
 export { default as Loader } from './CatalogCard/Loader';
-//export { default as CatalogCardPopup } from './CatalogCard/CatalogCardPopup';
+export { default as CatalogCardPopup } from './CatalogCard/CatalogCardPopup';
+
+export { default as ProductSizes } from './ProductSizes';
 
 export { default as CartItem } from './CartItem';
 
