@@ -1,0 +1,233 @@
+.brands {
+  &__inner {
+    @media (min-width: 1025px) {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-gap: 5.2rem;
+    }
+
+    @media (max-width: 1024px) {
+      display: flex;
+      overflow: scroll;
+    }
+  }
+
+  &__item {
+    @extend %flex-center;
+    height: 15.4rem;
+    padding: 2.8rem 3rem;
+
+    @media (max-width: 1024px) {
+      width: 18rem;
+      height: 12rem;
+      flex-shrink: 0;
+      margin-right: 3rem;
+    }
+  }
+
+  &__item-img {
+    &.loaded {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+.brands-page {
+  padding-bottom: 11rem;
+}
+
+.brands-categories {
+  display: flex;
+
+  @media (max-width: 767px) {
+    overflow-x: auto;
+  }
+
+  // .brands-categories__item
+
+  &__item {
+    @extend %flex-col-center;
+    flex-shrink: 0;
+
+    &:not(:last-child) {
+      margin-right: 5.2rem;
+    }
+  }
+
+  // .brands-categories__item-img
+
+  &__item-img {
+    width: 12.8rem;
+    height: 12.8rem;
+    border-radius: 7rem;
+    background-color: #efefef;
+
+    &:not(:last-child) {
+      margin-bottom: 1.2rem;
+    }
+
+    img {
+      @extend %cover;
+    }
+
+    &--all {
+      @extend %flex-center;
+
+      img {
+        width: 5rem;
+        height: 3.6rem;
+        object-fit: contain;
+      }
+    }
+
+    @media (max-width: 500px) {
+      width: 10rem;
+      height: 10rem;
+    }
+  }
+
+  // .brands-categories__item-title
+
+  &__item-title {
+    @extend %text-16;
+    font-weight: 600;
+    text-align: center;
+    transition: 0.3s color;
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: #9b9b9b;
+      }
+    }
+  }
+}
+
+.brands-index-list {
+  display: flex;
+
+  @media (max-width: 1024px) {
+    overflow-x: auto;
+    padding-bottom: 3rem;
+  }
+
+  // .brands-index-list__item
+
+  &__item {
+    @extend %text-16;
+    font-weight: 500;
+    white-space: nowrap;
+    margin-right: 2rem;
+
+    &--active {
+      color: $green;
+    }
+  }
+}
+
+.cancel-brand-letter {
+  @extend %vertical-align;
+  @extend %text-12;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #9b9b9b;
+  text-transform: uppercase;
+  transition: 0.3s color;
+
+  svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    flex-shrink: 0;
+    margin-left: 0.5rem;
+
+    path {
+      transition: 0.3s fill;
+    }
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      color: $red;
+
+      svg path {
+        fill: $red;
+      }
+    }
+  }
+}
+
+.brands-wrap {
+  padding: 4rem 0 5.2rem;
+
+  @media (min-width: 1025px) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.brands-alphabet {
+  @media (min-width: 768px) {
+    padding-left: 3rem;
+  }
+
+  // .brands-alphabet__item
+
+  &__item {
+    display: flex;
+
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+
+      @media (max-width: 500px) {
+        margin-bottom: 2rem;
+      }
+    }
+
+    dt {
+      @extend %text-20;
+      font-weight: 500;
+      min-width: 3.6rem;
+    }
+
+    dd {
+      margin-left: 6.5rem;
+    }
+  }
+
+  // .brands-alphabet__row
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  // .brands-alphabet__col
+
+  &__col {
+    &:not(:last-child) {
+      margin-right: 3rem;
+
+      @media (min-width: 768px) {
+        margin-right: 18.3rem;
+      }
+    }
+  }
+
+  // .brands-alphabet__link
+
+  &__link {
+    @extend %text-16;
+    display: block;
+
+    &:not(:last-child) {
+      margin-bottom: 0.8rem;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: #9b9b9b;
+      }
+    }
+  }
+}
