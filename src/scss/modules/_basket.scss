@@ -1,23 +1,18 @@
 .basket-page {
     &__body {
+        display: grid;
+        grid-gap: 8.4rem 18.2rem;
+
         @media (min-width: 1025px) {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+            grid-template-columns: 1fr 46.5rem;
         }
 
         @media (max-width: 1024px) {
-            display: grid;
             grid-gap: 5rem;
 
             @media (max-width: 767px) {
                 grid-gap: 3rem;
             }
-        }
-
-        &.scroll-grid {
-            display: grid;
-            grid-gap: 8.5rem;
         }
     }
 }

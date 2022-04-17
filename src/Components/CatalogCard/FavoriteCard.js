@@ -8,29 +8,15 @@ import heart from '../../assets/images/icons/heart.svg';
 import heartFilled from '../../assets/images/icons/heart-filled.svg';
 //import Button from '../Button';
 
-function CatalogCard({ id, name, brand, imageUrl, price, sizes, isFavorite, discount, newProduct, favorite, toggleFavorite, onClickAddFavorite }) {
+function FavoriteCard({ id, name, brand, sizes, price, imageUrl, discount, newProduct, favorite, toggleFavorite, onClickRemoveFavorite, isFavorite }) {
     /* if (isLoaded) {
         return <PizzaLoader />;
     } */
     const sizesList = [42, 44, 46, 48, 50, 52];
 
-    const onAddFavoriteProduct = () => {
-        toggleFavorite();
-        const obj = {
-            id,
-            name,
-            brand,
-            imageUrl,
-            price,
-            sizes,
-            isFavorite: true
-        };
-        onClickAddFavorite(obj);
+    const onRemoveFavoriteProduct = () => {
+        onClickRemoveFavorite(id);
     }
-
-    /* const onRemoveFavoriteProduct = () => {
-      onClickRemoveFavorite(id);
-    } */
 
     //
     //const delegate = props.delegate || "[data-fancybox]";
@@ -43,12 +29,14 @@ function CatalogCard({ id, name, brand, imageUrl, price, sizes, isFavorite, disc
             {newProduct && newProduct != undefined &&
                 <span class="label catalog-card__label label--new">new</span>
             }
-            <button onClick={onAddFavoriteProduct} type="button" aria-label={favorite ? 'Удалить из избранного' : 'Добавить в избранное'} style={{ backgroundImage: `url(${favorite ? heartFilled : heart})` }} className="catalog-card__favorite"></button>
+            <button onClick={onRemoveFavoriteProduct} type="button" aria-label="Добавить в избранное" style={{ backgroundImage: `url(${isFavorite ? heartFilled : heart})` }} className={classNames('catalog-card__favorite', {
+                'animated': favorite
+            })}></button>
             <div className="catalog-card__img">
                 <img src={imageUrl} alt={`${name} ${brand}`} width="336" height="448" />
                 <div className="catalog-card__info">
                     <div className="catalog-card__sizes">
-                        {sizesList.map(size => (
+                        {sizesList.map((size, i) => (
                             <a key={size} href="#" className={classnames('catalog-card__size', {
                                 'catalog-card__size--disabled': !sizesList.includes(sizes[sizes.indexOf(size)])
                             })}>{size}</a>
@@ -93,4 +81,4 @@ PizzaBlock.defaultProps = {
     isLoading: false,
 }; */
 
-export default CatalogCard;
+export default FavoriteCard;

@@ -16,12 +16,20 @@ export { default as AsideFilters } from './AsideFilters';
 export { default as CatalogFilters } from './CatalogFilters';
 export { default as CatalogView } from './CatalogView';
 export { default as CatalogCard } from './CatalogCard/CatalogCard';
+export { default as FavoriteCard } from './CatalogCard/FavoriteCard';
 export { default as Loader } from './CatalogCard/Loader';
 export { default as CatalogCardPopup } from './CatalogCard/CatalogCardPopup';
 
 export { default as ProductSizes } from './ProductSizes';
 
 export { default as CartItem } from './CartItem';
+export { default as BasketTable } from './BasketTable';
+export { default as BasketTotal } from './BasketTotal';
+export { default as Checkout } from './Checkout';
+
+export { default as OrderSuccessTable } from './OrderSuccessTable';
+export { default as OrderProduct } from './OrderProduct';
+
 
 export { default as DropBasket } from './DropBasket';
 export { default as Auth } from './Auth';

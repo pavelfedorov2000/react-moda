@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Sort, Material, Size, Color, Brand, Price, Style, Decor } from './CatalogFilters/index';
 
-function CatalogFilters({ onClickSort, activeSortBy, sortFilters }) {
+function CatalogFilters({ onClickSort, activeSortBy, sortFilters, sortPrices, onChangePrices, onResetPrices }) {
     const [checkedFilters, setCheckedFilters] = useState([]);
     const [checked, setChecked] = useState(false);
     /* const toggleCheckbox = () => {
@@ -52,7 +52,7 @@ function CatalogFilters({ onClickSort, activeSortBy, sortFilters }) {
                 <Material />
                 <Color />
                 <Size />
-                <Price />
+                <Price sortPrices={sortPrices} onChangePrices={onChangePrices} onResetPrices={onResetPrices} />
                 <Brand />
                 <Style />
                 <Decor checked={checked} checkedFilters={checkedFilters} setCheckedFilters={setCheckedFilters} onCheckChange={onCheckChange} />

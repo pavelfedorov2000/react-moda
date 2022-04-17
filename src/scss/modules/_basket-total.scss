@@ -1,0 +1,131 @@
+.basket-total {
+    border: 0.1rem solid #c0c0c0;
+    padding: 4rem;
+
+    @media (min-width: 1025px) {
+        width: 46.5rem;
+    }
+
+    @media (max-width: 500px) {
+        padding: 3rem 1.5rem;
+    }
+
+    // .basket-total__auth
+
+    &__auth {
+        @extend %text-14;
+        max-width: 33.3rem;
+
+        &:not(:last-child) {
+            margin-bottom: 1.7rem;
+        }
+    }
+
+    &__auth-btn {
+        @extend %text-14;
+        font-weight: 600;
+        transition: 0.3s color;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: $green;
+            }
+        }
+    }
+
+    // .basket-total__promocode
+
+    &__promocode {
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+    }
+
+    // .basket-total__list
+
+    &__list {
+        padding-bottom: 2.4rem;
+        border-bottom: 0.1rem solid #eaeaea;
+
+        &:not(:last-child) {
+            margin-bottom: 2.4rem;
+        }
+    }
+
+    // .basket-total__list-item
+
+    &__list-item {
+        @extend %flex-row;
+        //@extend %text-13;
+        @extend %text-14;
+        //color: #505661;
+
+        &:not(:last-child) {
+            margin-bottom: 0.8rem;
+        }
+
+        dd span {
+            font-weight: 600;
+            color: $red;
+        }
+    }
+
+    // .basket-total__overall
+
+    &__overall {
+        @extend %flex-row;
+        @extend %text-20;
+        font-weight: 500;
+
+        &:not(:last-child) {
+            margin-bottom: 2.4rem;
+        }
+    }
+
+    // .basket-total__btn
+
+    &__btn {
+        @extend %text-14;
+        font-weight: 600;
+        width: 100%;
+        padding: 1.35rem;
+
+        &:not(:last-child) {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    // .basket-total__agreement
+
+    &__agreement {
+        @extend %text-13;
+        //color: #505661;
+
+        a {
+            //color: #101112;
+            font-weight: 500;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    //color: $green;
+                    color: #9b9b9b;
+                }
+            }
+        }
+    }
+}
+
+input[name='promocode'] {
+    text-transform: uppercase;
+
+    &::placeholder {
+        text-transform: none;
+    }
+
+    &.valid {
+        //background-image: url(../images/icons/green-check.svg);
+        background-size: 1.6rem 1.6rem;
+        background-position: calc(100% - 5.2rem - 2rem) 50%;
+        background-repeat: no-repeat;
+    }
+}

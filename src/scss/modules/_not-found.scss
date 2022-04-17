@@ -1,0 +1,57 @@
+.not-found-page {
+    padding: 10rem 0 20rem;
+    @media (max-width: 1024px) {
+        padding: 3rem 0 5rem;
+    }
+
+    &__inner {
+        @extend %flex-col-center;
+        text-align: center;
+    }
+
+    &__title {
+        font-size: 11rem;
+        line-height: 130%;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: #c0c0c0;
+        @media (max-width: 500px) {
+            font-size: 9rem;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__subtitle {
+        @extend %text-35;
+        font-weight: 500;
+        @media (max-width: 1024px) {
+            font-size: 2.4rem;
+            line-height: 2.9rem;
+        }
+        @media (max-width: 500px) {
+            font-size: 2rem;
+            line-height: 3rem;
+        }
+
+        &:not(:last-child) {
+            @media (min-width: 1025px) {
+                margin-bottom: 4rem;
+            }
+        }
+    }
+
+    .breadcrumbs {
+        display: block;
+        &__item {
+            @media (min-width: 768px) {
+                padding-right: 2.4rem;
+                margin-right: 2rem;
+                font-size: 1.6rem;
+                line-height: 2.4rem;
+            }
+        }
+    }
+}

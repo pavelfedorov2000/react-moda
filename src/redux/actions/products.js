@@ -7,9 +7,9 @@ export const setLoaded = payload => ({
 });
 
 // асинхронный action (redux thunk): получение пицц (axios), потом сохранение (dispatch)
-export const fetchProducts = (sortBy) => (dispatch) => {
+export const fetchProducts = (sortBy, sortPrices, sortColors) => (dispatch) => {
     dispatch(setLoaded(false));
-    axios.get(`/products?_sort=${sortBy.type}&_order=${sortBy.order}`).then(({ data }) => {
+    axios.get(`/products?price_gte=${sortPrices[0]}&price_lte=${sortPrices[1]}&_sort=${sortBy.type}&_order=${sortBy.order}}`).then(({ data }) => {
         dispatch(setProducts(data));
     });
     //${sortBy.order != undefined ? `&_order=${sortBy.order}` : ''}
