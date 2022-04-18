@@ -1,0 +1,166 @@
+.profile-subscribes {
+  // .profile-subscribes__inner
+
+  display: grid;
+  grid-gap: 3rem 5.2rem;
+
+  @media (max-width: 1024px) {
+    grid-gap: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1025px) {
+    grid-template-columns: 1fr 33.6rem;
+  }
+
+  &__item {
+    @media (min-width: 768px) {
+      grid-column: 1 / 2;
+    }
+
+    &--aside {
+      background-color: #f4f4f6;
+
+      @media (min-width: 768px) {
+        grid-row: 1 / 2;
+        grid-column: 2 / 3;
+        justify-content: flex-end;
+      }
+
+      .subscribe-item__content {
+        padding-top: 0;
+        align-items: flex-start;
+        border: none;
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+.subscribe-item {
+  @extend %flex-col;
+  // .subscribe-item__title
+
+  &__title {
+    @extend %text-16;
+    font-weight: 600;
+    background-color: #f4f4f6;
+    padding: 2.5rem;
+  }
+
+  // .subscribe-item__content
+
+  &__content {
+    padding: 1.5rem 2.5rem 2.5rem;
+    border: 0.1rem solid #eaeaea;
+    border-top: none;
+    @extend %flex-col;
+
+    @media (max-width: 1024px) {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    >* {
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  &__email {
+    @extend %text-14;
+    flex-grow: 1;
+  }
+
+  &__wrap {
+    display: grid;
+    grid-gap: 1.5rem;
+
+    @media (min-width: 1025px) {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  // .subscribe-item__list
+
+  &__list {
+    li {
+      @extend %text-14;
+
+      &:not(:last-child) {
+        margin-bottom: 1.4rem;
+      }
+    }
+  }
+
+  &__text {
+    @extend %text-13;
+    color: #505661;
+  }
+
+  // .subscribe-item__buttons
+
+  &__bottom {
+    @extend %vertical-align;
+
+    @media (max-width: 1024px) {
+      display: grid;
+      grid-gap: 1.5rem;
+    }
+  }
+
+  &__notify {
+    @extend %text-13;
+
+    @media (min-width: 1025px) {
+      margin-left: 1.6rem;
+    }
+  }
+
+  // .subscribe-item__change-btn
+
+  &__change-btn {
+    @extend %text-14;
+    text-decoration: underline;
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: #9b9b9b;
+      }
+    }
+  }
+
+  // .subscribe-item__cancel-btn
+
+  &__cancel-btn {
+    @extend %text-13;
+    font-weight: 500;
+    padding: 1.3rem 2rem;
+
+    &[disabled] {
+      border: 0.1rem solid #eaeaea;
+      background-color: transparent;
+      color: #9b9b9b;
+
+      @media (any-hover: hover) {
+        &:hover {
+          color: #9b9b9b;
+        }
+      }
+    }
+  }
+
+  // .subscribe-item__btn
+
+  &__btn {
+    @extend %text-14;
+    font-weight: 500;
+    padding: 1.3rem 3rem;
+  }
+}

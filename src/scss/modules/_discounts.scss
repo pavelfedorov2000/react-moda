@@ -1,0 +1,118 @@
+.discounts-progress {
+
+  &:not(:last-child) {
+    padding-bottom: 4rem;
+  }
+
+  @media(max-width: 1024px) {
+    overflow-x: auto;
+  }
+
+  &__list {
+    display: flex;
+
+    @media(max-width: 1024px) {
+      width: 3rem * 9;
+      min-width: 3rem * 9;
+    }
+  }
+
+  // .discounts-progress__item
+
+  &__item {
+    @extend %text-16;
+    font-weight: 600;
+    position: relative;
+    padding: 4.5rem 0.85rem 0;
+    color: #9b9b9b;
+    white-space: nowrap;
+    background-size: 3rem 3rem;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+
+    &:not(:last-child) {
+      margin-right: 9.2rem - 1.7rem;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 1rem;
+        right: -5.8rem;
+        width: 5.8rem;
+        height: 0.1rem;
+        background-color: #DCDADA;
+      }
+    }
+  }
+
+  // .discounts-progress__item--completed
+
+  &__item.completed {
+    color: #000;
+  }
+}
+
+.personal-discout {
+
+  &:not(:last-child) {
+    padding-bottom: 4rem;
+  }
+
+  // .personal-discout__title
+
+  &__title {
+    @extend %text-16;
+    font-weight: 600;
+
+    &:not(:last-child) {
+      margin-bottom: 1.3rem;
+    }
+  }
+
+  // .personal-discout__list
+
+  &__list {
+
+    li {
+      @extend %text-16;
+    }
+  }
+}
+
+.discount-add {
+
+  border-top: 0.1rem solid #EAEAEA;
+  padding-top: 4rem;
+
+  @media(min-width: 1025px) {
+    width: 85.4rem;
+  }
+
+  // .discount-add__title
+
+  &__title {
+    @extend %text-16;
+    font-weight: 600;
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  // .discount-add__value
+
+  &__value {
+    @extend %vertical-align;
+    @extend %text-16;
+    font-weight: 500;
+  }
+
+  // .discount-add__label
+
+  &__label {
+
+    &:not(:last-child) {
+      margin-right: 1.2rem;
+    }
+  }
+}
