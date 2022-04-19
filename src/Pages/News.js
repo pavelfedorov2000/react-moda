@@ -1,26 +1,10 @@
 
 import React, { useState } from 'react';
-import { Link, Route } from 'react-router-dom';
-import axios from 'axios';
-import { NewsDetail } from './';
-import { Switch } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
-function News() {
-  const [news, setNews] = useState([]);
-  React.useEffect(() => {
-    axios.get('/news').then(({ data }) => {
-      setNews(data);
-    });
-  }, []); // [] = componentDidMout
-  console.log(news);
-
+function News({ news }) {
 
   const crumbs = ['Главная', 'Новости и акции'];
-
-  const [activeNews, setActiveNews] = useState(null);
-  const onClickNews = (i) => {
-    setActiveNews(i);
-  }
 
   return (
     <main className="page news-page">
@@ -35,15 +19,11 @@ function News() {
 
         <h1 className="title page__title">Новости и акции</h1>
 
-        <Switch>
-          <Route path="/news/detail" news={news} activeNews={activeNews} component={NewsDetail} />
-        </Switch>
-
         <div className="news-page__grid">
           {news.map((article, i) => (
-            <article key={`article-${i}`} className="blog-item" onClick={onClickNews}>
-              <Link className="blog-item__inner" to="/news/detail">
-                <img className="blog-item__img" src={article.imageUrl} alt="фото" />
+            <article key={`article-${i}`} className="blog-item">
+              <NavLink className="blog-item__inner" to={`/news-detail/${article.id}`}>
+                <div className="blog-item__img"><img src={article.imageUrl} alt="фото" /></div>
                 <div className="blog-item__content">
                   <time className="blog-item__date" datetime={article.date.split('.').reverse().join('-')}>{article.date}</time>
                   <h5 className="blog-item-title blog-item__title">
@@ -57,7 +37,7 @@ function News() {
                     ))}
                   </div>
                 </div>
-              </Link>
+              </NavLink>
             </article>
           ))}
         </div>

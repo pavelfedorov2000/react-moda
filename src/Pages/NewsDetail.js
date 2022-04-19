@@ -1,15 +1,31 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 
-function NewsDetail({ activeNews }) {
+function NewsDetail() {
+
+  //const { params } = match;
+  //const { id } = params;
+
+  let { id } = useParams();
+  console.log(id);
+
   const [news, setNews] = useState([]);
+  /* const fetchNews = async news => {
+    const result = await axios.get('/news');
+    setNews(result.data.news);
+  } */
   React.useEffect(() => {
     axios.get('/news').then(({ data }) => {
       setNews(data);
     });
-  }, []); // [] = componentDidMout
+  }, []); // [] = componentDidMout */
+
   console.log(news);
+
+  const activeNews = news.filter(news => news.id == id)[0];
+  console.log(activeNews);
 
   return (
     <main className="page">
@@ -23,21 +39,21 @@ function NewsDetail({ activeNews }) {
               <Link to="/news">Новости и акции</Link>
             </li>
             <li className="breadcrumbs__item">
-              <span>{news[activeNews]["title"]}</span>
+              <span>{activeNews && activeNews.title}</span>
             </li>
           </ol>
         </nav>
         <section className="news-detail">
-          <h1 className="title page__title">{news[activeNews]["title"]}</h1>
+          <h1 className="title page__title">{activeNews && activeNews.title}</h1>
           <div className="news-detail__inner">
             <div className="news-detail__img">
-              <img className="lazy" src="assets/images/content/news/news-detail.jpg" alt="фото" />
+              <img src={activeNews && activeNews.imageUrl} alt="фото" />
             </div>
             <div className="news-detail__content">
-              {Object.keys(news[activeNews]["dl"]).map((key, i) => (
+              {activeNews && Object.keys(activeNews.dl).map((key, i) => (
                 <p key={`p-${i + 1}`}>
                   <b>{`${key}:`}</b>
-                  {news[activeNews]["dl"][key]}
+                  {activeNews.dl[key]}
                 </p>
               ))}
             </div>

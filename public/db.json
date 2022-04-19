@@ -333,6 +333,7 @@
   ],
   "news": [
     {
+      "id": 0,
       "imageUrl": "https://i.ibb.co/RhnntJS/01.jpg",
       "date": "10.11.2021",
       "title": "-15% на женские сумки",
@@ -345,51 +346,55 @@
       }
     },
     {
+      "id": 1,
       "imageUrl": "https://i.ibb.co/YWv8vD4/02.jpg",
       "date": "10.11.2021",
       "title": "Открытие нового магазина",
       "text": "Новый магазин City Moda по адресу ТЦ «Галерея»  Театральная, 30",
       "tags": ["женщинам"],
       "dl": {
-        "Условия акции": "lorem",
-        "Срок действия": "ipsum",
-        "Ограничения": "dolor"
+        "Условия акции": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati.",
+        "Срок действия": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati.",
+        "Ограничения": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
       }
     },
     {
+      "id": 2,
       "imageUrl": "https://i.ibb.co/h8JYjMp/04.jpg",
       "date": "10.11.2021",
       "title": "Удваиваем бонусы",
       "text": "Двойные бонусы за покупки новой коллекции MINOTY спри покупке с 26 по 30 ноября",
       "tags": ["детям"],
       "dl": {
-        "Условия акции": "lorem",
-        "Срок действия": "ipsum",
-        "Ограничения": "dolor"
+        "Условия акции": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati.",
+        "Срок действия": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati.",
+        "Ограничения": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
       }
     },
     {
+      "id": 3,
       "imageUrl": "https://i.ibb.co/Lk1mFZZ/04.jpg",
       "date": "10.11.2021",
       "title": "-20% на одежду для новорожденных",
       "text": "Акция действительна по 30 ноября включительно",
       "tags": ["детям"],
       "dl": {
-        "Условия акции": "lorem",
-        "Срок действия": "ipsum",
-        "Ограничения": "dolor"
+        "Условия акции": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati.",
+        "Срок действия": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati.",
+        "Ограничения": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
       }
     },
     {
+      "id": 4,
       "imageUrl": "https://i.ibb.co/M2JsmDJ/05.jpg",
       "date": "10.11.2021",
       "title": "-40% на коллекцию женских свитеров",
       "text": "Акция действительна по 30 ноября включительно",
       "tags": ["детям"],
       "dl": {
-        "Условия акции": "lorem",
-        "Срок действия": "ipsum",
-        "Ограничения": "dolor"
+        "Условия акции": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati.",
+        "Срок действия": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati.",
+        "Ограничения": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
       }
     }
   ]

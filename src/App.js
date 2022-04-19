@@ -2,8 +2,8 @@ import classNames from 'classnames';
 import React, { useState } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import { Header, Footer, Auth, DropBasket, Social } from './Components';
-import { Catalog, Cart, ProductCard, Favorite, Brands, NotFound, OrderSuccess, Profile, Blog, News } from './Pages';
-//import axios from 'axios';
+import { Catalog, Cart, ProductCard, Favorite, Brands, NotFound, OrderSuccess, Profile, Blog, News, NewsDetail } from './Pages';
+import axios from 'axios';
 
 
 function App() {
@@ -26,7 +26,19 @@ function App() {
     setVisibleAsideAuth(!visibleAsideAuth);
   }
 
-  function generateCrumbs(crumbs, crumb, i) {
+  const [news, setNews] = useState([]);
+  React.useEffect(() => {
+    axios.get('/news').then(({ data }) => {
+      setNews(data);
+    });
+  }, []); // [] = componentDidMout
+
+  /* const [activeNews, setActiveNews] = useState(null);
+  const onClickNews = (i) => {
+    setActiveNews(i);
+  } */
+
+  /* function generateCrumbs(crumbs, crumb, i) {
     switch (i) {
       case 0:
         return <li className="breadcrumbs__item"><Link to="/" exact>{crumb}</Link></li>
@@ -35,7 +47,7 @@ function App() {
       default:
         return <li className="breadcrumbs__item"><a href="#">{crumb}</a></li>
     }
-  }
+  } */
   return (
     <div className="wrapper">
       <Header onAsideBasketOpener={openAsideBasket} onAsideAuthOpener={openAsideAuth} phone={phone} />
@@ -49,7 +61,8 @@ function App() {
         <Route path="/not-found" component={NotFound} />
         <Route path="/profile" component={Profile} />
         <Route path="/blog" component={Blog} />
-        <Route path="/news" component={News} />
+        <Route path="/news" render={() => <News news={news} />} />
+        <Route path="/news-detail/:id" render={() => <NewsDetail />} />
       </Switch>
       <Footer socials={Social} phone={phone} />
       <div className={classNames('overlay', {
