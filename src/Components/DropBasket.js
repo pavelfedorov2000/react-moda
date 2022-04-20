@@ -21,19 +21,24 @@ function DropBasket({ visibleAsideBasket, onCloseAsideBasket }) {
         </svg>
       </button>
       <div className="drop-basket__body">
-        <div className="drop-basket__inner">
+        <div div className="drop-basket__inner">
           <h3 className="aside-popup__title">Ваша корзина</h3>
-          <div className="drop-basket__products">
+          {totalCount != 0 ?
+            <>
+              <div className="drop-basket__products">
 
-          </div>
-          <div className="drop-basket__total">
-            <div className="drop-basket__total-title">Товаров на сумму</div>
-            <div className="drop-basket__total-sum">42 540 ₽</div>
-          </div>
-          <div className="drop-basket__empty">
-            Вы еще не добавили товары в корзину
-          </div>
+              </div>
+              <div className="drop-basket__total">
+                <div className="drop-basket__total-title">Товаров на сумму</div>
+                <div className="drop-basket__total-sum">42 540 ₽</div>
+              </div>
+            </> :
+            <div className="drop-basket__empty">
+              Вы еще не добавили товары в корзину
+            </div>
+          }
         </div>
+
         <Link className="drop-basket__btn btn" to={`/${totalCount == 0 ? 'catalog' : 'cart'}`} >
           {totalCount == 0 ? 'Продолжить покупки' : 'Оформить заказ'}
           <svg viewBox="0 0 56 16" fill="none" xmlns="http://www.w3.org/2000/svg">

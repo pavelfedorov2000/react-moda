@@ -17,12 +17,11 @@
   }
 
   &__empty {
-    display: none;
     @extend %text-16;
     color: #9b9b9b;
     text-align: center;
     justify-self: center;
-    flex-grow: 1;
+    margin: auto 0;
   }
 
   &__title {
