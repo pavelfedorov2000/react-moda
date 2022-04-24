@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AsideFilters, CatalogFilters, CatalogView, CatalogCard, FavoriteCard } from '../Components';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFavoriteProduct } from '../redux/actions/favorite';
+import emptyIcon from '../assets/images/icons/empty-catalog.svg';
 
 function Favorite({ generateCrumbs }) {
     const dispatch = useDispatch();
@@ -29,11 +30,20 @@ function Favorite({ generateCrumbs }) {
                                 <CatalogView />
                                 <button class="filters-btn" type="button">Фильтры</button>
                             </div>
-                            <div class="catalog__cards">
-                                {favorites.map(product => (
-                                    <FavoriteCard key={product.id} {...product} onClickRemoveFavorite={handleRemoveFavoriteProduct} />
-                                ))}
-                            </div>
+                            {favorites.length == 0 ?
+                                <div class="empty-page catalog__empty">
+                                    <img class="empty-page__img" src={emptyIcon} alt="иконка"
+                                        width="100" height="100" />
+                                    <div class="empty-page__text">Нет актуальных товаров</div>
+                                </div>
+                                :
+                                <div class="catalog__cards">
+                                    {
+                                        favorites.map(product => (
+                                            <FavoriteCard key={product.id} {...product} onClickRemoveFavorite={handleRemoveFavoriteProduct} />
+                                        ))}
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>

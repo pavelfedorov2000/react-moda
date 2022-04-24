@@ -216,6 +216,15 @@
             max-width: 82rem;
         }
     }
+    &__empty {
+        padding-top: 18.2rem;
+        @media (max-width: 1024px) {
+            padding-top: 7rem;
+        }
+        @media (max-width: 500px) {
+            padding-top: 3rem;
+        }
+    }
 }
 
 .grid-btn {

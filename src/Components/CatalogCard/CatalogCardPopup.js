@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import heart from '../../assets/images/icons/heart.svg';
 import heartFilled from '../../assets/images/icons/heart-filled.svg';
 
-function CatalogCardPopup({ id, name, brand, sizes, price, imageUrl, discount, newProduct, favorite, toggleFavorite, onClickAddFavorite }) {
+function CatalogCardPopup({ id, articul, name, brand, sizes, price, imageUrl, discount, newProduct, favorite, toggleFavorite, onClickAddFavorite, onAddCart }) {
     const productList = {
         "Сезон": "Демисезон",
         "Материал": "Альпака",
@@ -32,19 +32,22 @@ function CatalogCardPopup({ id, name, brand, sizes, price, imageUrl, discount, n
             imageUrl,
             price,
             sizes,
+            articul,
             isFavorite: true
         };
         onClickAddFavorite(obj);
     }
 
-    const params = {
+
+
+    /* const params = {
         spaceBetween: 15,
         slidesPerView: 1,
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev"
         }
-    };
+    }; */
     return (
         <div style={{ display: 'none' }} id="product-popup" className="popup product-popup">
             {discount != undefined &&

@@ -63,6 +63,13 @@ function Catalog() {
         });
     }
 
+    const handleAddProductToCart = obj => {
+        dispatch({
+            type: 'ADD_PRODUCT_TO_CART',
+            payload: obj
+        });
+    }
+
     React.useEffect(() => {
         dispatch(fetchProducts(sortBy, sortPrices)); // вернет функцию
         console.log(products);
@@ -98,6 +105,7 @@ function Catalog() {
         }, 300); */
     }
 
+
     const crumbs = ['Главная', 'Женщинам', 'Одежда', 'Верхняя одежда', 'Пальто'];
     const [home, ...rest] = crumbs;
 
@@ -129,7 +137,7 @@ function Catalog() {
                                 'catalog__cards--two-cols': catalogView === 'col'
                             })}>
                                 {isLoaded
-                                    ? products.map(product => <CatalogCard onClickAddFavorite={handleAddProductToFavorite} favorite={favorite} toggleFavorite={toggleFavorite} key={product.id} {...product} isLoaded={true} />)
+                                    ? products.map(product => <CatalogCard onAddCart={handleAddProductToCart} onClickAddFavorite={handleAddProductToFavorite} favorite={favorite} toggleFavorite={toggleFavorite} key={product.id} {...product} isLoaded={true} />)
                                     : Array(18).fill(0).map((_, index) => <Loader key={`loader-${index}`} />)
                                 }
                             </div>

@@ -24,6 +24,7 @@ export { default as ProductSizes } from './ProductSizes';
 
 export { default as CartItem } from './CartItem';
 export { default as BasketTable } from './BasketTable';
+export { default as BasketProduct } from './BasketProduct';
 export { default as BasketTotal } from './BasketTotal';
 export { default as Checkout } from './Checkout';
 

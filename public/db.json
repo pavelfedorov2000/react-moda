@@ -11,7 +11,8 @@
       "color": "зеленый",
       "rating": 5,
       "newProduct": true,
-      "isFavorite": false
+      "isFavorite": false,
+      "articul": "MP002XW08J2L"
     },
     {
       "id": 1,
@@ -24,7 +25,8 @@
       "color": "голубой",
       "rating": 5,
       "newProduct": true,
-      "isFavorite": false
+      "isFavorite": false,
+      "articul": "MP002XW08J2L"
     },
     {
       "id": 2,
@@ -37,7 +39,8 @@
       "style": "вечерний",
       "color": "голубой",
       "rating": 5,
-      "isFavorite": false
+      "isFavorite": false,
+      "articul": "MP002XW08J2L"
     },
     {
       "id": 3,
@@ -49,7 +52,8 @@
       "style": "спортивный",
       "color": "бирюзовый",
       "rating": 4,
-      "isFavorite": false
+      "isFavorite": false,
+      "articul": "MP002XW08J2L"
     },
     {
       "id": 4,
@@ -61,7 +65,8 @@
       "style": "повседневный",
       "color": "бежевый",
       "rating": 4,
-      "isFavorite": false
+      "isFavorite": false,
+      "articul": "MP002XW08J2L"
     },
     {
       "id": 5,
@@ -73,7 +78,8 @@
       "style": "деловой",
       "color": "бежевый",
       "rating": 4,
-      "isFavorite": false
+      "isFavorite": false,
+      "articul": "MP002XW08J2L"
     },
     {
       "id": 6,
@@ -85,7 +91,8 @@
       "style": "деловой",
       "color": "бежевый",
       "rating": 4,
-      "isFavorite": false
+      "isFavorite": false,
+      "articul": "MP002XW08J2L"
     },
     {
       "id": 7,
@@ -97,7 +104,8 @@
       "style": "спортивный",
       "color": "бордовый",
       "rating": 4,
-      "isFavorite": false
+      "isFavorite": false,
+      "articul": "MP002XW08J2L"
     },
     {
       "id": 8,
@@ -109,7 +117,8 @@
       "style": "повседневный",
       "color": "золотой",
       "rating": 4,
-      "isFavorite": false
+      "isFavorite": false,
+      "articul": "MP002XW08J2L"
     },
     {
       "id": 9,
@@ -122,7 +131,8 @@
       "style": "повседневный",
       "color": "бордовый",
       "rating": 3,
-      "isFavorite": false
+      "isFavorite": false,
+      "articul": "MP002XW08J2L"
     },
     {
       "id": 10,
@@ -134,7 +144,8 @@
       "style": "вечерний",
       "color": "бежевый",
       "rating": 3,
-      "isFavorite": false
+      "isFavorite": false,
+      "articul": "MP002XW08J2L"
     },
     {
       "id": 11,
@@ -146,7 +157,8 @@
       "style": "деловой",
       "color": "бордовый",
       "rating": 3,
-      "isFavorite": false
+      "isFavorite": false,
+      "articul": "MP002XW08J2L"
     },
     {
       "id": 12,
@@ -158,7 +170,8 @@
       "style": "повседневный",
       "color": "бирюзовый",
       "rating": 2,
-      "isFavorite": false
+      "isFavorite": false,
+      "articul": "MP002XW08J2L"
     },
     {
       "id": 13,
@@ -170,7 +183,8 @@
       "style": "спортивный",
       "color": "бордовый",
       "rating": 2,
-      "isFavorite": false
+      "isFavorite": false,
+      "articul": "MP002XW08J2L"
     },
     {
       "id": 14,
@@ -183,7 +197,8 @@
       "style": "повседневный",
       "color": "белый",
       "rating": 2,
-      "isFavorite": false
+      "isFavorite": false,
+      "articul": "MP002XW08J2L"
     },
     {
       "id": 15,
@@ -195,7 +210,8 @@
       "style": "повседневный",
       "color": "бежевый",
       "rating": 1,
-      "isFavorite": false
+      "isFavorite": false,
+      "articul": "MP002XW08J2L"
     },
     {
       "id": 16,
@@ -208,7 +224,8 @@
       "style": "повседневный",
       "color": "голубой",
       "rating": 1,
-      "isFavorite": false
+      "isFavorite": false,
+      "articul": "MP002XW08J2L"
     },
     {
       "id": 17,
@@ -221,7 +238,8 @@
       "style": "вечерний",
       "color": "бордовый",
       "rating": 1,
-      "isFavorite": false
+      "isFavorite": false,
+      "articul": "MP002XW08J2L"
     }
   ],
   "subscribes": [
