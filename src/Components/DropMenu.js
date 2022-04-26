@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SaleItem from './SaleItem';
 import dropMenuSale from '../assets/images/content/drop-menu-img.jpg';
+import { $CombinedState } from 'redux';
 
 function DropMenu({ src, title, descr }) {
   const dropMenuCategories = [
