@@ -20,17 +20,17 @@ function BasketProduct({ id, articul, name, brand, sizes, price, imageUrl, color
   return (
     <div className="basket-table__item basket-product">
       <a href="#" className="basket-product__img">
-        <img src="assets/images/content/basket-product-01.jpg" alt="фото" />
+        <img src={imageUrl} alt="фото" />
       </a>
-      <a href="#" className="product-title basket-product__title">Пальто LORIATA Wander Yellow</a>
+      <a href="#" className="product-title basket-product__title">{name} {brand}</a>
       <dl className="product-list basket-product__list">
         <div>
           <dt>Артикул:</dt>
-          <dd>MP002XW08J2L</dd>
+          <dd>{articul}</dd>
         </div>
         <div>
           <dt>Цвет:</dt>
-          <dd>бежевый</dd>
+          <dd>{color}</dd>
         </div>
         <div>
           <dt>Размер:</dt>
@@ -38,7 +38,7 @@ function BasketProduct({ id, articul, name, brand, sizes, price, imageUrl, color
         </div>
       </dl>
       <div className="basket-product__buttons">
-        <button className="basket-product__btn basket-product__btn--delete" type="button">
+        <button onClick={handleRemoveCartItem} className="basket-product__btn basket-product__btn--delete" type="button">
           <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g opacity="0.8">
               <path
@@ -58,13 +58,13 @@ function BasketProduct({ id, articul, name, brand, sizes, price, imageUrl, color
         </button>
       </div>
       <div className="basket-product__counter counter">
-        <button className="minus-btn counter__btn" type="button">
+        <button onClick={handleMinusCartItem} className="minus-btn counter__btn" type="button">
           <svg viewBox="0 0 10 2" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line y1="1" x2="10" y2="1" stroke="#9B9B9B" stroke-width="2" />
           </svg>
         </button>
-        <input className="counter__input" type="number" value="1" readonly />
-        <button className="plus-btn counter__btn" type="button">
+        <input className="counter__input" type="number" value={totalCount} readonly />
+        <button onClick={handlePlusCartItem} className="plus-btn counter__btn" type="button">
           <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line y1="5" x2="10" y2="5" stroke="#9B9B9B" stroke-width="2" />
             <line x1="5" y1="10" x2="5" stroke="#9B9B9B" stroke-width="2" />
@@ -73,8 +73,12 @@ function BasketProduct({ id, articul, name, brand, sizes, price, imageUrl, color
       </div>
       <div className="basket-product__prices">
         <div className="basket-product__prices-wrap">
-          <div className="old-price basket-product__old-price">47 800 ₽</div>
-          <div className="new-price">38 240 ₽</div>
+          {discount != undefined &&
+            <div className="price old-price basket-product__old-price">{`${Math.floor(totalPrice * 100 / (100 - discount))} ₽`}</div>
+          }
+          <div className={classNames('price', {
+            'new-price': discount != undefined
+          })}>{`${totalPrice} ₽`}</div>
         </div>
         <div className="basket-product__discount">
           <div className="basket-product__discount-percent">Сумма скидки 20%</div>
