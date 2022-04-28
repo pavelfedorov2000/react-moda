@@ -3,291 +3,297 @@
 @import 'null';
 
 html {
-    box-sizing: border-box;
-    font-size: calc(100vw / 1920 * 10);
+  box-sizing: border-box;
+  font-size: calc(100vw / 1920 * 10);
 
-    &.disable-fix {
-        @media (min-width: 1025px) {
-            padding-right: 17px;
-        }
+  &.disable-fix {
+    @media (min-width: 1025px) {
+      padding-right: 17px;
     }
+  }
 
-    @media (max-width: 1440px) {
-        font-size: calc(100vw / 1440 * 10);
-    }
+  @media (max-width: 1440px) {
+    font-size: calc(100vw / 1440 * 10);
+  }
 
-    @media (max-width: 1024px) {
-        font-size: calc(100vw / 768 * 10);
-    }
+  @media (max-width: 1024px) {
+    font-size: calc(100vw / 768 * 10);
+  }
 
-    @media (max-width: 767px) {
-        font-size: calc(100vw / 500 * 10);
-    }
+  @media (max-width: 767px) {
+    font-size: calc(100vw / 500 * 10);
+  }
 
-    @media (max-width: 500px) {
-        font-size: calc(100vw / 360 * 10);
-    }
+  @media (max-width: 500px) {
+    font-size: calc(100vw / 360 * 10);
+  }
 }
 
 body {
-    min-width: 320px;
-    font-family: 'Raleway', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-feature-settings: 'pnum' on, 'lnum' on;
-    color: #000;
-    overflow-x: hidden;
+  min-width: 320px;
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-feature-settings: 'pnum'on, 'lnum'on;
+  color: #000;
+  overflow-x: hidden;
 
-    &._lock {
-        overflow-y: hidden;
-    }
+  &._lock {
+    overflow-y: hidden;
+  }
 }
 
 button,
 textarea,
 input {
-    font-family: 'Raleway', sans-serif;
-    font-feature-settings: 'pnum' on, 'lnum' on;
+  font-family: 'Raleway', sans-serif;
+  font-feature-settings: 'pnum'on, 'lnum'on;
 }
 
 dt {
-    float: left;
+  float: left;
 }
 
 img {
-    max-width: 100%;
-    height: auto;
-    vertical-align: top;
-    border: none;
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+  border: none;
 
-    table & {
-        max-width: none;
-    }
+  table & {
+    max-width: none;
+  }
 }
 
 a {
-    transition: 0.3s all;
+  transition: 0.3s all;
 
-    @media (any-hover: hover) {
-        &:hover {
-            //color: $green;
-            color: #777;
-        }
+  @media (any-hover: hover) {
+    &:hover {
+      //color: $green;
+      color: #777;
     }
+  }
 }
 
 .logo {
-    &__link {
-        @extend %vertical-align;
-    }
+  &__link {
+    @extend %vertical-align;
+  }
 
-    // .logo__img
+  // .logo__img
 
-    &__img {
-        height: 3.1rem;
-        object-fit: contain;
-    }
+  &__img {
+    height: 3.1rem;
+    object-fit: contain;
+  }
 }
 
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    overflow-x: hidden;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
 
-    &._lock {
-        overflow-y: hidden;
-    }
+  &._lock {
+    overflow-y: hidden;
+  }
 }
 
 .container {
-    max-width: $container + $gap * 2;
-    padding: 0 $gap;
-    margin: 0 auto;
+  max-width: $container + $gap * 2;
+  padding: 0 $gap;
+  margin: 0 auto;
 }
 
 .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    border: 0;
-    clip: rect(0 0 0 0);
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
 }
 
 .page {
-    position: relative;
-    flex: 1 0 auto; // Footer at bottom
-    padding-bottom: 11rem;
+  position: relative;
+  flex: 1 0 auto; // Footer at bottom
+  padding-bottom: 11rem;
 
-    @media (max-width: 1024px) {
-        padding-bottom: 0rem;
-    }
+  @media (max-width: 1024px) {
+    padding-bottom: 0rem;
+  }
 
-    @media (max-width: 767px) {
-        padding-top: 2.4rem;
+  @media (max-width: 767px) {
+    padding-top: 2.4rem;
+  }
+
+  @media (max-width: 500px) {
+    padding-bottom: 3rem;
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: 4rem;
+
+      @media (max-width: 500px) {
+        margin-bottom: 2rem;
+      }
     }
+  }
+
+  &__subtitle {
+    @extend %text-20;
+    font-weight: 500;
 
     @media (max-width: 500px) {
-        padding-bottom: 3rem;
+      font-size: 1.4rem;
+      line-height: 2.1rem;
     }
 
-    &__title {
-        &:not(:last-child) {
-            margin-bottom: 4rem;
+    &:not(:last-child) {
+      margin-bottom: 5.2rem;
 
-            @media (max-width: 500px) {
-                margin-bottom: 2rem;
-            }
-        }
+      @media (max-width: 500px) {
+        margin-bottom: 2.5rem;
+      }
     }
-
-    &__subtitle {
-        @extend %text-20;
-        font-weight: 500;
-
-        @media (max-width: 500px) {
-            font-size: 1.4rem;
-            line-height: 2.1rem;
-        }
-
-        &:not(:last-child) {
-            margin-bottom: 5.2rem;
-
-            @media (max-width: 500px) {
-                margin-bottom: 2.5rem;
-            }
-        }
-    }
+  }
 }
 
 .section {
-    padding-bottom: 8rem;
+  padding-bottom: 8rem;
 
-    @media (max-width: 500px) {
-        padding-bottom: 5rem;
+  @media (max-width: 500px) {
+    padding-bottom: 5rem;
+  }
+
+  &__title {
+    @extend %flex-row-center;
+
+    &:not(:last-child) {
+      margin-bottom: 3rem;
     }
-
-    &__title {
-        @extend %flex-row-center;
-
-        &:not(:last-child) {
-            margin-bottom: 3rem;
-        }
-    }
+  }
 }
 
 .prices {
-    display: flex;
-    align-items: flex-end;
+  display: flex;
+  align-items: flex-end;
 }
 
 .price {
-    @extend %text-16;
-    font-weight: 600;
+  @extend %text-16;
+  font-weight: 600;
 }
 
 .new-price {
-    color: $red;
+  color: $red;
 }
 
 .old-price {
-    font-weight: 500;
-    color: #9b9b9b;
-    text-decoration: line-through;
+  font-weight: 500;
+  color: #9b9b9b;
+  text-decoration: line-through;
 }
 
 .title {
-    @extend %text-35;
-    font-weight: 500;
+  @extend %text-35;
+  font-weight: 500;
 
-    @media (max-width: 1024px) {
-        font-size: 2.4rem;
-        line-height: 2.9rem;
-    }
+  @media (max-width: 1024px) {
+    font-size: 2.4rem;
+    line-height: 2.9rem;
+  }
 }
 
 .product-title {
-    @extend %text-16;
-    font-weight: 600;
+  @extend %text-16;
+  font-weight: 600;
 }
 
 .product-list {
-    @extend %text-13;
+  @extend %text-13;
 
-    > div {
-        &:not(:last-child) {
-            margin-bottom: 0.6rem;
-        }
-    }
+  >div {
+    display: flex;
 
-    dt {
-        color: #9b9b9b;
-        float: left;
-        padding-right: 0.3rem;
+    &:not(:last-child) {
+      margin-bottom: 0.6rem;
     }
+  }
+
+  dt {
+    color: #9b9b9b;
+    float: left;
+    padding-right: 0.3rem;
+  }
 }
 
 .seo-text {
-    p {
-        @extend %text-16;
+  p {
+    @extend %text-16;
 
-        @media (max-width: 500px) {
-            font-size: 1.4rem;
-            line-height: 2.1rem;
-        }
-
-        &:not(:last-child) {
-            margin-bottom: 2rem;
-        }
+    @media (max-width: 500px) {
+      font-size: 1.4rem;
+      line-height: 2.1rem;
     }
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
 }
 
 .empty-page {
-    display: grid;
-    place-items: center;
-    grid-gap: 3rem;
-    text-align: center;
+  display: grid;
+  place-items: center;
+  grid-gap: 3rem;
+  text-align: center;
+
+  @media (max-width: 767px) {
+    grid-gap: 2rem;
+  }
+
+  // .empty-page__img
+
+  &__img {
+    width: 10rem;
+    height: 10rem;
+
     @media (max-width: 767px) {
-        grid-gap: 2rem;
+      width: 7rem;
+      height: 7rem;
     }
-    // .empty-page__img
+  }
 
-    &__img {
-        width: 10rem;
-        height: 10rem;
-        @media (max-width: 767px) {
-            width: 7rem;
-            height: 7rem;
-        }
+  // .empty-page__text
+
+  &__text {
+    @extend %text-25;
+    font-weight: 500;
+    color: #c0c0c0;
+
+    @media (max-width: 767px) {
+      font-size: 2rem;
+      line-height: 3rem;
     }
-
-    // .empty-page__text
-
-    &__text {
-        @extend %text-25;
-        font-weight: 500;
-        color: #c0c0c0;
-        @media (max-width: 767px) {
-            font-size: 2rem;
-            line-height: 3rem;
-        }
-    }
+  }
 }
 
 .fancybox__content {
-    padding: 0 !important;
-    overflow: visible;
+  padding: 0 !important;
+  overflow: visible;
 }
 
-.fancybox__content > .carousel__button.is-close {
-    top: 0 !important;
-    right: -5rem !important;
-    width: 3.2rem !important;
-    height: 3.2rem !important;
+.fancybox__content>.carousel__button.is-close {
+  top: 0 !important;
+  right: -5rem !important;
+  width: 3.2rem !important;
+  height: 3.2rem !important;
 }
 
 @import 'components/components';

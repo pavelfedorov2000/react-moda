@@ -1,18 +1,19 @@
 .basket-page {
-    &__body {
-        display: grid;
-        grid-gap: 8.4rem 18.2rem;
+  &__body {
+    display: grid;
+    grid-gap: 8.4rem 18.2rem;
 
-        @media (min-width: 1025px) {
-            grid-template-columns: 1fr 46.5rem;
-        }
-
-        @media (max-width: 1024px) {
-            grid-gap: 5rem;
-
-            @media (max-width: 767px) {
-                grid-gap: 3rem;
-            }
-        }
+    @media (min-width: 1025px) {
+      align-items: flex-start;
+      grid-template-columns: calc(100% - 46.5rem - 18.2rem) 46.5rem;
     }
+
+    @media (max-width: 1024px) {
+      grid-gap: 5rem;
+
+      @media (max-width: 767px) {
+        grid-gap: 3rem;
+      }
+    }
+  }
 }

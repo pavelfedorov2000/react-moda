@@ -24,7 +24,7 @@ export { default as ProductSizes } from './ProductSizes';
 
 export { default as CartItem } from './CartItem';
 export { default as BasketTable } from './BasketTable';
-export { default as BasketProduct } from './DropBasketProduct';
+export { default as BasketProduct } from './BasketProduct';
 export { default as DropBasketProduct } from './DropBasketProduct';
 export { default as BasketTotal } from './BasketTotal';
 export { default as Checkout } from './Checkout';
@@ -33,7 +33,6 @@ export { default as SubscribeItem } from './SubscribeItem';
 
 export { default as OrderSuccessTable } from './OrderSuccessTable';
 export { default as OrderProduct } from './OrderProduct';
-
 
 export { default as DropBasket } from './DropBasket';
 export { default as Auth } from './Auth';

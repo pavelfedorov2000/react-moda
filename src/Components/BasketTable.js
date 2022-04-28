@@ -1,7 +1,5 @@
-import classNames from 'classnames';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { BasketProduct } from '../Components';
 import { removeCartItem, plusItem, minusItem } from '../redux/actions/cart';
 
@@ -43,7 +41,9 @@ function BasketTable(props) {
         ))}
       </div>
       <div className="basket-table__body">
-        <BasketProduct className="basket-table__item" key={product.id} {...product} onRemoveItem={onRemoveItem} onMinusItem={onMinusItem} onPlusItem={onPlusItem} totalPrice={items[product.id].totalPrice} totalCount={items[product.id].items.length} />
+        {addedProducts.map(product => (
+          <BasketProduct className="basket-table__item" key={product.id} {...product} onRemoveItem={onRemoveItem} onMinusItem={onMinusItem} onPlusItem={onPlusItem} totalPrice={items[product.id].totalPrice} totalCount={items[product.id].items.length} />
+        ))}
       </div>
     </div>
   );

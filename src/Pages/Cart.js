@@ -1,13 +1,25 @@
 import React from 'react';
 //import { useDispatch, useSelector } from 'react-redux';
 import { BasketTable, BasketTotal, Checkout } from '../Components';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 //import { clearCart, removeCartItem, minusPizza, plusPizza } from '../redux/actions/cart';
 //import cartEmptyImage from '../assets/img/empty-cart.png';
 
 
 function Cart({ generateCrumbs }) {
   const crumbs = ['Главная', 'Женщинам', 'Одежда', 'Верхняя одежда', 'Пальто', 'Пальто LORIATA Wander Yellow', 'Ваша корзина'];
+
+  function generateCrumbs(crumbs, crumb, i) {
+    switch (i) {
+      case 0: {
+        return <li className="breadcrumbs__item"><Link to="/">{crumb}</Link></li>
+      }
+      case (crumbs.length - 1): {
+        return <li className="breadcrumbs__item"><span>{crumb}</span></li>
+      }
+      default: return <li className="breadcrumbs__item"><a href="#">{crumb}</a></li>
+    }
+  }
 
   //const dispatch = useDispatch();
 
@@ -19,7 +31,7 @@ function Cart({ generateCrumbs }) {
       <div className="container">
         <nav className="breadcrumbs" aria-label="breadcrumbs">
           <ol className="breadcrumbs__list">
-            {crumbs.map((crumb, i) => () => generateCrumbs(crumbs, crumb, i))}
+            {crumbs.map((crumb, i) => generateCrumbs(crumbs, crumb, i))}
           </ol>
         </nav>
 

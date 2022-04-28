@@ -95,7 +95,7 @@ function Footer({ phone, socials }) {
                 Узнайте первыми<br />
                 о новинках и скидках
               </div>
-              <SubscribeForm />
+              <SubscribeForm actionText="Подписаться на рассылку" placeholder="Введите ваш Email" />
             </div>
             <div className="footer__cols">
               {Object.keys(footerMenu).map((menu, i) => (

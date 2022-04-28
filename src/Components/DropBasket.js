@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { BasketProduct } from '../Components';
+import { DropBasketProduct } from '../Components';
 import { removeCartItem, plusItem, minusItem } from '../redux/actions/cart';
 
 //import basketProduct from '../assets/images/content/basket-product-01.jpg';
@@ -59,7 +59,7 @@ function DropBasket({ visibleAsideBasket, onCloseAsideBasket }) {
             <>
               <div className="drop-basket__products">
                 {addedProducts.map(product => (
-                  <BasketProduct key={product.id} {...product} onRemoveItem={onRemoveItem} onMinusItem={onMinusItem} onPlusItem={onPlusItem} totalPrice={items[product.id].totalPrice} totalCount={items[product.id].items.length} />
+                  <DropBasketProduct key={product.id} {...product} onRemoveItem={onRemoveItem} onMinusItem={onMinusItem} onPlusItem={onPlusItem} totalPrice={items[product.id].totalPrice} totalCount={items[product.id].items.length} />
                 ))}
               </div>
               <div className="drop-basket__total">

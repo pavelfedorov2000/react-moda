@@ -1,9 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
-//import { useDispatch } from 'react-redux';
 
-
-function BasketProduct({ id, articul, name, brand, sizes, price, imageUrl, color, discount, onRemoveItem, onPlusItem, onMinusItem, totalCount, totalPrice }) {
+function DropBasketProduct({ id, articul, name, brand, sizes, price, imageUrl, color, discount, onRemoveItem, onPlusItem, onMinusItem, totalCount, totalPrice }) {
 
   const handleRemoveCartItem = () => {
     onRemoveItem(id);
@@ -71,4 +69,4 @@ function BasketProduct({ id, articul, name, brand, sizes, price, imageUrl, color
   );
 }
 
-export default BasketProduct;
+export default DropBasketProduct;

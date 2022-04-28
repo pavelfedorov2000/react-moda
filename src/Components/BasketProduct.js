@@ -1,9 +1,5 @@
 import classNames from 'classnames';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { BasketProduct } from '../Components';
-import { removeCartItem, plusItem, minusItem } from '../redux/actions/cart';
 
 function BasketProduct({ id, articul, name, brand, sizes, price, imageUrl, color, discount, onRemoveItem, onPlusItem, onMinusItem, totalCount, totalPrice }) {
 
@@ -46,7 +42,7 @@ function BasketProduct({ id, articul, name, brand, sizes, price, imageUrl, color
                 fill="#101112" />
             </g>
           </svg>
-          Удалить
+          <span>Удалить</span>
         </button>
         <button className="basket-product__btn basket-product__btn--favorite" type="button">
           <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -54,7 +50,7 @@ function BasketProduct({ id, articul, name, brand, sizes, price, imageUrl, color
               d="M4.8107 8.4963L4.81072 8.49625L4.80354 8.49379C4.08775 8.24832 3.12853 7.67452 2.35329 6.82545C1.58257 5.98132 1.02051 4.89635 1.02051 3.62091C1.02051 2.43666 1.97787 1.47925 3.14967 1.47925C3.72137 1.47925 4.25163 1.70161 4.64462 2.09796L4.99967 2.45605L5.35473 2.09796C5.74773 1.70161 6.27797 1.47925 6.84968 1.47925C8.02096 1.47925 8.97884 2.44032 8.97884 3.62091C8.97884 4.89855 8.41668 5.98347 7.64615 6.8269C6.87106 7.67533 5.91188 8.24823 5.19581 8.49379L5.1958 8.49373L5.18865 8.4963C5.15481 8.50849 5.09099 8.52092 4.99967 8.52092C4.90836 8.52092 4.84454 8.50849 4.8107 8.4963Z"
               stroke="#101112" />
           </svg>
-          В избранное
+          <span>В избранное</span>
         </button>
       </div>
       <div className="basket-product__counter counter">
@@ -80,10 +76,12 @@ function BasketProduct({ id, articul, name, brand, sizes, price, imageUrl, color
             'new-price': discount != undefined
           })}>{`${totalPrice} ₽`}</div>
         </div>
-        <div className="basket-product__discount">
-          <div className="basket-product__discount-percent">Сумма скидки 20%</div>
-          <div className="basket-product__discount-sum">(9 560 ₽)</div>
-        </div>
+        {discount != undefined &&
+          <div className="basket-product__discount">
+            <div className="basket-product__discount-percent">Сумма скидки 20%</div>
+            <div className="basket-product__discount-sum">(9 560 ₽)</div>
+          </div>
+        }
       </div>
     </div>
   );

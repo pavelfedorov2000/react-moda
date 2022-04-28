@@ -29,6 +29,9 @@
   }
 
   &__products {
+    display: grid;
+    grid-gap: 2.6rem;
+    align-content: start;
     flex-grow: 1;
     margin-bottom: 5rem;
   }
@@ -54,10 +57,6 @@
         'bottom bottom';
       grid-template-columns: 11rem auto;
       grid-template-rows: max-content 1.4rem max-content max-content;
-    }
-
-    &:not(:last-child) {
-      margin-bottom: 2.6rem;
     }
   }
 

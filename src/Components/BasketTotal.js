@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SubscribeForm from './SubscribeForm';
+
 
 function BasketTotal() {
   return (
@@ -10,12 +12,7 @@ function BasketTotal() {
         программе
         лояльности.
       </div>
-      <div className="subscribe-form basket-total__promocode">
-        <div className="form-row subscribe-form__wrap">
-          <input className="form-row__input" name="promocode" placeholder="Введите промокод" />
-          <button className="btn form-row__btn" type="button" aria-label="Ввести промокод"></button>
-        </div>
-      </div>
+      <SubscribeForm actionText="Ввести промокод" placeholder="Введите промокод" />
       <dl className="basket-total__list">
         <div className="basket-total__list-item">
           <dt>Товаров на сумму</dt>
