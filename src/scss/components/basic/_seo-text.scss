@@ -1,0 +1,14 @@
+.seo-text {
+    p {
+        @extend %text-16;
+
+        @media (max-width: 500px) {
+            font-size: 1.4rem;
+            line-height: 2.1rem;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+    }
+}

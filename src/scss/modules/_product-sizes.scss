@@ -32,6 +32,12 @@
             border: 0.1rem solid #000;
             cursor: pointer;
             transition: 0.3s all;
+            @media (any-hover: hover) {
+                &:hover {
+                    background-color: $dark;
+                    color: #fff;
+                }
+            }
         }
 
         .radio-box:checked + .radio-text {
@@ -45,6 +51,12 @@
                 color: #9b9b9b;
                 border-color: #9b9b9b;
                 cursor: not-allowed;
+                @media (any-hover: hover) {
+                    &:hover {
+                        background-color: transparent;
+                        color: #9b9b9b;
+                    }
+                }
 
                 &:before {
                     content: '';

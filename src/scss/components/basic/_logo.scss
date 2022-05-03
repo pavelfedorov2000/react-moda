@@ -1,0 +1,12 @@
+.logo {
+    &__link {
+        @extend %vertical-align;
+    }
+
+    // .logo__img
+
+    &__img {
+        height: 3.1rem;
+        object-fit: contain;
+    }
+}

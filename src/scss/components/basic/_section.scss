@@ -1,0 +1,15 @@
+.section {
+    padding-bottom: 8rem;
+
+    @media (max-width: 500px) {
+        padding-bottom: 5rem;
+    }
+
+    &__title {
+        @extend %flex-row-center;
+
+        &:not(:last-child) {
+            margin-bottom: 3rem;
+        }
+    }
+}

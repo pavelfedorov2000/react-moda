@@ -5,7 +5,6 @@ import { Header, Footer, Auth, DropBasket, Social } from './Components';
 import { Catalog, Cart, ProductCard, Favorite, Brands, NotFound, OrderSuccess, Profile, Blog, News, NewsDetail } from './Pages';
 import axios from 'axios';
 
-
 function App() {
 
     const phone = '8 800 250 30 05';

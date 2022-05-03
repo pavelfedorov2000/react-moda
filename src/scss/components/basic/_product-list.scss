@@ -1,0 +1,17 @@
+.product-list {
+    @extend %text-13;
+
+    > div {
+        display: flex;
+
+        &:not(:last-child) {
+            margin-bottom: 0.6rem;
+        }
+    }
+
+    dt {
+        color: #9b9b9b;
+        float: left;
+        padding-right: 0.3rem;
+    }
+}

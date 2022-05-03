@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 //import { ProductSizes } from '../Components';
 //import { Navigation } from 'swiper';
@@ -7,10 +7,10 @@ import { Link } from "react-router-dom";
 //import "swiper/swiper-bundle.min.css";
 //import "swiper/swiper.min.css";
 //import "swiper/modules/navigation/navigation";
-import heart from '../../assets/images/icons/heart.svg';
-import heartFilled from '../../assets/images/icons/heart-filled.svg';
+import ProductSizes from "../ProductSizes";
+//import ProductSizes from "../ProductSizes";
 
-function CatalogCardPopup({ id, articul, name, brand, sizes, price, imageUrl, discount, newProduct, favorite, toggleFavorite, onClickAddFavorite, onAddCart }) {
+function CatalogCardPopup({ products, favorite, toggleFavorite, onClickAddFavorite, onAddCart, onCloseCatalogCardPopup, visibleCatalogCardPopup }) {
     const productList = {
         "Сезон": "Демисезон",
         "Материал": "Альпака",
@@ -22,8 +22,20 @@ function CatalogCardPopup({ id, articul, name, brand, sizes, price, imageUrl, di
         "Длина рукава:": "60 см",
     };
 
+    const availableSizes = [42, 44, 46, 48, 50, 52];
+
+    //const products = useSelector(({ products }) => products.products); // вытаскиваем товары из стора
+    console.log(products);
+    console.log(visibleCatalogCardPopup);
+
+    const activeProduct = products.filter(product => product.id === visibleCatalogCardPopup)[0];
+    console.log(activeProduct);
+
+    const { id, articul, name, brand, sizes, color, price, imageUrl, discount, newProduct } = activeProduct;
+    //console.log(sizes);
+
     const onAddFavoriteProduct = (e) => {
-        console.log(e.target);
+        //console.log(e.target);
         toggleFavorite();
         const obj = {
             id,
@@ -38,7 +50,26 @@ function CatalogCardPopup({ id, articul, name, brand, sizes, price, imageUrl, di
         onClickAddFavorite(obj);
     }
 
+    const onAddProductToCart = () => {
+        const obj = {
+            id,
+            name,
+            brand,
+            imageUrl,
+            price,
+            color,
+            size: checkedSize,
+            articul,
+            discount
+        };
+        onAddCart(obj);
+        onCloseCatalogCardPopup();
+    }
 
+    const [checkedSize, setCheckedSize] = useState(availableSizes[0]);
+    const onCheckSize = (size) => {
+        setCheckedSize(size);
+    }
 
     /* const params = {
         spaceBetween: 15,
@@ -49,13 +80,20 @@ function CatalogCardPopup({ id, articul, name, brand, sizes, price, imageUrl, di
         }
     }; */
     return (
-        <div style={{ display: 'none' }} id="product-popup" className="popup product-popup">
-            {discount != undefined &&
-                <span class="label catalog-card__label label--discount">{`${discount}%`}</span>
-            }
-            {newProduct && newProduct != undefined &&
-                <span class="label catalog-card__label label--new">new</span>
-            }
+        <div id="product-popup" className="popup product-popup">
+            <button onClick={() => onCloseCatalogCardPopup()} className="popup__close" type="button">
+                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.1871 7L16 14.1871L8.81286 7L7 8.81286L14.1871 16L7 23.1871L8.81286 25L16 17.8129L23.1871 25L25 23.1871L17.8129 16L25 8.81286L23.1871 7Z" fill="#F4F4F6" />
+                </svg>
+            </button>
+            <div className="labels">
+                {discount != undefined &&
+                    <span class="label label--discount">{`${discount}%`}</span>
+                }
+                {newProduct && newProduct != undefined &&
+                    <span class="label label--new">new</span>
+                }
+            </div>
             <div className="product-popup__inner">
                 <div className="product-popup__slider">
                     <img src={imageUrl} alt="фото" width="464" height="590" />
@@ -71,9 +109,9 @@ function CatalogCardPopup({ id, articul, name, brand, sizes, price, imageUrl, di
                         </div>
                     </div>
                     <form className="product-popup__form product-card-form">
-
+                        <ProductSizes availableSizes={availableSizes} sizes={sizes} checkedSize={checkedSize} onCheckSize={onCheckSize} />
                         <div className="product-card-form__buttons">
-                            <button className="btn product-card-form__btn product-cart-btn" type="button">
+                            <button onClick={onAddProductToCart} className="btn product-card-form__btn product-cart-btn" type="button">
                                 <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M10.9933 15.1668H4.99996C3.85329 15.1668 2.99329 14.8602 2.45996 14.2535C1.92662 13.6468 1.71995 12.7668 1.85995 11.6268L2.45996 6.62683C2.63329 5.1535 3.00663 3.8335 5.60662 3.8335H10.4066C13 3.8335 13.3733 5.1535 13.5533 6.62683L14.1533 11.6268C14.2866 12.7668 14.0866 13.6535 13.5533 14.2535C13 14.8602 12.1466 15.1668 10.9933 15.1668Z"
@@ -82,7 +120,7 @@ function CatalogCardPopup({ id, articul, name, brand, sizes, price, imageUrl, di
                                         d="M10.6673 5.8335C10.394 5.8335 10.1673 5.60683 10.1673 5.3335V3.00016C10.1673 2.28016 9.72065 1.8335 9.00065 1.8335H7.00065C6.28065 1.8335 5.83398 2.28016 5.83398 3.00016V5.3335C5.83398 5.60683 5.60732 5.8335 5.33398 5.8335C5.06065 5.8335 4.83398 5.60683 4.83398 5.3335V3.00016C4.83398 1.72683 5.72732 0.833496 7.00065 0.833496H9.00065C10.274 0.833496 11.1673 1.72683 11.1673 3.00016V5.3335C11.1673 5.60683 10.9407 5.8335 10.6673 5.8335Z"
                                         fill="white" />
                                 </svg>
-                                Добавить в корзину
+                                <span>Добавить в корзину</span>
                             </button>
                             <button onClick={onAddFavoriteProduct} className="btn product-card-form__btn product-favorite-btn btn--border" type="button">
                                 {favorite ?

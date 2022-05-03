@@ -1,0 +1,19 @@
+.prices {
+    display: flex;
+    align-items: flex-end;
+}
+
+.price {
+    @extend %text-16;
+    font-weight: 600;
+}
+
+.new-price {
+    color: $red;
+}
+
+.old-price {
+    font-weight: 500;
+    color: #9b9b9b;
+    text-decoration: line-through;
+}
