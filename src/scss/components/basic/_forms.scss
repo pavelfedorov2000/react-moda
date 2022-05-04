@@ -127,16 +127,23 @@
   position: absolute;
   top: 1.2rem;
   right: 1.2rem;
-  width: 2.4rem;
-  height: 2.4rem;
 
-  /* &.show {
-        background-image: url(../images/icons/hidden.svg);
+  svg {
+    width: 2.4rem;
+    height: 2.4rem;
+
+    path {
+      transition: .3s fill;
     }
+  }
 
-    &.hide {
-        background-image: url(../images/icons/visible.svg);
-    } */
+  @media (any-hover: hover) {
+    &:hover {
+      svg path {
+        fill: $red;
+      }
+    }
+  }
 }
 
 .form-success {
