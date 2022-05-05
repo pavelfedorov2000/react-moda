@@ -2,6 +2,7 @@ const initialState = {
   items: {},
   totalPrice: 0,
   totalCount: 0,
+  totalDiscount: 0,
 };
 
 const cart = (state = initialState, action) => {
@@ -16,6 +17,7 @@ const cart = (state = initialState, action) => {
         [action.payload.id]: {
           items: currentItems,
           totalPrice: currentItems.reduce((sum, obj) => sum + obj.price, 0),
+          totalDiscount: currentItems.reduce((sum, obj) => sum + (obj.discount ? obj.price * obj.discount / 100 : 0), 0),
         }
       };
 
@@ -23,12 +25,14 @@ const cart = (state = initialState, action) => {
       //const items = Object.values(newItems).map(obj => obj.items);
       //const allPizzas = [].concat.apply([], items); // хак для объединения в один массив без reduce
       const totalPrice = Object.keys(newItems).reduce((sum, key) => newItems[key].totalPrice + sum, 0);
+      const totalDiscount = Object.keys(newItems).reduce((sum, key) => newItems[key].totalDiscount + sum, 0);
 
       return {
         ...state,
         items: newItems,
         totalCount,
         totalPrice,
+        totalDiscount,
       };
     }
     case 'CLEAR_CART': return {
@@ -41,12 +45,14 @@ const cart = (state = initialState, action) => {
     case 'REMOVE_CART_ITEM': {
       const newItems = { ...state.items };
       const currentTotalPrice = newItems[action.payload].totalPrice;
+      const currentTotalDiscount = newItems[action.payload].totalDiscount;
       const currentTotalCount = newItems[action.payload].items.length;
       delete newItems[action.payload];
       return {
         ...state,
         items: newItems,
         totalPrice: state.totalPrice - currentTotalPrice,
+        totalDiscount: state.totalDiscount - currentTotalDiscount,
         totalCount: state.totalCount - currentTotalCount,
       }
     }
@@ -57,18 +63,21 @@ const cart = (state = initialState, action) => {
         ...state.items,
         [action.payload]: {
           items: newObjItems,
-          totalPrice: Object.values(newObjItems).reduce((sum, obj) => sum + obj.price, 0)
+          totalPrice: Object.values(newObjItems).reduce((sum, obj) => sum + obj.price, 0),
+          totalDiscount: Object.values(newObjItems).reduce((sum, obj) => sum + (obj.discount ? obj.price * obj.discount / 100 : 0), 0),
         }
       };
 
       const totalCount = Object.keys(newItems).reduce((sum, key) => newItems[key].items.length + sum, 0);
       const totalPrice = Object.keys(newItems).reduce((sum, key) => newItems[key].totalPrice + sum, 0);
+      const totalDiscount = Object.keys(newItems).reduce((sum, key) => newItems[key].totalDiscount + sum, 0);
 
       return {
         ...state,
         items: newItems,
         totalCount,
         totalPrice,
+        totalDiscount,
       };
     }
     case 'PLUS_ITEM': {
@@ -80,18 +89,21 @@ const cart = (state = initialState, action) => {
         ...state.items,
         [action.payload]: {
           items: newObjItems,
-          totalPrice: Object.values(newObjItems).reduce((sum, obj) => sum + obj.price, 0)
+          totalPrice: Object.values(newObjItems).reduce((sum, obj) => sum + obj.price, 0),
+          totalDiscount: Object.values(newObjItems).reduce((sum, obj) => sum + (obj.discount ? obj.price * obj.discount / 100 : 0), 0),
         }
       };
 
       const totalCount = Object.keys(newItems).reduce((sum, key) => newItems[key].items.length + sum, 0);
       const totalPrice = Object.keys(newItems).reduce((sum, key) => newItems[key].totalPrice + sum, 0);
+      const totalDiscount = Object.keys(newItems).reduce((sum, key) => newItems[key].totalDiscount + sum, 0);
 
       return {
         ...state,
         items: newItems,
         totalCount,
         totalPrice,
+        totalDiscount,
       };
     }
     default:

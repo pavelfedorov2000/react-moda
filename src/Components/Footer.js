@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { SubscribeForm } from '../Components';
+import { FormRow, FormAgree } from '../Components';
 import logo from '../assets/images/logo/logo.svg';
 import mastercard from '../assets/images/logo/payment/mastercard.svg';
 import visa from '../assets/images/logo/payment/visa.png';
@@ -95,7 +95,10 @@ function Footer({ phone, socials }) {
                 Узнайте первыми<br />
                 о новинках и скидках
               </div>
-              <SubscribeForm actionText="Подписаться на рассылку" placeholder="Введите ваш Email" />
+              <form className="subscirbe-form">
+                <FormRow actionText="Подписаться на рассылку" placeholder="Введите ваш Email" />
+                <FormAgree />
+              </form>
             </div>
             <div className="footer__cols">
               {Object.keys(footerMenu).map((menu, i) => (

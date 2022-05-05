@@ -28,13 +28,22 @@ function Auth({ visibleAsideAuth, onCloseAsideAuth, socials }) {
   // Прячем восстановление пароля
   const onClosePasswordRecovery = () => {
     setPasswordRecovery(false);
+    setSuccess(false);
   }
 
+  // логика задизейбленной кнопки
   const [disabledBtn, setDisabledBtn] = useState(true);
   const onInputChange = (e) => {
     console.log(e.target.value.length);
     setDisabledBtn(e.target.value.length > 0 ? false : true);
     console.log(disabledBtn);
+  }
+
+  // Восстановление пароля
+  const [success, setSuccess] = useState(false);
+  const onPasswordRecoverySubmit = (e) => {
+    e.preventDefault();
+    setSuccess(true);
   }
 
   return (
@@ -79,7 +88,7 @@ function Auth({ visibleAsideAuth, onCloseAsideAuth, socials }) {
       <div className="aside-popup__content">
         {
           passwordRecovery ?
-            <PasswordRecovery onInputChange={onInputChange} disabledBtn={disabledBtn} /> :
+            <PasswordRecovery onInputChange={onInputChange} disabledBtn={disabledBtn} success={success} onPasswordRecoverySubmit={onPasswordRecoverySubmit} /> :
             <>
               {auth === authTabs[0] ?
                 <Enter enterOption={enterOption} onEnterOption={onEnterOption} onOpenPasswordRecovery={onOpenPasswordRecovery} />
@@ -93,7 +102,9 @@ function Auth({ visibleAsideAuth, onCloseAsideAuth, socials }) {
                   </div>
                   <ul className="social">
                     {socials.filter(soc => !soc.footer).map(soc => (
-                      <li key={soc.name} className="social__item">
+                      <li key={soc.name} className={classNames('social__item', {
+                        'social__item--google': soc.name === 'google'
+                      })}>
                         <a className="social__link" href={soc.link} target="_blank" rel="nofollow">
                           <soc.svg />
                         </a>

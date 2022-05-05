@@ -259,18 +259,6 @@
       svg {
         width: 4rem;
         height: 4rem;
-
-        path {
-          transition: 0.3s fill;
-        }
-      }
-
-      @media (any-hover: hover) {
-        &:hover {
-          svg path {
-            fill: $red;
-          }
-        }
       }
     }
   }

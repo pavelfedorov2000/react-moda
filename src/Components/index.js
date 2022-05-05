@@ -5,7 +5,6 @@ export { default as DropMenu } from './DropMenu';
 export { default as SearchForm } from './SearchForm';
 export { default as Footer } from './Footer';
 export { default as Social } from './Social';
-export { default as SubscribeForm } from './SubscribeForm';
 export { default as Collection } from './Collection';
 
 export { default as SeoText } from './SeoText';
@@ -36,3 +35,6 @@ export { default as OrderProduct } from './OrderProduct';
 
 export { default as DropBasket } from './DropBasket';
 export { default as Auth } from './Auth';
+
+export { default as FormRow } from './FormRow';
+export { default as FormAgree } from './FormAgree';

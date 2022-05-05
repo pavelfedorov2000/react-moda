@@ -1,12 +1,13 @@
-import React from 'react';
-//import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { BasketTable, BasketTotal, Checkout } from '../Components';
 import { Link } from 'react-router-dom';
+import Sticky from "wil-react-sticky";
 //import { clearCart, removeCartItem, minusPizza, plusPizza } from '../redux/actions/cart';
 //import cartEmptyImage from '../assets/img/empty-cart.png';
 
 
-function Cart({ generateCrumbs }) {
+function Cart() {
   const crumbs = ['Главная', 'Женщинам', 'Одежда', 'Верхняя одежда', 'Пальто', 'Пальто LORIATA Wander Yellow', 'Ваша корзина'];
 
   function generateCrumbs(crumbs, crumb, i) {
@@ -19,6 +20,40 @@ function Cart({ generateCrumbs }) {
       }
       default: return <li className="breadcrumbs__item"><a href="#">{crumb}</a></li>
     }
+  }
+
+  const dispatch = useDispatch();
+  const { totalPrice, totalDiscount, totalCount, items } = useSelector(({ cart }) => cart);
+  console.log(items);
+  console.log(totalPrice);
+  console.log(totalCount);
+
+  const [selectedDelivery, setSelectedDelivery] = useState(null);
+  const [selectedPayment, setSelectedPayment] = useState(null);
+
+  let personalData = {};
+
+  const payment = {
+    "Оплата при получении": "Наличными или банковской картой при получении",
+    "Картой онлайн": "Перейти к оплате через сервис"
+  }
+
+  const deliveryOptions = ['Курьер', 'Доставка в пункты выдачи заказов и постаматы'];
+
+  let orderData = {
+    date: new Date().toLocaleString().split(',')[0],
+    personal: personalData,
+    delivery: deliveryOptions[selectedDelivery],
+    payment: Object.keys(payment)[selectedPayment]
+  };
+
+  console.log(orderData);
+
+  const handleOrderSubmit = orderData => {
+    dispatch({
+      type: 'SET_ORDER_DATA',
+      payload: orderData
+    });
   }
 
   //const dispatch = useDispatch();
@@ -39,9 +74,11 @@ function Cart({ generateCrumbs }) {
 
         <form action="#">
           <div className="basket-page__body">
-            <BasketTable />
-            <BasketTotal />
-            <Checkout />
+            <BasketTable totalPrice={totalPrice} totalCount={totalCount} items={items} dispatch={dispatch} />
+            <Sticky containerSelectorFocus=".basket-page__body" offsetTop={20} stickyEnableRange={[1025, Infinity]}>
+              <BasketTotal totalPrice={totalPrice} totalDiscount={totalDiscount} handleOrderSubmit={handleOrderSubmit} />
+            </Sticky>
+            <Checkout orderData={orderData} personalData={personalData} payment={payment} deliveryOptions={deliveryOptions} selectedDelivery={selectedDelivery} setSelectedDelivery={setSelectedDelivery} selectedPayment={selectedPayment} setSelectedPayment={setSelectedPayment} />
           </div>
         </form>
       </div>

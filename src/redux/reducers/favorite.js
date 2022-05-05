@@ -15,13 +15,11 @@ const favorite = (state = initialState, action) => {
       }
     }
     case 'REMOVE_FAVORITE_PRODUCT': {
-      //const oldFavorites = state.products;
-      const removingItem = state.products.findIndex(product => product.id === action.payload);
-      console.log(removingItem);
-      const newFavorites = state.products.splice(removingItem, 1);
+      const newFavorites = { ...state.products };
+      const filteredFavorites = newFavorites.filter(favorite => favorite.id !== action.payload);
       return {
         ...state,
-        products: newFavorites
+        products: filteredFavorites
       }
     }
 
