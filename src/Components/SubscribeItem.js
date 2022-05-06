@@ -1,6 +1,7 @@
 import React from 'react';
 
-function SubscribeItem({ title, items }) {
+function SubscribeItem({ title, items, handlerSubscribePopup }) {
+
   return (
     <div className="profile-subscribes__item subscribe-item">
       <h4 className="subscribe-item__title">{title}</h4>
@@ -11,7 +12,7 @@ function SubscribeItem({ title, items }) {
               <li key={`item-${i + 1}`}>{`— ${item}`}</li>
             ))}
           </ul>
-          <a className="subscribe-item__change-btn" href="#sale-popup" data-fancybox>Изменить</a>
+          <button onClick={handlerSubscribePopup} className="subscribe-item__change-btn" type="button">Изменить</button>
         </div>
         <div className="subscribe-item__text">Описание подписки на распродажу и акции для женщин и мужчин</div>
         <div className="subscribe-item__bottom">
