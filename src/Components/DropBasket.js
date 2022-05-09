@@ -10,13 +10,9 @@ function DropBasket({ visibleAsideBasket, onCloseAsideBasket }) {
     const dispatch = useDispatch();
 
     const { totalPrice, totalCount, items } = useSelector(({ cart }) => cart);
-    console.log(items);
-    console.log(totalPrice);
-    console.log(totalCount);
     const addedProducts = Object.keys(items).map(key => {
         return items[key].items[0];
     });
-    console.log(addedProducts);
     const onRemoveItem = (id) => {
         dispatch(removeCartItem(id)); // диспатчим экшн на удаление
     }

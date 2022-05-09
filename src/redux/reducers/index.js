@@ -6,11 +6,11 @@ import order from './order';
 import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
-  filters,
-  products,
-  favorite,
-  cart,
-  order,
+    filters,
+    products,
+    favorite,
+    cart,
+    order,
 });
 
 export default rootReducer;
