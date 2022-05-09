@@ -5,7 +5,7 @@ import man from '../assets/images/content/brands/man.png';
 import children from '../assets/images/content/brands/girl.png';
 import classNames from 'classnames';
 
-function Brands(props) {
+function Brands() {
     const categories = [
         {
             name: 'Все',
@@ -39,7 +39,6 @@ function Brands(props) {
         e.preventDefault();
         const activeBrandArr = e.target.getAttribute('href').split('');
         const activeBrand = activeBrandArr.splice(1, activeBrandArr.length - 1).join('');
-        //console.log(activeBrand);
         setActiveBrand(activeBrand);
     }
     const onRemoveActiveBrand = () => {

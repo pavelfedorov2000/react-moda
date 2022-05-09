@@ -53,7 +53,7 @@ function App() {
                 <Route path="/" component={Catalog} exact />
                 <Route path="/favorite" component={Favorite} />
                 <Route path="/cart" component={Cart} />
-                <Route path="/order-success" component={OrderSuccess} />
+                <Route path="/order-success" render={() => <OrderSuccess />} />
                 <Route path="/product-card" component={ProductCard} />
                 <Route path="/brands" component={Brands} />
                 <Route path="/not-found" component={NotFound} />

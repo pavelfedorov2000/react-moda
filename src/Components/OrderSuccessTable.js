@@ -1,6 +1,7 @@
 import React from 'react';
 
 function OrderSuccessTable({ totalPrice, date, personal, delivery, payment }) {
+    console.log(personal);
     const { name, surname, phone, email, city } = { personal };
     return (
         <div className="order-success-table">

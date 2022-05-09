@@ -28,7 +28,7 @@ function Cart() {
     const [selectedDelivery, setSelectedDelivery] = useState(null);
     const [selectedPayment, setSelectedPayment] = useState(null);
 
-    let personalData = {};
+    let personalData;
 
     const payment = {
         "Оплата при получении": "Наличными или банковской картой при получении",
@@ -39,7 +39,7 @@ function Cart() {
 
     let orderData = {
         date: new Date().toLocaleString().split(',')[0],
-        personal: personalData,
+        //personal: personalData,
         delivery: deliveryOptions[selectedDelivery],
         payment: Object.keys(payment)[selectedPayment],
         items: items
@@ -69,7 +69,7 @@ function Cart() {
                     <div className="basket-page__body">
                         <BasketTable totalPrice={totalPrice} totalCount={totalCount} items={items} dispatch={dispatch} />
                         <Sticky containerSelectorFocus=".basket-page__body" offsetTop={20} stickyEnableRange={[1025, Infinity]}>
-                            <BasketTotal totalPrice={totalPrice} totalDiscount={totalDiscount} handleOrderSubmit={handleOrderSubmit} orderData={orderData} />
+                            <BasketTotal totalPrice={totalPrice} totalDiscount={totalDiscount} handleOrderSubmit={handleOrderSubmit} orderData={orderData} personalData={personalData} />
                         </Sticky>
                         <Checkout orderData={orderData} personalData={personalData} payment={payment} deliveryOptions={deliveryOptions} selectedDelivery={selectedDelivery} setSelectedDelivery={setSelectedDelivery} selectedPayment={selectedPayment} setSelectedPayment={setSelectedPayment} />
                     </div>

@@ -42,16 +42,22 @@ function BasketTotal({ totalPrice, totalDiscount, handleOrderSubmit, orderData }
                 <div className="basket-total__overall-title">Итого</div>
                 <div className="basket-total__overall-sum">{`${totalPrice ? overallSum : 0} ₽`}</div>
             </div>
-            <button onClick={(e) => {
+
+
+            <Link onClick={(e) => {
                 e.preventDefault();
                 handleOrderSubmit(orderData);
-            }} className="btn basket-total__btn" type="submit">Отправить заказ</button>
+            }} to="/order-success" className="btn basket-total__btn">Отправить заказ</Link>
             <div className="basket-total__agreement">
                 Нажимая на кнопку «Отправить заказ», вы принимаете условия <Link to="/not-found">Публичной оферты.</Link>
             </div>
         </div>
     );
 }
+//<button onClick={(e) => {
+//e.preventDefault();
+//handleOrderSubmit(orderData);
+//            }} className = "btn basket-total__btn" type = "submit" > Отправить заказ</button >
 //<Link onClick={handleOrderSubmit} to="/order-success" className="btn basket-total__btn">Отправить заказ</Link>
 //<div className="basket-total__list-item">
 //<dt>Промокод (10%)</dt>
