@@ -21,7 +21,7 @@ function NewsDetail() {
     //console.log(activeNews);
 
     return (
-        <main className="page">
+        <div className="page">
             <div className="container">
                 <nav className="breadcrumbs" aria-label="breadcrumbs">
                     <ol className="breadcrumbs__list">
@@ -36,7 +36,7 @@ function NewsDetail() {
                         </li>
                     </ol>
                 </nav>
-                <section className="news-detail">
+                <main className="news-detail">
                     <h1 className="title page__title">{activeNews && activeNews.title}</h1>
                     <div className="news-detail__inner">
                         <div className="news-detail__img">
@@ -51,9 +51,9 @@ function NewsDetail() {
                             ))}
                         </div>
                     </div>
-                </section>
+                </main>
             </div>
-        </main>
+        </div>
     );
 }
 

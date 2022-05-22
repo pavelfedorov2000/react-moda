@@ -30,6 +30,7 @@ export { default as Checkout } from './Checkout';
 
 export { default as SubscribeItem } from './SubscribeItem';
 export { default as SubscribePopup } from './SubscribePopup';
+export { default as SubscribePopupSelect } from './SubscribePopupSelect';
 
 export { default as OrderSuccessTable } from './OrderSuccessTable';
 export { default as OrderProduct } from './OrderProduct';

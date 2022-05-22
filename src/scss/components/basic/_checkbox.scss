@@ -1,73 +1,73 @@
 // ===================== CHECKBOXES ==================== //
 .check-box {
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    clip: rect(0 0 0 0);
 }
 
 .check-style {
-  position: relative;
-  width: 1.6rem;
-  height: 1.6rem;
-  flex-shrink: 0;
-  border: 0.1rem solid #101112;
+    position: relative;
+    width: 1.6rem;
+    height: 1.6rem;
+    flex-shrink: 0;
+    border: 0.1rem solid #101112;
 
-  span {
-    width: 1rem;
-    height: 0.8rem;
-    @extend %bg-contain;
-    position: absolute;
-    @extend %pos-center-xy;
-    opacity: 0;
-    transition: .3s opacity;
-  }
+    span {
+        width: 1rem;
+        height: 0.8rem;
+        @extend %bg-contain;
+        position: absolute;
+        @extend %pos-center-xy;
+        opacity: 0;
+        transition: 0.3s opacity;
+    }
 }
 
-.check-box:checked~.check-style span {
-  opacity: 1;
+.check-box:checked ~ .check-style span {
+    opacity: 1;
 }
 
 .check-text,
 .radio-text {
-  @extend %text-14;
+    @extend %text-14;
 }
 
 .check-text {
-  a {
-    text-decoration: underline;
-  }
+    a {
+        text-decoration: underline;
+    }
 }
 
 .check-color {
-  width: 1.6rem;
-  height: 1.6rem;
-  border-radius: 50%;
-  margin-left: 1rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    margin-left: 1rem;
 
-  &--white {
-    background: #fff;
-    border: 0.1rem solid #C0C0C0;
-  }
+    &--white {
+        background: #fff;
+        border: 0.1rem solid #c0c0c0;
+    }
 }
 
-.check-color+.check-text {
-  margin-left: 0.5rem;
+.check-color + .check-text {
+    margin-left: 0.5rem;
 }
 
 // ===================== RADIO ===================== //
 .radio-box {
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    clip: rect(0 0 0 0);
 }
 
 .radio-style {
-  span {
-    opacity: 0;
-    transition: 0.3s opacity;
-  }
+    span {
+        opacity: 0;
+        transition: 0.3s opacity;
+    }
 }

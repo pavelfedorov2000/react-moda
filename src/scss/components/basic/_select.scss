@@ -1,0 +1,95 @@
+// Custom select
+.select {
+    position: relative;
+
+    &__title {
+        @extend %flex-row-center;
+        @extend %text-16;
+        height: 4.6rem;
+        padding-left: 1.5rem;
+        padding-right: 1.8rem;
+        font-weight: 600;
+        cursor: pointer;
+        border: 0.1rem solid #c0c0c0;
+
+        svg {
+            width: 2rem;
+            height: 2rem;
+            transition: 0.3s transform;
+            path {
+                transition: 0.3s fill;
+            }
+            @media (any-hover: hover) {
+                &:hover {
+                    path {
+                        fill: $green;
+                    }
+                }
+            }
+        }
+
+        &.active {
+            svg {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &__content {
+        position: absolute;
+        top: 4.5rem;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 25;
+        background-color: #fff;
+        padding: 2rem 1.5rem;
+        border: 0.1rem solid #c0c0c0;
+        border-top-color: #fff;
+    }
+
+    &__input {
+        display: none;
+
+        &:checked {
+            & + .radio-style {
+                border-color: #101112;
+                span {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &__option {
+        position: relative;
+        //z-index: 30;
+        @extend %vertical-align;
+        cursor: pointer;
+
+        &:not(:last-child) {
+            margin-bottom: 1.4rem;
+        }
+
+        .radio-style {
+            position: relative;
+            width: 1.6rem;
+            height: 1.6rem;
+            border-radius: 50%;
+            flex-shrink: 0;
+            border: 0.1rem solid #c0c0c0;
+            span {
+                @extend %bg-contain;
+                position: absolute;
+                @extend %pos-center-xy;
+                width: 0.9rem;
+                height: 0.6rem;
+            }
+        }
+    }
+
+    &__option-text {
+        @extend %text-16;
+        margin-left: 1rem;
+    }
+}
