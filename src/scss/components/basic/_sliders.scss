@@ -1,0 +1,124 @@
+.slider-arrows {
+  display: flex;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  @extend %flex-center;
+  margin-top: 0 !important;
+
+  svg {
+    path {
+      transition: .3s fill;
+    }
+  }
+
+  &:after {
+    content: '' !important;
+  }
+}
+
+.promo-sale,
+.slider-section,
+.instagram-section,
+.other-news {
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: static;
+    width: auto;
+    height: auto;
+    margin-top: 0;
+    cursor: pointer;
+
+    svg {
+      width: 5.6rem;
+      height: 1.6rem;
+
+      @media(max-width: 500px) {
+        width: 5rem;
+        height: 1rem;
+      }
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+
+        svg path {
+          fill: #101112;
+        }
+      }
+    }
+  }
+}
+
+.popular-goods-slider-arrow-prev,
+.catalog-new-slider-arrow-prev {
+  @extend .swiper-button-prev;
+}
+
+.popular-goods-slider-arrow-next,
+.catalog-new-slider-arrow-next {
+  @extend .swiper-button-next;
+}
+
+.product-popup__slider,
+.product-card__slider,
+.blog-text__slider {
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    @extend %flex-center;
+    @extend %pos-center-y;
+    width: 4.2rem;
+    height: 4.2rem;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: .3s background-color;
+
+    svg {
+      width: 2.8rem;
+      height: 2.8rem;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: #101112;
+
+        svg path {
+          fill: #fff;
+        }
+      }
+    }
+  }
+}
+
+.swiper-button-next {
+  margin-bottom: 0;
+
+  @media(min-width: 501px) {
+    margin-left: 1.2rem;
+  }
+}
+
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  display: flex;
+}
+
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 0.4rem;
+}
+
+.swiper-pagination-bullet {
+  width: 2rem;
+  height: 0.4rem;
+  border-radius: 0;
+  background-color: #fff;
+  opacity: 0.3;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}

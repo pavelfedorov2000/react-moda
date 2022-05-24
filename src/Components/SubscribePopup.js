@@ -1,35 +1,39 @@
 import React, { useState } from 'react';
 import SubscribePopupSelect from './SubscribePopupSelect';
-import checkIcon from '../assets/images/icons/check.svg';
+import SubscribeCheck from './SubscribeCheck';
 
 
-function SubscribePopup({ title }) {
+function SubscribePopup({ title, onCloseSubscribePopup, subscribes }) {
 
-    const saleItems = ['e-mail', 'sms'];
-    const options = ['Да', 'Нет'];
+  const saleItems = ['e-mail', 'sms'];
 
-    return (
-        <div class="popup sale-popup">
-            <div class="sale-popup__title">{title}</div>
-            <form action="#" class="sale-popup__form">
-                <div class="sale-popup__form-items">
-                    {saleItems.map((item, i) => (
-                        <div key={item} class="sale-popup__form-item">
-                            <label class="sale-popup__form-check">
-                                <input class="check-box" type="checkbox" checked />
-                                <span class="check-style">
-                                    <span style={{ backgroundImage: `url(${checkIcon})` }}></span>
-                                </span>
-                                <span class="check-text">по {item}</span>
-                            </label>
-                            <SubscribePopupSelect options={options} item={item} />
-                        </div>
-                    ))}
-                </div>
-                <button class="btn sale-popup__form-btn" type="submit">Подписаться</button>
-            </form>
+  console.log(subscribes);
+  //const thisSubscribe = Object.entries(subscribes).find(subscribe => subscribe.title == title);
+  //console.log(thisSubscribe);
+
+  //const [visibleSubscribePopup, setVisibleSubscribePopup] = useState(false);
+
+  return (
+    <div class="popup sale-popup">
+      <button onClick={() => onCloseSubscribePopup()} className="popup__close" type="button">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M23.1871 7L16 14.1871L8.81286 7L7 8.81286L14.1871 16L7 23.1871L8.81286 25L16 17.8129L23.1871 25L25 23.1871L17.8129 16L25 8.81286L23.1871 7Z" fill="#F4F4F6" />
+        </svg>
+      </button>
+      <div class="sale-popup__title">{title}</div>
+      <form action="#" class="sale-popup__form">
+        <div class="sale-popup__form-items">
+          {saleItems.map(item => (
+            <div key={item} class="sale-popup__form-item">
+              <SubscribeCheck item={item} />
+              <SubscribePopupSelect subscribes={subscribes} item={item} />
+            </div>
+          ))}
         </div>
-    );
+        <button class="btn sale-popup__form-btn" type="submit">Подписаться</button>
+      </form>
+    </div>
+  );
 }
 
 export default SubscribePopup;

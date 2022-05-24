@@ -245,15 +245,24 @@
   "subscribes": [
     {
       "title": "Распродажи и акции для женщин и мужчин",
-      "items": ["ежедневно на почту past@mail.ru", "по SMS"]
+      "items": {
+        "email": true,
+        "sms": true
+      }
     },
     {
       "title": "Новинка месяца",
-      "items": ["по SMS"]
+      "items": {
+        "email": false,
+        "sms": true
+      }
     },
     {
       "title": "Детские новые коллекции",
-      "items": ["ежедневно на почту past@mail.ru"]
+      "items": {
+        "email": true,
+        "sms": false
+      }
     }
   ],
   "blog": [

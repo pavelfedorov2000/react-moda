@@ -45,7 +45,6 @@
         right: 1.5rem;
         width: 3rem;
         height: 3rem;
-        //background-image: url(../images/icons/heart.svg);
         transition: 0.3s transform;
 
         &.animated {
@@ -203,16 +202,4 @@
         @extend %text-13;
         margin-left: 0.8rem;
     }
-
-    /* &.sale {
-        .label--discount {
-            display: flex;
-        }
-    }
-
-    &.new {
-        .label--new {
-            display: flex;
-        }
-    } */
 }
