@@ -1,47 +1,43 @@
 import React, { useState } from 'react';
 import checkIcon from '../assets/images/icons/check.svg';
 
-function SubscribeCheck({ id, title, items, item, onCheckSubscribeCheckbox, checkedSubscribeCheckbox, onClickChangeSubscribe }) {
-  //console.log(item, checkedSubscribeCheckbox);
+function SubscribeCheck({ item, onCheckSubscribeCheckbox, checkedSubscribeCheckbox, onClickChangeSubscribe, obj, name }) {
+    console.log(checkedSubscribeCheckbox);
 
-  let obj = {
-    id,
-    title,
-    items
-  }
+    const checkboxHandler = (e) => {
 
-  const checkboxHandler = () => {
+        onCheckSubscribeCheckbox();
 
-    onCheckSubscribeCheckbox();
+        /* let newItems = {
+            ...items,
+        }
+        console.log(e.target.getAttribute('name'));
+        console.log(checkedSubscribeCheckbox);
+        newItems[e.target.getAttribute('name')] = checkedSubscribeCheckbox;
+        console.log(newItems);
 
-    let newItems = {
-      ...items,
-      [item]: !checkedSubscribeCheckbox
+        obj = {
+            ...obj,
+            items: newItems
+        } */
+
+        obj.items[e.target.getAttribute('name')] = !checkedSubscribeCheckbox;
+
+        console.log(obj);
+
+        //obj.items[item] = checkedSubscribeCheckbox;
+        onClickChangeSubscribe(obj);
     }
-    console.log(newItems);
-    //newItems[item] = !checkedSubscribeCheckbox;
-    //console.log(newItems);
 
-    obj = {
-      ...obj,
-      items: newItems
-    }
-
-    console.log(obj);
-
-    //obj.items[item] = checkedSubscribeCheckbox;
-    onClickChangeSubscribe(obj);
-  }
-
-  return (
-    <label class="sale-popup__form-check">
-      <input onChange={checkboxHandler} class="check-box" type="checkbox" checked={checkedSubscribeCheckbox ? true : false} />
-      <span class="check-style">
-        <span style={{ backgroundImage: `url(${checkIcon})` }}></span>
-      </span>
-      <span class="check-text">по {item}</span>
-    </label>
-  );
+    return (
+        <label class="sale-popup__form-check">
+            <input onChange={checkboxHandler} class="check-box" type="checkbox" name={name} checked={checkedSubscribeCheckbox ? true : false} />
+            <span class="check-style">
+                <span style={{ backgroundImage: `url(${checkIcon})` }}></span>
+            </span>
+            <span class="check-text">по {item}</span>
+        </label>
+    );
 }
 
 export default SubscribeCheck;
