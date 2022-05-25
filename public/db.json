@@ -244,23 +244,26 @@
   ],
   "subscribes": [
     {
+      "id": "0",
       "title": "Распродажи и акции для женщин и мужчин",
       "items": {
-        "email": true,
+        "e-mail": true,
         "sms": true
       }
     },
     {
+      "id": "1",
       "title": "Новинка месяца",
       "items": {
-        "email": false,
+        "e-mail": false,
         "sms": true
       }
     },
     {
+      "id": "2",
       "title": "Детские новые коллекции",
       "items": {
-        "email": true,
+        "e-mail": true,
         "sms": false
       }
     }

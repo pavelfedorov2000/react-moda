@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
-function SubscribeItem({ title, items, handlerSubscribePopup, index }) {
+function SubscribeItem({ id, title, items, handlerSubscribePopup, index, onClickUnsubscribe }) {
 
   const onChangeSubscribeItem = (i) => {
     handlerSubscribePopup(i);
   }
 
   const li = {
-    "email": "ежедневно на почту past@mail.ru",
+    "e-mail": "ежедневно на почту past@mail.ru",
     "sms": "по SMS"
   };
 
@@ -28,7 +28,10 @@ function SubscribeItem({ title, items, handlerSubscribePopup, index }) {
         </div>
         <div className="subscribe-item__text">Описание подписки на распродажу и акции для женщин и мужчин</div>
         <div className="subscribe-item__bottom">
-          <button className="btn subscribe-item__cancel-btn btn--disabled" type="button">
+          <button onClick={(e) => {
+            e.preventDefault();
+            onClickUnsubscribe(index);
+          }} className="btn subscribe-item__cancel-btn btn--disabled" type="button">
             Отменить подписку
           </button>
         </div>

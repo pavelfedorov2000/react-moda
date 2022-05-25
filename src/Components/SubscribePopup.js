@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
-import SubscribePopupSelect from './SubscribePopupSelect';
-import SubscribeCheck from './SubscribeCheck';
+import SubscribePopupItem from './SubscribePopupItem';
 
 
-function SubscribePopup({ title, onCloseSubscribePopup, subscribes }) {
+function SubscribePopup({ onCloseSubscribePopup, subscribes, currentSubscribe, onChangeSubscribe, title }) {
 
   const saleItems = ['e-mail', 'sms'];
 
-  console.log(subscribes);
+  console.log(currentSubscribe);
+
+  /* let obj = {
+    id,
+    title,
+    items
+  }; */
+  const onClickChangeSubscribe = (obj) => {
+    onChangeSubscribe(obj);
+  }
+
   //const thisSubscribe = Object.entries(subscribes).find(subscribe => subscribe.title == title);
   //console.log(thisSubscribe);
 
@@ -24,10 +33,7 @@ function SubscribePopup({ title, onCloseSubscribePopup, subscribes }) {
       <form action="#" class="sale-popup__form">
         <div class="sale-popup__form-items">
           {saleItems.map(item => (
-            <div key={item} class="sale-popup__form-item">
-              <SubscribeCheck item={item} />
-              <SubscribePopupSelect subscribes={subscribes} item={item} />
-            </div>
+            <SubscribePopupItem onClickChangeSubscribe={onClickChangeSubscribe} subscribes={subscribes} item={item} currentSubscribe={currentSubscribe} />
           ))}
         </div>
         <button class="btn sale-popup__form-btn" type="submit">Подписаться</button>
