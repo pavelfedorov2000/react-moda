@@ -9,7 +9,13 @@ export const setLoaded = payload => ({
 // асинхронный action (redux thunk): получение (axios), потом сохранение (dispatch)
 export const fetchProducts = (sortBy, sortPrices, sortColors) => (dispatch) => {
     dispatch(setLoaded(false));
-    axios.get(`/products?price_gte=${sortPrices[0]}&price_lte=${sortPrices[1]}&_sort=${sortBy.type}&_order=${sortBy.order}}`).then(({ data }) => {
+    let sortColorsStr;
+    if (sortColors.length > 0) {
+        sortColorsStr = sortColors.map(color => `color=${color}`).join('&');
+        //sortColorsStr = `q=${sortColors.join('')}`;
+    }
+    console.log(sortColorsStr);
+    axios.get(`/products?${sortColorsStr}&price_gte=${sortPrices[0]}&price_lte=${sortPrices[1]}&_sort=${sortBy.type}&_order=${sortBy.order}}`).then(({ data }) => {
         dispatch(setProducts(data));
     });
     //${sortBy.order != undefined ? `&_order=${sortBy.order}` : ''}

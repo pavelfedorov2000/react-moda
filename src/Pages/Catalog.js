@@ -7,7 +7,7 @@ import filterIcon from '../assets/images/icons/filter.svg';
 //import axios from 'axios';
 //import CatalogCardUrl from '../assets/images/content/catalog/01.jpg';
 import classNames from 'classnames';
-import { setSortBy, setSortPrices, resetSortPrices } from '../redux/actions/filters';
+import { setSortBy, setSortPrices, resetSortPrices, setSortColors } from '../redux/actions/filters';
 import { fetchProducts } from '../redux/actions/products';
 import { removeFavoriteProduct } from '../redux/actions/favorite';
 
@@ -47,8 +47,8 @@ function Catalog() {
     const dispatch = useDispatch();
     const products = useSelector(({ products }) => products.products); // вытаскиваем товары из стора
     const isLoaded = useSelector(({ products }) => products.isLoaded); // вытаскиваем состояние загрузки из стора
-    const { sortBy } = useSelector(({ filters }) => filters); // вытаскиваем сортировку по из стора сразу через деструктуризацию
-    const { sortPrices } = useSelector(({ filters }) => filters); // вытаскиваем диапазон цен сразу через деструктуризацию
+    const { sortBy, sortPrices, sortColors } = useSelector(({ filters }) => filters); // вытаскиваем сортировку по из стора сразу через деструктуризацию
+    //const { sortPrices } = useSelector(({ filters }) => filters); // вытаскиваем диапазон цен сразу через деструктуризацию
     //console.log(sortPrices);
     //const cartItems = useSelector(({ cart }) => cart.items); // вытаскиваем пиццы из стора
     //const filterTitles = ['Сортировать', 'Материал', 'Цвет', 'Размер', 'Цена', 'Бренд', 'Стиль', 'Узор'];
@@ -76,9 +76,9 @@ function Catalog() {
     }
 
     React.useEffect(() => {
-        dispatch(fetchProducts(sortBy, sortPrices)); // вернет функцию
+        dispatch(fetchProducts(sortBy, sortPrices, sortColors)); // вернет функцию
         console.log(products);
-    }, [sortBy, sortPrices]); // [] = componentDidMout
+    }, [sortBy, sortPrices, sortColors]); // [] = componentDidMout
 
 
     const onSelectSortType = React.useCallback((type) => {
@@ -88,6 +88,10 @@ function Catalog() {
     const onSelectSortPrices = React.useCallback((from, to) => {
         console.log(from, to);
         dispatch(setSortPrices(from, to)); // экшн выбор диапазона цен
+    }, []);
+
+    const onSelectSortColors = React.useCallback((arr) => {
+        dispatch(setSortColors(arr)); // экшн выбор типа сортировки
     }, []);
 
     const onResetSortPrices = React.useCallback(() => {
@@ -132,7 +136,7 @@ function Catalog() {
                         <AsideFilters />
                         <div className="catalog__body">
                             <div className="catalog__filters">
-                                <CatalogFilters activeSortBy={sortBy} sortPrices={sortPrices} sortFilters={sortFilters} onClickSort={onSelectSortType} onResetPrices={onResetSortPrices} onChangePrices={onSelectSortPrices} />
+                                <CatalogFilters activeSortBy={sortBy} sortPrices={sortPrices} sortFilters={sortFilters} onClickSort={onSelectSortType} onResetPrices={onResetSortPrices} onChangePrices={onSelectSortPrices} onSelectSortColors={onSelectSortColors} />
                                 <CatalogView onViewChange={toggleCatalogView} views={views} catalogView={catalogView} />
                                 <button className="filters-btn" type="button" style={{ backgroundImage: `url(${filterIcon})` }}>Фильтры</button>
                             </div>

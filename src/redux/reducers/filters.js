@@ -3,7 +3,8 @@ const initialState = {
         type: 'price',
         order: 'asc',
     },
-    sortPrices: [1000, 100000]
+    sortPrices: [1000, 100000],
+    sortColors: [],
 };
 
 const filters = (state = initialState, action) => {
@@ -20,6 +21,12 @@ const filters = (state = initialState, action) => {
                 sortPrices: action.payload,
             }
         }
+        case 'SET_SORT_COLORS': {
+            return {
+                ...state,
+                sortColors: action.payload,
+            }
+        }
         case 'RESET_SORT_PRICES': {
             return {
                 ...state,
@@ -27,7 +34,7 @@ const filters = (state = initialState, action) => {
             }
         }
         case 'RESET_ALL_FILTERS': {
-            return initialState
+            return state;
         }
         default:
             return state;

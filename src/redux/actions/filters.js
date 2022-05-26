@@ -9,6 +9,11 @@ export const setSortPrices = (from, to) => ({
     payload: [from, to]
 });
 
+export const setSortColors = (arr) => ({
+    type: 'SET_SORT_COLORS',
+    payload: arr
+});
+
 export const resetSortPrices = () => ({
     type: 'RESET_SORT_PRICES',
 });
