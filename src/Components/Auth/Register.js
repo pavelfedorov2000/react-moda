@@ -27,7 +27,7 @@ function Register() {
   const [agree, setAgree] = useState(false);
   const onAgreeCheck = () => {
     setAgree(!agree);
-    console.log(agree);
+    //console.log(agree);
   }
 
   const [disabled, setDisabled] = useState(true);
