@@ -2,10 +2,18 @@ export { default as Button } from './Button';
 export { default as Header } from './Header';
 export { default as HeaderInfoLine } from './HeaderInfoLine';
 export { default as DropMenu } from './DropMenu';
+export { default as SaleItem } from './SaleItem';
 export { default as SearchForm } from './SearchForm';
 export { default as Footer } from './Footer';
 export { default as Social } from './Social';
 export { default as Collection } from './Collection';
+
+// Home page
+export { default as PromoSale } from './PromoSale';
+export { default as IconsSlider } from './IconsSlider';
+export { default as Actual } from './Actual';
+export { default as Brands } from './Brands';
+export { default as Instagram } from './Instagram';
 
 export { default as SeoText } from './SeoText';
 
@@ -47,3 +55,5 @@ export { default as Auth } from './Auth';
 
 export { default as FormRow } from './FormRow';
 export { default as FormAgree } from './FormAgree';
+
+export { default as SliderSection } from './SliderSection';

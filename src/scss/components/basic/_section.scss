@@ -1,15 +1,21 @@
 .section {
-    padding-bottom: 8rem;
+  padding-bottom: 8rem;
 
-    @media (max-width: 500px) {
-        padding-bottom: 5rem;
+  @media (max-width: 500px) {
+    padding-bottom: 5rem;
+  }
+
+  &__title {
+    @extend %flex-row-center;
+
+    &:not(:last-child) {
+      margin-bottom: 3rem;
     }
+  }
+}
 
-    &__title {
-        @extend %flex-row-center;
-
-        &:not(:last-child) {
-            margin-bottom: 3rem;
-        }
-    }
+.slider-section__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5.2rem;
 }

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@fancyapps/ui": "^4.0.26",
+    "@splidejs/react-splide": "^0.7.7",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",

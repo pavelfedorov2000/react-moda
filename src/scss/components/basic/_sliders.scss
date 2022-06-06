@@ -119,6 +119,46 @@
   opacity: 0.3;
 }
 
+.splide__pagination__page {
+  width: 2rem;
+  height: 0.4rem;
+  border-radius: 0;
+  background-color: #fff;
+  opacity: 0.3;
+
+  &.is-active {
+    opacity: 1;
+  }
+}
+
 .swiper-pagination-bullet-active {
   opacity: 1;
+}
+
+.splide__arrow {
+  width: 5.6rem;
+  height: 1.6rem;
+
+  svg {
+    width: 5.6rem;
+    height: 1.6rem;
+
+    @media(max-width: 500px) {
+      width: 5rem;
+      height: 1rem;
+    }
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+
+      svg path {
+        fill: #101112;
+      }
+    }
+  }
+
+  &--next {
+    margin-left: 1.6rem;
+  }
 }
