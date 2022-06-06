@@ -28,6 +28,11 @@ export { default as DropBasketProduct } from './DropBasketProduct';
 export { default as BasketTotal } from './BasketTotal';
 export { default as Checkout } from './Checkout';
 
+export { default as ProductColor } from './ProductColor';
+export { default as ProductDetails } from './ProductDetails';
+export { default as ProductLinks } from './ProductLinks';
+export { default as ProductCardContent } from './ProductCardContent';
+
 export { default as SubscribeItem } from './SubscribeItem';
 export { default as SubscribePopup } from './SubscribePopup';
 export { default as SubscribePopupItem } from './SubscribePopupItem';

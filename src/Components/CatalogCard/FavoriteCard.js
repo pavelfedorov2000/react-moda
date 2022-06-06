@@ -6,64 +6,53 @@ import heart from '../../assets/images/icons/heart.svg';
 import heartFilled from '../../assets/images/icons/heart-filled.svg';
 //import Button from '../Button';
 
-function FavoriteCard({ id, name, brand, sizes, price, imageUrl, discount, newProduct, onClickRemoveFavorite, isFavorite }) {
-  /* if (isLoaded) {
-      return <PizzaLoader />;
-  } */
-  const sizesList = [42, 44, 46, 48, 50, 52];
+function FavoriteCard({ id, name, brand, sizes, price, imageUrl, discount, newProduct, onClickRemoveFavorite, setVisibleCatalogCardPopup }) {
 
-  const [favorite, setFavorite] = useState(true);
+    const sizesList = [42, 44, 46, 48, 50, 52];
 
-  const removeFavorite = () => {
-    setFavorite(false);
-    /* setTimeout(() => {
-        e.target.classList.remove(('animated'));
-    }, 300); */
-  }
+    //const [favorite, setFavorite] = useState(true);
 
-  const onRemoveFavoriteProduct = () => {
-    removeFavorite();
-    onClickRemoveFavorite(id);
-  }
+    const onRemoveFavoriteProduct = () => {
+        //setFavorite(false);
+        onClickRemoveFavorite(id);
+    }
 
-  return (
-    <div className="catalog-card">
-      <div className="labels">
-        {discount != undefined &&
-          <span class="label catalog-card__label label--discount">{`${discount}%`}</span>
-        }
-        {newProduct && newProduct != undefined &&
-          <span class="label catalog-card__label label--new">new</span>
-        }
-      </div>
-      <button onClick={onRemoveFavoriteProduct} type="button" aria-label="Удалить из избранного" style={{ backgroundImage: `url(${heartFilled})` }} className={classNames('catalog-card__favorite', {
-        'animated': favorite
-      })}></button>
-      <div className="catalog-card__img">
-        <img src={imageUrl} alt={`${name} ${brand}`} width="336" height="448" />
-        <div className="catalog-card__info">
-          <div className="catalog-card__sizes">
-            {sizesList.map((size, i) => (
-              <a key={size} href="#" className={classnames('catalog-card__size', {
-                'catalog-card__size--disabled': sizes && !sizesList.includes(sizes[sizes.indexOf(size)])
-              })}>{size}</a>
-            ))}
-          </div>
-          <a data-fancybox href="#product-popup" className="catalog-card__info-link popup-link">Быстрый просмотр</a>
+    return (
+        <div className="catalog-card">
+            <div className="labels">
+                {discount != undefined &&
+                    <span class="label catalog-card__label label--discount">{`${discount}%`}</span>
+                }
+                {newProduct && newProduct != undefined &&
+                    <span class="label catalog-card__label label--new">new</span>
+                }
+            </div>
+            <button onClick={onRemoveFavoriteProduct} type="button" aria-label="Удалить из избранного" style={{ backgroundImage: `url(${heartFilled})` }} className="catalog-card__favorite"></button>
+            <div className="catalog-card__img">
+                <img src={imageUrl} alt={`${name} ${brand}`} width="336" height="448" />
+                <div className="catalog-card__info">
+                    <div className="catalog-card__sizes">
+                        {sizesList.map((size, i) => (
+                            <a key={size} href="#" className={classnames('catalog-card__size', {
+                                'catalog-card__size--disabled': sizes && !sizesList.includes(sizes[sizes.indexOf(size)])
+                            })}>{size}</a>
+                        ))}
+                    </div>
+                    <button onClick={() => setVisibleCatalogCardPopup(id)} className="catalog-card__info-link popup-link" type="button">Быстрый просмотр</button>
+                </div>
+            </div>
+            <h6 className="catalog-card__title"><a href="#">{name}</a></h6>
+            <div className="catalog-card__subtitle">{brand}</div>
+            <div className="prices">
+                <div className={classNames('price', {
+                    'new-price': discount != undefined
+                })}>{`${price} ₽`}</div>
+                {discount != undefined &&
+                    <div className="old-price catalog-card__old-price">{`${Math.floor(price * 100 / (100 - discount))} ₽`}</div>
+                }
+            </div>
         </div>
-      </div>
-      <h6 className="catalog-card__title"><a href="#">{name}</a></h6>
-      <div className="catalog-card__subtitle">{brand}</div>
-      <div className="prices">
-        <div className={classNames('price', {
-          'new-price': discount != undefined
-        })}>{`${price} ₽`}</div>
-        {discount != undefined &&
-          <div className="old-price catalog-card__old-price">{`${Math.floor(price * 100 / (100 - discount))} ₽`}</div>
-        }
-      </div>
-    </div>
-  );
+    );
 }
 
 // Типизация на минималках

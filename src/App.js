@@ -50,11 +50,11 @@ function App() {
         <div className="wrapper">
             <Header onAsideBasketOpener={openAsideBasket} onAsideAuthOpener={openAsideAuth} phone={phone} />
             <Switch>
-                <Route path="/" component={Catalog} exact />
+                <Route path="/" render={() => <Catalog />} exact />
                 <Route path="/favorite" component={Favorite} />
                 <Route path="/cart" component={Cart} />
                 <Route path="/order-success" render={() => <OrderSuccess />} />
-                <Route path="/product-card" component={ProductCard} />
+                <Route path="/product-card/:id" render={() => <ProductCard />} />
                 <Route path="/brands" component={Brands} />
                 <Route path="/not-found" component={NotFound} />
                 <Route path="/profile" component={Profile} />

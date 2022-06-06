@@ -25,7 +25,7 @@ function News({ news }) {
                             <NavLink className="blog-item__inner" to={`/news-detail/${article.id}`}>
                                 <div className="blog-item__img"><img src={article.imageUrl} alt="фото" /></div>
                                 <div className="blog-item__content">
-                                    <time className="blog-item__date" datetime={article.date.split('.').reverse().join('-')}>{article.date}</time>
+                                    <time className="date blog-item__date" datetime={article.date.split('.').reverse().join('-')}>{article.date}</time>
                                     <h5 className="blog-item-title blog-item__title">
                                         {article.title}
                                     </h5>

@@ -8,7 +8,7 @@ import heart from '../../assets/images/icons/heart.svg';
 import heartFilled from '../../assets/images/icons/heart-filled.svg';
 //import Button from '../Button';
 
-function CatalogCard({ id, name, brand, imageUrl, price, color, sizes, isFavorite, discount, newProduct, onClickAddFavorite, onClickRemoveFavorite, setVisibleCatalogCardPopup }) {
+function CatalogCard({ id, name, brand, imageUrl, price, color, sizes, discount, newProduct, onClickAddFavorite, onClickRemoveFavorite, setVisibleCatalogCardPopup }) {
     /* if (isLoaded) {
         return <PizzaLoader />;
     } */
@@ -16,29 +16,26 @@ function CatalogCard({ id, name, brand, imageUrl, price, color, sizes, isFavorit
 
     const [favorite, setFavorite] = useState(false);
 
-    const toggleFavorite = () => {
-        setFavorite(!favorite);
-        /* setTimeout(() => {
-            e.target.classList.remove(('animated'));
-        }, 300); */
+    let obj;
+    const onAddFavoriteProduct = () => {
+        setFavorite(true);
+        obj = {
+            id,
+            name,
+            brand,
+            imageUrl,
+            price,
+            color,
+            sizes,
+            discount,
+            isFavorite: true
+        };
+        onClickAddFavorite(obj);
     }
 
-    let obj;
-    const onToggleFavoriteProduct = () => {
-        toggleFavorite();
-        isFavorite ? onClickRemoveFavorite(id) :
-            obj = {
-                id,
-                name,
-                brand,
-                imageUrl,
-                price,
-                color,
-                sizes,
-                discount,
-                isFavorite: true
-            };
-        onClickAddFavorite(obj);
+    const onRemoveFavoriteProduct = () => {
+        setFavorite(false);
+        onClickRemoveFavorite(id);
     }
 
     return (
@@ -51,7 +48,10 @@ function CatalogCard({ id, name, brand, imageUrl, price, color, sizes, isFavorit
                     <span class="label label--new">new</span>
                 }
             </div>
-            <button onClick={onToggleFavoriteProduct} type="button" aria-label={favorite ? 'Удалить из избранного' : 'Добавить в избранное'} style={{ backgroundImage: `url(${favorite || isFavorite ? heartFilled : heart})` }} className="catalog-card__favorite"></button>
+            {favorite ?
+                <button onClick={onRemoveFavoriteProduct} type="button" aria-label="Удалить из избранного" style={{ backgroundImage: `url(${heartFilled})` }} className="catalog-card__favorite"></button> :
+                <button onClick={onAddFavoriteProduct} type="button" aria-label="Добавить в избранное" style={{ backgroundImage: `url(${heart})` }} className="catalog-card__favorite"></button>
+            }
             <div className="catalog-card__img">
                 <img src={imageUrl} alt={`${name} ${brand}`} width="336" height="448" />
                 <div className="catalog-card__info">
@@ -65,7 +65,7 @@ function CatalogCard({ id, name, brand, imageUrl, price, color, sizes, isFavorit
                     <button onClick={() => setVisibleCatalogCardPopup(id)} className="catalog-card__info-link popup-link" type="button">Быстрый просмотр</button>
                 </div>
             </div>
-            <h6 className="catalog-card__title"><a href="#">{name}</a></h6>
+            <a className="catalog-card__title" href="#">{name}</a>
             <div className="catalog-card__subtitle">{brand}</div>
             <div className="prices">
                 <div className={classNames('price', {
