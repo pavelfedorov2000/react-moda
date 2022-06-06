@@ -133,37 +133,37 @@ function Catalog() {
     return (
         <>
             <main className="page catalog">
-                <nav className="breadcrumbs" aria-label="breadcrumbs">
-                    <div className="container">
+                <div className="container">
+                    <nav className="breadcrumbs" aria-label="breadcrumbs">
                         <ol className="breadcrumbs__list">
                             <li className="breadcrumbs__item"><Link to="/">{home}</Link></li>
                             {rest.map((crumb, i) => (
                                 i === rest.length - 1 ? <li className="breadcrumbs__item"><span>{crumb}</span></li> : <li className="breadcrumbs__item"><Link to="/catalog">{crumb}</Link></li>
                             ))}
                         </ol>
-                    </div>
-                </nav>
-                <Collection />
-                <div className="catalog__page container">
-                    <h1 className="title page__title catalog__title">Женские пальто</h1>
-                    <div className="catalog__inner">
-                        <AsideFilters />
-                        <div className="catalog__body">
-                            <div className="catalog__filters">
-                                <CatalogFilters activeSortBy={sortBy} sortPrices={sortPrices} sortFilters={sortFilters} sortColors={sortColors} sortSizes={sortSizes} sortBrands={sortBrands} sortStyles={sortStyles} onClickSort={onSelectSortType} onResetPrices={onResetSortPrices} onChangePrices={onSelectSortPrices} onSelectSortColors={onSelectSortColors} onSelectSortBrands={onSelectSortBrands} onSelectSortSizes={onSelectSortSizes} onSelectSortStyles={onSelectSortStyles} />
-                                <CatalogView onViewChange={toggleCatalogView} views={views} catalogView={catalogView} />
-                                <button className="filters-btn" type="button" style={{ backgroundImage: `url(${filterIcon})` }}>Фильтры</button>
+                    </nav>
+                    <Collection />
+                    <div className="catalog__page">
+                        <h1 className="title page__title catalog__title">Женские пальто</h1>
+                        <div className="catalog__inner">
+                            <AsideFilters />
+                            <div className="catalog__body">
+                                <div className="catalog__filters">
+                                    <CatalogFilters activeSortBy={sortBy} sortPrices={sortPrices} sortFilters={sortFilters} sortColors={sortColors} sortSizes={sortSizes} sortBrands={sortBrands} sortStyles={sortStyles} onClickSort={onSelectSortType} onResetPrices={onResetSortPrices} onChangePrices={onSelectSortPrices} onSelectSortColors={onSelectSortColors} onSelectSortBrands={onSelectSortBrands} onSelectSortSizes={onSelectSortSizes} onSelectSortStyles={onSelectSortStyles} />
+                                    <CatalogView onViewChange={toggleCatalogView} views={views} catalogView={catalogView} />
+                                    <button className="filters-btn" type="button" style={{ backgroundImage: `url(${filterIcon})` }}>Фильтры</button>
+                                </div>
+                                <div className={classNames('catalog__cards', {
+                                    'catalog__cards--two-cols': catalogView === 'col'
+                                })}>
+                                    {isLoaded
+                                        ? products.map(product => <CatalogCard setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} key={product.id} {...product} isLoaded={true} />)
+                                        : Array(18).fill(0).map((_, index) => <Loader key={`loader-${index}`} />)
+                                    }
+                                </div>
+                                <Pagination />
+                                <SeoText />
                             </div>
-                            <div className={classNames('catalog__cards', {
-                                'catalog__cards--two-cols': catalogView === 'col'
-                            })}>
-                                {isLoaded
-                                    ? products.map(product => <CatalogCard setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} key={product.id} {...product} isLoaded={true} />)
-                                    : Array(18).fill(0).map((_, index) => <Loader key={`loader-${index}`} />)
-                                }
-                            </div>
-                            <Pagination />
-                            <SeoText />
                         </div>
                     </div>
                 </div>

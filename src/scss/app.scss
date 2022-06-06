@@ -3,133 +3,134 @@
 @import 'null';
 
 html {
-  box-sizing: border-box;
-  font-size: calc(100vw / 1920 * 10);
+    box-sizing: border-box;
+    font-size: calc(100vw / 1920 * 10);
 
-  &.disable-fix {
-    @media (min-width: 1025px) {
-      padding-right: 17px;
+    &.disable-fix {
+        @media (min-width: 1025px) {
+            padding-right: 17px;
+        }
     }
-  }
 
-  @media (max-width: 1600px) {
-    font-size: calc(100vw / 1600 * 10);
-  }
+    @media (max-width: 1600px) {
+        font-size: calc(100vw / 1600 * 10);
+    }
 
-  @media (max-width: 1440px) {
-    font-size: calc(100vw / 1440 * 10);
-  }
+    @media (max-width: 1440px) {
+        font-size: calc(100vw / 1440 * 10);
+    }
 
-  @media (max-width: 1024px) {
-    font-size: calc(100vw / 768 * 10);
-  }
+    @media (max-width: 1024px) {
+        font-size: calc(100vw / 768 * 10);
+    }
 
-  @media (max-width: 767px) {
-    font-size: calc(100vw / 500 * 10);
-  }
+    @media (max-width: 767px) {
+        font-size: calc(100vw / 500 * 10);
+    }
 
-  @media (max-width: 500px) {
-    font-size: calc(100vw / 360 * 10);
-  }
+    @media (max-width: 500px) {
+        font-size: calc(100vw / 360 * 10);
+    }
 }
 
 body {
-  min-width: 320px;
-  font-family: 'Raleway', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-feature-settings: 'pnum'on, 'lnum'on;
-  color: #000;
-  overflow-x: hidden;
+    min-width: 320px;
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    color: #000;
+    overflow-x: hidden;
 
-  &._lock {
-    overflow-y: hidden;
-  }
+    &._lock {
+        overflow-y: hidden;
+    }
 }
 
 button,
 textarea,
 input {
-  font-family: 'Raleway', sans-serif;
-  font-feature-settings: 'pnum'on, 'lnum'on;
+    font-family: 'Raleway', sans-serif;
+    font-feature-settings: 'pnum' on, 'lnum' on;
 }
 
 dt {
-  float: left;
+    float: left;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
-  vertical-align: top;
-  border: none;
+    max-width: 100%;
+    height: auto;
+    vertical-align: top;
+    border: none;
 
-  table & {
-    max-width: none;
-  }
+    table & {
+        max-width: none;
+    }
 }
 
 a {
-  transition: 0.3s all;
+    transition: 0.3s all;
 
-  @media (any-hover: hover) {
-    &:hover {
-      //color: $green;
-      color: #777;
+    @media (any-hover: hover) {
+        &:hover {
+            //color: $green;
+            color: #777;
+        }
     }
-  }
 }
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow-x: hidden;
-  position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
 
-  &._lock {
-    overflow-y: hidden;
-  }
+    &._lock {
+        overflow-y: hidden;
+    }
 }
 
 .container {
-  width: $container + $gap * 2;
-  max-width: 100%;
-  padding: 0 $gap;
-  margin: 0 auto;
+    width: $container + $gap * 2;
+    max-width: 100%;
+    padding: 0 $gap;
+    margin: 0 auto;
 }
 
 .visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  border: 0;
-  clip: rect(0 0 0 0);
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0 0 0 0);
 }
 
 .fancybox__content {
-  padding: 0 !important;
-  overflow: visible;
+    padding: 0 !important;
+    overflow: visible;
 }
 
-.fancybox__content>.carousel__button.is-close {
-  top: 0 !important;
-  right: -5rem !important;
-  width: 3.2rem !important;
-  height: 3.2rem !important;
+.fancybox__content > .carousel__button.is-close {
+    top: 0 !important;
+    right: -5rem !important;
+    width: 3.2rem !important;
+    height: 3.2rem !important;
 }
 
 .home-page {
-  .container {
-    >* {
-      &:first-child {
-        padding-bottom: 7rem;
-      }
+    padding-top: 1.5rem;
+    &__wrapper {
+        > * {
+            &:first-child {
+                padding-bottom: 7rem;
+            }
+        }
     }
-  }
 }
 
 @import 'components/components';

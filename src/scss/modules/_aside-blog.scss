@@ -1,0 +1,43 @@
+.aside-blog {
+    // .aside-blog__title
+
+    &__title {
+        @extend %text-20;
+        font-weight: 500;
+
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+    }
+
+    // .aside-blog__items
+
+    &__items {
+        display: grid;
+        grid-gap: 5.2rem;
+
+        @media (max-width: 1024px) {
+            grid-gap: 3rem;
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &__item-date {
+        @extend %text-12;
+
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__item-title {
+        @extend %text-16;
+    }
+
+    &__item-text {
+        @extend %text-13;
+    }
+}

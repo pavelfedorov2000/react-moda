@@ -27,7 +27,7 @@ function DropBasket({ visibleAsideBasket, onCloseAsideBasket }) {
         <div id="drop-basket" className={classNames('aside-popup drop-basket aside-popup--basket', {
             'active': visibleAsideBasket
         })}>
-            <button onClick={onCloseAsideBasket} className="aside-popup__close" type="button">
+            <button onClick={onCloseAsideBasket} className="aside-popup__close" type="button" aria-label="Закрыть корзину">
                 <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M23.1871 7L16 14.1871L8.81286 7L7 8.81286L14.1871 16L7 23.1871L8.81286 25L16 17.8129L23.1871 25L25 23.1871L17.8129 16L25 8.81286L23.1871 7Z"
@@ -36,7 +36,7 @@ function DropBasket({ visibleAsideBasket, onCloseAsideBasket }) {
             </button>
             <div className="drop-basket__body">
                 <div div className="drop-basket__inner">
-                    <h3 className="aside-popup__title">Ваша корзина</h3>
+                    <div className="aside-popup__title">Ваша корзина</div>
                     {totalCount == 0 ?
                         <div className="drop-basket__empty">
                             Вы еще не добавили товары в корзину

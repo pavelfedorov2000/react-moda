@@ -89,27 +89,39 @@
   "brands": [
     {
       "name": "rio",
-      "imageUrl": "https://i.ibb.co/sC5HvqW/rio-verti.jpg"
+      "imageUrl": "https://i.ibb.co/sC5HvqW/rio-verti.jpg",
+      "width": "107",
+      "height": "86"
     },
     {
       "name": "minoti",
-      "imageUrl": "https://i.ibb.co/yhtmDQS/minoti.jpg"
+      "imageUrl": "https://i.ibb.co/yhtmDQS/minoti.jpg",
+      "width": "139",
+      "height": "46"
     },
     {
       "name": "viola",
-      "imageUrl": "https://i.ibb.co/wM8jTN0/viola-stils.jpg"
+      "imageUrl": "https://i.ibb.co/wM8jTN0/viola-stils.jpg",
+      "width": "145",
+      "height": "98"
     },
     {
       "name": "deja",
-      "imageUrl": "https://i.ibb.co/QFqxGms/deja.jpg"
+      "imageUrl": "https://i.ibb.co/QFqxGms/deja.jpg",
+      "width": "172",
+      "height": "49"
     },
     {
       "name": "bibi",
-      "imageUrl": "https://i.ibb.co/gDRxZcv/bibi.jpg"
+      "imageUrl": "https://i.ibb.co/gDRxZcv/bibi.jpg",
+      "width": "119",
+      "height": "60"
     },
     {
       "name": "zaza",
-      "imageUrl": "https://i.ibb.co/znTmt43/zaza.jpg"
+      "imageUrl": "https://i.ibb.co/znTmt43/zaza.jpg",
+      "width": "131",
+      "height": "78"
     }
   ],
   "instagram": [

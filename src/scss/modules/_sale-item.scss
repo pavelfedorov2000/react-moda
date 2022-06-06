@@ -5,9 +5,19 @@
         position: relative;
         display: block;
         height: 42rem;
+        overflow: hidden;
 
         img {
             @extend %cover;
+            transition: transform 0.8s linear;
+            transform: translateZ(0);
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                img {
+                    transform: scale(1.1);
+                }
+            }
         }
 
         margin-bottom: 1.2rem;
