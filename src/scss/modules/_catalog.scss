@@ -6,6 +6,10 @@
       @media (max-width: 1024px) {
         height: 35rem;
       }
+
+      @media(max-width: 767px) {
+        height: 45rem;
+      }
     }
 
     &__label,
@@ -104,7 +108,19 @@
     @media (min-width: 1025px) {
       display: grid;
       grid-template-columns: 22rem auto;
-      grid-gap: 4rem;
+      gap: 4rem;
+    }
+  }
+
+  &__body {
+    >* {
+      &:not(:last-child) {
+        margin-bottom: 3rem;
+
+        @media(max-width: 500px) {
+          margin-bottom: 2rem;
+        }
+      }
     }
   }
 
@@ -113,18 +129,14 @@
     align-items: flex-start;
     padding-bottom: 2rem;
     border-bottom: 0.1rem solid #efefef;
-
-    &:not(:last-child) {
-      margin-bottom: 3rem;
-
-      @media (max-width: 500px) {
-        margin-bottom: 2rem;
-      }
-    }
   }
 
   &__view {
     display: flex;
+
+    @media(max-width: 767px) {
+      flex-direction: row-reverse;
+    }
   }
 
   &__view-btn {
@@ -145,17 +157,20 @@
 
     margin-right: 1.6rem;
 
+    @media(max-width: 767px) {
+      margin-left: 1.6rem;
+      margin-right: 0;
+    }
+
     @media (max-width: 500px) {
-      margin-right: 1.4rem;
+      margin-left: 1.4rem;
     }
 
     &:last-child {
       margin-right: 0;
-    }
 
-    &:nth-last-child(-n + 2) {
-      @media (min-width: 768px) {
-        margin-right: 0;
+      @media(max-width: 767px) {
+        margin-left: 0;
       }
     }
 
@@ -169,11 +184,11 @@
   &__cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2rem;
+    gap: 2rem;
 
     @media (max-width: 767px) {
-      grid-gap: 1.2rem 1.6rem;
-      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem 1.6rem;
+      grid-template-columns: 1fr;
     }
 
     &--two-cols {
@@ -233,18 +248,19 @@
 }
 
 .grid-btn {
-  display: none;
 
-  @media (min-width: 768px) {
-    display: block;
-  }
-}
+  svg {
+    @media(max-width: 767px) {
+      display: none;
+    }
 
-.row-btn {
-  display: none;
+    &.row-btn {
+      display: none;
 
-  @media (max-width: 767px) {
-    display: block;
+      @media (max-width: 767px) {
+        display: block;
+      }
+    }
   }
 }
 

@@ -68,7 +68,7 @@
 
     @media(max-width: 500px) {
       grid-template-columns: 60% 40%;
-      grid-gap: 2rem;
+      gap: 2rem;
     }
 
     dt {

@@ -2,10 +2,10 @@
   // .profile-subscribes__inner
 
   display: grid;
-  grid-gap: 3rem 5.2rem;
+  gap: 3rem 5.2rem;
 
   @media (max-width: 1024px) {
-    grid-gap: 3rem;
+    gap: 3rem;
   }
 
   @media (min-width: 768px) {
@@ -78,7 +78,7 @@
 
   &__wrap {
     display: grid;
-    grid-gap: 1.5rem;
+    gap: 1.5rem;
 
     @media (min-width: 1025px) {
       display: flex;
@@ -111,7 +111,7 @@
 
     @media (max-width: 1024px) {
       display: grid;
-      grid-gap: 1.5rem;
+      gap: 1.5rem;
     }
   }
 

@@ -3,7 +3,7 @@
         @media (min-width: 1025px) {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
-            grid-gap: 5.2rem;
+            gap: 5.2rem;
         }
 
         @media (max-width: 1024px) {

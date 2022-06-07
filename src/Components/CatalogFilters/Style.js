@@ -1,7 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import Buttons from './buttons';
 import checkIcon from '../../assets/images/icons/check.svg';
-import dropArr from '../../assets/images/icons/drop-arr-black.svg';
 
 function Style({ onCheckChange, onSelectSortStyles, sortStyles }) {
 
@@ -30,11 +28,14 @@ function Style({ onCheckChange, onSelectSortStyles, sortStyles }) {
   }, []);
   return (
     <fieldset ref={filterRef} className="catalog-filters__item catalog-filters__item--style">
-      <legend onClick={toggleFilter} className="catalog-filters__item-title" style={{ backgroundImage: `url(${dropArr})`, fontWeight: `${checkedStyles.length > 0 ? '600' : '400'}` }}>
+      <legend onClick={toggleFilter} className="catalog-filters__item-title" style={{ fontWeight: `${checkedStyles.length > 0 ? '600' : '400'}` }}>
         <span>Стиль</span>
         {checkedStyles.length > 0 &&
           <span className="filter-output">{`(${checkedStyles.length})`}</span>
         }
+        <svg onClick={toggleFilter} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 4L7 7.6L10.75 4L12 5.2L7 10L2 5.2L3.25 4Z" fill="#101112" />
+        </svg>
       </legend>
       {visibleFilter &&
         <div className="catalog-filters__item-drop catalog-drop-filter">

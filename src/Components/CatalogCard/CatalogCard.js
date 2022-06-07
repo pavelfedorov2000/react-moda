@@ -40,10 +40,10 @@ function CatalogCard({ id, name, brand, imageUrl, price, color, sizes, discount,
     <div className="catalog-card">
       <div className="labels">
         {discount != undefined &&
-          <span class="label label--discount">{`${discount}%`}</span>
+          <span class="label catalog-card__label label--discount">{`${discount}%`}</span>
         }
         {newProduct && newProduct != undefined &&
-          <span class="label label--new">new</span>
+          <span class="label catalog-card__label label--new">new</span>
         }
       </div>
       {favorite ?

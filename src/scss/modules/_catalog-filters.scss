@@ -33,7 +33,7 @@
     overflow-y: auto;
   }
 
-  &--active {
+  &.active {
     @media (max-width: 1024px) {
       top: 0;
     }
@@ -57,7 +57,6 @@
     height: 2rem;
     margin-right: 0.8rem;
     flex-shrink: 0;
-    display: none;
 
     svg {
       width: 2rem;
@@ -135,14 +134,13 @@
   // .catalog-filters__item-title
 
   &__item-title {
+    @extend %vertical-align;
     @extend %text-14;
     padding-right: 1.9rem;
-    background-size: 1.4rem 1.4rem;
-    background-position: 100% 50%;
-    background-repeat: no-repeat;
     cursor: pointer;
 
     @media (max-width: 1024px) {
+      justify-content: space-between;
       width: 100%;
       padding: 2rem 0;
       border-bottom: 0.1rem solid #efefef;
@@ -156,32 +154,33 @@
       }
     }
 
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0.35rem;
-      right: 0;
+    svg {
       width: 1.4rem;
       height: 1.4rem;
-      //background-image: url(../images/icons/drop-arr-black.svg);
-      @extend %bg-contain;
-      transition: 0.3s transform;
+      margin-left: 0.5rem;
 
-      @media (max-width: 1024px) {
-        top: 2.35rem;
+      @media(max-width: 1024px) {
         transform: rotate(-90deg);
-        //background-image: url(../images/icons/drop-arr.svg);
-      }
-    }
 
-    &--active {
-      &:after {
-        transform: rotate(180deg);
+        path {
+          fill: #505661;
+        }
       }
-    }
 
-    &--bold {
-      font-weight: 600;
+      /* &.pc-arrow {
+        @media(max-width: 1024px) {
+          display: none;
+        }
+      }
+
+      &.mob-arrow {
+        display: none;
+        transform: rotate(-90deg);
+
+        @media(max-width: 1024px) {
+          display: block;
+        }
+      } */
     }
   }
 
@@ -313,7 +312,7 @@
     }
 
     @media (max-width: 1024px) {
-      padding-bottom: 3rem;
+      padding: 3rem 0;
     }
   }
 
@@ -328,7 +327,7 @@
 
   &__cols {
     display: grid;
-    grid-gap: 3rem;
+    gap: 3rem;
 
     @media (min-width: 501px) {
       grid-template-columns: repeat(2, 1fr);
@@ -466,7 +465,7 @@
     @media (max-width: 1024px) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      grid-gap: 1.6rem;
+      gap: 1.6rem;
     }
   }
 

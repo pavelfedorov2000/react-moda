@@ -11,8 +11,6 @@ function Actual() {
     });
   }, []); // [] = componentDidMout
 
-  console.log(actual);
-
   return (
     <section class="section actual">
       <h2 class="title section__title">Актуально</h2>

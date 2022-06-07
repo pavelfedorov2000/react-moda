@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
 import checkIcon from '../../assets/images/icons/check.svg';
-import dropArr from '../../assets/images/icons/drop-arr-black.svg';
 import Buttons from './buttons';
 
 function Material() {
@@ -29,9 +28,12 @@ function Material() {
   }, []);
   return (
     <fieldset ref={filterRef} className="catalog-filters__item catalog-filters__item--material">
-      <legend onClick={toggleFilter} className="catalog-filters__item-title" style={{ backgroundImage: `url(${dropArr})` }}>
+      <legend onClick={toggleFilter} className="catalog-filters__item-title">
         <span>Материал</span>
         <span className="filter-output"></span>
+        <svg onClick={toggleFilter} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 4L7 7.6L10.75 4L12 5.2L7 10L2 5.2L3.25 4Z" fill="#101112" />
+        </svg>
       </legend>
       {visibleFilter &&
         <div className="catalog-filters__item-drop catalog-drop-filter">

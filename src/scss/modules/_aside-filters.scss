@@ -1,4 +1,9 @@
 .aside-filters {
+  display: none;
+
+  @media(min-width: 1025px) {
+    display: block;
+  }
 
   // .aside-filters__banner
   &__banner {

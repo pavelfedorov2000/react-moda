@@ -1,33 +1,13 @@
+import classNames from 'classnames';
 import React from 'react';
 import search from '../assets/images/icons/search.svg';
 
-function SearchForm() {
+function SearchForm({ visibleSearch }) {
   return (
     <form action="#" className="search-form header__search">
-      <input className="search-form__input" placeholder="Введите фразу для поиска, например, платье" style={{ backgroundImage: `url(${search})` }} />
-      <div className="help-search search-form__help">
-        <a href="#" className="help-search__item">
-          <span>жилетки</span> женские
-        </a>
-        <a href="#" className="help-search__item">
-          <span>жилетки</span>
-        </a>
-        <a href="#" className="help-search__item">
-          <span>жилетки</span> женские трикотажные
-        </a>
-        <a href="#" className="help-search__item">
-          <span>жилетки</span> мужские
-        </a>
-        <a href="#" className="help-search__item">
-          <span>жилетки</span> теплые
-        </a>
-        <a href="#" className="help-search__item">
-          жилетки детские
-        </a>
-        <a href="#" className="help-search__item">
-          жилетки nike
-        </a>
-      </div>
+      <input className={classNames('search-form__input', {
+        'search-form__input--active': visibleSearch
+      })} placeholder="Введите фразу для поиска, например, платье" style={{ backgroundImage: `url(${search})` }} />
     </form>
   );
 }

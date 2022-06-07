@@ -1,7 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import Buttons from './buttons';
 import checkIcon from '../../assets/images/icons/check.svg';
-import dropArr from '../../assets/images/icons/drop-arr-black.svg';
 
 function Brand({ onCheckChange, onSelectSortBrands, sortBrands }) {
 
@@ -17,6 +15,16 @@ function Brand({ onCheckChange, onSelectSortBrands, sortBrands }) {
     setVisibleFilter(!visibleFilter);
   }
 
+  const onOpenFilter = (e) => {
+    setVisibleFilter(true);
+    //setActiveFilter(e.target.parentElementSibling.children[0].textContent);
+  }
+
+  /* const handleCloseFilter = () => {
+    onCloseFilter();
+    setVisibleFilter(false);
+  } */
+
   const handleOutsideClick = (event) => {
     const path = event.path || (event.composedPath && event.composedPath());
     if (!path.includes(filterRef.current)) {
@@ -29,11 +37,14 @@ function Brand({ onCheckChange, onSelectSortBrands, sortBrands }) {
   }, []);
   return (
     <fieldset ref={filterRef} className="catalog-filters__item catalog-filters__item--brand">
-      <legend className="catalog-filters__item-title" style={{ backgroundImage: `url(${dropArr})`, fontWeight: `${checkedBrands.length > 0 ? '600' : '400'}` }} onClick={toggleFilter}>
+      <legend className="catalog-filters__item-title" style={{ fontWeight: `${checkedBrands.length > 0 ? '600' : '400'}` }}>
         <span>Бренд</span>
         {checkedBrands.length > 0 &&
           <span className="filter-output">{`(${checkedBrands.length})`}</span>
         }
+        <svg onClick={toggleFilter} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 4L7 7.6L10.75 4L12 5.2L7 10L2 5.2L3.25 4Z" fill="#101112" />
+        </svg>
       </legend>
       {visibleFilter &&
         <div className="catalog-filters__item-drop catalog-drop-filter">

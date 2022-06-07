@@ -1,5 +1,10 @@
 export { default as Button } from './Button';
+export { default as BurgerMenu } from './BurgerMenu';
 export { default as Header } from './Header';
+export { default as Call } from './Call';
+export { default as HeaderRegion } from './HeaderRegion';
+export { default as ShopsSearch } from './ShopsSearch';
+export { default as WhatsApp } from './WhatsApp';
 export { default as HeaderInfoLine } from './HeaderInfoLine';
 export { default as DropMenu } from './DropMenu';
 export { default as SaleItem } from './SaleItem';
@@ -39,8 +44,10 @@ export { default as DropBasketProduct } from './DropBasketProduct';
 export { default as BasketTotal } from './BasketTotal';
 export { default as Checkout } from './Checkout';
 
+export { default as ProductColors } from './ProductColors';
 export { default as ProductColor } from './ProductColor';
 export { default as ProductDetails } from './ProductDetails';
+export { default as ProductDetailsSection } from './ProductDetailsSection';
 export { default as ProductLinks } from './ProductLinks';
 export { default as ProductCardContent } from './ProductCardContent';
 
@@ -60,9 +67,11 @@ export { default as FormRow } from './FormRow';
 export { default as FormAgree } from './FormAgree';
 
 export { default as SliderSection } from './SliderSection';
+//export { default as SliderArrows } from './SliderArrows';
 
 export { default as OtherNews } from './OtherNews';
 export { default as NewsDetail } from './NewsDetail';
+export { default as BlogItem } from './BlogItem';
 export { default as BlogTags } from './BlogTags';
 export { default as BlogText } from './BlogText';
 export { default as AsideBlog } from './AsideBlog';

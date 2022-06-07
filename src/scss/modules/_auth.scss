@@ -1,280 +1,280 @@
 #auth-popup,
 #password-recovery {
-    padding: 5rem;
+  padding: 5rem;
 
-    @media (max-width: 767px) {
-        padding-left: 3rem;
-        padding-right: 3rem;
-    }
+  @media (max-width: 767px) {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
 
 #login-enter {
-    display: none;
+  display: none;
 }
 
 .remind-password {
-    @extend %text-12;
-    color: #9b9b9b;
-    text-decoration: underline;
+  @extend %text-12;
+  color: #9b9b9b;
+  text-decoration: underline;
 
-    @media (any-hover: hover) {
-        &:hover {
-            //color: $green;
-            color: $dark;
-        }
+  @media (any-hover: hover) {
+    &:hover {
+      //color: $green;
+      color: $dark;
     }
+  }
 }
 
 .overlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 200;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: 0.3s all;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: 0.3s all;
 
-    &.active {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: all;
-    }
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
 }
 
 .popup {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .aside-popup {
-    position: absolute;
-    top: 0;
-    right: -100%;
-    z-index: 101;
-    opacity: 0;
-    visibility: hidden;
-    bottom: 0;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    width: 51.5rem;
-    background-color: #fff;
-    transition: 0.3s all;
-    @include scrollbar;
+  position: absolute;
+  top: 0;
+  right: -100%;
+  z-index: 101;
+  opacity: 0;
+  visibility: hidden;
+  bottom: 0;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 51.5rem;
+  background-color: #fff;
+  transition: 0.3s all;
+  @include scrollbar;
 
-    &--basket {
-        padding-bottom: 0;
-    }
+  &--basket {
+    padding-bottom: 0;
+  }
 
-    &.active {
-        right: 0;
-        opacity: 1;
-        visibility: visible;
-
-        @media (max-width: 767px) {
-            right: 0;
-        }
-    }
+  &.active {
+    right: 0;
+    opacity: 1;
+    visibility: visible;
 
     @media (max-width: 767px) {
-        width: 100%;
-        right: -100%;
+      right: 0;
+    }
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
+    right: -100%;
+  }
+
+  // .aside-popup__close
+
+  &__close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 20;
+    width: 3.2rem;
+    height: 3.2rem;
+
+    svg path {
+      transition: 0.3s fill;
     }
 
-    // .aside-popup__close
+    @media (any-hover: hover) {
+      &:hover {
+        svg path {
+          fill: $red;
+        }
+      }
+    }
+  }
 
-    &__close {
-        position: absolute;
-        top: 2rem;
-        right: 2rem;
-        z-index: 20;
-        width: 3.2rem;
-        height: 3.2rem;
+  // .aside-popup__title
+
+  &__title {
+    @extend %text-25;
+    font-weight: 500;
+
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__back-btn {
+    @extend %vertical-align;
+    @extend %text-14;
+    color: #9b9b9b;
+    transition: 0.3s color;
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+      margin-right: 1rem;
+
+      path {
+        transition: 0.3s fill;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 5.2rem;
+
+      @media (max-width: 500px) {
+        margin-bottom: 3rem;
+      }
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: $dark;
 
         svg path {
-            transition: 0.3s fill;
+          fill: $dark;
         }
+      }
+    }
+  }
 
-        @media (any-hover: hover) {
-            &:hover {
-                svg path {
-                    fill: $red;
-                }
-            }
-        }
+  // .aside-popup__text
+
+  &__text {
+    @extend %text-14;
+
+    &:not(:last-child) {
+      margin-bottom: 4rem;
+    }
+  }
+
+  // .aside-popup__tabs
+
+  &__tabs {
+    &:not(:last-child) {
+      margin-bottom: 4rem;
+    }
+  }
+
+  // .aside-popup__tab
+
+  &__tab {
+    padding-bottom: 0.9rem;
+
+    &:not(:last-child) {
+      margin-right: 4rem;
+    }
+  }
+
+  // .aside-popup__content
+
+  &__content {
+    @media (min-width: 768px) {
+      width: 30rem;
+    }
+  }
+
+  &__body {
+    &:not(:last-child) {
+      padding-bottom: 3rem;
+    }
+  }
+
+  // .aside-popup__form
+
+  &__form {
+    &:not(:last-child) {
+      margin-bottom: 4rem;
+    }
+  }
+
+  &__form-inputs {
+    display: grid;
+    gap: 1.5rem;
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__form-wrap {
+    @extend %flex-row-center;
+
+    &:not(:last-child) {
+      margin-bottom: 3rem;
     }
 
-    // .aside-popup__title
-
-    &__title {
-        @extend %text-25;
-        font-weight: 500;
-
-        &:not(:last-child) {
-            margin-bottom: 3rem;
-        }
+    .form-agree {
+      align-items: center;
     }
 
-    &__back-btn {
-        @extend %vertical-align;
-        @extend %text-14;
-        color: #9b9b9b;
-        transition: 0.3s color;
+    .check-text {
+      margin-left: 0.8rem;
+    }
+  }
 
-        svg {
-            width: 1rem;
-            height: 1rem;
-            margin-right: 1rem;
+  &__form-btn {
+    @extend %text-14;
+    font-weight: 600;
+    padding: 1.3rem;
+    width: 100%;
+  }
 
-            path {
-                transition: 0.3s fill;
-            }
-        }
+  &__form-success {
+    margin-top: 3rem;
+  }
 
-        &:not(:last-child) {
-            margin-bottom: 5.2rem;
+  // .aside-popup__link-btn
 
-            @media (max-width: 500px) {
-                margin-bottom: 3rem;
-            }
-        }
+  &__link-btn {
+    @extend %text-14;
+    font-weight: 500;
+    color: $green;
+  }
 
-        @media (any-hover: hover) {
-            &:hover {
-                color: $dark;
+  // .aside-popup__social
 
-                svg path {
-                    fill: $dark;
-                }
-            }
-        }
+  &__social {
+    padding-top: 3rem;
+    border-top: 0.1rem solid #ccc;
+
+    .social {
+      gap: 2rem;
     }
 
-    // .aside-popup__text
-
-    &__text {
-        @extend %text-14;
-
-        &:not(:last-child) {
-            margin-bottom: 4rem;
-        }
+    .social__item {
+      svg {
+        width: 4rem;
+        height: 4rem;
+      }
     }
+  }
 
-    // .aside-popup__tabs
+  // .aside-popup__social-title
 
-    &__tabs {
-        &:not(:last-child) {
-            margin-bottom: 4rem;
-        }
+  &__social-title {
+    @extend %text-14;
+    font-weight: 500;
+
+    &:not(:last-child) {
+      margin-bottom: 1.6rem;
     }
-
-    // .aside-popup__tab
-
-    &__tab {
-        padding-bottom: 0.9rem;
-
-        &:not(:last-child) {
-            margin-right: 4rem;
-        }
-    }
-
-    // .aside-popup__content
-
-    &__content {
-        @media (min-width: 768px) {
-            width: 30rem;
-        }
-    }
-
-    &__body {
-        &:not(:last-child) {
-            padding-bottom: 3rem;
-        }
-    }
-
-    // .aside-popup__form
-
-    &__form {
-        &:not(:last-child) {
-            margin-bottom: 4rem;
-        }
-    }
-
-    &__form-inputs {
-        display: grid;
-        grid-gap: 1.5rem;
-
-        &:not(:last-child) {
-            margin-bottom: 2rem;
-        }
-    }
-
-    &__form-wrap {
-        @extend %flex-row-center;
-
-        &:not(:last-child) {
-            margin-bottom: 3rem;
-        }
-
-        .form-agree {
-            align-items: center;
-        }
-
-        .check-text {
-            margin-left: 0.8rem;
-        }
-    }
-
-    &__form-btn {
-        @extend %text-14;
-        font-weight: 600;
-        padding: 1.3rem;
-        width: 100%;
-    }
-
-    &__form-success {
-        margin-top: 3rem;
-    }
-
-    // .aside-popup__link-btn
-
-    &__link-btn {
-        @extend %text-14;
-        font-weight: 500;
-        color: $green;
-    }
-
-    // .aside-popup__social
-
-    &__social {
-        padding-top: 3rem;
-        border-top: 0.1rem solid #ccc;
-
-        .social {
-            grid-gap: 2rem;
-        }
-
-        .social__item {
-            svg {
-                width: 4rem;
-                height: 4rem;
-            }
-        }
-    }
-
-    // .aside-popup__social-title
-
-    &__social-title {
-        @extend %text-14;
-        font-weight: 500;
-
-        &:not(:last-child) {
-            margin-bottom: 1.6rem;
-        }
-    }
+  }
 }
