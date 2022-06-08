@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ProductSizes from "../ProductSizes";
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
+import { useSelector } from "react-redux";
 
 function CatalogCardPopup({ products, onClickAddFavorite, onClickRemoveFavorite, onAddCart, onCloseCatalogCardPopup, visibleCatalogCardPopup }) {
   const productList = {
@@ -24,10 +25,21 @@ function CatalogCardPopup({ products, onClickAddFavorite, onClickRemoveFavorite,
   //console.log(products);
   //console.log(visibleCatalogCardPopup);
 
-  const activeProduct = products.filter(product => product.id === visibleCatalogCardPopup)[0];
-  console.log(activeProduct);
+  const favoriteProducts = useSelector(({ favorite }) => favorite.products); // вытаскиваем товары из стора
 
-  const { id, articul, name, brand, sizes, color, price, imageUrl, discount, newProduct } = activeProduct;
+  let activeProduct = products.filter(product => product.id == visibleCatalogCardPopup)[0];
+
+  if (activeProduct && favoriteProducts.length > 0) {
+    const thisFavorite = favoriteProducts.find(product => product.id == activeProduct.id);
+    if (thisFavorite) {
+      activeProduct = {
+        ...activeProduct,
+        isFavorite: true
+      }
+    }
+  }
+
+  const { id, articul, name, brand, sizes, color, price, imageUrl, discount, newProduct, isFavorite } = activeProduct;
   //console.log(sizes);
 
   const [favorite, setFavorite] = useState(false);
@@ -95,10 +107,10 @@ function CatalogCardPopup({ products, onClickAddFavorite, onClickRemoveFavorite,
       </button>
       <div className="labels">
         {discount != undefined &&
-          <span class="label label--discount">{`${discount}%`}</span>
+          <span className="label label--discount">{`${discount}%`}</span>
         }
         {newProduct && newProduct != undefined &&
-          <span class="label label--new">new</span>
+          <span className="label label--new">new</span>
         }
       </div>
       <div className="product-popup__inner">
@@ -168,7 +180,7 @@ function CatalogCardPopup({ products, onClickAddFavorite, onClickRemoveFavorite,
                 </svg>
                 <span>Добавить в корзину</span>
               </button>
-              {favorite ?
+              {isFavorite || favorite ?
                 <button onClick={onRemoveFavoriteProduct} className="btn product-card-form__btn product-favorite-btn btn--border" type="button">
                   <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -198,7 +210,7 @@ function CatalogCardPopup({ products, onClickAddFavorite, onClickRemoveFavorite,
                 </div>
               ))}
             </dl>
-            <Link to="/product-card" className="popup-link">Подробнее</Link>
+            <Link to={`/product-card/${id}`} className="popup-link">Подробнее</Link>
           </div>
         </div>
         <Link className="product-popup__more-link" to={`/product-card/${id}`}>

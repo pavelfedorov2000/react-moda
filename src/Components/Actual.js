@@ -12,9 +12,9 @@ function Actual() {
   }, []); // [] = componentDidMout
 
   return (
-    <section class="section actual">
-      <h2 class="title section__title">Актуально</h2>
-      <div class="actual__grid">
+    <section className="section actual">
+      <h2 className="title section__title">Актуально</h2>
+      <div className="actual__grid">
         {actual.map(item => (
           <SaleItem className="actual__item" src={item.imageUrl} title={item.title} subtitle={item.subtitle} saleText={item.saleText} />
         ))}

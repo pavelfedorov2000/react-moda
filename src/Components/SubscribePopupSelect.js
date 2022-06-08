@@ -17,7 +17,7 @@ function SubscribePopupSelect({ subscribes, item, checkedSubscribeSelect, onChec
     const options = ['Да', 'Нет'];
 
     return (
-        <div class="select">
+      <div className="select">
             <div onClick={onToggleSelect} className={classNames('select__title', {
                 'active': activeSelect
             })}>
@@ -27,7 +27,7 @@ function SubscribePopupSelect({ subscribes, item, checkedSubscribeSelect, onChec
                 </svg>
             </div>
             {activeSelect &&
-                <div class="select__content">
+          <div className ="select__content">
                     {options.map((option, i) => (
                         <SubscribeOption onClickChangeSubscribe={onClickChangeSubscribe} checkedSubscribeSelect={checkedSubscribeSelect} onCheckSubscribeSelect={onCheckSubscribeSelect} subscribes={subscribes} option={option} item={item} i={i} obj={obj} />
                     ))}

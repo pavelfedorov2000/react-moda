@@ -2,15 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import search from '../assets/images/icons/search.svg';
-import logo from '../assets/images/logo/logo.svg';
 import burger from '../assets/images/icons/burger.svg';
-import { DropMenu, SearchForm, HeaderInfoLine, ShopsSearch, HeaderRegion, WhatsApp, Call } from '../Components';
+import { DropMenu, SearchForm, HeaderInfoLine, ShopsSearch, HeaderRegion, WhatsApp, Call, Logo } from '../Components';
 import classNames from 'classnames';
-//import { useParams } from 'react-router-dom';
 
 function Header({ categories, activeCategory, onChangeCategory, phone, onAsideBasketOpener, onAsideAuthOpener, onOpenBurgerMenu, dropMenuCategories, links }) {
   // Вытаскиваем из стора общее количество добавленных в корзину товаров (сразу через деструктуризацию)
   const { totalCount } = useSelector(({ cart }) => cart);
+  const { products } = useSelector(({ favorite }) => favorite);
 
   // Строка поиска на тач-устройствах
   const [visibleSearch, setVisibleSearch] = useState(false);
@@ -44,15 +43,10 @@ function Header({ categories, activeCategory, onChangeCategory, phone, onAsideBa
             <button onClick={onOpenBurgerMenu} className="burger-btn" type="button" aria-label="Открыть меню">
               <img src={burger} alt="кнопка бургер" width="20" height="20" />
             </button>
-            <div className="logo header__logo">
-              <Link path="/" className="logo__link">
-                <img className="logo__img header__logo-img" src={logo} alt="Логотип"
-                  width="207" height="31" />
-              </Link>
-            </div>
+            <Logo className="header" width="207" height="31" />
             <div className="header__actions">
               <button onClick={toggleSearch} className="header__search-btn" type="button" style={{ backgroundImage: `url(${search})` }}></button>
-              <button onClick={onAsideAuthOpener} className="header__action" type="button" aria-label="Авторизоваться">
+              <Link to="/profile/orders" className="header__action">
                 <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M8.0013 8.50016C5.88797 8.50016 4.16797 6.78016 4.16797 4.66683C4.16797 2.5535 5.88797 0.833496 8.0013 0.833496C10.1146 0.833496 11.8346 2.5535 11.8346 4.66683C11.8346 6.78016 10.1146 8.50016 8.0013 8.50016Z"
@@ -62,14 +56,21 @@ function Header({ categories, activeCategory, onChangeCategory, phone, onAsideBa
                     fill="#101112" />
                 </svg>
                 <span>Профиль</span>
-              </button>
+              </Link>
               <Link to="/favorite" className="header__action">
                 <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M7.9987 14.4331C7.79203 14.4331 7.59203 14.4064 7.42536 14.3464C4.8787 13.4731 0.832031 10.3731 0.832031 5.79307C0.832031 3.45974 2.7187 1.56641 5.0387 1.56641C6.16536 1.56641 7.2187 2.00641 7.9987 2.79307C8.7787 2.00641 9.83203 1.56641 10.9587 1.56641C13.2787 1.56641 15.1654 3.46641 15.1654 5.79307C15.1654 10.3797 11.1187 13.4731 8.57203 14.3464C8.40536 14.4064 8.20536 14.4331 7.9987 14.4331Z"
                     fill="#101112" />
                 </svg>
-                <span>Избранное</span>
+                <span>
+                  Избранное
+                  {products.length != 0 ?
+                    <span>{`(${products.length})`}</span>
+                    :
+                    null
+                  }
+                </span>
               </Link>
               <button onClick={onAsideBasketOpener} className="header__action" type="button">
                 <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -82,7 +83,7 @@ function Header({ categories, activeCategory, onChangeCategory, phone, onAsideBa
                 </svg>
                 <span>Корзина
                   {totalCount != 0 ?
-                    <span className="header__cart-num">{`(${totalCount})`}</span>
+                    <span>{`(${totalCount})`}</span>
                     :
                     null
                   }

@@ -10,6 +10,7 @@ export { default as OrderSuccess } from './OrderSuccess';
 
 export { default as Profile } from './Profile';
 export { default as MyOrders } from './MyOrders';
+export { default as OrderDetail } from './OrderDetail';
 export { default as Discounts } from './Discounts';
 export { default as Subscribes } from './Subscribes';
 export { default as Personal } from './Personal';

@@ -46,19 +46,19 @@ function Home({ blog }) {
           </div>
           <div className="blog-grid">
             {blogPreview.map(article => (
-              <article class="blog-item blog-grid__item">
-                <a href="#" class="blog-item__img">
+              <article className="blog-item blog-grid__item">
+                <a href="#" className="blog-item__img">
                   <img src={article.imageUrl} alt="фото блога" width="724" height="336" />
                 </a>
-                <div class="blog-item__content">
-                  <time class="date blog-item__date" dateTime={article.date.split('.').reverse().join('-')}>{article.date}</time>
-                  <a class="blog-item-title blog-item__title" href="#">{article.title}</a>
-                  <p class="blog-item-text blog-item__text">
+                <div className="blog-item__content">
+                  <time className="date blog-item__date" dateTime={article.date.split('.').reverse().join('-')}>{article.date}</time>
+                  <a className="blog-item-title blog-item__title" href="#">{article.title}</a>
+                  <p className="blog-item-text blog-item__text">
                     {article.text}
                   </p>
-                  <div class="tags">
+                  <div className="tags">
                     {article.tags.map(tag => (
-                      <a href="#" class="tag blog-item__tag">{`#${tag}`}</a>
+                      <a href="#" className="tag blog-item__tag">{`#${tag}`}</a>
                     ))}
                   </div>
                 </div>

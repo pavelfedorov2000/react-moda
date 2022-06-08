@@ -32,7 +32,7 @@ function Material() {
         <span>Материал</span>
         <span className="filter-output"></span>
         <svg onClick={toggleFilter} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 4L7 7.6L10.75 4L12 5.2L7 10L2 5.2L3.25 4Z" fill="#101112" />
+          <path fillRule="evenodd" clipRule="evenodd" d="M3.25 4L7 7.6L10.75 4L12 5.2L7 10L2 5.2L3.25 4Z" fill="#101112" />
         </svg>
       </legend>
       {visibleFilter &&
@@ -46,7 +46,7 @@ function Material() {
                     {material[key].map((material, j) => (
                       <label key={`material-${j}`} className="catalog-drop-filter__item">
                         <input className="check-box" type="checkbox" />
-                        <span class="check-style">
+                        <span className="check-style">
                           <span style={{ backgroundImage: `url(${checkIcon})` }}></span>
                         </span>
                         <span className="check-text">{material}</span>

@@ -6,7 +6,7 @@ import checkIcon from '../../assets/images/icons/check.svg';
 function Color({ onCheckChange, onSelectSortColors, sortColors }) {
 
   const [checkedColors, setCheckedColors] = useState(sortColors);
-  console.log(checkedColors);
+  //console.log(checkedColors);
 
   const colors = [
     {
@@ -81,7 +81,7 @@ function Color({ onCheckChange, onSelectSortColors, sortColors }) {
           <span className="filter-output">{`(${checkedColors.length})`}</span>
         }
         <svg onClick={toggleFilter} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 4L7 7.6L10.75 4L12 5.2L7 10L2 5.2L3.25 4Z" fill="#101112" />
+          <path fillRule="evenodd" clipRule="evenodd" d="M3.25 4L7 7.6L10.75 4L12 5.2L7 10L2 5.2L3.25 4Z" fill="#101112" />
         </svg>
       </legend>
       {visibleFilter &&

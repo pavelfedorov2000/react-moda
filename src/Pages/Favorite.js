@@ -1,85 +1,84 @@
 import React, { useState } from 'react';
-import { AsideFilters, CatalogCard, CatalogFilters, CatalogView, CatalogCardPopup, FavoriteCard } from '../Components';
+import { AsideFilters, CatalogFilters, CatalogView, CatalogCardPopup, FavoriteCard } from '../Components';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFavoriteProduct } from '../redux/actions/favorite';
 import emptyIcon from '../assets/images/icons/empty-catalog.svg';
+import { Link } from 'react-router-dom';
 
-function Favorite({ generateCrumbs }) {
-    const dispatch = useDispatch();
-    const favorites = useSelector(({ favorite }) => favorite.products);
-    const crumbs = ['Главная', 'Избранные'];
-    const handleRemoveFavoriteProduct = (id) => {
-        dispatch(removeFavoriteProduct(id));
-    }
+function Favorite() {
+  const dispatch = useDispatch();
+  const favorites = useSelector(({ favorite }) => favorite.products);
 
-    // Экшн на добавление в избранное
-    const handleAddProductToFavorite = obj => {
-        dispatch({
-            type: 'ADD_FAVORITE_PRODUCT',
-            payload: obj
-        });
-    }
+  const handleRemoveFavoriteProduct = (id) => {
+    dispatch(removeFavoriteProduct(id));
+  }
 
-    // Экшн на добавление в корзину
-    const handleAddProductToCart = obj => {
-        dispatch({
-            type: 'ADD_PRODUCT_TO_CART',
-            payload: obj
-        });
-    }
+  // Экшн на добавление в избранное
+  const handleAddProductToFavorite = obj => {
+    dispatch({
+      type: 'ADD_FAVORITE_PRODUCT',
+      payload: obj
+    });
+  }
 
-    const [visibleCatalogCardPopup, setVisibleCatalogCardPopup] = useState(null);
+  // Экшн на добавление в корзину
+  const handleAddProductToCart = obj => {
+    dispatch({
+      type: 'ADD_PRODUCT_TO_CART',
+      payload: obj
+    });
+  }
 
-    const closeCatalogCardPopup = () => {
-        setVisibleCatalogCardPopup(null);
-    }
+  const [visibleCatalogCardPopup, setVisibleCatalogCardPopup] = useState(null);
+  const closeCatalogCardPopup = () => {
+    setVisibleCatalogCardPopup(null);
+  }
 
-    return (
-        <>
-            <main class="page catalog">
-                <div class="container">
-                    <nav class="breadcrumbs" aria-label="breadcrumbs">
-                        <ol className="breadcrumbs__list">
-                            {crumbs.map((crumb, i) => () => generateCrumbs(crumbs, crumb, i))}
-                        </ol>
-                    </nav>
-                    <div class="catalog__page">
-                        <h1 class="title page__title catalog__title">Избранные товары</h1>
-                        <div class="catalog__inner">
-                            <AsideFilters />
-                            <div class="catalog__body">
-                                <div class="catalog__filters">
-                                    <CatalogFilters />
-                                    <CatalogView />
-                                    <button class="filters-btn" type="button">Фильтры</button>
-                                </div>
-                                {favorites.length == 0 ?
-                                    <div class="empty-page catalog__empty">
-                                        <img class="empty-page__img" src={emptyIcon} alt="иконка"
-                                            width="100" height="100" />
-                                        <div class="empty-page__text">Нет актуальных товаров</div>
-                                    </div>
-                                    :
-                                    <div class="catalog__cards">
-                                        {
-                                            favorites.map(product => (
-                                                <FavoriteCard setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} key={product.id} {...product} />
-                                            ))}
-                                    </div>
-                                }
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
-            {
-                visibleCatalogCardPopup !== null &&
-                <div className="overlay active">
-                    <CatalogCardPopup products={favorites} onCloseCatalogCardPopup={closeCatalogCardPopup} visibleCatalogCardPopup={visibleCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onAddCart={handleAddProductToCart} />
-                </div>
-            }
-        </>
-    );
+  const crumbs = ['Главная', 'Избранные'];
+
+  return (
+    <>
+      <main className="page catalog">
+        <div className="container">
+          <nav className="breadcrumbs" aria-label="breadcrumbs">
+            <ol className="breadcrumbs__list">
+              {crumbs.map((crumb, i) => (
+                <li className="breadcrumbs__item">{i === crumbs.length - 1 ? <span>{crumb}</span> : <Link to="/catalog">{crumb}</Link>}</li>
+              ))}
+            </ol>
+          </nav>
+          <div className="catalog__page">
+            <h1 className="title page__title catalog__title">Избранные товары</h1>
+            <div className="catalog__inner">
+              <AsideFilters />
+              <div className="catalog__body">
+                {favorites.length == 0 ?
+                  <div className="empty-page catalog__empty">
+                    <img className="empty-page__img" src={emptyIcon} alt="иконка"
+                      width="100" height="100" />
+                    <div className="empty-page__text">Нет актуальных товаров</div>
+                  </div>
+                  :
+                  <div className="catalog__cards">
+                    {
+                      favorites.map(product => (
+                        <FavoriteCard setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} key={product.id} {...product} />
+                      ))}
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      {
+        visibleCatalogCardPopup !== null &&
+        <div className="overlay active">
+          <CatalogCardPopup products={favorites} onCloseCatalogCardPopup={closeCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onAddCart={handleAddProductToCart} visibleCatalogCardPopup={visibleCatalogCardPopup} />
+        </div>
+      }
+    </>
+  );
 }
 
 export default Favorite;

@@ -4,6 +4,6 @@ export const addFavoriteProduct = (productObj) => ({
 });
 
 export const removeFavoriteProduct = (id) => ({
-  type: 'ADD_FAVORITE_PRODUCT',
+  type: 'REMOVE_FAVORITE_PRODUCT',
   payload: id
 });

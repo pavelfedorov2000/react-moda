@@ -1,6 +1,7 @@
 export { default as Button } from './Button';
 export { default as BurgerMenu } from './BurgerMenu';
 export { default as Header } from './Header';
+export { default as Logo } from './Logo';
 export { default as Call } from './Call';
 export { default as HeaderRegion } from './HeaderRegion';
 export { default as ShopsSearch } from './ShopsSearch';
@@ -59,6 +60,7 @@ export { default as SubscribeCheck } from './SubscribeCheck';
 
 export { default as OrderSuccessTable } from './OrderSuccessTable';
 export { default as OrderProduct } from './OrderProduct';
+export { default as OrderTableItem } from './OrderTableItem';
 
 export { default as DropBasket } from './DropBasket';
 export { default as Auth } from './Auth';

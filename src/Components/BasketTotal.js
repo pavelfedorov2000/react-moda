@@ -8,7 +8,7 @@ function BasketTotal({ totalPrice, totalDiscount, handleOrderSubmit, orderData }
   const loyaltyPercent = 3; // Программа лояльности
   const loyaltyDiscount = totalPrice * loyaltyPercent / 100;
   const overallSum = totalPrice - totalDiscount - loyaltyDiscount; // Итого
-  console.log(totalPrice, totalDiscount);
+  //console.log(totalPrice, totalDiscount);
 
   return (
     <div className="basket-total">

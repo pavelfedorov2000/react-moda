@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React, { useState } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import { Header, Footer, Auth, DropBasket, Social, BurgerMenu } from './Components';
-import { Home, CatalogHome, Catalog, Cart, ProductCard, Favorite, Brands, NotFound, OrderSuccess, Profile, Blog, BlogDetail, News, NewsDetail } from './Pages';
+import { Home, CatalogHome, Catalog, Cart, ProductCard, Favorite, Brands, NotFound, OrderSuccess, Profile, Blog, BlogDetail, News, NewsDetail, OrderDetail } from './Pages';
 import axios from 'axios';
 import women from './assets/images/content/catalog-home/01.jpg';
 import children from './assets/images/content/catalog-home/02.jpg';

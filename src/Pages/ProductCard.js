@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { ProductDetails, ProductLinks, ProductCardContent, SliderSection } from '../Components';
+import { ProductDetails, ProductLinks, ProductCardContent, SliderSection, CatalogCardPopup } from '../Components';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { removeFavoriteProduct } from '../redux/actions/favorite';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
 import { Fancybox as NativeFancybox } from "@fancyapps/ui/dist/fancybox.esm.js";
@@ -25,10 +25,19 @@ function ProductCard() {
     });
   }, []); // [] = componentDidMout */
 
-  //console.log(news);
+  const favoriteProducts = useSelector(({ favorite }) => favorite.products); // вытаскиваем товары из стора
 
-  const activeProduct = products.filter(product => product.id == id)[0];
-  console.log(activeProduct);
+  let activeProduct = products.filter(product => product.id == id)[0];
+
+  if (activeProduct && favoriteProducts.length > 0) {
+    const thisFavorite = favoriteProducts.find(product => product.id == activeProduct.id);
+    if (thisFavorite) {
+      activeProduct = {
+        ...activeProduct,
+        isFavorite: true
+      }
+    }
+  }
 
   const [favorite, setFavorite] = useState(false);
 
@@ -81,6 +90,12 @@ function ProductCard() {
     setActiveTab(i);
   }
 
+  const [visibleCatalogCardPopup, setVisibleCatalogCardPopup] = useState(null);
+
+  const closeCatalogCardPopup = () => {
+    setVisibleCatalogCardPopup(null);
+  }
+
   const crumbs = ['Главная', 'Женщинам', 'Одежда', 'Верхняя одежда'];
   const [home, ...rest] = crumbs;
 
@@ -99,7 +114,7 @@ function ProductCard() {
               </ol>
             </nav>
             <div className="product-card__inner">
-              <ProductCardContent onAddCart={handleAddProductToCart} {...activeProduct} favorite={favorite} />
+              <ProductCardContent onAddCart={handleAddProductToCart} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} {...activeProduct} favorite={favorite} setFavorite={setFavorite} />
               <Splide className="product-card__slider" hasTrack={false} options={{
                 type: 'loop',
                 speed: 1000,
@@ -145,7 +160,7 @@ function ProductCard() {
                 </SplideTrack>
               </Splide>
               <div className="product-card__links">
-                <ProductLinks />
+                <ProductLinks {...activeProduct} />
               </div>
               <div className="product-card__info">
                 <div className="product-card__tabs-wrap">
@@ -191,9 +206,16 @@ function ProductCard() {
           </main>
           <aside className="product-card__page">
             {['С этим товаром рекомендуем', 'Похожие товары'].map((section, i) => (
-              <SliderSection key={`aside-section_${i + 1}`} products={products} {...activeProduct} title={section} />
+              <section>
+                <SliderSection key={`aside-section_${i + 1}`} products={products} {...activeProduct} title={section} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} />
+              </section>
             ))}
           </aside>
+          {visibleCatalogCardPopup !== null &&
+            <div className="overlay active">
+              <CatalogCardPopup products={products} onCloseCatalogCardPopup={closeCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onAddCart={handleAddProductToCart} visibleCatalogCardPopup={visibleCatalogCardPopup} />
+            </div>
+          }
         </div>
       }
     </>

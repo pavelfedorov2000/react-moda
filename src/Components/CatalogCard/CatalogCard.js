@@ -1,15 +1,12 @@
-import classnames from 'classnames';
+import classNames from 'classnames';
 //import PropTypes from 'prop-types';
 import React, { useCallback, useState } from 'react';
-import classNames from 'classnames';
 import heart from '../../assets/images/icons/heart.svg';
 import heartFilled from '../../assets/images/icons/heart-filled.svg';
+import { Link } from 'react-router-dom';
 //import Button from '../Button';
 
 function CatalogCard({ id, name, brand, imageUrl, price, color, sizes, discount, newProduct, onClickAddFavorite, onClickRemoveFavorite, setVisibleCatalogCardPopup }) {
-  /* if (isLoaded) {
-      return <PizzaLoader />;
-  } */
   const sizesList = [42, 44, 46, 48, 50, 52];
 
   const [favorite, setFavorite] = useState(false);
@@ -40,10 +37,10 @@ function CatalogCard({ id, name, brand, imageUrl, price, color, sizes, discount,
     <div className="catalog-card">
       <div className="labels">
         {discount != undefined &&
-          <span class="label catalog-card__label label--discount">{`${discount}%`}</span>
+          <span className="label catalog-card__label label--discount">{`${discount}%`}</span>
         }
         {newProduct && newProduct != undefined &&
-          <span class="label catalog-card__label label--new">new</span>
+          <span className="label catalog-card__label label--new">new</span>
         }
       </div>
       {favorite ?
@@ -55,7 +52,7 @@ function CatalogCard({ id, name, brand, imageUrl, price, color, sizes, discount,
         <div className="catalog-card__info">
           <div className="catalog-card__sizes">
             {sizes && sizesList.map(size => (
-              <a key={size} href="#" className={classnames('catalog-card__size', {
+              <a key={size} href="#" className={classNames('catalog-card__size', {
                 'catalog-card__size--disabled': !sizesList.includes(sizes[sizes.indexOf(size)])
               })}>{size}</a>
             ))}
@@ -63,7 +60,7 @@ function CatalogCard({ id, name, brand, imageUrl, price, color, sizes, discount,
           <button onClick={() => setVisibleCatalogCardPopup(id)} className="catalog-card__info-link popup-link" type="button">Быстрый просмотр</button>
         </div>
       </div>
-      <a className="catalog-card__title" href="#">{name}</a>
+      <Link to={`/product-card/${id}`} className="catalog-card__title">{name}</Link>
       <div className="catalog-card__subtitle">{brand}</div>
       <div className="prices">
         <div className={classNames('price', {

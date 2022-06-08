@@ -1,7 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { FormRow, FormAgree } from '../Components';
-import logo from '../assets/images/logo/logo.svg';
+import { FormRow, FormAgree, Logo } from '../Components';
 import mastercard from '../assets/images/logo/payment/mastercard.svg';
 import visa from '../assets/images/logo/payment/visa.png';
 import mir from '../assets/images/logo/payment/mir.png';
@@ -56,11 +55,7 @@ function Footer({ phone, socials }) {
     <footer className="footer">
       <div className="footer__top">
         <div className="container footer__inner footer__inner--top">
-          <div className="logo footer__logo">
-            <a className="logo__link" href="#">
-              <img className="logo__img footer__logo-img lazy" src={logo} alt="Логотип City Moda" width="167" height="25" />
-            </a>
-          </div>
+          <Logo className="footer" width="167" height="25" />
           <ul className="social footer__social">
             {socials.filter(soc => !soc.auth).map(soc => (
               <li key={soc.name} className="social__item">
@@ -103,7 +98,7 @@ function Footer({ phone, socials }) {
             <div className="footer__cols">
               {Object.keys(footerMenu).map((menu, i) => (
                 <div className="footer__col">
-                  <h6 className="footer__col-title">{menu}</h6>
+                  <div className="footer__col-title">{menu}</div>
                   <ul className="footer__list">
                     {footerMenu[menu].map((link, i) => (
                       <li key={`link-${i}`} className="footer__list-item">
@@ -111,7 +106,7 @@ function Footer({ phone, socials }) {
                       </li>
                     ))}
                   </ul>
-                  {i === Object.keys(footerMenu).length - 1 ? <h6 className="footer__col-title">Новости и акции</h6> : null}
+                  {i === Object.keys(footerMenu).length - 1 ? <div className="footer__col-title">Новости и акции</div> : null}
                 </div>
               ))}
             </div>
@@ -122,8 +117,8 @@ function Footer({ phone, socials }) {
         <div className="container footer__bottom-inner">
           <div className="footer__payment">
             <ul className="footer__payment-list">
-              {payment.map((pay, i) => (
-                <li key={`pay-${i}`} className="footer__payment-item">
+              {payment.map(pay => (
+                <li key={pay.name} className="footer__payment-item">
                   <img src={pay.name} alt={pay.name} width={pay.width} height={pay.height}
                     style={{ width: pay.width / 10 + 'rem', height: pay.height / 10 + 'rem' }} />
                 </li>

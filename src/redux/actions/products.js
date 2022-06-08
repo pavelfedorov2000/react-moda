@@ -10,14 +10,14 @@ export const setLoaded = payload => ({
 export const fetchProducts = (sortBy, sortPrices, sortColors, sortSizes, sortBrands, sortStyles) => (dispatch) => {
   dispatch(setLoaded(false));
   let sortColorsStr;
-  console.log(sortBrands);
+  //console.log(sortBrands);
   const sortFilters = [...sortColors, ...sortSizes, ...sortBrands, ...sortStyles];
-  console.log(sortFilters);
+  //console.log(sortFilters);
   if (sortColors.length > 0) {
     sortColorsStr = sortColors.map(color => `color=${color}`).join('&');
     //sortColorsStr = `q=${sortColors.join('')}`;
   }
-  console.log(sortColorsStr);
+  //console.log(sortColorsStr);
   axios.get(`/products?${sortColorsStr}&price_gte=${sortPrices[0]}&price_lte=${sortPrices[1]}&_sort=${sortBy.type}&_order=${sortBy.order}}`).then(({ data }) => {
     dispatch(setProducts(data));
   });

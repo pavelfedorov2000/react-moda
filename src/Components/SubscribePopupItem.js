@@ -4,7 +4,7 @@ import SubscribeCheck from './SubscribeCheck';
 
 function SubscribePopupItem({ subscribes, item, onClickChangeSubscribe, currentSubscribe }) {
 
-    console.log(item);
+    //console.log(item);
 
     const { id, title, items } = currentSubscribe;
 
@@ -27,7 +27,7 @@ function SubscribePopupItem({ subscribes, item, onClickChangeSubscribe, currentS
     }
 
     return (
-        <div key={item} class="sale-popup__form-item">
+      <div key={item} className="sale-popup__form-item">
             <SubscribeCheck onCheckSubscribeCheckbox={onCheckSubscribeCheckbox} checkedSubscribeCheckbox={checkedSubscribeCheckbox} subscribes={subscribes} item={item} onClickChangeSubscribe={onClickChangeSubscribe} {...currentSubscribe} obj={obj} name={item} />
             <SubscribePopupSelect checkedSubscribeSelect={checkedSubscribeSelect} onCheckSubscribeSelect={onCheckSubscribeSelect} onClickChangeSubscribe={onClickChangeSubscribe} subscribes={subscribes} item={item} {...currentSubscribe} obj={obj} />
         </div>

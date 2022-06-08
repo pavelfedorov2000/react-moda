@@ -46,29 +46,29 @@ function Price({ onChangePrices, onResetPrices, sortPrices }) {
     document.body.addEventListener('click', handleOutsideClick);
   }, []);
   return (
-    <fieldset ref={filterRef} class="catalog-filters__item">
-      <legend onClick={toggleFilter} class="catalog-filters__item-title">
+    <fieldset ref={filterRef} className="catalog-filters__item">
+      <legend onClick={toggleFilter} className="catalog-filters__item-title">
         <span>Цена:</span>
-        <span class="filter-output"></span>
-        <span class="filter-output"></span>
+        <span className="filter-output"></span>
+        <span className="filter-output"></span>
         <svg onClick={toggleFilter} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 4L7 7.6L10.75 4L12 5.2L7 10L2 5.2L3.25 4Z" fill="#101112" />
+          <path fillRule="evenodd" clipRule="evenodd" d="M3.25 4L7 7.6L10.75 4L12 5.2L7 10L2 5.2L3.25 4Z" fill="#101112" />
         </svg>
       </legend>
       {visibleFilter &&
-        <div class="catalog-filters__item-drop catalog-drop-filter">
-          <div class="catalog-drop-filter__inner catalog-drop-filter__price-range price-range">
-            <div class="price-range__item">
+        <div className="catalog-filters__item-drop catalog-drop-filter">
+          <div className="catalog-drop-filter__inner catalog-drop-filter__price-range price-range">
+            <div className="price-range__item">
               <span>От</span>
-              <input onChange={onChangeFromPrice} class="price-range__input" name="price_from" type="number" min={sortPrices[0]} placeholder={sortPrices[0]} value={fromPrice} />
+              <input onChange={onChangeFromPrice} className="price-range__input" name="price_from" type="number" min={sortPrices[0]} placeholder={sortPrices[0]} value={fromPrice} />
             </div>
-            <div class="price-range__item">
+            <div className="price-range__item">
               <span>До</span>
-              <input onChange={onChangeToPrice} class="price-range__input" name="price_to" type="number" max={sortPrices[1]} placeholder="100 000" value={toPrice} />
+              <input onChange={onChangeToPrice} className="price-range__input" name="price_to" type="number" max={sortPrices[1]} placeholder="100 000" value={toPrice} />
             </div>
           </div>
-          <div class="catalog-drop-filter__buttons">
-            <button onClick={handleResetPrices} class="btn catalog-drop-filter__btn btn--border" type="reset">
+          <div className="catalog-drop-filter__buttons">
+            <button onClick={handleResetPrices} className="btn catalog-drop-filter__btn btn--border" type="reset">
               Очистить все
               <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -76,7 +76,7 @@ function Price({ onChangePrices, onResetPrices, sortPrices }) {
                   fill="#479458" />
               </svg>
             </button>
-            <button onClick={onSubmitPrices} class="btn catalog-drop-filter__btn">Применить</button>
+            <button onClick={onSubmitPrices} className="btn catalog-drop-filter__btn">Применить</button>
           </div>
         </div>
       }

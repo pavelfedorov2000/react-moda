@@ -46,7 +46,7 @@ function Catalog() {
 
   const dispatch = useDispatch();
   const products = useSelector(({ products }) => products.products); // вытаскиваем товары из стора
-  console.log(products);
+  //console.log(products);
   const isLoaded = useSelector(({ products }) => products.isLoaded); // вытаскиваем состояние загрузки из стора
   const { sortBy, sortPrices, sortColors, sortSizes, sortBrands, sortStyles } = useSelector(({ filters }) => filters); // вытаскиваем сортировку по из стора сразу через деструктуризацию
   //const { sortPrices } = useSelector(({ filters }) => filters); // вытаскиваем диапазон цен сразу через деструктуризацию
@@ -54,7 +54,7 @@ function Catalog() {
   //const cartItems = useSelector(({ cart }) => cart.items); // вытаскиваем пиццы из стора
   //const filterTitles = ['Сортировать', 'Материал', 'Цвет', 'Размер', 'Цена', 'Бренд', 'Стиль', 'Узор'];
   //const [products, setProducts] = useState([]);
-  console.log(sortColors);
+  //console.log(sortColors);
 
   // Экшн на добавление в избранное
   const handleAddProductToFavorite = obj => {
@@ -79,7 +79,7 @@ function Catalog() {
 
   React.useEffect(() => {
     dispatch(fetchProducts(sortBy, sortPrices, sortColors, sortSizes, sortBrands, sortStyles)); // вернет функцию
-    console.log(products);
+    //console.log(products);
   }, [sortBy, sortPrices, sortColors]); // [] = componentDidMout
 
 
@@ -88,7 +88,7 @@ function Catalog() {
   }, []);
 
   const onSelectSortPrices = React.useCallback((from, to) => {
-    console.log(from, to);
+    //console.log(from, to);
     dispatch(setSortPrices(from, to)); // экшн выбор диапазона цен
   }, []);
 
@@ -147,7 +147,7 @@ function Catalog() {
             <ol className="breadcrumbs__list">
               <li className="breadcrumbs__item"><Link to="/">{home}</Link></li>
               {rest.map((crumb, i) => (
-                i === rest.length - 1 ? <li className="breadcrumbs__item"><span>{crumb}</span></li> : <li className="breadcrumbs__item"><Link to="/catalog">{crumb}</Link></li>
+                <li className="breadcrumbs__item">{i === rest.length - 1 ? <span>{crumb}</span> : <Link to="/catalog">{crumb}</Link>}</li>
               ))}
             </ol>
           </nav>
@@ -178,13 +178,12 @@ function Catalog() {
       </main>
       {visibleCatalogCardPopup !== null &&
         <div className="overlay active">
-          <CatalogCardPopup products={products} onCloseCatalogCardPopup={closeCatalogCardPopup} visibleCatalogCardPopup={visibleCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onAddCart={handleAddProductToCart} />
+          <CatalogCardPopup products={products} onCloseCatalogCardPopup={closeCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onAddCart={handleAddProductToCart} visibleCatalogCardPopup={visibleCatalogCardPopup} />
         </div>
       }
     </>
   );
 }
-
 //<Pagination />
 
 export default Catalog;

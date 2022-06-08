@@ -6,7 +6,7 @@ function OrderProduct({ articul, name, brand, size, imageUrl, color, totalCount 
       <div className="order-product__img">
         <img src={imageUrl} alt={`${name} ${brand}`} />
       </div>
-      <h6 className="product-title order-product__title">{name} {brand}</h6>
+      <div className="product-title order-product__title">{name} {brand}</div>
       <dl className="product-list order-product__list">
         <div>
           <dt>Артикул:</dt>
