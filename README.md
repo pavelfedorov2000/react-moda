@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# О проекте
+Интернет-магазин City-moda
+Наш коммерческий проект, мною делалась только верстка с нуля. В дальнейшем программистами фронт делался на Vue, бэк на Битриксе.
+То есть по факту перед стартом моей разработки на React верстка уже была готова. Мною осуществлялся перенос верстки в среду react и создание из нее реактовской логики.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Стек технологий:
+- node 16.14.0
+- Create React App
+- React 17.0.2 (проект начинался до выхода нового React 18)
+- React Router DOM 5.2.0
+- React Hooks (useState, useEffect, useDispatch, useSelector, useCallback)
+- Redux 7.2.6
+- Redux thunk для асинхронных экшенов
+- json-server в качестве фейковой БД (локально файлик лежит в public/db.json)
+- axios для запросов на фейковую базу
+- плагин react-content-loader (для имитации загрузки контента пока не пришел ответ с сервера и данные не прогрузились на странице)
+- classnames (для удобства работы с классами в разметке)
+- wil-react-sticky (для липкой боковой колонки в оформлении заказа)
+- fancybox
+- react-splide для слайдеров
+- scss для стилей
 
-## Available Scripts
 
-In the project directory, you can run:
+# Команды в консоли:
+npm run server - запуск json-server на 3001 порте
+npm start - запуск приложения на 3000 порте
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Файловая структура:
+исходники в src:
+- папка assets (изображения)
+- папка Components (переиспользуемые react-компоненты)
+- папка Pages(сами страницы)
+- папка redux с конфигурацией хранилища и папками actions и reducers
+- папка стилей scss
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+# Что реализовано:
+В целом основная логика интернет-магазина:
+- страница каталога + переключение вида вида вывода карточек + фильтрация (сортировка с радиокнопками, фильтрация с чекбоксами, диапазон цены с инпутами). Сама фильтрация происходит на json-сервере, который возвращает отфильрованные товары
+- добавление в избранное / удаление из избранного (хранение в redux)
+- добавление в корзину / удаление из корзины (хранение в redux) P.S. Корзина есть как выезжающая сбоку, так и отдельная страница вместе с оформлением заказа
+- оформление заказа + табличка с успешно оформленным заказом (хранение в redux)
+- переход с карточки каталога в карточку товара (переход через роутинг)
+- открытие каталожной карточки в попапе для быстрого просмотра, откуда можно совершить целевые действия или перейти на страницу (карточку) товара
+- блог + блог текстовая, новости + новости детальная (переход через роутинг)
+- Профиль:
+    - история заказов (хранение в redux)
+    - скидки (просто визуал), логика в моем понимании завязана на бэке
+    - подписки: по умолчанию подписки хранятся в фейковой базе, сохраняются в redux, раскидываются по компонентам. Затем их можно изменять в попапе, изменения также сохраняются в redux, и компоненты подписок реагируют на эти изменения
+    - персональные данные (просто визуал, без логики)
+- страница алфавита брендов с фильтрацией по бренду
+- страница 404
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+_________________________________________________________________________________________________
 
-### `npm run build`
+# Что в идеале было бы еще реализовать:
+- более грамотный роутинг (+ хлебные крошки) - сейчас он есть, но не везде корректно работает (но в целом проект сложный, с серьезной структурой каталога, поэтому как-то так пока)
+- возможно как-то оптимизировать фильтры в каталоге (слишком много пропсов при прокидывании)
+- сохранение в local storage чтобы при перезагрузке страницы некоторые данные не слетали
+- типизация (нужно учить typescript)
+- взаимодействия с какой-то БД (firebase например) вместо json-servera
+- пагинацию для страниц каталога и блога (для большего количества карточек и статей)
+- профиль (авторизации) - это надо видимо копать в сторону JWT-токена (что есть на слуху)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Резюме
+Самое главное - сроки - оценить сложно. Растянулось все примерно на 2 месяца (при том что верстка была готова). Проект делался иногда в рабочее время, когда не было задач, иногда в нерабочее, но в целом достаточно регулярно.
+В целом считаю что основную суть функционала интернет-магазина я сумел передать и реализовать. По качеству кода не могу сказать, в идеале получить бы какую-то обратную связь.
+Считаю что уже могу закрывать определенную немалую часть задач на react (верстка + логика). Также при наличии опытного ментора (middle/senior) и полноценного код-ревью, при работе на реальных проектах мог бы быстро вырасти.
