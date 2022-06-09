@@ -32,3 +32,19 @@ export const setSortStyles = (arr) => ({
 export const resetSortPrices = () => ({
   type: 'RESET_SORT_PRICES',
 });
+
+export const resetSortColors = () => ({
+  type: 'RESET_SORT_COLORS',
+});
+
+export const resetSortBrands = () => ({
+  type: 'RESET_SORT_BRANDS',
+});
+
+export const resetSortStyles = () => ({
+  type: 'RESET_SORT_STYLES',
+});
+
+export const resetSortSizes = () => ({
+  type: 'RESET_SORT_STYLES',
+});

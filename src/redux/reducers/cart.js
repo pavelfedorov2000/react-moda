@@ -37,9 +37,9 @@ const cart = (state = initialState, action) => {
     }
     case 'CLEAR_CART': return {
       ...state,
-      //items: {},
-      //totalPrice: 0,
-      //totalCount: 0,
+      items: {},
+      totalPrice: 0,
+      totalCount: 0,
     }
 
     case 'REMOVE_CART_ITEM': {

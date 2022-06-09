@@ -19,8 +19,8 @@ function ProductDetailsSection({ section }) {
         </button>
       </div>
       <dl className="product-details__list">
-        {visibleSection && Object.entries(section[1]).map(item => (
-          <div className="product-details__list-item">
+        {visibleSection && Object.entries(section[1]).map((item, i) => (
+          <div key={`list-item_${i + 1}`} className="product-details__list-item">
             <dt>{item[0]}</dt>
             <dd>{item[1]}</dd>
           </div>

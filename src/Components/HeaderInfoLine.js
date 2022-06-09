@@ -6,8 +6,8 @@ function HeaderInfoLine() {
     <div className="header-info-line">
       {[1, 2, 3].map(line => (
         <div key={line} className="header-info-line__inner">
-          {marquee.map((item, i) => (
-            <p>{item}</p>
+          {marquee.map((item, j) => (
+            <p key={`p_${j + 1}`}>{item}</p>
           ))}
         </div>
       ))}

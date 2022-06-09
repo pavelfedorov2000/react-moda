@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import classnames from 'classnames';
 import checkIcon from '../../assets/images/icons/check.svg';
 
-function Color({ onCheckChange, onSelectSortColors, sortColors }) {
+function Color({ onCheckChange, onSelectSortColors, sortColors, onResetSortColors }) {
 
   const [checkedColors, setCheckedColors] = useState(sortColors);
   //console.log(checkedColors);
@@ -59,6 +59,11 @@ function Color({ onCheckChange, onSelectSortColors, sortColors }) {
     setVisibleFilter(!visibleFilter);
   }
 
+  const handleResetSortColor = () => {
+    setCheckedColors([]);
+    onResetSortColors();
+  }
+
   const filterRef = useRef();
 
   const handleOutsideClick = (event) => {
@@ -106,7 +111,7 @@ function Color({ onCheckChange, onSelectSortColors, sortColors }) {
             </div>
           </div>
           <div className="catalog-drop-filter__buttons">
-            <button className="btn catalog-drop-filter__btn btn--border" type="reset">
+            <button onClick={handleResetSortColor} className="btn catalog-drop-filter__btn btn--border" type="reset">
               <span>Очистить все</span>
               <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

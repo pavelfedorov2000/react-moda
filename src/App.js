@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React, { useState } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import { Header, Footer, Auth, DropBasket, Social, BurgerMenu } from './Components';
-import { Home, CatalogHome, Catalog, Cart, ProductCard, Favorite, Brands, NotFound, OrderSuccess, Profile, Blog, BlogDetail, News, NewsDetail, OrderDetail } from './Pages';
+import { Home, CatalogHome, Catalog, Cart, ProductCard, Favorite, Brands, NotFound, OrderSuccess, Profile, Blog, BlogDetail, News, NewsDetail } from './Pages';
 import axios from 'axios';
 import women from './assets/images/content/catalog-home/01.jpg';
 import children from './assets/images/content/catalog-home/02.jpg';
@@ -11,6 +11,8 @@ import men from './assets/images/content/catalog-home/03.jpg';
 function App() {
 
   const phone = '8 800 250 30 05';
+
+  const [basketProduct, setBasketProduct] = useState(false);
 
   const [visibleAsideBasket, setVisibleAsideBasket] = useState(false);
   // Открытие / закрытие боковой корзины
@@ -119,16 +121,10 @@ function App() {
     setActiveNews(i);
   } */
 
-  /* function generateCrumbs(crumbs, crumb, i) {
-    switch (i) {
-      case 0:
-        return <li className="breadcrumbs__item"><Link to="/" exact>{crumb}</Link></li>
-      case crumbs.length - 1:
-        return <li className="breadcrumbs__item"><span>{crumb}</span></li>
-      default:
-        return <li className="breadcrumbs__item"><a href="#">{crumb}</a></li>
-    }
-  } */
+  function generateCrumbs(crumb, i) {
+    return <li className="breadcrumbs__item">{i === 0 ? <Link to="/">{crumb}</Link> : <span>{crumb}</span>}</li>
+  }
+
   return (
     <div className={classNames('wrapper', {
       '_lock': visibleBurgerMenu
@@ -136,17 +132,17 @@ function App() {
       <Header onOpenBurgerMenu={openBurgerMenu} categories={categories} activeCategory={activeCategory} onChangeCategory={onChangeCategory} onAsideBasketOpener={openAsideBasket} onAsideAuthOpener={openAsideAuth} phone={phone} dropMenuCategories={dropMenuCategories} links={links} />
       <BurgerMenu visibleBurgerMenu={visibleBurgerMenu} onCloseBurgerMenu={closeBurgerMenu} categories={categories} activeCategory={activeCategory} onChangeCategory={onChangeCategory} phone={phone} dropMenuCategories={dropMenuCategories} links={links} />
       <Switch>
-        <Route path="/" component={Catalog} exact />
-        <Route path="/favorite" component={Favorite} />
+        <Route path="/" exact render={() => <Catalog basketProduct={basketProduct} setBasketProduct={setBasketProduct} />} />
+        <Route path="/favorite" render={() => <Favorite generateCrumbs={generateCrumbs} basketProduct={basketProduct} setBasketProduct={setBasketProduct} />} />
         <Route path="/cart" component={Cart} />
         <Route path="/order-success" render={() => <OrderSuccess />} />
-        <Route path="/product-card/:id" render={() => <ProductCard />} />
+        <Route path="/product-card/:id" render={() => <ProductCard basketProduct={basketProduct} setBasketProduct={setBasketProduct} />} />
         <Route path="/brands" component={Brands} />
         <Route path="/not-found" component={NotFound} />
         <Route path="/profile" component={Profile} />
-        <Route path="/blog" render={() => <Blog blog={blog} />} />
+        <Route path="/:category/blog" render={() => <Blog blog={blog} generateCrumbs={generateCrumbs} />} />
         <Route path="/blog-detail/:id" render={() => <BlogDetail />} />
-        <Route path="/news" render={() => <News news={news} />} />
+        <Route path="/:category/news" render={() => <News news={news} generateCrumbs={generateCrumbs} />} />
         <Route path="/news-detail/:id" render={() => <NewsDetail />} />
       </Switch>
       <Footer socials={Social} phone={phone} />
@@ -154,7 +150,7 @@ function App() {
         'active': visibleAsideBasket || visibleAsideAuth
       })}>
         <Auth onCloseAsideAuth={closeAsideAuth} visibleAsideAuth={visibleAsideAuth} socials={Social} />
-        <DropBasket onCloseAsideBasket={closeAsideBasket} visibleAsideBasket={visibleAsideBasket} />
+        <DropBasket onCloseAsideBasket={closeAsideBasket} visibleAsideBasket={visibleAsideBasket} setBasketProduct={setBasketProduct} />
       </div>
     </div>
   );

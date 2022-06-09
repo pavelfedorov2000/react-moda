@@ -16,7 +16,7 @@ function Pagination() {
                 </svg>
             </a>
             <ol className="pagination__list">
-                {arr.map((page, i) => (
+                {arr.map(page => (
                     <li key={`page-${page}`} className="pagination__item"><a href="#" className="pagination__link active">{page}</a></li>
                 ))}
             </ol>

@@ -37,7 +37,7 @@ function ProductColors() {
         <div className="product-card-form__title product-color__title">Цвет:</div>
         <div className="product-color__items">
           {productColors.map((color, i) => (
-            <ProductColor {...color} index={i} />
+            <ProductColor key={color.hex} {...color} index={i} />
           ))}
         </div>
       </div>

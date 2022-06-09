@@ -66,8 +66,8 @@ function Register() {
   return (
     <form action="#" className="aside-popup__form">
       <div className="aside-popup__form-inputs">
-        {inputs.map((input, i) => (
-          <input onChange={onInputChange} key={input.name} className="input aside-popup__form-input" name={input.name} placeholder={`${input.placeholder}*`} />
+        {inputs.map(input => (
+          <input key={input.name} onChange={onInputChange} className="input aside-popup__form-input" name={input.name} placeholder={`${input.placeholder}*`} />
         ))}
         {passwordFields.map((field, i) => (
           <PasswordInput key={`password-field_${i + 1}`} field={field} />

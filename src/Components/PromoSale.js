@@ -25,7 +25,7 @@ function PromoSale() {
           <SliderArrows className="promo-sale__slider-arrows" />
           <SplideTrack>
             {promoSale.length > 0 && Array(3).fill(promoSale[0]).map(slide => (
-              <SplideSlide className="promo-sale__slider-item">
+              <SplideSlide key={slide.id} className="promo-sale__slider-item">
                 <article className="sale-item">
                   <a href="#" className="sale-item__img">
                     <img src={slide.imageUrl} alt="фото" width="336" height="250" />
@@ -39,7 +39,7 @@ function PromoSale() {
           </SplideTrack>
         </Splide>
         {promoSale.length > 0 && promoSale.map((item, i) => (
-          i !== 0 && <SaleItem className="promo-sale__item" src={item.imageUrl} title={item.title} subtitle={item.subtitle} saleText={item.saleText} />
+          i !== 0 && <SaleItem key={item.id} className="promo-sale__item" src={item.imageUrl} title={item.title} subtitle={item.subtitle} saleText={item.saleText} />
         ))}
       </div>
     </section>

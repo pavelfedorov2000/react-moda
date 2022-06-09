@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React, { useState } from 'react';
 import { Sort, Material, Size, Color, Brand, Price, Style, Decor } from './CatalogFilters/index';
 
-function CatalogFilters({ onClickSort, activeSortBy, sortFilters, sortPrices, onChangePrices, onResetPrices, onSelectSortColors, onSelectSortSizes, onSelectSortBrands, onSelectSortStyles, sortColors, sortSizes, sortBrands, sortStyles, visibleFilters, onCloseFilters }) {
+function CatalogFilters({ onClickSort, activeSortBy, sortFilters, sortPrices, onChangePrices, onResetPrices, onSelectSortColors, onSelectSortSizes, onSelectSortBrands, onSelectSortStyles, sortColors, sortSizes, sortBrands, sortStyles, visibleFilters, onCloseFilters, onResetSortColors, onResetSortBrands, onResetSortStyles, onResetSortSizes }) {
 
   /* const toggleCheckbox = () => {
     setChecked(!checked);
@@ -52,11 +52,11 @@ function CatalogFilters({ onClickSort, activeSortBy, sortFilters, sortPrices, on
       </div>
       <div className="catalog-filters__row">
         <Sort sortFilters={sortFilters} activeSortBy={activeSortBy} onClickSort={onClickSort} />
-        <Color onCheckChange={onCheckChange} onSelectSortColors={onSelectSortColors} sortColors={sortColors} />
-        <Size onCheckChange={onCheckChange} onSelectSortSizes={onSelectSortSizes} sortSizes={sortSizes} />
+        <Color onCheckChange={onCheckChange} onSelectSortColors={onSelectSortColors} sortColors={sortColors} onResetSortColors={onResetSortColors} />
+        <Size onCheckChange={onCheckChange} onSelectSortSizes={onSelectSortSizes} sortSizes={sortSizes} onResetSortSizes={onResetSortSizes} />
         <Price sortPrices={sortPrices} onChangePrices={onChangePrices} onResetPrices={onResetPrices} />
-        <Brand onCheckChange={onCheckChange} onSelectSortBrands={onSelectSortBrands} sortBrands={sortBrands} />
-        <Style onCheckChange={onCheckChange} onSelectSortStyles={onSelectSortStyles} sortStyles={sortStyles} />
+        <Brand onCheckChange={onCheckChange} onSelectSortBrands={onSelectSortBrands} sortBrands={sortBrands} onResetSortBrands={onResetSortBrands} />
+        <Style onCheckChange={onCheckChange} onSelectSortStyles={onSelectSortStyles} sortStyles={sortStyles} onResetSortStyles={onResetSortStyles} />
       </div>
       <button className="catalog-filters__reset-btn" type="reset">
         <span>Очистить все</span>

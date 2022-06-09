@@ -3,24 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { BasketTable, BasketTotal, Checkout } from '../Components';
 import { Link } from 'react-router-dom';
 import Sticky from "wil-react-sticky";
+import { clearCart } from '../redux/actions/cart';
 //import { clearCart, removeCartItem, minusPizza, plusPizza } from '../redux/actions/cart';
 //import cartEmptyImage from '../assets/img/empty-cart.png';
 
 
 function Cart() {
-  const crumbs = ['Главная', 'Женщинам', 'Одежда', 'Верхняя одежда', 'Пальто', 'Пальто LORIATA Wander Yellow', 'Ваша корзина'];
-
-  function generateCrumbs(crumbs, crumb, i) {
-    switch (i) {
-      case 0: {
-        return <li className="breadcrumbs__item"><Link to="/">{crumb}</Link></li>
-      }
-      case (crumbs.length - 1): {
-        return <li className="breadcrumbs__item"><span>{crumb}</span></li>
-      }
-      default: return <li className="breadcrumbs__item"><a href="#">{crumb}</a></li>
-    }
-  }
+  const crumbs = ['Главная', 'Ваша корзина'];
 
   const dispatch = useDispatch();
   const { totalPrice, totalDiscount, totalCount, items } = useSelector(({ cart }) => cart); // вытаскиваем общую цену, скидку и кол-во, а также товары из стора сразу через деструктуризацию
@@ -37,16 +26,23 @@ function Cart() {
 
   const deliveryOptions = ['Курьер', 'Доставка в пункты выдачи заказов и постаматы'];
 
+  // Объект который пойдет в store через action
   let orderData = {
     date: new Date().toLocaleString().split(',')[0],
-    //personal: personalData,
     delivery: deliveryOptions[selectedDelivery],
     payment: Object.keys(payment)[selectedPayment],
-    items: items
+    items: items,
+    totalPrice
   };
 
-  console.log(orderData);
+  //console.log(orderData);
 
+  // Очистка корзины после подтверждения заказа
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  }
+
+  // Экшн на подтверждение заказа
   const handleOrderSubmit = obj => {
     dispatch({
       type: 'SET_ORDER_DATA',
@@ -59,7 +55,9 @@ function Cart() {
       <div className="container">
         <nav className="breadcrumbs" aria-label="breadcrumbs">
           <ol className="breadcrumbs__list">
-            {crumbs.map((crumb, i) => generateCrumbs(crumbs, crumb, i))}
+            {crumbs.map((crumb, i) => (
+              <li key={`crumb_${i + 1}`} className="breadcrumbs__item">{i === 0 ? <Link to="/">{crumb}</Link> : <span>{crumb}</span>}</li>
+            ))}
           </ol>
         </nav>
 
@@ -69,7 +67,7 @@ function Cart() {
           <div className="basket-page__body">
             <BasketTable totalPrice={totalPrice} totalCount={totalCount} items={items} dispatch={dispatch} />
             <Sticky containerSelectorFocus=".basket-page__body" offsetTop={20} stickyEnableRange={[1025, Infinity]}>
-              <BasketTotal totalPrice={totalPrice} totalDiscount={totalDiscount} handleOrderSubmit={handleOrderSubmit} orderData={orderData} personalData={personalData} />
+              <BasketTotal totalPrice={totalPrice} totalDiscount={totalDiscount} handleOrderSubmit={handleOrderSubmit} orderData={orderData} personalData={personalData} onClearCart={handleClearCart} />
             </Sticky>
             <Checkout orderData={orderData} personalData={personalData} payment={payment} deliveryOptions={deliveryOptions} selectedDelivery={selectedDelivery} setSelectedDelivery={setSelectedDelivery} selectedPayment={selectedPayment} setSelectedPayment={setSelectedPayment} />
           </div>

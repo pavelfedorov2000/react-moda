@@ -33,7 +33,7 @@ function SubscribePopup({ onCloseSubscribePopup, subscribes, currentSubscribe, o
       <form action="#" className="sale-popup__form">
         <div className="sale-popup__form-items">
           {saleItems.map(item => (
-            <SubscribePopupItem onClickChangeSubscribe={onClickChangeSubscribe} subscribes={subscribes} item={item} currentSubscribe={currentSubscribe} />
+            <SubscribePopupItem key={item} onClickChangeSubscribe={onClickChangeSubscribe} subscribes={subscribes} item={item} currentSubscribe={currentSubscribe} />
           ))}
         </div>
         <button className="btn sale-popup__form-btn" type="submit">Подписаться</button>

@@ -24,7 +24,7 @@ function IconsSlider() {
       }}>
         <SplideTrack>
           {categoriesIcons.map(item => (
-            <SplideSlide style={{ width: '12.8rem' }}>
+            <SplideSlide key={item.id} style={{ width: '12.8rem' }}>
               <a className="icons-slider__item" href="#">
                 <div className="icons-slider__item-img">
                   <img src={item.imageUrl} alt={item.title} />

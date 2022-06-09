@@ -23,42 +23,52 @@
   ],
   "iconsSlider": [
     {
+      "id": 0,
       "imageUrl": "https://i.ibb.co/DrdQ1V8/01.png",
       "title": "Пуховики"
     },
     {
+      "id": 1,
       "imageUrl": "https://i.ibb.co/rkGyf40/02.png",
       "title": "Джемперы"
     },
     {
+      "id": 2,
       "imageUrl": "https://i.ibb.co/VQ23Rwf/03.png",
       "title": "Платья"
     },
     {
+      "id": 3,
       "imageUrl": "https://i.ibb.co/bb1NRqV/04.png",
       "title": "Джинсы"
     },
     {
+      "id": 4,
       "imageUrl": "https://i.ibb.co/RNDpHF6/05.png",
       "title": "Худи"
     },
     {
+      "id": 5,
       "imageUrl": "https://i.ibb.co/KxgqBFD/06.png",
       "title": "Сумки"
     },
     {
+      "id": 6,
       "imageUrl": "https://i.ibb.co/RNwJNBn/07.png",
       "title": "Перчатки"
     },
     {
+      "id": 7,
       "imageUrl": "https://i.ibb.co/gwHfcMw/08.png",
       "title": "Головные уборы"
     },
     {
+      "id": 8,
       "imageUrl": "https://i.ibb.co/DrdQ1V8/01.png",
       "title": "Пуховики"
     },
     {
+      "id": 9,
       "imageUrl": "https://i.ibb.co/rkGyf40/02.png",
       "title": "Джемперы"
     }
@@ -319,7 +329,7 @@
       "id": 4,
       "imageUrl": "https://i.ibb.co/9NXCnsg/11.jpg",
       "name": "Юбка",
-      "brand": "Arch",
+      "brand": "Allura",
       "sizes": [42, 44, 50],
       "price": 19200,
       "style": "повседневный",
@@ -357,7 +367,7 @@
       "id": 5,
       "imageUrl": "https://i.ibb.co/MPZh1CD/12.jpg",
       "name": "Юбка",
-      "brand": "Arot",
+      "brand": "Minoti",
       "sizes": [46, 48, 50],
       "price": 18300,
       "style": "деловой",

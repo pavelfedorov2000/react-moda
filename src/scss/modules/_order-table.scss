@@ -215,9 +215,11 @@
 
   &__img {
     width: 7.5rem;
-    height: 100%;
     flex-shrink: 0;
-    object-fit: cover;
     margin: 0.6rem;
+
+    img {
+      @extend %cover;
+    }
   }
 }

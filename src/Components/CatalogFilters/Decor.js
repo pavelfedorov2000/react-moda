@@ -39,8 +39,8 @@ function Decor({ checkedFilters, onCheckChange, setCheckedFilters }) {
             <div className="catalog-drop-filter__body">
               <div className="catalog-drop-filter__title">Выберите узор</div>
               <div className="catalog-drop-filter__items">
-                {decor.map((decor, i) => (
-                  <label key={`decor-${i}`} className="catalog-drop-filter__item">
+                {decor.map(decor => (
+                  <label key={decor} className="catalog-drop-filter__item">
                     <input onChange={onCheckChange} className="check-box" type="checkbox" />
                     <span className="check-style">
                       <span style={{ backgroundImage: `url(${checkIcon})` }}></span>

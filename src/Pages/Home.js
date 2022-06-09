@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Collection, Brands, Actual, PromoSale, IconsSlider, SliderSection, Instagram, SeoText } from '../Components';
+import { Collection, Brands, Actual, PromoSale, IconsSlider, SliderSection, Instagram, SeoText, BlogItem } from '../Components';
 import { useParams } from 'react-router-dom';
 
 function Home({ blog }) {
@@ -14,7 +14,7 @@ function Home({ blog }) {
     axios.get('/products').then(({ data }) => {
       setProducts(data);
     });
-  }, []); // [] = componentDidMout */
+  }, []); // [] = componentDidMout
 
   const blogPreview = blog.slice(0, 3);
 
@@ -46,23 +46,7 @@ function Home({ blog }) {
           </div>
           <div className="blog-grid">
             {blogPreview.map(article => (
-              <article className="blog-item blog-grid__item">
-                <a href="#" className="blog-item__img">
-                  <img src={article.imageUrl} alt="фото блога" width="724" height="336" />
-                </a>
-                <div className="blog-item__content">
-                  <time className="date blog-item__date" dateTime={article.date.split('.').reverse().join('-')}>{article.date}</time>
-                  <a className="blog-item-title blog-item__title" href="#">{article.title}</a>
-                  <p className="blog-item-text blog-item__text">
-                    {article.text}
-                  </p>
-                  <div className="tags">
-                    {article.tags.map(tag => (
-                      <a href="#" className="tag blog-item__tag">{`#${tag}`}</a>
-                    ))}
-                  </div>
-                </div>
-              </article>
+              <BlogItem key={article.id} {...article} className="blog-grid__item" />
             ))}
           </div>
         </section>

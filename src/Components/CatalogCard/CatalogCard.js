@@ -52,9 +52,9 @@ function CatalogCard({ id, name, brand, imageUrl, price, color, sizes, discount,
         <div className="catalog-card__info">
           <div className="catalog-card__sizes">
             {sizes && sizesList.map(size => (
-              <a key={size} href="#" className={classNames('catalog-card__size', {
+              <span key={size} className={classNames('catalog-card__size', {
                 'catalog-card__size--disabled': !sizesList.includes(sizes[sizes.indexOf(size)])
-              })}>{size}</a>
+              })}>{size}</span>
             ))}
           </div>
           <button onClick={() => setVisibleCatalogCardPopup(id)} className="catalog-card__info-link popup-link" type="button">Быстрый просмотр</button>

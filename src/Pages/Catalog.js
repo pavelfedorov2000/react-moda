@@ -7,14 +7,14 @@ import filterIcon from '../assets/images/icons/filter.svg';
 //import axios from 'axios';
 //import CatalogCardUrl from '../assets/images/content/catalog/01.jpg';
 import classNames from 'classnames';
-import { setSortBy, setSortPrices, resetSortPrices, setSortColors, setSortSizes, setSortBrands, setSortStyles } from '../redux/actions/filters';
+import { setSortBy, setSortPrices, resetSortPrices, setSortColors, setSortSizes, setSortBrands, setSortStyles, resetSortColors, resetSortBrands, resetSortStyles, resetSortSizes } from '../redux/actions/filters';
 import { fetchProducts } from '../redux/actions/products';
 import { removeFavoriteProduct } from '../redux/actions/favorite';
 
 //import { addPizzaToCart } from '../redux/actions/cart';
 
 
-function Catalog() {
+function Catalog({ basketProduct, setBasketProduct}) {
 
   const sortFilters = [
     {
@@ -80,7 +80,7 @@ function Catalog() {
   React.useEffect(() => {
     dispatch(fetchProducts(sortBy, sortPrices, sortColors, sortSizes, sortBrands, sortStyles)); // вернет функцию
     //console.log(products);
-  }, [sortBy, sortPrices, sortColors]); // [] = componentDidMout
+  }, [sortBy, sortPrices, sortColors, sortBrands, sortStyles, sortSizes]); // [] = componentDidMout
 
 
   const onSelectSortType = React.useCallback((type) => {
@@ -110,6 +110,22 @@ function Catalog() {
 
   const onResetSortPrices = React.useCallback(() => {
     dispatch(resetSortPrices()); // экшн выбор диапазона цен
+  }, []);
+
+  const onResetSortColors = React.useCallback(() => {
+    dispatch(resetSortColors()); // экшн выбор диапазона цен
+  }, []);
+
+  const onResetSortBrands = React.useCallback(() => {
+    dispatch(resetSortBrands()); // экшн выбор диапазона цен
+  }, []);
+
+  const onResetSortStyles = React.useCallback(() => {
+    dispatch(resetSortStyles()); // экшн выбор диапазона цен
+  }, []);
+
+  const onResetSortSizes = React.useCallback(() => {
+    dispatch(resetSortSizes()); // экшн выбор диапазона цен
   }, []);
   //const dispatch = useDispatch();
 
@@ -147,7 +163,7 @@ function Catalog() {
             <ol className="breadcrumbs__list">
               <li className="breadcrumbs__item"><Link to="/">{home}</Link></li>
               {rest.map((crumb, i) => (
-                <li className="breadcrumbs__item">{i === rest.length - 1 ? <span>{crumb}</span> : <Link to="/catalog">{crumb}</Link>}</li>
+                <li key={`crumb_${i + 1}`} className="breadcrumbs__item">{i === rest.length - 1 ? <span>{crumb}</span> : <Link to="/catalog">{crumb}</Link>}</li>
               ))}
             </ol>
           </nav>
@@ -158,7 +174,7 @@ function Catalog() {
               <AsideFilters />
               <div className="catalog__body">
                 <div className="catalog__filters">
-                  <CatalogFilters visibleFilters={visibleFilters} onCloseFilters={onCloseFilters} activeSortBy={sortBy} sortPrices={sortPrices} sortFilters={sortFilters} sortColors={sortColors} sortSizes={sortSizes} sortBrands={sortBrands} sortStyles={sortStyles} onClickSort={onSelectSortType} onResetPrices={onResetSortPrices} onChangePrices={onSelectSortPrices} onSelectSortColors={onSelectSortColors} onSelectSortBrands={onSelectSortBrands} onSelectSortSizes={onSelectSortSizes} onSelectSortStyles={onSelectSortStyles} />
+                  <CatalogFilters visibleFilters={visibleFilters} onCloseFilters={onCloseFilters} activeSortBy={sortBy} sortPrices={sortPrices} sortFilters={sortFilters} sortColors={sortColors} sortSizes={sortSizes} sortBrands={sortBrands} sortStyles={sortStyles} onClickSort={onSelectSortType} onResetPrices={onResetSortPrices} onChangePrices={onSelectSortPrices} onSelectSortColors={onSelectSortColors} onSelectSortBrands={onSelectSortBrands} onSelectSortSizes={onSelectSortSizes} onSelectSortStyles={onSelectSortStyles} onResetSortColors={onResetSortColors} onResetSortBrands={onResetSortBrands} onResetSortStyles={onResetSortStyles} onResetSortSizes={onResetSortSizes} />
                   <CatalogView onViewChange={toggleCatalogView} views={views} catalogView={catalogView} />
                   <button onClick={onOpenFilters} className="filters-btn" type="button" style={{ backgroundImage: `url(${filterIcon})` }}>Фильтры</button>
                 </div>
@@ -166,7 +182,7 @@ function Catalog() {
                   'catalog__cards--two-cols': catalogView === 'col'
                 })}>
                   {isLoaded
-                    ? products.map(product => <CatalogCard setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} key={product.id} {...product} isLoaded={true} />)
+                    ? products.map(product => <CatalogCard key={product.id} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} {...product} isLoaded={true} />)
                     : Array(18).fill(0).map((_, index) => <Loader key={`loader-${index}`} />)
                   }
                 </div>
@@ -178,7 +194,7 @@ function Catalog() {
       </main>
       {visibleCatalogCardPopup !== null &&
         <div className="overlay active">
-          <CatalogCardPopup products={products} onCloseCatalogCardPopup={closeCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onAddCart={handleAddProductToCart} visibleCatalogCardPopup={visibleCatalogCardPopup} />
+          <CatalogCardPopup products={products} onCloseCatalogCardPopup={closeCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onAddCart={handleAddProductToCart} visibleCatalogCardPopup={visibleCatalogCardPopup} basketProduct={basketProduct} setBasketProduct={setBasketProduct} />
         </div>
       }
     </>

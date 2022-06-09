@@ -5,6 +5,18 @@ import { Link } from 'react-router-dom';
 function OrderSuccessTable({ totalPrice, date, personal, delivery, payment, className }) {
   //console.log(personal);
   const { name, surname, phone, email, city } = personal;
+
+  // Логика отрезания слова Оплата, если выбран пункт Оплата при получении (чтобы не было дубляжа с заголовком)
+  const payArr = payment.split(' ');
+  const payWord = payArr[0];
+  payArr.splice(0, 1);
+  const payStr = payArr.map((el, i) => i == 0 ? el.split('').map((letter, j) => j == 0 ? letter.toUpperCase() : letter).join('') : el).join(' ');
+
+  const deliveryArr = delivery.split(' ');
+  const deliveryWord = deliveryArr[0];
+  const deliverySpliced = deliveryArr.splice(1, 3);
+  const deliveryStr = deliverySpliced.map((el, i) => i == 0 ? el.split('').map((letter, j) => j == 0 ? letter.toUpperCase() : letter).join('') : el).join(' ');
+
   return (
     <div className={classNames('order-details-table', className)}>
       <div className="order-details-table__item">
@@ -21,11 +33,11 @@ function OrderSuccessTable({ totalPrice, date, personal, delivery, payment, clas
       </div>
       <div className="order-details-table__item">
         <div className="order-details-table__item-title">Доставка:</div>
-        <p>{delivery}</p>
+        <p>{deliveryWord === 'Доставка' ? deliveryStr : delivery}</p>
       </div>
       <div className="order-details-table__item">
         <div className="order-details-table__item-title">Оплата:</div>
-        <p>{payment}</p>
+        <p>{payWord === 'Оплата' ? payStr : payment}</p>
       </div>
       <div className="order-details-table__item">
         <div className="order-details-table__item-wrap">

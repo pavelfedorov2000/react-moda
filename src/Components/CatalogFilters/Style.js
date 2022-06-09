@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import checkIcon from '../../assets/images/icons/check.svg';
 
-function Style({ onCheckChange, onSelectSortStyles, sortStyles }) {
+function Style({ onCheckChange, onSelectSortStyles, sortStyles, onResetSortStyles }) {
 
 
   const [checkedStyles, setCheckedStyles] = useState(sortStyles);
@@ -14,6 +14,11 @@ function Style({ onCheckChange, onSelectSortStyles, sortStyles }) {
 
   const toggleFilter = () => {
     setVisibleFilter(!visibleFilter);
+  }
+
+  const handleResetSortStyles = () => {
+    setCheckedStyles([]);
+    onResetSortStyles();
   }
 
   const handleOutsideClick = (event) => {
@@ -43,7 +48,7 @@ function Style({ onCheckChange, onSelectSortStyles, sortStyles }) {
             <div className="catalog-drop-filter__title">Выберите стиль</div>
             <div className="catalog-drop-filter__items">
               {styles.map((style, i) => (
-                <label key={`style-${i}`} className="catalog-drop-filter__item">
+                <label key={style} className="catalog-drop-filter__item">
                   <input onChange={() => onCheckChange(styles, i, checkedStyles, setCheckedStyles)} className="check-box" type="checkbox" checked={checkedStyles.includes(style) ? true : false} />
                   <span class="check-style">
                     <span style={{ backgroundImage: `url(${checkIcon})` }}></span>
@@ -54,7 +59,7 @@ function Style({ onCheckChange, onSelectSortStyles, sortStyles }) {
             </div>
           </div>
           <div className="catalog-drop-filter__buttons">
-            <button className="btn catalog-drop-filter__btn btn--border" type="reset">
+            <button onClick={handleResetSortStyles} className="btn catalog-drop-filter__btn btn--border" type="reset">
               <span>Очистить все</span>
               <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

@@ -5,16 +5,14 @@ import delivery from '../assets/images/icons/delivery-issue.svg';
 import truck from '../assets/images/icons/truck.svg';
 
 
-function ProductCardContent({ setFavorite, onClickAddFavorite, onClickRemoveFavorite, onAddCart, id, articul, name, brand, logo, sizes, color, price, imageUrl, discount, newProduct, isFavorite, favorite }) {
+function ProductCardContent({ setFavorite, onClickAddFavorite, onClickRemoveFavorite, onAddCart, id, articul, name, brand, logo, sizes, color, price, imageUrl, discount, newProduct, isFavorite, favorite, basketProduct, setBasketProduct }) {
 
   const availableSizes = [42, 44, 46, 48, 50, 52];
 
-  const [checkedSize, setCheckedSize] = useState(null);
+  const [checkedSize, setCheckedSize] = useState(availableSizes[0]);
   const onCheckSize = (size) => {
     setCheckedSize(size);
   }
-
-  const [basketProduct, setBasketProduct] = useState(false);
 
   const onAddFavoriteProduct = () => {
     setFavorite(true);
@@ -46,9 +44,10 @@ function ProductCardContent({ setFavorite, onClickAddFavorite, onClickRemoveFavo
       imageUrl,
       price,
       color,
-      //size: checkedSize,
+      size: checkedSize,
       articul,
-      discount
+      discount,
+      inBasket: true,
     };
     onAddCart(obj);
   }

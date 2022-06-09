@@ -31,9 +31,9 @@ function FavoriteCard({ id, name, brand, sizes, price, imageUrl, discount, newPr
         <div className="catalog-card__info">
           <div className="catalog-card__sizes">
             {sizesList.map((size, i) => (
-              <a key={size} href="#" className={classnames('catalog-card__size', {
+              <span key={size} className={classnames('catalog-card__size', {
                 'catalog-card__size--disabled': sizes && !sizesList.includes(sizes[sizes.indexOf(size)])
-              })}>{size}</a>
+              })}>{size}</span>
             ))}
           </div>
           <button onClick={() => setVisibleCatalogCardPopup(id)} className="catalog-card__info-link popup-link" type="button">Быстрый просмотр</button>

@@ -1,12 +1,12 @@
 import React, { useRef, useEffect, useState } from 'react';
 import checkIcon from '../../assets/images/icons/check.svg';
 
-function Size({ onCheckChange, onSelectSortSizes, sortSizes }) {
+function Size({ onCheckChange, onSelectSortSizes, sortSizes, onResetSortSizes }) {
 
   const filterRef = useRef();
 
   const [checkedSizes, setCheckedSizes] = useState(sortSizes);
-  //console.log(checkedSizes);
+  console.log(checkedSizes);
 
   const sizes = [42, 44, 46, 48, 50, 52];
 
@@ -14,6 +14,11 @@ function Size({ onCheckChange, onSelectSortSizes, sortSizes }) {
 
   const toggleFilter = () => {
     setVisibleFilter(!visibleFilter);
+  }
+
+  const handleResetSortSizes = () => {
+    setCheckedSizes([]);
+    onResetSortSizes();
   }
 
   const handleOutsideClick = (event) => {
@@ -43,7 +48,7 @@ function Size({ onCheckChange, onSelectSortSizes, sortSizes }) {
             <div className="catalog-drop-filter__title">Ваш Российский размер</div>
             <div className="catalog-drop-filter__items">
               {sizes.map((size, i) => (
-                <label key={`size-${size}`} className="catalog-drop-filter__item">
+                <label key={size} className="catalog-drop-filter__item">
                   <input onChange={() => onCheckChange(sizes, i, checkedSizes, setCheckedSizes)} className="check-box" type="checkbox" checked={checkedSizes.includes(size) ? true : false} />
                   <span class="check-style">
                     <span style={{ backgroundImage: `url(${checkIcon})` }}></span>
@@ -54,7 +59,7 @@ function Size({ onCheckChange, onSelectSortSizes, sortSizes }) {
             </div>
           </div>
           <div className="catalog-drop-filter__buttons">
-            <button className="btn catalog-drop-filter__btn btn--border" type="reset">
+            <button onClick={handleResetSortSizes} className="btn catalog-drop-filter__btn btn--border" type="reset">
               <span>Очистить все</span>
               <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

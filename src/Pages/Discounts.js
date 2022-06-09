@@ -19,7 +19,7 @@ function Discounts() {
       <div className="discounts-progress">
         <ol className="discounts-progress__list">
           {discounts.map((discount, i) => (
-            <li style={{ backgroundImage: `url(${i < completedIndex + 1 ? check : lock})` }} className={classNames('discounts-progress__item', {
+            <li key={discount} style={{ backgroundImage: `url(${i < completedIndex + 1 ? check : lock})` }} className={classNames('discounts-progress__item', {
               'completed': i <= completedIndex
             })}>{`${discount}%`}</li>
           ))}

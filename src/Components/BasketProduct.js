@@ -1,7 +1,8 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-function BasketProduct({ id, articul, name, brand, size, price, imageUrl, color, discount, onRemoveItem, onPlusItem, onMinusItem, totalCount, totalPrice, totalDiscount }) {
+function BasketProduct({ id, articul, name, brand, size, sizes, price, imageUrl, color, discount, isFavorite, onRemoveItem, onPlusItem, onMinusItem, totalCount, totalPrice, totalDiscount, onClickRemoveFavorite, onClickAddFavorite }) {
 
   const handleRemoveCartItem = () => {
     onRemoveItem(id);
@@ -13,12 +14,36 @@ function BasketProduct({ id, articul, name, brand, size, price, imageUrl, color,
     onPlusItem(id);
   }
 
+  const [favorite, setFavorite] = useState(false);
+
+  let obj;
+  const onAddFavoriteProduct = () => {
+    setFavorite(true);
+    obj = {
+      id,
+      name,
+      brand,
+      imageUrl,
+      price,
+      color,
+      sizes,
+      discount,
+      isFavorite: true
+    };
+    onClickAddFavorite(obj);
+  }
+
+  const onRemoveFavoriteProduct = () => {
+    setFavorite(false);
+    onClickRemoveFavorite(id);
+  }
+
   return (
     <div className="basket-table__item basket-product">
-      <a href="#" className="basket-product__img">
+      <Link to={`/product-card/${id}`} className="basket-product__img">
         <img src={imageUrl} alt="фото" />
-      </a>
-      <a href="#" className="product-title basket-product__title">{name} {brand}</a>
+      </Link>
+      <Link to={`/product-card/${id}`} className="product-title basket-product__title">{name} {brand}</Link>
       <dl className="product-list basket-product__list">
         <div>
           <dt>Артикул:</dt>
@@ -44,14 +69,25 @@ function BasketProduct({ id, articul, name, brand, size, price, imageUrl, color,
           </svg>
           <span>Удалить</span>
         </button>
-        <button className="basket-product__btn basket-product__btn--favorite" type="button">
-          <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M4.8107 8.4963L4.81072 8.49625L4.80354 8.49379C4.08775 8.24832 3.12853 7.67452 2.35329 6.82545C1.58257 5.98132 1.02051 4.89635 1.02051 3.62091C1.02051 2.43666 1.97787 1.47925 3.14967 1.47925C3.72137 1.47925 4.25163 1.70161 4.64462 2.09796L4.99967 2.45605L5.35473 2.09796C5.74773 1.70161 6.27797 1.47925 6.84968 1.47925C8.02096 1.47925 8.97884 2.44032 8.97884 3.62091C8.97884 4.89855 8.41668 5.98347 7.64615 6.8269C6.87106 7.67533 5.91188 8.24823 5.19581 8.49379L5.1958 8.49373L5.18865 8.4963C5.15481 8.50849 5.09099 8.52092 4.99967 8.52092C4.90836 8.52092 4.84454 8.50849 4.8107 8.4963Z"
-              stroke="#101112" />
-          </svg>
-          <span>В избранное</span>
-        </button>
+        {favorite || isFavorite ?
+          <button onClick={onRemoveFavoriteProduct} className="basket-product__btn basket-product__btn--favorite" type="button">
+            <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M4.8107 8.4963L4.81072 8.49625L4.80354 8.49379C4.08775 8.24832 3.12853 7.67452 2.35329 6.82545C1.58257 5.98132 1.02051 4.89635 1.02051 3.62091C1.02051 2.43666 1.97787 1.47925 3.14967 1.47925C3.72137 1.47925 4.25163 1.70161 4.64462 2.09796L4.99967 2.45605L5.35473 2.09796C5.74773 1.70161 6.27797 1.47925 6.84968 1.47925C8.02096 1.47925 8.97884 2.44032 8.97884 3.62091C8.97884 4.89855 8.41668 5.98347 7.64615 6.8269C6.87106 7.67533 5.91188 8.24823 5.19581 8.49379L5.1958 8.49373L5.18865 8.4963C5.15481 8.50849 5.09099 8.52092 4.99967 8.52092C4.90836 8.52092 4.84454 8.50849 4.8107 8.4963Z"
+                stroke="#479458" />
+            </svg>
+            <span style={{ color: '#479458' }}>В избранном</span>
+          </button>
+          :
+          <button onClick={onAddFavoriteProduct} className="basket-product__btn basket-product__btn--favorite" type="button">
+            <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M4.8107 8.4963L4.81072 8.49625L4.80354 8.49379C4.08775 8.24832 3.12853 7.67452 2.35329 6.82545C1.58257 5.98132 1.02051 4.89635 1.02051 3.62091C1.02051 2.43666 1.97787 1.47925 3.14967 1.47925C3.72137 1.47925 4.25163 1.70161 4.64462 2.09796L4.99967 2.45605L5.35473 2.09796C5.74773 1.70161 6.27797 1.47925 6.84968 1.47925C8.02096 1.47925 8.97884 2.44032 8.97884 3.62091C8.97884 4.89855 8.41668 5.98347 7.64615 6.8269C6.87106 7.67533 5.91188 8.24823 5.19581 8.49379L5.1958 8.49373L5.18865 8.4963C5.15481 8.50849 5.09099 8.52092 4.99967 8.52092C4.90836 8.52092 4.84454 8.50849 4.8107 8.4963Z"
+                stroke="#101112" />
+            </svg>
+            <span>В избранное</span>
+          </button>
+        }
       </div>
       <div className="basket-product__counter counter">
         <button onClick={handleMinusCartItem} className="minus-btn counter__btn" type="button">

@@ -74,6 +74,6 @@ export { default as SliderSection } from './SliderSection';
 export { default as OtherNews } from './OtherNews';
 export { default as NewsDetail } from './NewsDetail';
 export { default as BlogItem } from './BlogItem';
-export { default as BlogTags } from './BlogTags';
+//export { default as BlogTags } from './BlogTags';
 export { default as BlogText } from './BlogText';
 export { default as AsideBlog } from './AsideBlog';

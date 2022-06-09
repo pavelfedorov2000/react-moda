@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
 
-function ProductCard() {
+function ProductCard({ basketProduct, setBasketProduct }) {
 
   const dispatch = useDispatch();
   let { id } = useParams();
@@ -26,8 +26,10 @@ function ProductCard() {
   }, []); // [] = componentDidMout */
 
   const favoriteProducts = useSelector(({ favorite }) => favorite.products); // вытаскиваем товары из стора
+  const basketProducts = useSelector(({ cart }) => cart.items); // вытаскиваем товары из стора
 
   let activeProduct = products.filter(product => product.id == id)[0];
+  console.log(activeProduct);
 
   if (activeProduct && favoriteProducts.length > 0) {
     const thisFavorite = favoriteProducts.find(product => product.id == activeProduct.id);
@@ -38,6 +40,16 @@ function ProductCard() {
       }
     }
   }
+
+  /* if (activeProduct && basketProducts.length > 0) {
+    const thisInBasket = basketProducts.find(product => product.items[0].id == activeProduct.id);
+    if (thisInBasket) {
+      activeProduct = {
+        ...activeProduct,
+        inBasket: true
+      }
+    }
+  } */
 
   const [favorite, setFavorite] = useState(false);
 
@@ -56,6 +68,7 @@ function ProductCard() {
 
   // Экшн на добавление в корзину
   const handleAddProductToCart = obj => {
+    setBasketProduct(true);
     dispatch({
       type: 'ADD_PRODUCT_TO_CART',
       payload: obj
@@ -114,7 +127,7 @@ function ProductCard() {
               </ol>
             </nav>
             <div className="product-card__inner">
-              <ProductCardContent onAddCart={handleAddProductToCart} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} {...activeProduct} favorite={favorite} setFavorite={setFavorite} />
+              <ProductCardContent onAddCart={handleAddProductToCart} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} {...activeProduct} favorite={favorite} setFavorite={setFavorite} basketProduct={basketProduct} setBasketProduct={setBasketProduct} />
               <Splide className="product-card__slider" hasTrack={false} options={{
                 type: 'loop',
                 speed: 1000,

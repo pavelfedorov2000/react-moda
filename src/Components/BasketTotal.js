@@ -3,19 +3,24 @@ import { Link } from 'react-router-dom';
 import { FormRow } from '../Components';
 
 
-function BasketTotal({ totalPrice, totalDiscount, handleOrderSubmit, orderData }) {
+function BasketTotal({ totalPrice, totalDiscount, handleOrderSubmit, orderData, onClearCart }) {
 
   const loyaltyPercent = 3; // Программа лояльности
   const loyaltyDiscount = totalPrice * loyaltyPercent / 100;
   const overallSum = totalPrice - totalDiscount - loyaltyDiscount; // Итого
   //console.log(totalPrice, totalDiscount);
 
+  const onSubmitOrder = () => {
+    handleOrderSubmit(orderData);
+    onClearCart();
+  }
+
   return (
     <div className="basket-total">
       <div className="basket-total__auth">
         <button className="basket-total__auth-btn" type="button">Авторизуйтесь</button> чтобы воспользоваться скидкой по программе лояльности.
       </div>
-      <form className="subscirbe-form">
+      <form action="#" className="subscirbe-form">
         <FormRow actionText="Ввести промокод" placeholder="Введите промокод" />
       </form>
       <dl className="basket-total__list">
@@ -44,7 +49,7 @@ function BasketTotal({ totalPrice, totalDiscount, handleOrderSubmit, orderData }
       </div>
 
 
-      <Link onClick={() => handleOrderSubmit(orderData)} to="/order-success" className="btn basket-total__btn">Отправить заказ</Link>
+      <Link onClick={onSubmitOrder} to="/order-success" className="btn basket-total__btn">Отправить заказ</Link>
       <div className="basket-total__agreement">
         Нажимая на кнопку «Отправить заказ», вы принимаете условия <Link to="/not-found">Публичной оферты.</Link>
       </div>

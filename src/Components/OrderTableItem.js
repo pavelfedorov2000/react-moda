@@ -1,8 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
-function OrderTableItem({ totalPrice, date, delivery, items, setTitle }) {
+function OrderTableItem({ totalPrice, index, date, delivery, items, setTitle }) {
 
   return (
     <div className="order-item order-table__item">
@@ -31,11 +30,13 @@ function OrderTableItem({ totalPrice, date, delivery, items, setTitle }) {
           <div className="order-item__delivery-place">
             Доставка: <span>{delivery.split('').map((letter, i) => i == 0 ? letter.toLowerCase() : letter).join('')}</span>
           </div>
-          <NavLink onClick={(e) => setTitle(e.target.textContent)} to="/profile/order-detail" className="order-item__order-details">Подробнее о заказе</NavLink>
+          <NavLink onClick={(e) => setTitle(e.target.textContent)} to={`/profile/${index}`} className="order-item__order-details">Подробнее о заказе</NavLink>
         </div>
         <div className="order-item__images">
           {Object.keys(items).map(item => (
-            <img className="order-item__img" src={items[item].items[0].imageUrl} alt="фото" />
+            <div className="order-item__img">
+              <img src={items[item].items[0].imageUrl} alt="фото" />
+            </div>
           ))}
         </div>
       </div>

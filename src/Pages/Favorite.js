@@ -3,9 +3,8 @@ import { AsideFilters, CatalogFilters, CatalogView, CatalogCardPopup, FavoriteCa
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFavoriteProduct } from '../redux/actions/favorite';
 import emptyIcon from '../assets/images/icons/empty-catalog.svg';
-import { Link } from 'react-router-dom';
 
-function Favorite() {
+function Favorite({ generateCrumbs, setBasketProduct }) {
   const dispatch = useDispatch();
   const favorites = useSelector(({ favorite }) => favorite.products);
 
@@ -42,13 +41,11 @@ function Favorite() {
         <div className="container">
           <nav className="breadcrumbs" aria-label="breadcrumbs">
             <ol className="breadcrumbs__list">
-              {crumbs.map((crumb, i) => (
-                <li className="breadcrumbs__item">{i === crumbs.length - 1 ? <span>{crumb}</span> : <Link to="/catalog">{crumb}</Link>}</li>
-              ))}
+              {crumbs.map((crumb, i) => generateCrumbs(crumb, i))}
             </ol>
           </nav>
           <div className="catalog__page">
-            <h1 className="title page__title catalog__title">Избранные товары</h1>
+            <h1 className="title page__title catalog__title">{`${crumbs[1]} товары`}</h1>
             <div className="catalog__inner">
               <AsideFilters />
               <div className="catalog__body">
@@ -74,7 +71,7 @@ function Favorite() {
       {
         visibleCatalogCardPopup !== null &&
         <div className="overlay active">
-          <CatalogCardPopup products={favorites} onCloseCatalogCardPopup={closeCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onAddCart={handleAddProductToCart} visibleCatalogCardPopup={visibleCatalogCardPopup} />
+          <CatalogCardPopup products={favorites} onCloseCatalogCardPopup={closeCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onAddCart={handleAddProductToCart} visibleCatalogCardPopup={visibleCatalogCardPopup} setBasketProduct={setBasketProduct} />
         </div>
       }
     </>

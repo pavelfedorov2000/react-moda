@@ -55,6 +55,30 @@ const filters = (state = initialState, action) => {
         sortPrices: initialState.sortPrices,
       }
     }
+    case 'RESET_SORT_COLORS': {
+      return {
+        ...state,
+        sortColors: initialState.sortColors,
+      }
+    }
+    case 'RESET_SORT_SIZES': {
+      return {
+        ...state,
+        sortSizes: initialState.sortSizes,
+      }
+    }
+    case 'RESET_SORT_BRANDS': {
+      return {
+        ...state,
+        sortBrands: initialState.sortBrands,
+      }
+    }
+    case 'RESET_SORT_STYLES': {
+      return {
+        ...state,
+        sortStyles: initialState.sortStyles,
+      }
+    }
     case 'RESET_ALL_FILTERS': {
       return state;
     }

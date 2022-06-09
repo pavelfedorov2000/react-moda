@@ -62,7 +62,7 @@ function DropMenu({ dropMenuCategories, links }) {
         </li>
       ))}
       {links.map((link, i) => (
-        <li key={`link-${i}`} className="header__list-item">
+        <li key={`link_${i + 1}`} className="header__list-item">
           <Link className="header__list-link" to={link.path}>{link.title}</Link>
         </li>
       ))}

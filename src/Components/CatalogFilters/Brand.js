@@ -1,25 +1,23 @@
 import React, { useRef, useEffect, useState } from 'react';
 import checkIcon from '../../assets/images/icons/check.svg';
 
-function Brand({ onCheckChange, onSelectSortBrands, sortBrands }) {
+function Brand({ onCheckChange, onSelectSortBrands, sortBrands, onResetSortBrands }) {
 
   const [checkedBrands, setCheckedBrands] = useState(sortBrands);
-  //console.log(checkedBrands);
+  console.log(checkedBrands);
 
-  const brands = ['AllSaints', 'Allura', 'Arch', 'Arot', 'Allora', 'Bibi', 'B2B Black to Black'];
+  const brands = ['AllSaints', 'Allura', 'Allora', 'Bibi', 'Deja', 'Loriata', 'Minoti', 'Rio Verti', 'Viola', 'Zaza'];
   const filterRef = useRef();
-  const [visibleFilter, setVisibleFilter] = useState(false);
 
-  const toggleFilter = (e) => {
-    //console.log(e.target);
+  const [visibleFilter, setVisibleFilter] = useState(false);
+  const toggleFilter = () => {
     setVisibleFilter(!visibleFilter);
   }
 
-  const onOpenFilter = (e) => {
-    setVisibleFilter(true);
-    //setActiveFilter(e.target.parentElementSibling.children[0].textContent);
+  const handleResetSortBrands = () => {
+    setCheckedBrands([]);
+    onResetSortBrands();
   }
-
   /* const handleCloseFilter = () => {
     onCloseFilter();
     setVisibleFilter(false);
@@ -54,7 +52,7 @@ function Brand({ onCheckChange, onSelectSortBrands, sortBrands }) {
               <input className="catalog-drop-filter__input" name="brand" placeholder="Введите название" />
               <div className="catalog-drop-filter__items">
                 {brands.map((brand, i) => (
-                  <label key={`brand-${i}`} className="catalog-drop-filter__item">
+                  <label key={brand} className="catalog-drop-filter__item">
                     <input onChange={() => onCheckChange(brands, i, checkedBrands, setCheckedBrands)} className="check-box" type="checkbox" checked={checkedBrands.includes(brand) ? true : false} />
                     <span class="check-style">
                       <span style={{ backgroundImage: `url(${checkIcon})` }}></span>
@@ -66,7 +64,7 @@ function Brand({ onCheckChange, onSelectSortBrands, sortBrands }) {
             </div>
           </div>
           <div className="catalog-drop-filter__buttons">
-            <button className="btn catalog-drop-filter__btn btn--border" type="reset">
+            <button onClick={handleResetSortBrands} className="btn catalog-drop-filter__btn btn--border" type="reset">
               <span>Очистить все</span>
               <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

@@ -41,7 +41,7 @@ function Sort({ sortFilters, onClickSort, activeSortBy }) {
         <div className="catalog-filters__item-drop catalog-drop-filter">
           <div className="catalog-drop-filter__inner">
             {sortFilters && sortFilters.map(filter => (
-              <label onClick={() => onClickSort(filter)} key={filter.type} className="catalog-drop-filter__item">
+              <label key={filter.type} onClick={() => onClickSort(filter)} className="catalog-drop-filter__item">
                 <input onChange={toggleRadio} className="radio-box" type="radio" name="sort_filter" checked={activeSortBy.type === filter.type && activeSortBy.order === filter.order ? true : false} />
                 <span className="radio-style">
                   <span style={{ backgroundImage: `url(${checkIcon})` }}></span>

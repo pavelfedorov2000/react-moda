@@ -16,7 +16,7 @@ function Actual() {
       <h2 className="title section__title">Актуально</h2>
       <div className="actual__grid">
         {actual.map(item => (
-          <SaleItem className="actual__item" src={item.imageUrl} title={item.title} subtitle={item.subtitle} saleText={item.saleText} />
+          <SaleItem key={item.id} className="actual__item" src={item.imageUrl} title={item.title} subtitle={item.subtitle} saleText={item.saleText} />
         ))}
       </div>
     </section>

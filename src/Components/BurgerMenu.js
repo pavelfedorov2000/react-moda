@@ -15,7 +15,7 @@ function BurgerMenu({ categories, activeCategory, onChangeCategory, visibleBurge
         </button>
         <nav className="header__nav">
           {categories.map((category, i) => (
-            <Link to={`/${category.name}`} onClick={() => onChangeCategory(i)} key={category.name} className={classNames('header__nav-link', {
+            <Link key={category.name} to={`/${category.name}`} onClick={() => onChangeCategory(i)} className={classNames('header__nav-link', {
               'active': category.name === activeCategory
             })}>{category.text}</Link>
           ))}

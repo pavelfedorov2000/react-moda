@@ -17,8 +17,9 @@ function OrderSuccess() {
     }
   }
 
-  const { totalPrice } = useSelector(({ cart }) => cart);
+  //const { totalPrice } = useSelector(({ cart }) => cart);
   const { data } = useSelector(({ order }) => order);
+  const currentOrder = data[data.length - 1];
   //console.log(data);
   //console.log(data.items);
 
@@ -42,12 +43,12 @@ function OrderSuccess() {
         </div>
 
         <div className="order-success-table">
-          <OrderSuccessTable totalPrice={totalPrice} {...data} className="order-success-table__head" />
+          <OrderSuccessTable totalPrice={currentOrder.totalPrice} {...currentOrder} className="order-success-table__head" />
           <div className="order-success-table__body">
             <div className="product-title order-success-table__title">Товары:</div>
             <div className="order-success-table__products">
-              {Object.keys(data.items).map(product => (
-                <OrderProduct {...data.items[product].items[0]} totalCount={data.items[product].items.length} />
+              {Object.keys(currentOrder.items).map(product => (
+                <OrderProduct {...currentOrder.items[product].items[0]} totalCount={currentOrder.items[product].items.length} />
               ))}
             </div>
           </div>
