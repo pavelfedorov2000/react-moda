@@ -27,9 +27,9 @@ function Brands() {
         </div>
         <div className="brands__inner">
           {brands.map(brand => (
-            <a key={brand.name} href="#" className="brands__item animate__animated animate__fadeIn wow" data-wow-duration="1s">
+            <Link key={brand.name} to="/not-found" className="brands__item animate__animated animate__fadeIn wow" data-wow-duration="1s">
               <img className="brands__item-img" src={brand.imageUrl} alt={`логотип ${brand.name}`} width={brand.width} height={brand.height} />
-            </a>
+            </Link>
           ))}
         </div>
       </div>

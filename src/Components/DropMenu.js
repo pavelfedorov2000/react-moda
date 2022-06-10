@@ -50,7 +50,7 @@ function DropMenu({ dropMenuCategories, links }) {
                   <ul className="drop-menu__list">
                     {dropMenuItems[key].map((li, j) => (
                       <li key={`li-${j}`} className="drop-menu__list-item">
-                        <Link to="/catalog" className="drop-menu__list-link">{li}</Link>
+                        <Link to="/" className="drop-menu__list-link">{li}</Link>
                       </li>
                     ))}
                   </ul>

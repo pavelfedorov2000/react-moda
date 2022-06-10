@@ -45,7 +45,6 @@ function BurgerMenu({ categories, activeCategory, onChangeCategory, visibleBurge
         </div>
       </div>
     </div>
-
   );
 }
 

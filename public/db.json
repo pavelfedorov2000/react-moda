@@ -990,5 +990,14 @@
         "Ограничения": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
       }
     }
-  ]
+  ],
+  "alphabet": {
+    "A": ["Allora", "AllSaints", "Allura", "Arch", "Arot"],
+    "B": ["Bibi", "B2B Black to Black", "BeMyMom"],
+    "D": ["Dirkje", "Djdutchjeans", "Deja Fashion"],
+    "F": ["Faba"],
+    "J": ["Jungle"],
+    "А-Я": ["Вишневолоцкий текстиль"],
+    "0-9": ["4F"]
+  }
 }

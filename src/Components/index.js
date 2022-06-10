@@ -38,7 +38,7 @@ export { default as CatalogCardPopup } from './CatalogCard/CatalogCardPopup';
 
 export { default as ProductSizes } from './ProductSizes';
 
-export { default as CartItem } from './CartItem';
+
 export { default as BasketTable } from './BasketTable';
 export { default as BasketProduct } from './BasketProduct';
 export { default as DropBasketProduct } from './DropBasketProduct';
@@ -72,7 +72,6 @@ export { default as SliderSection } from './SliderSection';
 //export { default as SliderArrows } from './SliderArrows';
 
 export { default as OtherNews } from './OtherNews';
-export { default as NewsDetail } from './NewsDetail';
 export { default as BlogItem } from './BlogItem';
 //export { default as BlogTags } from './BlogTags';
 export { default as BlogText } from './BlogText';

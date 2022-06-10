@@ -6,6 +6,7 @@ import emptyIcon from '../assets/images/icons/empty-catalog.svg';
 
 function Favorite({ generateCrumbs, setBasketProduct }) {
   const dispatch = useDispatch();
+  const products = useSelector(({ products }) => products.products); // вытаскиваем товары из стора
   const favorites = useSelector(({ favorite }) => favorite.products);
 
   const handleRemoveFavoriteProduct = (id) => {
@@ -71,7 +72,7 @@ function Favorite({ generateCrumbs, setBasketProduct }) {
       {
         visibleCatalogCardPopup !== null &&
         <div className="overlay active">
-          <CatalogCardPopup products={favorites} onCloseCatalogCardPopup={closeCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onAddCart={handleAddProductToCart} visibleCatalogCardPopup={visibleCatalogCardPopup} setBasketProduct={setBasketProduct} />
+          <CatalogCardPopup products={products} onCloseCatalogCardPopup={closeCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} onAddCart={handleAddProductToCart} visibleCatalogCardPopup={visibleCatalogCardPopup} setBasketProduct={setBasketProduct} />
         </div>
       }
     </>

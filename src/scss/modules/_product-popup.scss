@@ -52,16 +52,16 @@
     display: block;
   }
 
-  .fancybox-close-small {
+  .popup__close {
     @media (max-width: 1024px) {
       top: 2rem;
       right: 2rem;
     }
-  }
 
-  .fancybox-slide--html .fancybox-close-small svg path {
-    @media (max-width: 1024px) {
-      fill: #101112;
+    svg path {
+      @media(max-width: 1024px) {
+        fill: #101112;
+      }
     }
   }
 

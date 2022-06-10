@@ -56,7 +56,7 @@ function DropBasket({ visibleAsideBasket, onCloseAsideBasket, setBasketProduct }
           }
         </div>
 
-        <Link onClick={onCloseAsideBasket} className="drop-basket__btn btn" to={`/${totalCount == 0 ? 'catalog' : 'cart'}`} >
+        <Link onClick={onCloseAsideBasket} className="drop-basket__btn btn" to={`/${totalCount == 0 ? '/' : 'cart'}`} >
           {totalCount == 0 ? 'Продолжить покупки' : 'Оформить заказ'}
           <svg viewBox="0 0 56 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path

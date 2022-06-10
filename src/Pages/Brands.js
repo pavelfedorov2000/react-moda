@@ -4,35 +4,39 @@ import woman from '../assets/images/content/brands/woman.png';
 import man from '../assets/images/content/brands/man.png';
 import children from '../assets/images/content/brands/girl.png';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-function Brands() {
+function Brands({ generateCrumbs }) {
+
+  const crumbs = ['Главная', 'Бренды'];
+
   const categories = [
     {
-      name: 'Все',
+      name: "Все",
       imageUrl: coat
     },
     {
-      name: 'Женщинам',
+      name: "Женщинам",
       imageUrl: woman
     },
     {
-      name: 'Мужчинам',
+      name: "Мужчинам",
       imageUrl: man
     },
     {
-      name: 'Детям',
+      name: "Детям",
       imageUrl: children
     }
   ];
-  const alphabet = {
-    "A": ['Allora', 'AllSaints', 'Allura', 'Arch', 'Arot'],
-    "B": ['Bibi', 'B2B Black to Black', 'BeMyMom'],
-    "D": ['Dirkje', 'Djdutchjeans', 'Dja Fashion'],
-    "F": ['Faba'],
-    "J": ['Jungle'],
-    "А-Я": ['Вишневолоцкий текстиль'],
-    "0-9": ['4F']
-  };
+
+  const [alphabet, setAlphabet] = useState([]);
+  React.useEffect(() => {
+
+    axios.get('/alphabet').then(({ data }) => {
+      setAlphabet(data);
+    });
+  }, []); // [] = componentDidMout
 
   const [activeBrand, setActiveBrand] = useState(null);
   const onAddActiveBrand = (e) => {
@@ -48,18 +52,23 @@ function Brands() {
   return (
     <main className="page brands-page">
       <div className="container">
-        <h1 className="title page__title">Бренды</h1>
+        <nav className="breadcrumbs" aria-label="breadcrumbs">
+          <ol className="breadcrumbs__list">
+            {crumbs.map((crumb, i) => generateCrumbs(crumb, i))}
+          </ol>
+        </nav>
+        <h1 className="title page__title">{crumbs[crumbs.length - 1]}</h1>
         <div className="brands-page__body">
           <div className="brands-categories">
-            {categories.map(category => (
-              <a key={category.imageUrl} href="#" className="brands-categories__item">
+            {categories.map((category, i) => (
+              <Link to="/" key={category.imageUrl} className="brands-categories__item">
                 <div className={classNames('brands-categories__item-img', {
                   'brands-categories__item-img--all': category.imageUrl === coat
                 })}>
                   <img src={category.imageUrl} alt="иконка" width="50" height="36" />
                 </div>
                 <span className="brands-categories__item-title">{category.name}</span>
-              </a>
+              </Link>
             ))}
           </div>
           <div className="brands-wrap">
@@ -72,7 +81,7 @@ function Brands() {
             </div>
             {activeBrand != null &&
               <button onClick={onRemoveActiveBrand} className="cancel-brand-letter" type="button">
-                Отменить
+                <span>Отменить</span>
                 <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M11.9929 3L8 6.99286L4.00714 3L3 4.00714L6.99286 8L3 11.9929L4.00714 13L8 9.00714L11.9929 13L13 11.9929L9.00714 8L13 4.00714L11.9929 3Z"
@@ -89,7 +98,7 @@ function Brands() {
               <dd className="brands-alphabet__row">
                 <div className="brands-alphabet__col">
                   {alphabet[key].map(name => (
-                    <a key={`brand ${name}`} href="#" className="brands-alphabet__link">{name}</a>
+                    <Link key={`brand ${name}`} to="/not-found" className="brands-alphabet__link">{name}</Link>
                   ))}
                 </div>
               </dd>
