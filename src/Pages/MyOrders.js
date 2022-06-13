@@ -2,8 +2,11 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { OrderTableItem } from '../Components';
 import emptyIcon from '../assets/images/icons/empty-catalog.svg';
+import { useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min';
 
-function MyOrders({ setTitle }) {
+function MyOrders({ setTitle, to }) {
+
+  let { path, url } = useRouteMatch();
 
   //const { totalPrice } = useSelector(({ cart }) => cart);
   const { data } = useSelector(({ order }) => order);
@@ -18,16 +21,12 @@ function MyOrders({ setTitle }) {
         </div> :
         <div className="profile-page__orders order-table">
           {data.map((order, index) => (
-            <OrderTableItem key={order.id} index={index} setTitle={setTitle} totalPrice={order.totalPrice} items={order.items} {...order} />
+            <OrderTableItem to={to} url={url} key={order.id} index={index} setTitle={setTitle} totalPrice={order.totalPrice} items={order.items} {...order} />
           ))}
         </div>
       }
     </>
   );
 }
-
-//<Switch>
-// <Route path="/profile/orders/order-detail" component={OrderDetail} />
-//</Switch>
 
 export default MyOrders;

@@ -20,8 +20,6 @@ function OrderSuccess() {
   //const { totalPrice } = useSelector(({ cart }) => cart);
   const { data } = useSelector(({ order }) => order);
   const currentOrder = data[data.length - 1];
-  //console.log(data);
-  //console.log(data.items);
 
   return (
     <main className="page">
@@ -47,8 +45,8 @@ function OrderSuccess() {
           <div className="order-success-table__body">
             <div className="product-title order-success-table__title">Товары:</div>
             <div className="order-success-table__products">
-              {Object.keys(currentOrder.items).map(product => (
-                <OrderProduct {...currentOrder.items[product].items[0]} totalCount={currentOrder.items[product].items.length} />
+              {Object.keys(currentOrder.items).map((product, i) => (
+                <OrderProduct key={`product_${i + 1}`} {...currentOrder.items[product].items[0]} totalCount={currentOrder.items[product].items.length} />
               ))}
             </div>
           </div>

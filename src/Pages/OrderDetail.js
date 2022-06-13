@@ -13,9 +13,6 @@ function OrderDetail() {
   const detailOrder = data.filter((_, i) => i == index)[0];
   //console.log(detailOrder);
 
-  //const activeOrder = data.items[Object.keys(data.items).filter(item => item == id)];
-  //console.log(activeOrder);
-
   return (
     <>
       {

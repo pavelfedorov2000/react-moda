@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React, { useState } from 'react';
-import { Switch, Route, Link, NavLink } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
+import { useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min';
 import { MyOrders, Subscribes, Discounts, Personal, OrderDetail } from './';
 
 function Profile() {
@@ -13,7 +14,7 @@ function Profile() {
     },
     {
       name: 'Подробнее о заказе',
-      path: ':index',
+      path: 'orders/:index',
       component: OrderDetail,
     },
     {
@@ -42,6 +43,8 @@ function Profile() {
     setTitle(e.target.textContent);
   }
 
+  let { path, url } = useRouteMatch();
+
   return (
     <main className="page profile-page">
       <div className="container">
@@ -61,9 +64,9 @@ function Profile() {
               {profileLinks.map(link => (
                 link.component !== OrderDetail &&
                 <li key={link.component} className="page-nav__item">
-                  <NavLink key={link.component} to={`/profile/${link.path}`} className={classNames('page-nav__link', {
-                    'active': link.component === OrderDetail
-                  })} onClick={onClickLink}>{link.name}</NavLink>
+                  <Link to={`${url}/${link.path}`} className={classNames('page-nav__link', {
+                    'active': link.component === link.name
+                  })} onClick={onClickLink}>{link.name}</Link>
                 </li>
               ))}
             </ul>
@@ -85,7 +88,9 @@ function Profile() {
             <h2 class="profile-page__title">{title}</h2>
             <Switch>
               {profileLinks.map(page => (
-                <Route key={page.component} path={`/profile/${page.path}`} render={() => <page.component setTitle={setTitle} />} />
+                <Route key={page.component} exact={page.path === 'orders' ? true : false} path={`${url}/${page.path}`}>
+                  <page.component setTitle={setTitle}></page.component>
+                </Route>
               ))}
             </Switch>
           </div>

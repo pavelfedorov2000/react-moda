@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-function OrderTableItem({ totalPrice, index, date, delivery, items, setTitle }) {
+
+function OrderTableItem({ totalPrice, index, date, delivery, items, setTitle, url, to }) {
 
   return (
     <div className="order-item order-table__item">
@@ -30,7 +31,7 @@ function OrderTableItem({ totalPrice, index, date, delivery, items, setTitle }) 
           <div className="order-item__delivery-place">
             Доставка: <span>{delivery.split('').map((letter, i) => i == 0 ? letter.toLowerCase() : letter).join('')}</span>
           </div>
-          <NavLink onClick={(e) => setTitle(e.target.textContent)} to={`/profile/${index}`} className="order-item__order-details">Подробнее о заказе</NavLink>
+          <NavLink onClick={(e) => setTitle(e.target.textContent)} to={`${url}/${index}`} className="order-item__order-details">Подробнее о заказе</NavLink>
         </div>
         <div className="order-item__images">
           {Object.keys(items).map(item => (
