@@ -56,14 +56,5 @@ function BasketTotal({ totalPrice, totalDiscount, handleOrderSubmit, orderData, 
     </div>
   );
 }
-//<button onClick={(e) => {
-//e.preventDefault();
-//handleOrderSubmit(orderData);
-//            }} className = "btn basket-total__btn" type = "submit" > Отправить заказ</button >
-//<Link onClick={handleOrderSubmit} to="/order-success" className="btn basket-total__btn">Отправить заказ</Link>
-//<div className="basket-total__list-item">
-//<dt>Промокод (10%)</dt>
-//<dd><span>-5 210 ₽</span></dd>
-//</div >
 
 export default BasketTotal;

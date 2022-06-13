@@ -44,6 +44,4 @@ function OrderTableItem({ totalPrice, index, date, delivery, items, setTitle }) 
   );
 }
 
-//onClick={() => setNewBreadcrumbs(`Заказ №RU${date.split('.').join('')}`)}
-
 export default OrderTableItem;

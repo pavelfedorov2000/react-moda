@@ -3,10 +3,9 @@ import React, { useState } from 'react';
 import ProductDetailsSection from './ProductDetailsSection';
 
 function ProductDetails({ details, id, index, activeTab }) {
-  //console.log(details);
+
   const [productDetails, setProductDetails] = useState(details);
   const sections = Object.entries(productDetails);
-  //console.log(sections);
 
   return (
     <div id={id} className={classNames('tabs-content product-details', {

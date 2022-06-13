@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SubscribePopupItem from './SubscribePopupItem';
 
 
@@ -6,21 +6,9 @@ function SubscribePopup({ onCloseSubscribePopup, subscribes, currentSubscribe, o
 
   const saleItems = ['e-mail', 'sms'];
 
-  //console.log(currentSubscribe);
-
-  /* let obj = {
-    id,
-    title,
-    items
-  }; */
   const onClickChangeSubscribe = (obj) => {
     onChangeSubscribe(obj);
   }
-
-  //const thisSubscribe = Object.entries(subscribes).find(subscribe => subscribe.title == title);
-  //console.log(thisSubscribe);
-
-  //const [visibleSubscribePopup, setVisibleSubscribePopup] = useState(false);
 
   return (
     <div className="popup sale-popup">

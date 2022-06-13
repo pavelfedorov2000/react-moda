@@ -4,7 +4,7 @@ import '@splidejs/react-splide/css/core';
 import sliderImageLeft from '../assets/images/content/blog-text-slider/01.jpg';
 import sliderImageRight from '../assets/images/content/blog-text-slider/02.jpg';
 
-function BlogText({ imageUrl, tags }) {
+function BlogText({ tags }) {
   return (
     <article className="blog-text__content">
       <div className="tags blog-text__tags">

@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import emptyBlog from '../assets/images/icons/empty-blog.svg';
 import { BlogItem } from '../Components';
 

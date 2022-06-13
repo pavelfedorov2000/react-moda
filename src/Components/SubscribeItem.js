@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function SubscribeItem({ id, title, items, handlerSubscribePopup, index, onClickUnsubscribe }) {
+function SubscribeItem({ title, items, handlerSubscribePopup, index, onClickUnsubscribe }) {
 
   const onChangeSubscribeItem = (i) => {
     handlerSubscribePopup(i);

@@ -14,7 +14,6 @@ function Sort({ sortFilters, onClickSort, activeSortBy }) {
 
     const toggleRadio = (filter) => {
         onClickSort(filter);
-        //setActiveSortText(e.nextElementSibling.nextElementSibling.textContent);
         setRadio(!radio);
     }
 

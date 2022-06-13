@@ -8,8 +8,6 @@ import { setSortBy, setSortPrices, resetSortPrices, setSortColors, setSortSizes,
 import { fetchProducts } from '../redux/actions/products';
 import { removeFavoriteProduct } from '../redux/actions/favorite';
 
-//import { addPizzaToCart } from '../redux/actions/cart';
-
 
 function Catalog({ basketProduct, setBasketProduct }) {
 

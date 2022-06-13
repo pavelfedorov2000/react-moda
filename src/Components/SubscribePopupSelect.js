@@ -4,11 +4,6 @@ import SubscribeOption from './SubscribeOption';
 
 function SubscribePopupSelect({ subscribes, item, checkedSubscribeSelect, onCheckSubscribeSelect, obj, onClickChangeSubscribe }) {
 
-  //console.log(subscribes);
-  //console.log(item);
-  //console.log(subscribes[item]);
-  //console.log(items);
-
   const [activeSelect, setActiveSelect] = useState(false);
   const onToggleSelect = () => {
     setActiveSelect(!activeSelect);

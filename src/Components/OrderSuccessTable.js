@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function OrderSuccessTable({ totalPrice, date, personal, delivery, payment, className }) {
-  //console.log(personal);
+
   const { name, surname, phone, email, city } = personal;
 
   // Логика отрезания слова Оплата, если выбран пункт Оплата при получении (чтобы не было дубляжа с заголовком)

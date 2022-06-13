@@ -15,8 +15,6 @@ function DropBasketProduct({ id, articul, name, brand, size, imageUrl, color, di
     onPlusItem(id);
   }
 
-  //let activeProduct = products.filter(product => product.id == id)[0];
-
   return (
     <div className="basket-product drop-basket__product">
       <Link to={`/product-card/${id}`} className="basket-product__img"><img src={imageUrl} alt="фото" /></Link>

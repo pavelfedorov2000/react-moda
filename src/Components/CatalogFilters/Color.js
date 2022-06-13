@@ -1,12 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
-//import Buttons from './buttons';
 import classnames from 'classnames';
 import checkIcon from '../../assets/images/icons/check.svg';
 
 function Color({ onCheckChange, onSelectSortColors, onResetSortColors, checkedColors, setCheckedColors }) {
-
-
-    //console.log(checkedColors);
 
     const colors = [
         {
@@ -124,12 +120,5 @@ function Color({ onCheckChange, onSelectSortColors, onResetSortColors, checkedCo
         </fieldset>
     );
 }
-
-//<svg className="pc-arrow" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-//          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 4L7 7.6L10.75 4L12 5.2L7 10L2 5.2L3.25 4Z" fill="#101112" />
-//        </svg>
-//        <svg className="mob-arrow" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-//          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 4L7 7.6L10.75 4L12 5.2L7 10L2 5.2L3.25 4Z" fill="#505661" />
-//        </svg>
 
 export default Color;

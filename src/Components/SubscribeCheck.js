@@ -1,31 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import checkIcon from '../assets/images/icons/check.svg';
 
 function SubscribeCheck({ item, onCheckSubscribeCheckbox, checkedSubscribeCheckbox, onClickChangeSubscribe, obj, name }) {
-  //console.log(checkedSubscribeCheckbox);
 
   const checkboxHandler = (e) => {
 
     onCheckSubscribeCheckbox();
 
-    /* let newItems = {
-        ...items,
-    }
-    console.log(e.target.getAttribute('name'));
-    console.log(checkedSubscribeCheckbox);
-    newItems[e.target.getAttribute('name')] = checkedSubscribeCheckbox;
-    console.log(newItems);
-
-    obj = {
-        ...obj,
-        items: newItems
-    } */
-
     obj.items[e.target.getAttribute('name')] = !checkedSubscribeCheckbox;
 
-    //console.log(obj);
-
-    //obj.items[item] = checkedSubscribeCheckbox;
     onClickChangeSubscribe(obj);
   }
 

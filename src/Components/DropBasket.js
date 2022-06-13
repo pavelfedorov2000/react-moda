@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { DropBasketProduct } from '../Components';
 import { removeCartItem, plusItem, minusItem } from '../redux/actions/cart';
-//import basketProduct from '../assets/images/content/basket-product-01.jpg';
 
 function DropBasket({ visibleAsideBasket, onCloseAsideBasket, setBasketProduct }) {
   const dispatch = useDispatch();

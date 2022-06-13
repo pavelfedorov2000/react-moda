@@ -4,8 +4,6 @@ import { BasketTable, BasketTotal, Checkout } from '../Components';
 import { Link } from 'react-router-dom';
 import Sticky from "wil-react-sticky";
 import { clearCart } from '../redux/actions/cart';
-//import { clearCart, removeCartItem, minusPizza, plusPizza } from '../redux/actions/cart';
-//import cartEmptyImage from '../assets/img/empty-cart.png';
 
 
 function Cart({ setBasketProduct }) {

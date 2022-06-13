@@ -33,7 +33,7 @@ function Profile() {
     },
   ];
   const [title, setTitle] = useState(profileLinks[0].name);
-  console.log(title);
+  //console.log(title);
   const [breadcrumbs, setNewBreadcrumbs] = useState(crumbs);
   const onClickLink = (e) => {
     const newBreadcrumbs = [...breadcrumbs];

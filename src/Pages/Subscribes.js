@@ -7,7 +7,7 @@ function Subscribes() {
 
   const dispatch = useDispatch();
   const subscribes = useSelector(({ subscribes }) => subscribes.subscribes); // вытаскиваем подписки из стора
-  console.log(subscribes);
+  //console.log(subscribes);
 
   // Экшн на отмену подписки
   const handleCancelSubscribe = (id) => {
@@ -24,7 +24,6 @@ function Subscribes() {
 
   React.useEffect(() => {
     dispatch(fetchSubscribes()); // вернет функцию
-    console.log(subscribes);
   }, []); // [] = componentDidMout
 
   //const [subscribes, setSubscribes] = useState([]);

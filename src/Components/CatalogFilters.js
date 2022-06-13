@@ -1,15 +1,10 @@
 import classNames from 'classnames';
 import React, { useState } from 'react';
-import { Sort, Material, Size, Color, Brand, Price, Style, Decor } from './CatalogFilters/index';
+import { Sort, Size, Color, Brand, Price, Style } from './CatalogFilters/index';
 
 function CatalogFilters({ onClickSort, activeSortBy, sortFilters, sortPrices, onChangePrices, onResetPrices, onSelectSortColors, onSelectSortSizes, onSelectSortBrands, onSelectSortStyles, sortColors, sortSizes, sortBrands, sortStyles, visibleFilters, onCloseFilters, onResetSortColors, onResetSortBrands, onResetSortStyles, onResetSortSizes, onResetFilters }) {
 
-    /* const toggleCheckbox = () => {
-      setChecked(!checked);
-    } */
-
     const onCheckChange = (arr, index, filters, setFilters) => {
-        //toggleCheckbox();
         let checkText = arr[index];
         let copy;
         if (!filters.includes(checkText)) {
@@ -20,7 +15,6 @@ function CatalogFilters({ onClickSort, activeSortBy, sortFilters, sortPrices, on
             copy.splice(copy.indexOf(checkText), 1);
         }
         setFilters(copy);
-        //console.log(filters);
     }
 
     const [activeFilter, setActiveFilter] = useState('Фильтры');

@@ -5,7 +5,7 @@ import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
 import { useSelector } from "react-redux";
 
-function CatalogCardPopup({ products, onClickAddFavorite, onClickRemoveFavorite, onAddCart, onCloseCatalogCardPopup, visibleCatalogCardPopup, basketProduct, setBasketProduct }) {
+function CatalogCardPopup({ products, onClickAddFavorite, onClickRemoveFavorite, onAddCart, onCloseCatalogCardPopup, visibleCatalogCardPopup }) {
   const productList = {
     "Сезон": "Демисезон",
     "Материал": "Альпака",

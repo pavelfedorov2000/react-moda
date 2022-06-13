@@ -116,11 +116,6 @@ function App() {
     setActiveCategory(categories[i].name);
   }
 
-  /* const [activeNews, setActiveNews] = useState(null);
-  const onClickNews = (i) => {
-    setActiveNews(i);
-  } */
-
   function generateCrumbs(crumb, i) {
     return <li className="breadcrumbs__item">{i === 0 ? <Link to="/">{crumb}</Link> : <span>{crumb}</span>}</li>
   }
