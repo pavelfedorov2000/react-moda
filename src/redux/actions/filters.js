@@ -46,7 +46,7 @@ export const resetSortStyles = () => ({
 });
 
 export const resetSortSizes = () => ({
-    type: 'RESET_SORT_STYLES',
+    type: 'RESET_SORT_SIZES',
 });
 
 export const resetFilters = () => ({
