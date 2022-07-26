@@ -140,6 +140,7 @@
   }
 
   &__view-btn {
+    @extend %vertical-align;
 
     svg {
       width: 1.9rem;

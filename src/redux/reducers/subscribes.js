@@ -14,7 +14,7 @@ const subscribes = (state = initialState, action) => {
             let currentSubscribe = subscribesCopy.filter(subscribe => subscribe.id == action.payload.id)[0];
             //console.log(currentSubscribe);
             subscribesCopy.splice(+action.payload.id, 1);
-            console.log(action.payload);
+            //console.log(action.payload);
             currentSubscribe = action.payload;
             const changedSubscribes = [
                 ...subscribesCopy,

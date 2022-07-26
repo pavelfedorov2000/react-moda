@@ -91,8 +91,11 @@
         background-color: rgba(#fff, 0.8);
         padding: 2rem;
         text-align: center;
-        opacity: 0;
-        transition: 0.5s all;
+        
+        @media(min-width: 1025px) {
+            opacity: 0;
+            transition: 0.5s opacity;
+        }
 
         @media (max-width: 500px) {
             padding: 1.5rem 0.5rem;
@@ -102,6 +105,7 @@
     &__sizes {
         display: flex;
         justify-content: center;
+        flex-wrap: wrap;
 
         &:not(:last-child) {
             margin-bottom: 1.2rem;
