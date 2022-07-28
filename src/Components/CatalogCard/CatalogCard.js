@@ -1,11 +1,14 @@
 import classNames from 'classnames';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import heart from '../../assets/images/icons/heart.svg';
 import heartFilled from '../../assets/images/icons/heart-filled.svg';
 import { Link } from 'react-router-dom';
+import { AppContext } from '../../context';
 
-function CatalogCard({ id, name, brand, imageUrl, price, color, sizes, discount, newProduct, onClickAddFavorite, onClickRemoveFavorite, setVisibleCatalogCardPopup, isFavorite }) {
+function CatalogCard({ id, name, brand, imageUrl, price, color, sizes, discount, newProduct, onClickAddFavorite, onClickRemoveFavorite, isFavorite }) {
     const sizesList = [42, 44, 46, 48, 50, 52];
+
+    const { setVisibleCatalogCardPopup } = useContext(AppContext);
 
     const [favorite, setFavorite] = useState(false);
 

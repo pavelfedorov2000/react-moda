@@ -98,6 +98,7 @@ function App() {
             path: "catalog"
         },
     ];
+
     const links = [
         {
             title: "Распродажа",
@@ -119,6 +120,8 @@ function App() {
         setActiveCategory(categories[i].name);
     }
 
+    const [visibleCatalogCardPopup, setVisibleCatalogCardPopup] = useState(null);
+
     function generateCrumbs(crumb, i) {
         return <li className="breadcrumbs__item">{i === 0 ? <Link to="/">{crumb}</Link> : <span>{crumb}</span>}</li>
     }
@@ -127,7 +130,9 @@ function App() {
         <AppContext.Provider value={{
             phone,
             basketProduct,
-            setBasketProduct
+            setBasketProduct,
+            visibleCatalogCardPopup,
+            setVisibleCatalogCardPopup
         }}>
             <div className={classNames('wrapper', {
                 '_lock': visibleBurgerMenu
@@ -139,7 +144,7 @@ function App() {
                     <Route path="/favorite" render={() => <Favorite generateCrumbs={generateCrumbs} basketProduct={basketProduct} setBasketProduct={setBasketProduct} />} />
                     <Route path="/cart" render={() => <Cart setBasketProduct={setBasketProduct} />} />
                     <Route path="/order-success" render={() => <OrderSuccess />} />
-                    <Route path="/product-card/:id" render={() => <ProductCard basketProduct={basketProduct} setBasketProduct={setBasketProduct} />} />
+                    <Route path="/product-card/:id" render={() => <ProductCard />} />
                     <Route path="/brands" render={() => <Brands generateCrumbs={generateCrumbs} />} />
                     <Route path="/not-found" component={NotFound} />
                     <Route path="/profile" component={Profile} />

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { ProductDetails, ProductLinks, ProductCardContent, SliderSection, CatalogCardPopup } from '../Components';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { removeFavoriteProduct } from '../redux/actions/favorite';
@@ -10,9 +10,12 @@ import { Fancybox as NativeFancybox } from "@fancyapps/ui/dist/fancybox.esm.js";
 import "@fancyapps/ui/dist/fancybox.css";
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
+import { AppContext } from '../context';
 
 
-function ProductCard({ basketProduct, setBasketProduct }) {
+function ProductCard() {
+
+    const { setBasketProduct } = useContext(AppContext);
 
     const dispatch = useDispatch();
     let { id } = useParams();
@@ -127,7 +130,7 @@ function ProductCard({ basketProduct, setBasketProduct }) {
                             </ol>
                         </nav>
                         <div className="product-card__inner">
-                            <ProductCardContent onAddCart={handleAddProductToCart} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} {...activeProduct} favorite={favorite} setFavorite={setFavorite} basketProduct={basketProduct} setBasketProduct={setBasketProduct} />
+                            <ProductCardContent onAddCart={handleAddProductToCart} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} {...activeProduct} favorite={favorite} setFavorite={setFavorite} />
                             <Splide className="product-card__slider" hasTrack={false} options={{
                                 type: 'loop',
                                 speed: 1000,

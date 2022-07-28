@@ -6,7 +6,7 @@ import Sticky from "wil-react-sticky";
 import { clearCart } from '../redux/actions/cart';
 
 
-function Cart({ setBasketProduct }) {
+function Cart() {
     const crumbs = ['Главная', 'Ваша корзина'];
 
     const dispatch = useDispatch();
@@ -63,7 +63,7 @@ function Cart({ setBasketProduct }) {
 
                 <form action="#">
                     <div className="basket-page__body">
-                        <BasketTable totalPrice={totalPrice} totalCount={totalCount} items={items} dispatch={dispatch} setBasketProduct={setBasketProduct} />
+                        <BasketTable totalPrice={totalPrice} totalCount={totalCount} items={items} dispatch={dispatch} />
                         <Sticky containerSelectorFocus=".basket-page__body" offsetTop={20} stickyEnableRange={[1025, Infinity]}>
                             <BasketTotal totalPrice={totalPrice} totalDiscount={totalDiscount} handleOrderSubmit={handleOrderSubmit} orderData={orderData} personalData={personalData} onClearCart={handleClearCart} />
                         </Sticky>

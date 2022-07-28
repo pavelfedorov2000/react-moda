@@ -1,12 +1,20 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import ProductSizes from "../ProductSizes";
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
 import { useSelector } from "react-redux";
+import { AppContext } from "../../context";
 
-function CatalogCardPopup({ products, onClickAddFavorite, onClickRemoveFavorite, onAddCart, onCloseCatalogCardPopup, visibleCatalogCardPopup }) {
+function CatalogCardPopup({ products, onClickAddFavorite, onClickRemoveFavorite, onAddCart }) {
 
+    const { visibleCatalogCardPopup, setVisibleCatalogCardPopup } = useContext(AppContext);
+
+    // Превью карточки товара в попапе
+
+    const closeCatalogCardPopup = () => {
+        setVisibleCatalogCardPopup(null);
+    }
 
     const productList = {
         "Сезон": "Демисезон",
@@ -89,7 +97,7 @@ function CatalogCardPopup({ products, onClickAddFavorite, onClickRemoveFavorite,
             inBasket: true
         };
         onAddCart(obj);
-        onCloseCatalogCardPopup();
+        closeCatalogCardPopup();
     }
 
     const [checkedSize, setCheckedSize] = useState(availableSizes[0]);
@@ -111,7 +119,7 @@ function CatalogCardPopup({ products, onClickAddFavorite, onClickRemoveFavorite,
 
     return (
         <div ref={catalogPopupRef} className="popup product-popup">
-            <button onClick={() => onCloseCatalogCardPopup()} className="popup__close" type="button">
+            <button onClick={() => closeCatalogCardPopup()} className="popup__close" type="button">
                 <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M23.1871 7L16 14.1871L8.81286 7L7 8.81286L14.1871 16L7 23.1871L8.81286 25L16 17.8129L23.1871 25L25 23.1871L17.8129 16L25 8.81286L23.1871 7Z" fill="#F4F4F6" />
                 </svg>

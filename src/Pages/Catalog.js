@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Collection, AsideFilters, CatalogFilters, CatalogView, CatalogCard, SeoText, Loader, CatalogCardPopup } from '../Components';
@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import { setSortBy, setSortPrices, resetSortPrices, setSortColors, setSortSizes, setSortBrands, setSortStyles, resetSortColors, resetSortBrands, resetSortStyles, resetSortSizes, resetFilters } from '../redux/actions/filters';
 import { fetchProducts } from '../redux/actions/products';
 import { removeFavoriteProduct } from '../redux/actions/favorite';
+import { AppContext } from '../context';
 
 
 function Catalog() {
@@ -39,6 +40,8 @@ function Catalog() {
             order: 'desc'
         },
     ];
+
+    const { visibleCatalogCardPopup, setVisibleCatalogCardPopup } = useContext(AppContext);
 
     const dispatch = useDispatch();
     const products = useSelector(({ products }) => products.products); // вытаскиваем товары из стора
@@ -73,53 +76,53 @@ function Catalog() {
     }, [sortBy, sortPrices, sortColors, sortBrands, sortStyles, sortSizes]); // [] = componentDidMout
 
 
-    const onSelectSortType = React.useCallback((type) => {
+    const onSelectSortType = useCallback((type) => {
         dispatch(setSortBy(type)); // экшн выбор типа сортировки
     }, []);
 
-    const onSelectSortPrices = React.useCallback((from, to) => {
+    const onSelectSortPrices = useCallback((from, to) => {
         //console.log(from, to);
         dispatch(setSortPrices(from, to)); // экшн выбор диапазона цен
     }, []);
 
-    const onSelectSortColors = React.useCallback((arr) => {
+    const onSelectSortColors = useCallback((arr) => {
         dispatch(setSortColors(arr)); // экшн выбор цветов
     }, []);
 
-    const onSelectSortBrands = React.useCallback((arr) => {
+    const onSelectSortBrands = useCallback((arr) => {
         dispatch(setSortBrands(arr)); // экшн выбор брендов
     }, []);
 
-    const onSelectSortSizes = React.useCallback((arr) => {
+    const onSelectSortSizes = useCallback((arr) => {
         dispatch(setSortSizes(arr)); // экшн выбор размеров
     }, []);
 
-    const onSelectSortStyles = React.useCallback((arr) => {
+    const onSelectSortStyles = useCallback((arr) => {
         dispatch(setSortStyles(arr)); // экшн выбор стиля
     }, []);
 
     // Сброс фильтров
-    const onResetSortPrices = React.useCallback(() => {
+    const onResetSortPrices = useCallback(() => {
         dispatch(resetSortPrices()); // экшн сброса диапазона цен
     }, []);
 
-    const onResetSortColors = React.useCallback(() => {
+    const onResetSortColors = useCallback(() => {
         dispatch(resetSortColors()); // экшн сброса цвета
     }, []);
 
-    const onResetSortBrands = React.useCallback(() => {
+    const onResetSortBrands = useCallback(() => {
         dispatch(resetSortBrands()); // экшн сброса брендов
     }, []);
 
-    const onResetSortStyles = React.useCallback(() => {
+    const onResetSortStyles = useCallback(() => {
         dispatch(resetSortStyles()); // экшн сброса стиля
     }, []);
 
-    const onResetSortSizes = React.useCallback(() => {
+    const onResetSortSizes = useCallback(() => {
         dispatch(resetSortSizes()); // экшн сброса размеров
     }, []);
 
-    const onResetFilters = React.useCallback(() => {
+    const onResetFilters = useCallback(() => {
         dispatch(resetFilters()); // экшн сброса размеров
     }, []);
 
@@ -129,12 +132,6 @@ function Catalog() {
     const [catalogView, setCatalogView] = useState(views[0]);
     const toggleCatalogView = () => {
         setCatalogView(views.reverse()[0]);
-    }
-
-    // Превью карточки товара в попапе
-    const [visibleCatalogCardPopup, setVisibleCatalogCardPopup] = useState(null);
-    const closeCatalogCardPopup = () => {
-        setVisibleCatalogCardPopup(null);
     }
 
     // Стейт видимости фильтров
@@ -177,7 +174,7 @@ function Catalog() {
                                     'catalog__cards--two-cols': catalogView === 'col'
                                 })}>
                                     {isLoaded
-                                        ? products.map(product => <CatalogCard key={product.id} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} {...product} isLoaded={true} />)
+                                        ? products.map(product => <CatalogCard key={product.id} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} {...product} isLoaded={true} />)
                                         : Array(18).fill(0).map((_, index) => <Loader key={`loader-${index}`} />)
                                     }
                                 </div>
@@ -189,7 +186,7 @@ function Catalog() {
             </main>
             {visibleCatalogCardPopup !== null &&
                 <div className="overlay active">
-                    <CatalogCardPopup products={products} onCloseCatalogCardPopup={closeCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} onAddCart={handleAddProductToCart} visibleCatalogCardPopup={visibleCatalogCardPopup} />
+                    <CatalogCardPopup products={products} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} onAddCart={handleAddProductToCart} />
                 </div>
             }
         </>

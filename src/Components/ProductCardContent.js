@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { ProductSizes, ProductColors } from '../Components';
 import loriata from '../assets/images/logo/loriata.png';
 import delivery from '../assets/images/icons/delivery-issue.svg';
 import truck from '../assets/images/icons/truck.svg';
+import { AppContext } from '../context';
 
 
-function ProductCardContent({ setFavorite, onClickAddFavorite, onClickRemoveFavorite, onAddCart, id, articul, name, brand, logo, sizes, color, price, imageUrl, discount, newProduct, isFavorite, favorite, basketProduct, setBasketProduct, inBasket }) {
+function ProductCardContent({ setFavorite, onClickAddFavorite, onClickRemoveFavorite, onAddCart, id, articul, name, brand, logo, sizes, color, price, imageUrl, discount, newProduct, isFavorite, favorite, inBasket }) {
+
+    const { basketProduct, setBasketProduct } = useContext(AppContext);
 
     const availableSizes = [42, 44, 46, 48, 50, 52];
 

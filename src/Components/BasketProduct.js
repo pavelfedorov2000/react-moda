@@ -1,8 +1,11 @@
 import classNames from 'classnames';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AppContext } from '../context';
 
-function BasketProduct({ id, articul, name, brand, size, sizes, price, imageUrl, color, discount, isFavorite, onRemoveItem, onPlusItem, onMinusItem, totalCount, totalPrice, totalDiscount, onClickRemoveFavorite, onClickAddFavorite, setBasketProduct }) {
+function BasketProduct({ id, articul, name, brand, size, sizes, price, imageUrl, color, discount, isFavorite, onRemoveItem, onPlusItem, onMinusItem, totalCount, totalPrice, totalDiscount, onClickRemoveFavorite, onClickAddFavorite }) {
+
+    const { setBasketProduct } = useContext(AppContext);
 
     const handleRemoveCartItem = () => {
         setBasketProduct(false);

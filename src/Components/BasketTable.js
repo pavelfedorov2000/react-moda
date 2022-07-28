@@ -3,7 +3,7 @@ import { BasketProduct } from '../Components';
 import { removeCartItem, plusItem, minusItem } from '../redux/actions/cart';
 import { removeFavoriteProduct } from '../redux/actions/favorite';
 
-function BasketTable({ items, dispatch, setBasketProduct }) {
+function BasketTable({ items, dispatch }) {
     const head = ['Товары', 'Кол-во', 'Стоимость'];
 
     const addedProducts = Object.keys(items).map(key => {
@@ -42,7 +42,7 @@ function BasketTable({ items, dispatch, setBasketProduct }) {
             </div>
             <div className="basket-table__body">
                 {addedProducts.map(product => (
-                    <BasketProduct className="basket-table__item" key={product.id} {...product} onRemoveItem={onRemoveItem} onMinusItem={onMinusItem} onPlusItem={onPlusItem} totalPrice={items[product.id].totalPrice} totalDiscount={items[product.id].totalDiscount} totalCount={items[product.id].items.length} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} setBasketProduct={setBasketProduct} />
+                    <BasketProduct className="basket-table__item" key={product.id} {...product} onRemoveItem={onRemoveItem} onMinusItem={onMinusItem} onPlusItem={onPlusItem} totalPrice={items[product.id].totalPrice} totalDiscount={items[product.id].totalDiscount} totalCount={items[product.id].items.length} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} />
                 ))}
             </div>
         </div>
