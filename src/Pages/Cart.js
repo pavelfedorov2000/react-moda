@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BasketTable, BasketTotal, Checkout } from '../Components';
+import { BasketTable, BasketTotal, Checkout, Crumbs } from '../Components';
 import { Link } from 'react-router-dom';
 import Sticky from "wil-react-sticky";
 import { clearCart } from '../redux/actions/cart';
 
 
-function Cart() {
-    const crumbs = ['Главная', 'Ваша корзина'];
+function Cart({ title }) {
 
     const dispatch = useDispatch();
     const { totalPrice, totalDiscount, totalCount, items } = useSelector(({ cart }) => cart); // вытаскиваем общую цену, скидку и кол-во, а также товары из стора сразу через деструктуризацию
@@ -51,15 +50,9 @@ function Cart() {
     return (
         <main className="page basket-page">
             <div className="container">
-                <nav className="breadcrumbs" aria-label="breadcrumbs">
-                    <ol className="breadcrumbs__list">
-                        {crumbs.map((crumb, i) => (
-                            <li key={`crumb_${i + 1}`} className="breadcrumbs__item">{i === 0 ? <Link to="/">{crumb}</Link> : <span>{crumb}</span>}</li>
-                        ))}
-                    </ol>
-                </nav>
+                <Crumbs title={title} />
 
-                <h1 className="title page__title">{crumbs[crumbs.length - 1]}</h1>
+                <h1 className="title page__title">{title}</h1>
 
                 <form action="#">
                     <div className="basket-page__body">

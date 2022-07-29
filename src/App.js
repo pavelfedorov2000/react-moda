@@ -1,15 +1,9 @@
 import classNames from 'classnames';
 import React, { useState } from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
 import { Header, Footer, Auth, DropBasket, Social, BurgerMenu } from './Components';
-import { Catalog, Cart, ProductCard, Favorite, Brands, NotFound, OrderSuccess, Profile, Blog, BlogDetail, News, NewsDetail } from './Pages';
 import axios from 'axios';
-import women from './assets/images/content/catalog-home/01.jpg';
-import children from './assets/images/content/catalog-home/02.jpg';
-import men from './assets/images/content/catalog-home/03.jpg';
-//Home, CatalogHome,
-//import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import { AppContext } from './context';
+import AppRouter from './Components/AppRouter';
 
 function App() {
 
@@ -44,12 +38,14 @@ function App() {
         setVisibleBurgerMenu(false);
     }
 
-    const [news, setNews] = useState([]);
+    const [categories, setCategories] = useState([]);
     React.useEffect(() => {
-        axios.get('/news').then(({ data }) => {
-            setNews(data);
+        axios.get('/categories').then(({ data }) => {
+            setCategories(data);
         });
     }, []); // [] = componentDidMout
+
+    console.log(categories);
 
     const [blog, setBlog] = useState([]);
     React.useEffect(() => {
@@ -58,23 +54,16 @@ function App() {
         });
     }, []); // [] = componentDidMout
 
-    const categories = [
-        {
-            name: 'zhenshchinam',
-            text: 'Женщинам',
-            imageUrl: women
-        },
-        {
-            name: 'detyam',
-            text: 'Детям',
-            imageUrl: children
-        },
-        {
-            name: 'muzhchinam',
-            text: 'Мужчинам',
-            imageUrl: men
-        },
-    ];
+
+    const [activeCategory, setActiveCategory] = useState(null);
+
+    /* if (categories.length) {
+        React.useCallback(() => setActiveCategory());
+    } */
+
+    const onChangeCategory = (i) => {
+        setActiveCategory(categories[i].href);
+    }
 
     const dropMenuCategories = [
         {
@@ -114,17 +103,7 @@ function App() {
         }
     ];
 
-    const [activeCategory, setActiveCategory] = useState(categories[0].name);
-
-    const onChangeCategory = (i) => {
-        setActiveCategory(categories[i].name);
-    }
-
     const [visibleCatalogCardPopup, setVisibleCatalogCardPopup] = useState(null);
-
-    function generateCrumbs(crumb, i) {
-        return <li className="breadcrumbs__item">{i === 0 ? <Link to="/">{crumb}</Link> : <span>{crumb}</span>}</li>
-    }
 
     return (
         <AppContext.Provider value={{
@@ -132,27 +111,18 @@ function App() {
             basketProduct,
             setBasketProduct,
             visibleCatalogCardPopup,
-            setVisibleCatalogCardPopup
+            setVisibleCatalogCardPopup,
+            activeCategory,
+            onChangeCategory,
+            categories,
+            blog
         }}>
             <div className={classNames('wrapper', {
                 '_lock': visibleBurgerMenu
             })}>
                 <Header onOpenBurgerMenu={openBurgerMenu} categories={categories} activeCategory={activeCategory} onChangeCategory={onChangeCategory} onAsideBasketOpener={openAsideBasket} onAsideAuthOpener={openAsideAuth} dropMenuCategories={dropMenuCategories} links={links} />
-                <BurgerMenu visibleBurgerMenu={visibleBurgerMenu} onCloseBurgerMenu={closeBurgerMenu} categories={categories} activeCategory={activeCategory} onChangeCategory={onChangeCategory} phone={phone} dropMenuCategories={dropMenuCategories} links={links} />
-                <Switch>
-                    <Route path="/" exact render={() => <Catalog />} />
-                    <Route path="/favorite" render={() => <Favorite generateCrumbs={generateCrumbs} basketProduct={basketProduct} setBasketProduct={setBasketProduct} />} />
-                    <Route path="/cart" render={() => <Cart setBasketProduct={setBasketProduct} />} />
-                    <Route path="/order-success" render={() => <OrderSuccess />} />
-                    <Route path="/product-card/:id" render={() => <ProductCard />} />
-                    <Route path="/brands" render={() => <Brands generateCrumbs={generateCrumbs} />} />
-                    <Route path="/not-found" component={NotFound} />
-                    <Route path="/profile" component={Profile} />
-                    <Route path="/blog" render={() => <Blog blog={blog} generateCrumbs={generateCrumbs} />} />
-                    <Route path="/blog-detail/:id" render={() => <BlogDetail />} />
-                    <Route path="/news" render={() => <News news={news} generateCrumbs={generateCrumbs} />} />
-                    <Route path="/news-detail/:id" render={() => <NewsDetail />} />
-                </Switch>
+                <BurgerMenu visibleBurgerMenu={visibleBurgerMenu} onCloseBurgerMenu={closeBurgerMenu} categories={categories} activeCategory={activeCategory} onChangeCategory={onChangeCategory} dropMenuCategories={dropMenuCategories} links={links} />
+                <AppRouter />
                 <Footer socials={Social} />
                 <div className={classNames('overlay', {
                     'active': visibleAsideBasket || visibleAsideAuth
@@ -165,7 +135,21 @@ function App() {
     );
 }
 
-
+//<Route path="/" render={() => <CatalogHome categories={categories} />} />
+//<Route path="/home" render={() => <Home blog={blog} />} />
+//<Route path="/catalog" render={() => <Catalog />} />
+//<Route path="/favorite" render={() => <Favorite generateCrumbs={generateCrumbs} />} />
+//<Route path="/cart" render={() => <Cart />} />
+//<Route path="/order-success" render={() => <OrderSuccess />} />
+//<Route path="/product-card/:id" render={() => <ProductCard />} />
+//<Route path="/brands" render={() => <Brands generateCrumbs={generateCrumbs} />} />
+//<Route path="/not-found" component={NotFound} />
+//<Route path="/profile" component={Profile} />
+//<Route path="/blog" exact render={() => <Blog blog={blog} generateCrumbs={generateCrumbs} />} />
+//<Route path="/blog/:id" exact render={() => <BlogDetail />} />
+//<Route path="/news" exact render={() => <News news={news} generateCrumbs={generateCrumbs} />} />
+//<Route path="/news/:id" exact render={() => <NewsDetail />} />
+//<Redirect to="/not-found" />
 //<Route path="/home" render={() => <Home blog={blog} />} />
 //<Route path="/:category" render={() => <Home blog={blog} />} />
 //<Route path="/catalog-home" render={() => <CatalogHome onChangeCategory={onChangeCategory} categories={categories} />} />

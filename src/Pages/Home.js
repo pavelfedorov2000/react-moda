@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Collection, Brands, Actual, PromoSale, IconsSlider, SliderSection, Instagram, SeoText, BlogItem } from '../Components';
-import { useParams } from 'react-router-dom';
+//import { useParams } from 'react-router-dom';
+import { AppContext } from '../context';
 
-function Home({ blog }) {
+function Home() {
 
-    let { category } = useParams();
+    //let { category } = useParams();
+
+    //console.log(category);
+
+    const { blog } = useContext(AppContext);
 
     const [products, setProducts] = useState([]);
 
@@ -15,6 +20,8 @@ function Home({ blog }) {
             setProducts(data);
         });
     }, []); // [] = componentDidMout
+
+    console.log(products);
 
     const blogPreview = blog.slice(0, 3);
 

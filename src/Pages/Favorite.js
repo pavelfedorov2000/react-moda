@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { AsideFilters, CatalogFilters, CatalogView, CatalogCardPopup, FavoriteCard } from '../Components';
+import { AsideFilters, CatalogCardPopup, FavoriteCard, Crumbs, EmptyPage } from '../Components';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFavoriteProduct } from '../redux/actions/favorite';
-import emptyIcon from '../assets/images/icons/empty-catalog.svg';
 
-function Favorite({ generateCrumbs, setBasketProduct }) {
+function Favorite({ title, empty, setBasketProduct }) {
     const dispatch = useDispatch();
     const products = useSelector(({ products }) => products.products); // вытаскиваем товары из стора
     const favorites = useSelector(({ favorite }) => favorite.products);
@@ -34,28 +33,18 @@ function Favorite({ generateCrumbs, setBasketProduct }) {
         setVisibleCatalogCardPopup(null);
     }
 
-    const crumbs = ['Главная', 'Избранные'];
-
     return (
         <>
             <main className="page catalog">
                 <div className="container">
-                    <nav className="breadcrumbs" aria-label="breadcrumbs">
-                        <ol className="breadcrumbs__list">
-                            {crumbs.map((crumb, i) => generateCrumbs(crumb, i))}
-                        </ol>
-                    </nav>
+                    <Crumbs title={title} />
                     <div className="catalog__page">
-                        <h1 className="title page__title catalog__title">{`${crumbs[1]} товары`}</h1>
+                        <h1 className="title page__title catalog__title">{title}</h1>
                         <div className="catalog__inner">
                             <AsideFilters />
                             <div className="catalog__body">
                                 {favorites.length == 0 ?
-                                    <div className="empty-page catalog__empty">
-                                        <img className="empty-page__img" src={emptyIcon} alt="иконка"
-                                            width="100" height="100" />
-                                        <div className="empty-page__text">Нет актуальных товаров</div>
-                                    </div>
+                                    <EmptyPage {...empty} />
                                     :
                                     <div className="catalog__cards">
                                         {

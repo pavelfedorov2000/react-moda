@@ -1,7 +1,7 @@
 import React, { useCallback, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { Collection, AsideFilters, CatalogFilters, CatalogView, CatalogCard, SeoText, Loader, CatalogCardPopup } from '../Components';
+import { Collection, AsideFilters, CatalogFilters, CatalogView, CatalogCard, SeoText, Loader, CatalogCardPopup, Crumbs } from '../Components';
 import filterIcon from '../assets/images/icons/filter.svg';
 import classNames from 'classnames';
 import { setSortBy, setSortPrices, resetSortPrices, setSortColors, setSortSizes, setSortBrands, setSortStyles, resetSortColors, resetSortBrands, resetSortStyles, resetSortSizes, resetFilters } from '../redux/actions/filters';
@@ -10,7 +10,7 @@ import { removeFavoriteProduct } from '../redux/actions/favorite';
 import { AppContext } from '../context';
 
 
-function Catalog() {
+function Catalog({ title }) {
 
     // Фильтры
     const sortFilters = [
@@ -143,25 +143,14 @@ function Catalog() {
         setVisibleFilters(false);
     }
 
-
-    const crumbs = ['Главная', 'Женщинам', 'Одежда', 'Верхняя одежда', 'Пальто'];
-    const [home, ...rest] = crumbs;
-
     return (
         <>
             <main className="page catalog">
                 <div className="container">
-                    <nav className="breadcrumbs" aria-label="breadcrumbs">
-                        <ol className="breadcrumbs__list">
-                            <li className="breadcrumbs__item"><Link to="/home">{home}</Link></li>
-                            {rest.map((crumb, i) => (
-                                <li key={`crumb_${i + 1}`} className="breadcrumbs__item">{i === rest.length - 1 ? <span>{crumb}</span> : <Link to="/">{crumb}</Link>}</li>
-                            ))}
-                        </ol>
-                    </nav>
+                    <Crumbs title={title} />
                     <Collection />
                     <div className="catalog__page">
-                        <h1 className="title page__title catalog__title">Женские пальто</h1>
+                        <h1 className="title page__title catalog__title">{title}</h1>
                         <div className="catalog__inner">
                             <AsideFilters />
                             <div className="catalog__body">

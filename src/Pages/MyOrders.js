@@ -1,32 +1,41 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { OrderTableItem } from '../Components';
-import emptyIcon from '../assets/images/icons/empty-catalog.svg';
 import { useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min';
+import EmptyPage from '../Components/EmptyPage';
 
-function MyOrders({ setTitle, to }) {
+function MyOrders({ title, emptyPage }) {
 
-  let { path, url } = useRouteMatch();
+    //let { url } = useRouteMatch();
 
-  //const { totalPrice } = useSelector(({ cart }) => cart);
-  const { data } = useSelector(({ order }) => order);
+    //const { totalPrice } = useSelector(({ cart }) => cart);
+    const { data } = useSelector(({ order }) => order);
 
-  return (
-    <>
-      {data.length == 0 ?
-        <div className="empty-page">
-          <img className="empty-page__img" src={emptyIcon} alt="иконка"
-            width="100" height="100" />
-          <div className="empty-page__text">Список заказов пуст</div>
-        </div> :
-        <div className="profile-page__orders order-table">
-          {data.map((order, index) => (
-            <OrderTableItem to={to} url={url} key={order.id} index={index} setTitle={setTitle} totalPrice={order.totalPrice} items={order.items} {...order} />
-          ))}
-        </div>
-      }
-    </>
-  );
+    return (
+        <main className="page profile-page">
+            <div className="container">
+
+                <h1 className="title page__title">Профиль</h1>
+
+                <div className="profile-page__inner">
+                    <div className="profile-page__body">
+                        <h2 class="profile-page__title">{title}</h2>
+                        <>
+                            {data.length === 0 ?
+                                <EmptyPage {...emptyPage} />
+                                :
+                                <div className="profile-page__orders order-table">
+                                    {data.map((order, index) => (
+                                        <OrderTableItem key={order.id} index={index} totalPrice={order.totalPrice} items={order.items} {...order} />
+                                    ))}
+                                </div>
+                            }
+                        </>
+                    </div>
+                </div>
+            </div>
+        </main>
+    );
 }
 
 export default MyOrders;

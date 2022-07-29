@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function NotFound() {
+function NotFound({ title }) {
     const crumbs = ['Перейти на главную', 'Женщинам', 'Детям', 'Мужчинам', 'Аксессуары'];
 
     return (
@@ -9,11 +9,11 @@ function NotFound() {
             <div className="container">
                 <div className="not-found-page__inner">
                     <h1 className="not-found-page__title">404</h1>
-                    <div className="not-found-page__subtitle">Похоже, мы не можем найти нужную вам страницу</div>
+                    <div className="not-found-page__subtitle">{title}</div>
                     <nav className="breadcrumbs">
                         <ul className="breadcrumbs__list">
                             {crumbs.map((crumb, i) => (
-                                <Link key={`crumb-${i + 1}`} to="/" className="breadcrumbs__item">{crumb}</Link>
+                                <Link key={`crumb-${i + 1}`} to={`/${i !== 0 && 'catalog'}`} className="breadcrumbs__item">{crumb}</Link>
                             ))}
                         </ul>
                     </nav>

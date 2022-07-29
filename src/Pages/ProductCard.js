@@ -229,7 +229,7 @@ function ProductCard() {
                     </aside>
                     {visibleCatalogCardPopup !== null &&
                         <div className="overlay active">
-                            <CatalogCardPopup products={products} onCloseCatalogCardPopup={closeCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onAddCart={handleAddProductToCart} visibleCatalogCardPopup={visibleCatalogCardPopup} />
+                            <CatalogCardPopup products={products} onCloseCatalogCardPopup={closeCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onAddCart={handleAddProductToCart} />
                         </div>
                     }
                 </div>
