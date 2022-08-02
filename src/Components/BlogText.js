@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
 import sliderImageLeft from '../assets/images/content/blog-text-slider/01.jpg';
 import sliderImageRight from '../assets/images/content/blog-text-slider/02.jpg';
+import { AppContext } from '../context';
 
 function BlogText({ tags }) {
+    const { phone } = useContext(AppContext);
+
     return (
         <article className="blog-text__content">
             <div className="tags blog-text__tags">
@@ -38,7 +41,7 @@ function BlogText({ tags }) {
                     (Skype, Zoom,
                     Whats App).
                 </p>
-                <p>Звоните по бесплатному номеру <a href="tel:88002503005">8-800-250-30-05</a>, задавайте
+                <p>Звоните по бесплатному номеру <a href={`tel:${['+', ...phone.split(' ').join('').trim()].join('')}`}>{phone}</a>, задавайте
                     вопросы нашим
                     менеджерам.</p>
             </div>
@@ -78,7 +81,7 @@ function BlogText({ tags }) {
                 <SplideTrack>
                     {Array(4).fill(0).map((_, index) => (
                         <SplideSlide className="blog-text__slider-item" key={index + 1}>
-                            <img src={index % 2 != 0 ? sliderImageLeft : sliderImageRight} alt="фото" />
+                            <img src={index % 2 !== 0 ? sliderImageLeft : sliderImageRight} alt="фото" />
                         </SplideSlide>
                     ))}
                 </SplideTrack>

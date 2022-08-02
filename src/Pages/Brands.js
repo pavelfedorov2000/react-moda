@@ -45,6 +45,7 @@ function Brands({ generateCrumbs }) {
         const activeBrand = activeBrandArr.splice(1, activeBrandArr.length - 1).join('');
         setActiveBrand(activeBrand);
     }
+
     const onRemoveActiveBrand = () => {
         setActiveBrand(null);
     }

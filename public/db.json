@@ -835,175 +835,220 @@
     ],
     "blog": [
         {
-        "id": 0,
-        "imageUrl": "https://i.ibb.co/rxTV6Nx/01.jpg",
-        "date": "10.09.2021",
-        "title": "JUNGE новая коллеция осень 2021",
-        "text": "Новая коллекция представлена в трендовых цветах и дополнена классическими оттенками. Отличная теплоизоляция достигается благодаря наполнителю 90% пуха.",
-        "tags": ["коллекция", "женщинам", "осень"]
+            "id": 0,
+            "imageUrl": "https://i.ibb.co/rxTV6Nx/01.jpg",
+            "date": "10.09.2021",
+            "title": "JUNGE новая коллеция осень 2021",
+            "text": "Новая коллекция представлена в трендовых цветах и дополнена классическими оттенками. Отличная теплоизоляция достигается благодаря наполнителю 90% пуха.",
+            "tags": ["коллекция", "женщинам", "осень"]
         },
         {
-        "id": 1,
-        "imageUrl": "https://i.ibb.co/2jKGH63/02.jpg",
-        "date": "10.11.2021",
-        "title": "MINOTI новая коллекция осень-зима 2021",
-        "text": "Осень уже перешагнула свой экватор, а в прогнозах погоды то и дело появляются сообщения о первом снеге. Приглашаем вас ознакомиться с новой коллекцией MINOTI.",
-        "tags": ["коллекция", "детям"]
+            "id": 1,
+            "imageUrl": "https://i.ibb.co/2jKGH63/02.jpg",
+            "date": "10.11.2021",
+            "title": "MINOTI новая коллекция осень-зима 2021",
+            "text": "Осень уже перешагнула свой экватор, а в прогнозах погоды то и дело появляются сообщения о первом снеге. Приглашаем вас ознакомиться с новой коллекцией MINOTI.",
+            "tags": ["коллекция", "детям"]
         },
         {
-        "id": 2,
-        "imageUrl": "https://i.ibb.co/r77pkGn/03.jpg",
-        "date": "10.11.2021",
-        "title": "Новые домашние комплекты уже поступили в продажу!",
-        "text": "Женский пижамный комплект, который отлично подойдет не только для сна, но и для домашних дел.",
-        "tags": ["коллекция", "женщинам"]
+            "id": 2,
+            "imageUrl": "https://i.ibb.co/r77pkGn/03.jpg",
+            "date": "10.11.2021",
+            "title": "Новые домашние комплекты уже поступили в продажу!",
+            "text": "Женский пижамный комплект, который отлично подойдет не только для сна, но и для домашних дел.",
+            "tags": ["коллекция", "женщинам"]
         },
         {
-        "id": 3,
-        "imageUrl": "https://i.ibb.co/h8JYjMp/04.jpg",
-        "date": "10.11.2021",
-        "title": "MINOTI новая коллекция осень-зима 2021",
-        "text": "Осень уже перешагнула свой экватор, а в прогнозах погоды то и дело появляются сообщения о первом снеге. Приглашаем вас ознакомиться с новой коллекцией MINOTI.",
-        "tags": ["коллекция", "детям"]
+            "id": 3,
+            "imageUrl": "https://i.ibb.co/h8JYjMp/04.jpg",
+            "date": "10.11.2021",
+            "title": "MINOTI новая коллекция осень-зима 2021",
+            "text": "Осень уже перешагнула свой экватор, а в прогнозах погоды то и дело появляются сообщения о первом снеге. Приглашаем вас ознакомиться с новой коллекцией MINOTI.",
+            "tags": ["коллекция", "детям"]
         },
         {
-        "id": 4,
-        "imageUrl": "https://i.ibb.co/nk5TtJQ/05.jpg",
-        "date": "10.11.2021",
-        "title": "MINOTI новая коллекция осень-зима 2021",
-        "text": "Осень уже перешагнула свой экватор, а в прогнозах погоды то и дело появляются сообщения о первом снеге. Приглашаем вас ознакомиться с новой коллекцией MINOTI.",
-        "tags": ["коллекция", "детям"]
+            "id": 4,
+            "imageUrl": "https://i.ibb.co/nk5TtJQ/05.jpg",
+            "date": "10.11.2021",
+            "title": "MINOTI новая коллекция осень-зима 2021",
+            "text": "Осень уже перешагнула свой экватор, а в прогнозах погоды то и дело появляются сообщения о первом снеге. Приглашаем вас ознакомиться с новой коллекцией MINOTI.",
+            "tags": ["коллекция", "детям"]
         },
         {
-        "id": 5,
-        "imageUrl": "https://i.ibb.co/VmbtzV2/06.jpg",
-        "date": "10.11.2021",
-        "title": "Новые домашние комплекты уже поступили в продажу!",
-        "text": "Женский пижамный комплект, который отлично подойдет не только для сна, но и для домашних дел.",
-        "tags": ["коллекция", "женщинам"]
+            "id": 5,
+            "imageUrl": "https://i.ibb.co/VmbtzV2/06.jpg",
+            "date": "10.11.2021",
+            "title": "Новые домашние комплекты уже поступили в продажу!",
+            "text": "Женский пижамный комплект, который отлично подойдет не только для сна, но и для домашних дел.",
+            "tags": ["коллекция", "женщинам"]
         },
         {
-        "id": 6,
-        "imageUrl": "https://i.ibb.co/hHvN4zP/07.jpg",
-        "date": "10.09.2021",
-        "title": "JUNGE новая коллеция осень 2021",
-        "text": "Новая коллекция представлена в трендовых цветах и дополнена классическими оттенками. Отличная теплоизоляция достигается благодаря наполнителю 90% пуха.",
-        "tags": ["коллекция", "женщинам", "осень"]
+            "id": 6,
+            "imageUrl": "https://i.ibb.co/hHvN4zP/07.jpg",
+            "date": "10.09.2021",
+            "title": "JUNGE новая коллеция осень 2021",
+            "text": "Новая коллекция представлена в трендовых цветах и дополнена классическими оттенками. Отличная теплоизоляция достигается благодаря наполнителю 90% пуха.",
+            "tags": ["коллекция", "женщинам", "осень"]
         },
         {
-        "id": 7,
-        "imageUrl": "https://i.ibb.co/6FDCK8M/08.jpg",
-        "date": "10.11.2021",
-        "title": "MINOTI новая коллекция осень-зима 2021",
-        "text": "Осень уже перешагнула свой экватор, а в прогнозах погоды то и дело появляются сообщения о первом снеге. Приглашаем вас ознакомиться с новой коллекцией MINOTI.",
-        "tags": ["коллекция", "детям"]
+            "id": 7,
+            "imageUrl": "https://i.ibb.co/6FDCK8M/08.jpg",
+            "date": "10.11.2021",
+            "title": "MINOTI новая коллекция осень-зима 2021",
+            "text": "Осень уже перешагнула свой экватор, а в прогнозах погоды то и дело появляются сообщения о первом снеге. Приглашаем вас ознакомиться с новой коллекцией MINOTI.",
+            "tags": ["коллекция", "детям"]
         },
         {
-        "id": 8,
-        "imageUrl": "https://i.ibb.co/286C9ng/09.jpg",
-        "date": "10.11.2021",
-        "title": "Новые домашние комплекты уже поступили в продажу!",
-        "text": "Женский пижамный комплект, который отлично подойдет не только для сна, но и для домашних дел.",
-        "tags": ["коллекция", "женщинам"]
+            "id": 8,
+            "imageUrl": "https://i.ibb.co/286C9ng/09.jpg",
+            "date": "10.11.2021",
+            "title": "Новые домашние комплекты уже поступили в продажу!",
+            "text": "Женский пижамный комплект, который отлично подойдет не только для сна, но и для домашних дел.",
+            "tags": ["коллекция", "женщинам"]
         },
         {
-        "id": 9,
-        "imageUrl": "https://i.ibb.co/PWWmjjn/10.jpg",
-        "date": "10.11.2021",
-        "title": "MINOTI новая коллекция осень-зима 2021",
-        "text": "Осень уже перешагнула свой экватор, а в прогнозах погоды то и дело появляются сообщения о первом снеге. Приглашаем вас ознакомиться с новой коллекцией MINOTI.",
-        "tags": ["коллекция", "детям"]
+            "id": 9,
+            "imageUrl": "https://i.ibb.co/PWWmjjn/10.jpg",
+            "date": "10.11.2021",
+            "title": "MINOTI новая коллекция осень-зима 2021",
+            "text": "Осень уже перешагнула свой экватор, а в прогнозах погоды то и дело появляются сообщения о первом снеге. Приглашаем вас ознакомиться с новой коллекцией MINOTI.",
+            "tags": ["коллекция", "детям"]
         },
         {
-        "id": 10,
-        "imageUrl": "https://i.ibb.co/YjhfTrq/11.jpg",
-        "date": "10.09.2021",
-        "title": "JUNGE новая коллеция осень 2021",
-        "text": "Новая коллекция представлена в трендовых цветах и дополнена классическими оттенками. Отличная теплоизоляция достигается благодаря наполнителю 90% пуха.",
-        "tags": ["коллекция", "женщинам", "лето"]
+            "id": 10,
+            "imageUrl": "https://i.ibb.co/YjhfTrq/11.jpg",
+            "date": "10.09.2021",
+            "title": "JUNGE новая коллеция осень 2021",
+            "text": "Новая коллекция представлена в трендовых цветах и дополнена классическими оттенками. Отличная теплоизоляция достигается благодаря наполнителю 90% пуха.",
+            "tags": ["коллекция", "женщинам", "лето"]
         },
         {
-        "id": 11,
-        "imageUrl": "https://i.ibb.co/m06v529/12.jpg",
-        "date": "10.11.2021",
-        "title": "Новые домашние комплекты уже поступили в продажу!",
-        "text": "Женский пижамный комплект, который отлично подойдет не только для сна, но и для домашних дел.",
-        "tags": ["коллекция", "женщинам"]
+            "id": 11,
+            "imageUrl": "https://i.ibb.co/m06v529/12.jpg",
+            "date": "10.11.2021",
+            "title": "Новые домашние комплекты уже поступили в продажу!",
+            "text": "Женский пижамный комплект, который отлично подойдет не только для сна, но и для домашних дел.",
+            "tags": ["коллекция", "женщинам"]
         },
         {
-        "id": 12,
-        "imageUrl": "https://i.ibb.co/N7S5bGK/13.jpg",
-        "date": "10.11.2021",
-        "title": "MINOTI новая коллекция осень-зима 2021",
-        "text": "Осень уже перешагнула свой экватор, а в прогнозах погоды то и дело появляются сообщения о первом снеге. Приглашаем вас ознакомиться с новой коллекцией MINOTI.",
-        "tags": ["коллекция", "детям"]
+            "id": 12,
+            "imageUrl": "https://i.ibb.co/N7S5bGK/13.jpg",
+            "date": "10.11.2021",
+            "title": "MINOTI новая коллекция осень-зима 2021",
+            "text": "Осень уже перешагнула свой экватор, а в прогнозах погоды то и дело появляются сообщения о первом снеге. Приглашаем вас ознакомиться с новой коллекцией MINOTI.",
+            "tags": ["коллекция", "детям"]
         }
     ],
     "news": [
         {
-        "id": 0,
-        "imageUrl": "https://i.ibb.co/RhnntJS/01.jpg",
-        "date": "10.11.2021",
-        "title": "-15% на женские сумки",
-        "text": "С 15 октября во всех магазинах City Moda и онлайн действует скидка -15% на выборочный ассортимент женских сумок",
-        "tags": ["коллекция", "детям"],
-        "dl": {
-            "Условия акции": "С 15 октября во всех магазинах City Moda и онлайн действует скидка -15% на выборочный ассортимент женских сумок. Большой выбор материалов и расцветок. Скидка рассчетывается автоматически и отображается в корзине.",
-            "Срок действия": "с 24 ноября по 24 декабря",
-            "Ограничения": "скидка не распространяется на некоторые категории товаров и некоторые бренды"
-        }
+            "id": 0,
+            "imageUrl": "https://i.ibb.co/RhnntJS/01.jpg",
+            "date": "10.11.2021",
+            "title": "-15% на женские сумки",
+            "text": "С 15 октября во всех магазинах City Moda и онлайн действует скидка -15% на выборочный ассортимент женских сумок",
+            "tags": ["коллекция", "детям"],
+            "list": [
+                {
+                    "title": "Условия акции",
+                    "text": "С 15 октября во всех магазинах City Moda и онлайн действует скидка -15% на выборочный ассортимент женских сумок. Большой выбор материалов и расцветок. Скидка рассчетывается автоматически и отображается в корзине."
+                },
+                {
+                    "title": "Срок действия",
+                    "text": "с 24 ноября по 24 декабря"
+                },
+                {
+                    "title": "Ограничения",
+                    "text": "скидка не распространяется на некоторые категории товаров и некоторые бренды"
+                }
+            ]
         },
         {
-        "id": 1,
-        "imageUrl": "https://i.ibb.co/YWv8vD4/02.jpg",
-        "date": "10.11.2021",
-        "title": "Открытие нового магазина",
-        "text": "Новый магазин City Moda по адресу ТЦ «Галерея»  Театральная, 30",
-        "tags": ["коллекция", "женщинам"],
-        "dl": {
-            "Условия акции": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati.",
-            "Срок действия": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati.",
-            "Ограничения": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
-        }
+            "id": 1,
+            "imageUrl": "https://i.ibb.co/YWv8vD4/02.jpg",
+            "date": "10.11.2021",
+            "title": "Открытие нового магазина",
+            "text": "Новый магазин City Moda по адресу ТЦ «Галерея»  Театральная, 30",
+            "tags": ["коллекция", "женщинам"],
+            "list": [
+                {
+                    "title": "Условия акции",
+                    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+                },
+                {
+                    "title": "Срок действия",
+                    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+                },
+                {
+                    "title": "Ограничения",
+                    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+                }
+            ]
         },
         {
-        "id": 2,
-        "imageUrl": "https://i.ibb.co/h8JYjMp/04.jpg",
-        "date": "10.11.2021",
-        "title": "Удваиваем бонусы",
-        "text": "Двойные бонусы за покупки новой коллекции MINOTY спри покупке с 26 по 30 ноября",
-        "tags": ["коллекция", "детям"],
-        "dl": {
-            "Условия акции": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati.",
-            "Срок действия": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati.",
-            "Ограничения": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
-        }
+            "id": 2,
+            "imageUrl": "https://i.ibb.co/h8JYjMp/04.jpg",
+            "date": "10.11.2021",
+            "title": "Удваиваем бонусы",
+            "text": "Двойные бонусы за покупки новой коллекции MINOTY спри покупке с 26 по 30 ноября",
+            "tags": ["коллекция", "детям"],
+            "list": [
+                {
+                    "title": "Условия акции",
+                    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+                },
+                {
+                    "title": "Срок действия",
+                    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+                },
+                {
+                    "title": "Ограничения",
+                    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+                }
+            ]
         },
         {
-        "id": 3,
-        "imageUrl": "https://i.ibb.co/Lk1mFZZ/04.jpg",
-        "date": "10.11.2021",
-        "title": "-20% на одежду для новорожденных",
-        "text": "Акция действительна по 30 ноября включительно",
-        "tags": ["коллекция", "детям"],
-        "dl": {
-            "Условия акции": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati.",
-            "Срок действия": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati.",
-            "Ограничения": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
-        }
+            "id": 3,
+            "imageUrl": "https://i.ibb.co/Lk1mFZZ/04.jpg",
+            "date": "10.11.2021",
+            "title": "-20% на одежду для новорожденных",
+            "text": "Акция действительна по 30 ноября включительно",
+            "tags": ["коллекция", "детям"],
+            "list": [
+                {
+                    "title": "Условия акции",
+                    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+                },
+                {
+                    "title": "Срок действия",
+                    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+                },
+                {
+                    "title": "Ограничения",
+                    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+                }
+            ]
         },
         {
-        "id": 4,
-        "imageUrl": "https://i.ibb.co/M2JsmDJ/05.jpg",
-        "date": "10.11.2021",
-        "title": "-40% на коллекцию женских свитеров",
-        "text": "Акция действительна по 30 ноября включительно",
-        "tags": ["коллекция", "детям"],
-        "dl": {
-            "Условия акции": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati.",
-            "Срок действия": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati.",
-            "Ограничения": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
-        }
+            "id": 4,
+            "imageUrl": "https://i.ibb.co/M2JsmDJ/05.jpg",
+            "date": "10.11.2021",
+            "title": "-40% на коллекцию женских свитеров",
+            "text": "Акция действительна по 30 ноября включительно",
+            "tags": ["коллекция", "детям"],
+            "list": [
+                {
+                    "title": "Условия акции",
+                    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+                },
+                {
+                    "title": "Срок действия",
+                    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+                },
+                {
+                    "title": "Ограничения",
+                    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+                }
+            ]
         }
     ],
     "alphabet": {

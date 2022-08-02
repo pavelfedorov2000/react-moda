@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { OrderTableItem } from '../Components';
-import { useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min';
+import { OrderTableItem, PageNav } from '../Components';
+//import { useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min';
 import EmptyPage from '../Components/EmptyPage';
 
 function MyOrders({ title, emptyPage }) {
@@ -18,6 +18,7 @@ function MyOrders({ title, emptyPage }) {
                 <h1 className="title page__title">Профиль</h1>
 
                 <div className="profile-page__inner">
+                    <PageNav />
                     <div className="profile-page__body">
                         <h2 class="profile-page__title">{title}</h2>
                         <>

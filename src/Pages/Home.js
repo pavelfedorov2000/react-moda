@@ -21,7 +21,7 @@ function Home() {
         });
     }, []); // [] = componentDidMout
 
-    console.log(products);
+    //console.log(products);
 
     const blogPreview = blog.slice(0, 3);
 
@@ -53,7 +53,7 @@ function Home() {
                     </div>
                     <div className="blog-grid">
                         {blogPreview.map(article => (
-                            <BlogItem key={article.id} {...article} className="blog-grid__item" />
+                            <BlogItem key={article.id} {...article} otherPage={true} actualPage="blog" className="blog-grid__item" />
                         ))}
                     </div>
                 </section>

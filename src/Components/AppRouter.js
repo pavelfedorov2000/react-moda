@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom/cjs/react-router-dom.m
 import { Home, CatalogHome, Catalog, Cart, ProductCard, Favorite, Brands, NotFound, OrderSuccess, Blog, BlogDetail, News, NewsDetail, Personal, MyOrders, OrderDetail, Subscribes, Discounts } from '../Pages';
 import emptyProducts from '../assets/images/icons/empty-catalog.svg';
 import emptyBlog from '../assets/images/icons/empty-blog.svg';
+import { RouterContext } from '../context';
 
 function AppRouter() {
 
@@ -119,17 +120,21 @@ function AppRouter() {
     }];
 
     return (
-        <Switch>
-            {routes.map(route => (
-                <Route
-                    key={route.path}
-                    exact={route.exact === true ? true : false}
-                    path={route.path}
-                    render={() => <route.component {...route} />}
-                />
-            ))}
-            <Redirect to="/not-found" />
-        </Switch>
+        <RouterContext.Provider value={{
+            routes
+        }}>
+            <Switch>
+                {routes.map(route => (
+                    <Route
+                        key={route.path}
+                        exact={route.exact === true ? true : false}
+                        path={route.path}
+                        render={() => <route.component {...route} />}
+                    />
+                ))}
+                <Redirect to="/not-found" />
+            </Switch>
+        </RouterContext.Provider>
     );
 }
 

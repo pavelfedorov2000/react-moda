@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { SubscribeItem, SubscribePopup } from '../Components';
+import { SubscribeItem, SubscribePopup, PageNav } from '../Components';
 import { fetchSubscribes, cancelSubscribe } from '../redux/actions/subscribes';
 
-function Subscribes() {
+function Subscribes({title}) {
 
     const dispatch = useDispatch();
     const subscribes = useSelector(({ subscribes }) => subscribes.subscribes); // вытаскиваем подписки из стора
@@ -40,28 +40,41 @@ function Subscribes() {
     }
 
     return (
-        <>
-            <div className="profile-subscribes">
-                {subscribes.length !== 0 ?
-                    subscribes.map((subscribe, i) => (
-                        <SubscribeItem onClickUnsubscribe={handleCancelSubscribe} handlerSubscribePopup={onSubscribePopupOpen} index={i} key={subscribe.id} {...subscribe} />
-                    )) :
-                    <div>Нет активных подписок!</div>
-                }
-                <div className="profile-subscribes__item subscribe-item profile-subscribes__item--aside">
-                    <h4 className="subscribe-item__title">Модная рассылка раз в неделю</h4>
-                    <div className="subscribe-item__content">
-                        <div className="subscribe-item__email">На почту past@mail.ru</div>
-                        <button className="btn subscribe-item__btn" type="button">Подписаться</button>
+        <main className="page profile-page">
+            <div className="container">
+
+                <h1 className="title page__title">Профиль</h1>
+
+                <div className="profile-page__inner">
+                    <PageNav />
+                    <div className="profile-page__body">
+                        <h2 class="profile-page__title">{title}</h2>
+                        <>
+                            <div className="profile-subscribes">
+                                {subscribes.length !== 0 ?
+                                    subscribes.map((subscribe, i) => (
+                                        <SubscribeItem onClickUnsubscribe={handleCancelSubscribe} handlerSubscribePopup={onSubscribePopupOpen} index={i} key={subscribe.id} {...subscribe} />
+                                    )) :
+                                    <div>Нет активных подписок!</div>
+                                }
+                                <div className="profile-subscribes__item subscribe-item profile-subscribes__item--aside">
+                                    <h4 className="subscribe-item__title">Модная рассылка раз в неделю</h4>
+                                    <div className="subscribe-item__content">
+                                        <div className="subscribe-item__email">На почту past@mail.ru</div>
+                                        <button className="btn subscribe-item__btn" type="button">Подписаться</button>
+                                    </div>
+                                </div>
+                            </div>
+                            {visibleSubscribePopup !== null &&
+                                <div className="overlay active">
+                                    <SubscribePopup onChangeSubscribe={handleChangeSubscribe} currentSubscribe={subscribes[visibleSubscribePopup]} subscribes={subscribes[visibleSubscribePopup].items} onCloseSubscribePopup={onCloseSubscribePopup} {...subscribes[visibleSubscribePopup]} />
+                                </div>
+                            }
+                        </>
                     </div>
                 </div>
             </div>
-            {visibleSubscribePopup !== null &&
-                <div className="overlay active">
-                    <SubscribePopup onChangeSubscribe={handleChangeSubscribe} currentSubscribe={subscribes[visibleSubscribePopup]} subscribes={subscribes[visibleSubscribePopup].items} onCloseSubscribePopup={onCloseSubscribePopup} {...subscribes[visibleSubscribePopup]} />
-                </div>
-            }
-        </>
+        </main>
     );
 }
 

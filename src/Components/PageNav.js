@@ -1,16 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-import AppRouter from './AppRouter';
+import classNames from 'classnames';
+import React, { useContext } from 'react';
+import { useParams } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min';
+import { RouterContext } from '../context';
 
 function PageNav() {
-    console.log(AppRouter);
-    const profileRoutes = AppRouter.filter(route => route.profile === true);
+    const { routes } = useContext(RouterContext);
+    const profileRoutes = routes.filter(route => route.profile === true);
+
+    const url = useRouteMatch().url;
 
     return (
         <nav className="page-nav">
             <ul className="page-nav__list">
                 {profileRoutes.map(route => (
-                    <Link to={route.path} className="page-nav__link">{route.title}</Link>
+                    <li key={route.path} className="page-nav__item">
+                        <Link to={route.path} className={classNames('page-nav__link', {
+                            'active': route.path === url
+                        })}>{route.title}</Link>
+                    </li>
                 ))}
             </ul>
         </nav>

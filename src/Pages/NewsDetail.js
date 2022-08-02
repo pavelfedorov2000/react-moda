@@ -48,10 +48,10 @@ function NewsDetail() {
                                     <img src={activeNews.imageUrl} alt="фото" />
                                 </div>
                                 <div className="news-detail__content">
-                                    {Object.keys(activeNews.dl).map((key, i) => (
+                                    {activeNews.list.map((item, i) => (
                                         <p key={`p-${i + 1}`}>
-                                            <b>{`${key}:`}</b>
-                                            {activeNews.dl[key]}
+                                            <b>{`${item.title}:`}</b>
+                                            {item.text}
                                         </p>
                                     ))}
                                 </div>

@@ -34,9 +34,9 @@ function Auth({ visibleAsideAuth, onCloseAsideAuth, socials }) {
     // логика задизейбленной кнопки
     const [disabledBtn, setDisabledBtn] = useState(true);
     const onInputChange = (e) => {
-        console.log(e.target.value.length);
+        //console.log(e.target.value.length);
         setDisabledBtn(e.target.value.length > 0 ? false : true);
-        console.log(disabledBtn);
+        //console.log(disabledBtn);
     }
 
     // Восстановление пароля
@@ -57,9 +57,11 @@ function Auth({ visibleAsideAuth, onCloseAsideAuth, socials }) {
                         fill="#505661" />
                 </svg>
             </button>
+
             <div className="aside-popup__title">
                 {passwordRecovery ? 'Восстановление пароля' : 'Авторизация'}
             </div>
+
             {passwordRecovery &&
                 <button onClick={onClosePasswordRecovery} className="aside-popup__back-btn" type="button">
                     <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -69,6 +71,7 @@ function Auth({ visibleAsideAuth, onCloseAsideAuth, socials }) {
                     <span>Назад</span>
                 </button>
             }
+
             <div className="aside-popup__text">
                 {passwordRecovery ?
                     'Пожалуйста, введите ваш адрес электронной почты, на который мы отправим ссылку для восстановления пароля'
@@ -76,6 +79,7 @@ function Auth({ visibleAsideAuth, onCloseAsideAuth, socials }) {
                     'Войдите или зарегистрируйтесь, чтобы делать покупки, отслеживать заказы и пользоваться персональными скидками и баллами.'
                 }
             </div>
+
             {!passwordRecovery &&
                 <div className="tabs aside-popup__tabs">
                     {authTabs.map(tab => (
@@ -85,10 +89,12 @@ function Auth({ visibleAsideAuth, onCloseAsideAuth, socials }) {
                     ))}
                 </div>
             }
+
             <div className="aside-popup__content">
                 {
                     passwordRecovery ?
-                        <PasswordRecovery onInputChange={onInputChange} disabledBtn={disabledBtn} success={success} onPasswordRecoverySubmit={onPasswordRecoverySubmit} /> :
+                        <PasswordRecovery onInputChange={onInputChange} disabledBtn={disabledBtn} success={success} onPasswordRecoverySubmit={onPasswordRecoverySubmit} />
+                        :
                         <>
                             {auth === authTabs[0] ?
                                 <Enter enterOption={enterOption} onEnterOption={onEnterOption} onOpenPasswordRecovery={onOpenPasswordRecovery} />

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { BlogItem, EmptyPage } from '../Components';
 import { AppContext } from '../context';
@@ -17,7 +16,7 @@ function Blog({ title, empty }) {
                         <EmptyPage {...empty} />
                         :
                         blog.map(article => (
-                            <BlogItem key={article.id} {...article} path="blog-detail" className="blog-grid__item" />
+                            <BlogItem key={article.id} {...article} className="blog-grid__item" />
                         ))
                     }
                 </div>

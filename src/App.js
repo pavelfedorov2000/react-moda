@@ -45,7 +45,7 @@ function App() {
         });
     }, []); // [] = componentDidMout
 
-    console.log(categories);
+    //console.log(categories);
 
     const [blog, setBlog] = useState([]);
     React.useEffect(() => {
