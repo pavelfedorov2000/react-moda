@@ -6,7 +6,7 @@ function OrderSuccessTable({ totalPrice, date, personal, delivery, payment, clas
 
     const { name, surname, phone, email, city } = personal;
 
-    // Логика отрезания слова Оплата, если выбран пункт Оплата при получении (чтобы не было дубляжа с заголовком)
+    // Захардкоженая логика отрезания слова "Оплата", если выбран пункт "Оплата при получении" (чтобы не было дубляжа с заголовком) - чисто для практики
     const payArr = payment.split(' ');
     const payWord = payArr[0];
     payArr.splice(0, 1);
@@ -48,12 +48,12 @@ function OrderSuccessTable({ totalPrice, date, personal, delivery, payment, clas
                     <span className="order-status">Не оплачен</span>
                 </div>
                 {className === 'profile-page__order-table' &&
-                    <Link to="/not-found" className="btn order-details-table__btn">Оплатить</Link>
+                    <Link to="/pay" className="btn order-details-table__btn">Оплатить</Link>
                 }
             </div>
             {className === 'order-success-table__head' &&
                 <div className="order-details-table__item">
-                    <Link to="/not-found" className="btn order-details-table__btn">Оплатить</Link>
+                    <Link to="/pay" className="btn order-details-table__btn">Оплатить</Link>
                 </div>
             }
         </div>

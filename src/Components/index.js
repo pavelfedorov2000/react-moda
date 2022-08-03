@@ -11,6 +11,7 @@ export { default as DropMenu } from './DropMenu';
 export { default as SaleItem } from './SaleItem';
 export { default as SearchForm } from './SearchForm';
 export { default as Footer } from './Footer';
+export { default as FooterMenu } from './FooterMenu';
 export { default as Social } from './Social';
 export { default as Collection } from './Collection';
 export { default as SliderArrows } from './SliderArrows';
@@ -79,3 +80,7 @@ export { default as OtherNews } from './OtherNews';
 export { default as BlogItem } from './BlogItem';
 export { default as BlogText } from './BlogText';
 export { default as AsideBlog } from './AsideBlog';
+
+export { default as Personal } from './Profile/Personal';
+export { default as Subscribes } from './Profile/Subscribes';
+export { default as Discounts } from './Profile/Discounts';

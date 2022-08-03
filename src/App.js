@@ -45,8 +45,6 @@ function App() {
         });
     }, []); // [] = componentDidMout
 
-    //console.log(categories);
-
     const [blog, setBlog] = useState([]);
     React.useEffect(() => {
         axios.get('/blog').then(({ data }) => {
@@ -60,9 +58,6 @@ function App() {
             setDiscounts(data);
         });
     }, []); // [] = componentDidMout
-
-    console.log(discounts);
-
 
     const [activeCategory, setActiveCategory] = useState(null);
 

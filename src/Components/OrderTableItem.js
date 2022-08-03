@@ -9,7 +9,7 @@ function OrderTableItem({ totalPrice, index, date, delivery, items }) {
         <div className="order-item order-table__item">
             <header className="order-item__header">
                 <div className="order-item__header-wrap">
-                    <div className="order-item__title">Заказ от <Time date={date} />, №RU{date.split('.').join('')}</div>
+                    <div className="order-item__title">Заказ от <Time date={date} />, №RU{date.split('.').join('')}-{index + 1}</div>
                     <div className="order-item__price">{`${totalPrice} ₽`}</div>
                 </div>
                 <div className="order-item__header-buttons">

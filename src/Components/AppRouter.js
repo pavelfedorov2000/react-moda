@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
-import { Home, CatalogHome, Catalog, Cart, ProductCard, Favorite, Brands, NotFound, OrderSuccess, Blog, BlogDetail, News, NewsDetail, Personal, MyOrders, OrderDetail, Subscribes, Discounts } from '../Pages';
+import { Home, CatalogHome, Catalog, Cart, ProductCard, Favorite, Brands, NotFound, OrderSuccess, Blog, BlogDetail, News, NewsDetail, Profile } from '../Pages';
+import { Discounts, MyOrders, OrderDetail, Personal, Subscribes } from './Profile';
 import emptyProducts from '../assets/images/icons/empty-catalog.svg';
 import emptyBlog from '../assets/images/icons/empty-blog.svg';
 import { RouterContext } from '../context';
@@ -47,6 +48,7 @@ function AppRouter() {
         component: Cart
     }, {
         title: "Спасибо за заказ!",
+        before: "/cart",
         path: "/order-success",
         component: OrderSuccess
     }, {
@@ -91,7 +93,8 @@ function AppRouter() {
         profile: true,
         title: "Мои заказы",
         path: "/orders",
-        component: MyOrders,
+        component: Profile,
+        SubPage: MyOrders,
         exact: true,
         empty: {
             icon: {
@@ -104,23 +107,27 @@ function AppRouter() {
     }, {
         profile: true,
         path: "/orders/:index",
-        component: OrderDetail,
+        component: Profile,
+        SubPage: OrderDetail,
         exact: true
     }, {
         profile: true,
         title: "Скидки",
         path: "/discounts",
-        component: Discounts
+        component: Profile,
+        SubPage: Discounts,
     }, {
         profile: true,
         title: "Управление подписками",
         path: "/subscribes",
-        component: Subscribes
+        component: Profile,
+        SubPage: Subscribes,
     }, {
         profile: true,
         title: "Персональные данные",
         path: "/personal",
-        component: Personal
+        component: Profile,
+        SubPage: Personal,
     }, {
         title: "Похоже, мы не можем найти нужную вам страницу",
         path: "/not-found",
@@ -129,7 +136,7 @@ function AppRouter() {
 
     return (
         <RouterContext.Provider value={{
-            routes
+            routes,
         }}>
             <Switch>
                 {routes.map(route => (

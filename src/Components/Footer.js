@@ -1,26 +1,16 @@
 import React, { useContext } from 'react';
 import classnames from 'classnames';
-import { FormRow, FormAgree, Logo } from '../Components';
-import mastercard from '../assets/images/logo/payment/mastercard.svg';
-import visa from '../assets/images/logo/payment/visa.png';
-import mir from '../assets/images/logo/payment/mir.png';
-import gpay from '../assets/images/logo/payment/gpay.png';
-import ipay from '../assets/images/logo/payment/ipay.png';
+import { FormRow, FormAgree, Logo, FooterMenu } from '../Components';
+import PaymentLogos from '../assets/images/logo/payment.png';
 import { AppContext } from '../context';
-
+import { Link } from 'react-router-dom';
 
 const footerLinks = [
     ['Женщинам', 'Мужчинам', 'Детям',],
     ['Распродажа', 'Новинки']
 ];
 
-const [sale, ...rest] = footerLinks[1];
-
-const footerMenu = {
-    "Каталог": ['Новинки', 'Одежда', 'Аксессуары', 'Распродажа'],
-    "Помощь покупателю": ['Отследить заказ', 'Доставка и оплата', 'Бесконтактная информация', 'Обмен и возврат', 'FAQ / Часто задаваемые вопросы', 'Программа лояльности', 'Подарочные сертификаты', 'Правила работы сайта', 'Политика конфиденциальности', 'Карта сайта'],
-    "О компании": ['О компании', 'Сотрудничество', 'Контакты', 'Обратная связь'],
-};
+const [sale, ...rest] = footerLinks[1]; // Достаем красную ссылку (распродажа)
 
 function Footer({ socials }) {
     const { phone } = useContext(AppContext);
@@ -45,9 +35,9 @@ function Footer({ socials }) {
                         {footerLinks.map((nav, i) => (
                             <div key={`menu-${i}`} className="footer__menu">
                                 {nav.map((link, j) => (
-                                    <a key={`link-${j}`} href="#" className={classnames('footer__link', {
+                                    <Link key={`link-${j}`} to="/catalog" className={classnames('footer__link', {
                                         'footer__link--red': link === sale
-                                    })}>{link}</a>
+                                    })}>{link}</Link>
                                 ))}
                             </div>
                         ))}
@@ -75,23 +65,7 @@ function Footer({ socials }) {
                             </form>
                         </div>
 
-                        <div className="footer__cols">
-                            {Object.keys(footerMenu).map((menu, i) => (
-                                <div className="footer__col">
-                                    <div className="footer__col-title">{menu}</div>
-
-                                    <ul className="footer__list">
-                                        {footerMenu[menu].map((link, i) => (
-                                            <li key={`link-${i}`} className="footer__list-item">
-                                                <a href="#" className="footer__list-link">{link}</a>
-                                            </li>
-                                        ))}
-                                    </ul>
-
-                                    {i === Object.keys(footerMenu).length - 1 ? <div className="footer__col-title">Новости и акции</div> : null}
-                                </div>
-                            ))}
-                        </div>
+                        <FooterMenu />
                     </div>
                 </div>
             </div>
@@ -99,8 +73,7 @@ function Footer({ socials }) {
             <div className="footer__bottom">
                 <div className="container footer__bottom-inner">
                     <div className="footer__payment">
-
-
+                        <img src={PaymentLogos} alt="Сервисы оплаты" />
                         <div className="footer__payment-descr">
                             Оплата подарочным сертификатом
                         </div>
