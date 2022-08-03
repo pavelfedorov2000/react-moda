@@ -1,8 +1,9 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useContext } from 'react';
 import classnames from 'classnames';
 import checkIcon from '../../assets/images/icons/check.svg';
+import { CatalogFiltersContext } from '../../context';
 
-function Color({ onCheckChange, onSelectSortColors, onResetSortColors, checkedColors, setCheckedColors }) {
+function Color({ onCheckChange, checkedColors, setCheckedColors }) {
 
     const colors = [
         {
@@ -46,6 +47,8 @@ function Color({ onCheckChange, onSelectSortColors, onResetSortColors, checkedCo
             bg: '135deg, #FFB156 0%, rgba(255, 177, 86, 0) 100%',
         },
     ];
+
+    const { onSelectSortColors, onResetSortColors } = useContext(CatalogFiltersContext);
 
     const colorsArr = colors.map(color => color.name);
 

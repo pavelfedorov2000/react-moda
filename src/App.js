@@ -54,6 +54,15 @@ function App() {
         });
     }, []); // [] = componentDidMout
 
+    const [discounts, setDiscounts] = useState([]);
+    React.useEffect(() => {
+        axios.get('/discounts').then(({ data }) => {
+            setDiscounts(data);
+        });
+    }, []); // [] = componentDidMout
+
+    console.log(discounts);
+
 
     const [activeCategory, setActiveCategory] = useState(null);
 
@@ -115,7 +124,8 @@ function App() {
             activeCategory,
             onChangeCategory,
             categories,
-            blog
+            blog,
+            discounts
         }}>
             <div className={classNames('wrapper', {
                 '_lock': visibleBurgerMenu

@@ -1,10 +1,13 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useContext } from 'react';
 import checkIcon from '../../assets/images/icons/check.svg';
+import { CatalogFiltersContext } from '../../context';
 
-function Brand({ onCheckChange, onSelectSortBrands, onResetSortBrands, checkedBrands, setCheckedBrands }) {
+function Brand({ onCheckChange, checkedBrands, setCheckedBrands }) {
 
     const brands = ['AllSaints', 'Allura', 'Allora', 'Bibi', 'Deja', 'Loriata', 'Minoti', 'Rio Verti', 'Viola', 'Zaza'];
+
     const filterRef = useRef();
+    const { onSelectSortBrands, onResetSortBrands } = useContext(CatalogFiltersContext);
 
     const [visibleFilter, setVisibleFilter] = useState(false);
     const toggleFilter = () => {

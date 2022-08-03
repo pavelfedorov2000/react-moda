@@ -1,10 +1,13 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useContext } from 'react';
 import checkIcon from '../../assets/images/icons/check.svg';
+import { CatalogFiltersContext } from '../../context';
 import Buttons from './buttons';
 
 function Decor({ checkedFilters, onCheckChange, setCheckedFilters }) {
     const decor = ['геометрия', 'горох', 'животное', 'камуфляж', 'клетка', 'леопардовый'];
     const filterRef = useRef();
+
+    //const { onSelectSortBrands, onResetSortBrands } = useContext(CatalogFiltersContext);
 
     const [visibleFilter, setVisibleFilter] = useState(false);
 

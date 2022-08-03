@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import { setSortBy, setSortPrices, resetSortPrices, setSortColors, setSortSizes, setSortBrands, setSortStyles, resetSortColors, resetSortBrands, resetSortStyles, resetSortSizes, resetFilters } from '../redux/actions/filters';
 import { fetchProducts } from '../redux/actions/products';
 import { removeFavoriteProduct } from '../redux/actions/favorite';
-import { AppContext } from '../context';
+import { AppContext, CatalogFiltersContext } from '../context';
 
 
 function Catalog({ title }) {
@@ -155,7 +155,29 @@ function Catalog({ title }) {
                             <AsideFilters />
                             <div className="catalog__body">
                                 <div className="catalog__filters">
-                                    <CatalogFilters visibleFilters={visibleFilters} onCloseFilters={onCloseFilters} activeSortBy={sortBy} sortPrices={sortPrices} sortFilters={sortFilters} sortColors={sortColors} sortSizes={sortSizes} sortBrands={sortBrands} sortStyles={sortStyles} onClickSort={onSelectSortType} onResetPrices={onResetSortPrices} onChangePrices={onSelectSortPrices} onSelectSortColors={onSelectSortColors} onSelectSortBrands={onSelectSortBrands} onSelectSortSizes={onSelectSortSizes} onSelectSortStyles={onSelectSortStyles} onResetSortColors={onResetSortColors} onResetSortBrands={onResetSortBrands} onResetSortStyles={onResetSortStyles} onResetSortSizes={onResetSortSizes} onResetFilters={onResetFilters} />
+                                    <CatalogFiltersContext.Provider value={{
+                                        sortBy,
+                                        sortPrices,
+                                        sortFilters,
+                                        sortColors,
+                                        sortSizes,
+                                        sortBrands,
+                                        sortStyles,
+                                        onSelectSortType,
+                                        onSelectSortPrices,
+                                        onSelectSortColors,
+                                        onSelectSortBrands,
+                                        onSelectSortSizes,
+                                        onSelectSortStyles,
+                                        onResetSortPrices,
+                                        onResetSortColors,
+                                        onResetSortBrands,
+                                        onResetSortStyles,
+                                        onResetSortSizes,
+                                        onResetFilters
+                                    }}>
+                                        <CatalogFilters visibleFilters={visibleFilters} onCloseFilters={onCloseFilters} />
+                                    </CatalogFiltersContext.Provider>
                                     <CatalogView onViewChange={toggleCatalogView} views={views} catalogView={catalogView} />
                                     <button onClick={onOpenFilters} className="filters-btn" type="button" style={{ backgroundImage: `url(${filterIcon})` }}>Фильтры</button>
                                 </div>

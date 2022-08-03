@@ -1,19 +1,22 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useContext } from 'react';
 import checkIcon from '../../assets/images/icons/check.svg';
+import { CatalogFiltersContext } from '../../context';
 
-function Sort({ sortFilters, onClickSort, activeSortBy }) {
+function Sort({ sortFilters }) {
 
     const filterRef = useRef();
 
+    const { sortBy, onSelectSortType } = useContext(CatalogFiltersContext);
+
     const [visibleFilter, setVisibleFilter] = useState(false);
 
-    const activeSort = sortFilters.filter(item => item.type == activeSortBy.type)[0].name;
+    const activeSort = sortFilters.filter(item => item.type == sortBy.type)[0].name;
     const [activeSortText, setActiveSortText] = useState(activeSort);
 
     const [radio, setRadio] = useState(false);
 
     const toggleRadio = (filter) => {
-        onClickSort(filter);
+        onSelectSortType(filter);
         setRadio(!radio);
     }
 
@@ -44,7 +47,7 @@ function Sort({ sortFilters, onClickSort, activeSortBy }) {
                     <div className="catalog-drop-filter__inner">
                         {sortFilters && sortFilters.map(filter => (
                             <label key={filter.type} className="catalog-drop-filter__item">
-                                <input onChange={() => toggleRadio(filter)} className="radio-box" type="radio" name="sort_filter" checked={activeSortBy.type === filter.type && activeSortBy.order === filter.order ? true : false} />
+                                <input onChange={() => toggleRadio(filter)} className="radio-box" type="radio" name="sort_filter" checked={sortBy.type === filter.type && sortBy.order === filter.order ? true : false} />
                                 <span className="radio-style">
                                     <span style={{ backgroundImage: `url(${checkIcon})` }}></span>
                                 </span>

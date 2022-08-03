@@ -1,10 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { OrderTableItem, PageNav } from '../Components';
+import { OrderTableItem, PageNav, EmptyPage } from '../Components';
 //import { useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min';
-import EmptyPage from '../Components/EmptyPage';
 
-function MyOrders({ title, emptyPage }) {
+function MyOrders({ title, empty }) {
 
     //let { url } = useRouteMatch();
 
@@ -23,7 +22,7 @@ function MyOrders({ title, emptyPage }) {
                         <h2 class="profile-page__title">{title}</h2>
                         <>
                             {data.length === 0 ?
-                                <EmptyPage {...emptyPage} />
+                                <EmptyPage {...empty} />
                                 :
                                 <div className="profile-page__orders order-table">
                                     {data.map((order, index) => (

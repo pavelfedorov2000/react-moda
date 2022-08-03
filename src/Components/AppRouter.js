@@ -92,7 +92,15 @@ function AppRouter() {
         title: "Мои заказы",
         path: "/orders",
         component: MyOrders,
-        exact: true
+        exact: true,
+        empty: {
+            icon: {
+                src: emptyBlog
+            },
+            title: {
+                text: "Нет актуальных товаров"
+            }
+        }
     }, {
         profile: true,
         path: "/orders/:index",

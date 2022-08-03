@@ -29,4 +29,5 @@ function News({ title, empty }) {
     );
 }
 
+
 export default News;

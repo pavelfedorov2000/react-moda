@@ -1,10 +1,13 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useContext } from 'react';
 import checkIcon from '../../assets/images/icons/check.svg';
+import { CatalogFiltersContext } from '../../context';
 
-function Style({ onCheckChange, onSelectSortStyles, onResetSortStyles, checkedStyles, setCheckedStyles }) {
+function Style({ onCheckChange, checkedStyles, setCheckedStyles }) {
 
     const styles = ['деловой', 'вечерний', 'повседневный', 'спортивный'];
     const filterRef = useRef();
+
+    const { onSelectSortStyles, onResetSortStyles } = useContext(CatalogFiltersContext);
 
     const [visibleFilter, setVisibleFilter] = useState(false);
 

@@ -1,7 +1,10 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useContext } from 'react';
+import { CatalogFiltersContext } from '../../context';
 
-function Price({ onChangePrices, onResetPrices, sortPrices, fromPrice, toPrice, setFromPrice, setToPrice }) {
+function Price({ fromPrice, toPrice, setFromPrice, setToPrice }) {
     const filterRef = useRef();
+
+    const { sortPrices, onSelectSortPrices, onResetSortPrices } = useContext(CatalogFiltersContext);
 
     const [visibleFilter, setVisibleFilter] = useState(false);
 
@@ -30,12 +33,12 @@ function Price({ onChangePrices, onResetPrices, sortPrices, fromPrice, toPrice, 
 
     const handleResetPrices = () => {
         resetPrices();
-        onResetPrices();
+        onResetSortPrices();
     }
 
     const onSubmitPrices = (e) => {
         e.preventDefault();
-        onChangePrices(fromPrice, toPrice)
+        onSelectSortPrices(fromPrice, toPrice)
     }
 
     useEffect(() => {

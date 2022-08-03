@@ -1,8 +1,11 @@
 import classNames from 'classnames';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { CatalogFiltersContext } from '../context';
 import { Sort, Size, Color, Brand, Price, Style } from './CatalogFilters/index';
 
-function CatalogFilters({ onClickSort, activeSortBy, sortFilters, sortPrices, onChangePrices, onResetPrices, onSelectSortColors, onSelectSortSizes, onSelectSortBrands, onSelectSortStyles, sortColors, sortSizes, sortBrands, sortStyles, visibleFilters, onCloseFilters, onResetSortColors, onResetSortBrands, onResetSortStyles, onResetSortSizes, onResetFilters }) {
+function CatalogFilters({ visibleFilters, onCloseFilters }) {
+
+    const { sortFilters, sortColors, sortSizes, sortBrands, sortStyles, onResetFilters } = useContext(CatalogFiltersContext);
 
     const onCheckChange = (arr, index, filters, setFilters) => {
         let checkText = arr[index];
@@ -62,12 +65,12 @@ function CatalogFilters({ onClickSort, activeSortBy, sortFilters, sortPrices, on
                 </button>
             </div>
             <div className="catalog-filters__row">
-                <Sort sortFilters={sortFilters} activeSortBy={activeSortBy} onClickSort={onClickSort} />
-                <Color onCheckChange={onCheckChange} onSelectSortColors={onSelectSortColors} onResetSortColors={onResetSortColors} checkedColors={checkedColors} setCheckedColors={setCheckedColors} />
-                <Size onCheckChange={onCheckChange} onSelectSortSizes={onSelectSortSizes} onResetSortSizes={onResetSortSizes} checkedSizes={checkedSizes} setCheckedSizes={setCheckedSizes} />
-                <Price sortPrices={sortPrices} onChangePrices={onChangePrices} onResetPrices={onResetPrices} fromPrice={fromPrice} toPrice={toPrice} setFromPrice={setFromPrice} setToPrice={setToPrice} />
-                <Brand onCheckChange={onCheckChange} onSelectSortBrands={onSelectSortBrands} onResetSortBrands={onResetSortBrands} checkedBrands={checkedBrands} setCheckedBrands={setCheckedBrands} />
-                <Style onCheckChange={onCheckChange} onSelectSortStyles={onSelectSortStyles} onResetSortStyles={onResetSortStyles} checkedStyles={checkedStyles} setCheckedStyles={setCheckedStyles} />
+                <Sort sortFilters={sortFilters} />
+                <Color onCheckChange={onCheckChange} checkedColors={checkedColors} setCheckedColors={setCheckedColors} />
+                <Size onCheckChange={onCheckChange} checkedSizes={checkedSizes} setCheckedSizes={setCheckedSizes} />
+                <Price fromPrice={fromPrice} toPrice={toPrice} setFromPrice={setFromPrice} setToPrice={setToPrice} />
+                <Brand onCheckChange={onCheckChange} checkedBrands={checkedBrands} setCheckedBrands={setCheckedBrands} />
+                <Style onCheckChange={onCheckChange} checkedStyles={checkedStyles} setCheckedStyles={setCheckedStyles} />
             </div>
             <button onClick={handleResetFilters} className="catalog-filters__reset-btn" type="reset">
                 <span>Очистить все</span>
