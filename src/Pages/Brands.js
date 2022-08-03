@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-function Brands({ generateCrumbs }) {
+function Brands({ title }) {
 
     const crumbs = ['Главная', 'Бренды'];
 
@@ -53,12 +53,7 @@ function Brands({ generateCrumbs }) {
     return (
         <main className="page brands-page">
             <div className="container">
-                <nav className="breadcrumbs" aria-label="breadcrumbs">
-                    <ol className="breadcrumbs__list">
-                        {crumbs.map((crumb, i) => generateCrumbs(crumb, i))}
-                    </ol>
-                </nav>
-                <h1 className="title page__title">{crumbs[crumbs.length - 1]}</h1>
+                <h1 className="title page__title">{title}</h1>
                 <div className="brands-page__body">
                     <div className="brands-categories">
                         {categories.map(category => (

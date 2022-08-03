@@ -4,32 +4,32 @@ import SubscribeCheck from './SubscribeCheck';
 
 function SubscribePopupItem({ subscribes, item, onClickChangeSubscribe, currentSubscribe }) {
 
-  const { id, title, items } = currentSubscribe;
+    const { id, title, items } = currentSubscribe;
 
-  let obj = {
-    id,
-    title,
-    items
-  }
+    let obj = {
+        id,
+        title,
+        items
+    }
 
-  const [checkedSubscribeCheckbox, setCheckedSubscribeCheckbox] = useState(subscribes[item]);
-  const onCheckSubscribeCheckbox = () => {
-    setCheckedSubscribeCheckbox(!checkedSubscribeCheckbox);
-    setCheckedSubscribeSelect(!checkedSubscribeSelect);
-  }
+    const [checkedSubscribeCheckbox, setCheckedSubscribeCheckbox] = useState(subscribes[item]);
+    const onCheckSubscribeCheckbox = () => {
+        setCheckedSubscribeCheckbox(!checkedSubscribeCheckbox);
+        setCheckedSubscribeSelect(!checkedSubscribeSelect);
+    }
 
-  const [checkedSubscribeSelect, setCheckedSubscribeSelect] = useState(subscribes[item]);
-  const onCheckSubscribeSelect = () => {
-    setCheckedSubscribeSelect(!checkedSubscribeSelect);
-    setCheckedSubscribeCheckbox(!checkedSubscribeCheckbox);
-  }
+    const [checkedSubscribeSelect, setCheckedSubscribeSelect] = useState(subscribes[item]);
+    const onCheckSubscribeSelect = () => {
+        setCheckedSubscribeSelect(!checkedSubscribeSelect);
+        setCheckedSubscribeCheckbox(!checkedSubscribeCheckbox);
+    }
 
-  return (
-    <div key={item} className="sale-popup__form-item">
-      <SubscribeCheck onCheckSubscribeCheckbox={onCheckSubscribeCheckbox} checkedSubscribeCheckbox={checkedSubscribeCheckbox} subscribes={subscribes} item={item} onClickChangeSubscribe={onClickChangeSubscribe} {...currentSubscribe} obj={obj} name={item} />
-      <SubscribePopupSelect checkedSubscribeSelect={checkedSubscribeSelect} onCheckSubscribeSelect={onCheckSubscribeSelect} onClickChangeSubscribe={onClickChangeSubscribe} subscribes={subscribes} item={item} {...currentSubscribe} obj={obj} />
-    </div>
-  );
+    return (
+        <div key={item} className="sale-popup__form-item">
+            <SubscribeCheck onCheckSubscribeCheckbox={onCheckSubscribeCheckbox} checkedSubscribeCheckbox={checkedSubscribeCheckbox} subscribes={subscribes} item={item} onClickChangeSubscribe={onClickChangeSubscribe} {...currentSubscribe} obj={obj} name={item} />
+            <SubscribePopupSelect checkedSubscribeSelect={checkedSubscribeSelect} onCheckSubscribeSelect={onCheckSubscribeSelect} onClickChangeSubscribe={onClickChangeSubscribe} subscribes={subscribes} item={item} {...currentSubscribe} obj={obj} />
+        </div>
+    );
 }
 
 export default SubscribePopupItem;
