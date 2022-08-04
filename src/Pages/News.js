@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { BlogItem, EmptyPage } from '../Components';
+import { BlogItem, Crumbs, EmptyPage } from '../Components';
 
 function News({ title, empty }) {
     const [news, setNews] = useState([]);
@@ -13,6 +13,8 @@ function News({ title, empty }) {
     return (
         <main className="page news-page">
             <div className="container">
+                <Crumbs title={title} />
+
                 <h1 className="title page__title">{title}</h1>
 
                 {news.length == 0 ?

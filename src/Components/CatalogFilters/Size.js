@@ -1,11 +1,12 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useContext } from 'react';
 import checkIcon from '../../assets/images/icons/check.svg';
+import { AppContext } from '../../context';
 
 function Size({ onCheckChange, onSelectSortSizes, onResetSortSizes, checkedSizes, setCheckedSizes }) {
 
     const filterRef = useRef();
 
-    const sizes = [42, 44, 46, 48, 50, 52];
+    const { sizesList } = useContext(AppContext);
 
     const [visibleFilter, setVisibleFilter] = useState(false);
 
@@ -46,9 +47,9 @@ function Size({ onCheckChange, onSelectSortSizes, onResetSortSizes, checkedSizes
                     <div className="catalog-drop-filter__inner">
                         <div className="catalog-drop-filter__title">Ваш Российский размер</div>
                         <div className="catalog-drop-filter__items">
-                            {sizes.map((size, i) => (
+                            {sizesList.map((size, i) => (
                                 <label key={size} className="catalog-drop-filter__item">
-                                    <input onChange={() => onCheckChange(sizes, i, checkedSizes, setCheckedSizes)} className="check-box" type="checkbox" checked={checkedSizes.includes(size) ? true : false} />
+                                    <input onChange={() => onCheckChange(sizesList, i, checkedSizes, setCheckedSizes)} className="check-box" type="checkbox" checked={checkedSizes.includes(size) ? true : false} />
                                     <span class="check-style">
                                         <span style={{ backgroundImage: `url(${checkIcon})` }}></span>
                                     </span>

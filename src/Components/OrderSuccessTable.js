@@ -53,7 +53,7 @@ function OrderSuccessTable({ totalPrice, date, personal, delivery, payment, clas
             </div>
             {className === 'order-success-table__head' &&
                 <div className="order-details-table__item">
-                    <Link to="/pay" className="btn order-details-table__btn">Оплатить</Link>
+                    <Link to="/orders" className="btn order-details-table__btn">Оплатить</Link>
                 </div>
             }
         </div>

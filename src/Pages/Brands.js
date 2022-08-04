@@ -6,12 +6,11 @@ import children from '../assets/images/content/brands/girl.png';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { Crumbs } from '../Components';
 
 function Brands({ title }) {
 
-    const crumbs = ['Главная', 'Бренды'];
-
-    const categories = [
+    const categories = React.useMemo(() => [
         {
             name: "Все",
             imageUrl: coat
@@ -28,7 +27,7 @@ function Brands({ title }) {
             name: "Детям",
             imageUrl: children
         }
-    ];
+    ], []);
 
     const [alphabet, setAlphabet] = useState([]);
     React.useEffect(() => {
@@ -53,7 +52,10 @@ function Brands({ title }) {
     return (
         <main className="page brands-page">
             <div className="container">
+                <Crumbs title={title} />
+
                 <h1 className="title page__title">{title}</h1>
+
                 <div className="brands-page__body">
                     <div className="brands-categories">
                         {categories.map(category => (
@@ -67,6 +69,7 @@ function Brands({ title }) {
                             </Link>
                         ))}
                     </div>
+
                     <div className="brands-wrap">
                         <div className="brands-index-list">
                             {Object.keys(alphabet).map(key => (
@@ -87,6 +90,7 @@ function Brands({ title }) {
                         }
                     </div>
                 </div>
+
                 <dl className="brands-alphabet">
                     {Object.keys(alphabet).map(key => (
                         <div key={key} id={key} className="brands-alphabet__item" style={{ display: activeBrand === null || activeBrand == key ? 'block' : 'none' }}>

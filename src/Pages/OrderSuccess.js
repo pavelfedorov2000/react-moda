@@ -1,9 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { OrderSuccessTable, OrderProduct } from '../Components';
+import { OrderSuccessTable, OrderProduct, Crumbs } from '../Components';
 
-function OrderSuccess() {
+function OrderSuccess({ title }) {
 
     //const { totalPrice } = useSelector(({ cart }) => cart);
     const { data } = useSelector(({ order }) => order);
@@ -12,7 +11,9 @@ function OrderSuccess() {
     return (
         <main className="page">
             <div className="container">
-                <h1 className="title page__title">Спасибо за заказ</h1>
+                <Crumbs title={title} cart={true} />
+
+                <h1 className="title page__title">{title}</h1>
 
                 <div className="page__subtitle">
                     Наш менеджер свяжется с вами в ближайшее время

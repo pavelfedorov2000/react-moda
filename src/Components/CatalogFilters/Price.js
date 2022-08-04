@@ -44,6 +44,7 @@ function Price({ fromPrice, toPrice, setFromPrice, setToPrice }) {
     useEffect(() => {
         document.body.addEventListener('click', handleOutsideClick);
     }, []);
+
     return (
         <fieldset ref={filterRef} className="catalog-filters__item">
             <legend onClick={toggleFilter} className="catalog-filters__item-title">

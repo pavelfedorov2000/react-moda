@@ -4,7 +4,6 @@ import coat from '../assets/images/icons/coat.png';
 import certificate from '../assets/images/icons/certificate.svg';
 import classNames from 'classnames';
 
-
 function ProductLinks({ name, brand }) {
 
     // Костыльное склонение (просто для практики)
@@ -28,7 +27,7 @@ function ProductLinks({ name, brand }) {
         return str;
     }
 
-    const productLinks = [
+    const productLinks = React.useMemo(() => [
         {
             src: loriata,
             title: `Все ${generateWord(name)} ${brandUpper(brand)}`,
@@ -50,7 +49,7 @@ function ProductLinks({ name, brand }) {
             title: 'Только оригинальные бренды',
             subtitle: 'Гарантия подлинности',
         },
-    ];
+    ], []);
 
     return (
         <ul className="product-links">

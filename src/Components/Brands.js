@@ -16,6 +16,7 @@ function Brands() {
             <div className="container">
                 <div className="section__title">
                     <h2 className="title">Бренды</h2>
+                    
                     <Link to="/brands" className="all-link">
                         <span>Смотреть все</span>
                         <svg viewBox="0 0 56 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -25,6 +26,7 @@ function Brands() {
                         </svg>
                     </Link>
                 </div>
+
                 <div className="brands__inner">
                     {brands.map(brand => (
                         <Link key={brand.name} to="/not-found" className="brands__item" data-wow-duration="1s">

@@ -1,13 +1,11 @@
-import React, { useCallback, useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useCallback, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Collection, AsideFilters, CatalogFilters, CatalogView, CatalogCard, SeoText, Loader, CatalogCardPopup, Crumbs } from '../Components';
 import filterIcon from '../assets/images/icons/filter.svg';
 import classNames from 'classnames';
 import { setSortBy, setSortPrices, resetSortPrices, setSortColors, setSortSizes, setSortBrands, setSortStyles, resetSortColors, resetSortBrands, resetSortStyles, resetSortSizes, resetFilters } from '../redux/actions/filters';
 import { fetchProducts } from '../redux/actions/products';
-import { removeFavoriteProduct } from '../redux/actions/favorite';
-import { AppContext, CatalogFiltersContext } from '../context';
+import { CatalogFiltersContext } from '../context';
 
 
 function Catalog({ title }) {
@@ -41,7 +39,7 @@ function Catalog({ title }) {
         },
     ];
 
-    const { visibleCatalogCardPopup, setVisibleCatalogCardPopup } = useContext(AppContext);
+    //const { visibleCatalogCardPopup, setVisibleCatalogCardPopup } = useContext(AppContext);
 
     const dispatch = useDispatch();
     const products = useSelector(({ products }) => products.products); // вытаскиваем товары из стора
@@ -49,7 +47,7 @@ function Catalog({ title }) {
     const isLoaded = useSelector(({ products }) => products.isLoaded); // вытаскиваем состояние загрузки из стора
     const { sortBy, sortPrices, sortColors, sortSizes, sortBrands, sortStyles } = useSelector(({ filters }) => filters); // вытаскиваем сортировку по из стора сразу через деструктуризацию
 
-    // Экшн на добавление в избранное
+    /* // Экшн на добавление в избранное
     const handleAddProductToFavorite = obj => {
         dispatch({
             type: 'ADD_FAVORITE_PRODUCT',
@@ -68,7 +66,7 @@ function Catalog({ title }) {
             type: 'ADD_PRODUCT_TO_CART',
             payload: obj
         });
-    }
+    } */
 
     React.useEffect(() => {
         dispatch(fetchProducts(sortBy, sortPrices, sortColors, sortSizes, sortBrands, sortStyles)); // вернет функцию
@@ -143,16 +141,26 @@ function Catalog({ title }) {
         setVisibleFilters(false);
     }
 
+    const [visibleCatalogCardPopup, setVisibleCatalogCardPopup] = useState(null);
+
+    const closeCatalogCardPopup = () => {
+        setVisibleCatalogCardPopup(null);
+    }
+
     return (
         <>
             <main className="page catalog">
                 <div className="container">
                     <Crumbs title={title} />
+
                     <Collection />
+
                     <div className="catalog__page">
                         <h1 className="title page__title catalog__title">{title}</h1>
+
                         <div className="catalog__inner">
                             <AsideFilters />
+
                             <div className="catalog__body">
                                 <div className="catalog__filters">
                                     <CatalogFiltersContext.Provider value={{
@@ -178,26 +186,30 @@ function Catalog({ title }) {
                                     }}>
                                         <CatalogFilters visibleFilters={visibleFilters} onCloseFilters={onCloseFilters} />
                                     </CatalogFiltersContext.Provider>
+
                                     <CatalogView onViewChange={toggleCatalogView} views={views} catalogView={catalogView} />
                                     <button onClick={onOpenFilters} className="filters-btn" type="button" style={{ backgroundImage: `url(${filterIcon})` }}>Фильтры</button>
                                 </div>
+
                                 <div className={classNames('catalog__cards', {
                                     'catalog__cards--two-cols': catalogView === 'col'
                                 })}>
                                     {isLoaded
-                                        ? products.map(product => <CatalogCard key={product.id} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} {...product} isLoaded={true} />)
+                                        ? products.map(product => <CatalogCard key={product.id} {...product} isLoaded={true} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} />)
                                         : Array(18).fill(0).map((_, index) => <Loader key={`loader-${index}`} />)
                                     }
                                 </div>
+
                                 <SeoText className="catalog__seo-text" />
                             </div>
                         </div>
                     </div>
                 </div>
             </main>
+
             {visibleCatalogCardPopup !== null &&
                 <div className="overlay active">
-                    <CatalogCardPopup products={products} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} onAddCart={handleAddProductToCart} />
+                    <CatalogCardPopup visibleCatalogCardPopup={visibleCatalogCardPopup} products={products} closeCatalogCardPopup={closeCatalogCardPopup} />
                 </div>
             }
         </>

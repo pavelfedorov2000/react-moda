@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min';
-import { PageNav } from '../Components';
+import { Crumbs, PageNav } from '../Components';
 
 function Profile({ title, empty, SubPage }) {
 
@@ -9,6 +9,7 @@ function Profile({ title, empty, SubPage }) {
     return (
         <main className="page profile-page">
             <div className="container">
+                <Crumbs title={title} />
 
                 <h1 className="title page__title">Профиль</h1>
 

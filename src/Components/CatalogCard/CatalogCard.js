@@ -5,10 +5,14 @@ import heartFilled from '../../assets/images/icons/heart-filled.svg';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../../context';
 
-function CatalogCard({ id, name, brand, imageUrl, price, color, sizes, discount, newProduct, onClickAddFavorite, onClickRemoveFavorite, isFavorite }) {
-    const sizesList = [42, 44, 46, 48, 50, 52];
+function CatalogCard({ id, name, brand, imageUrl, price, color, sizes, discount, newProduct, isFavorite, setVisibleCatalogCardPopup }) {
+    //const sizesList = [42, 44, 46, 48, 50, 52];
 
-    const { setVisibleCatalogCardPopup } = useContext(AppContext);
+    //console.log(isFavorite);
+
+    const { onClickAddFavorite, onClickRemoveFavorite, sizesList } = useContext(AppContext);
+
+    //const { setVisibleCatalogCardPopup } = useContext(AppContext);
 
     const [favorite, setFavorite] = useState(false);
 
@@ -37,10 +41,10 @@ function CatalogCard({ id, name, brand, imageUrl, price, color, sizes, discount,
     return (
         <div className="catalog-card">
             <div className="labels">
-                {discount != 0 &&
+                {discount !== 0 &&
                     <span className="label catalog-card__label label--discount">{`${discount}%`}</span>
                 }
-                {newProduct && newProduct != undefined &&
+                {newProduct && newProduct !== undefined &&
                     <span className="label catalog-card__label label--new">new</span>
                 }
             </div>
@@ -65,9 +69,9 @@ function CatalogCard({ id, name, brand, imageUrl, price, color, sizes, discount,
             <div className="catalog-card__subtitle">{brand}</div>
             <div className="prices">
                 <div className={classNames('price', {
-                    'new-price': discount != 0
+                    'new-price': discount !== 0
                 })}>{`${price} ₽`}</div>
-                {discount != 0 &&
+                {discount !== 0 &&
                     <div className="old-price catalog-card__old-price">{`${Math.floor(price * 100 / (100 - discount))} ₽`}</div>
                 }
             </div>

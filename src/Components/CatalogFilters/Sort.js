@@ -34,6 +34,7 @@ function Sort({ sortFilters }) {
     useEffect(() => {
         document.body.addEventListener('click', handleOutsideClick);
     }, []);
+
     return (
         <fieldset ref={filterRef} className="catalog-filters__item catalog-filters__item--sort">
             <legend className="catalog-filters__item-title" onClick={toggleFilter}>
@@ -42,6 +43,7 @@ function Sort({ sortFilters }) {
                     <path fillRule="evenodd" clipRule="evenodd" d="M3.25 4L7 7.6L10.75 4L12 5.2L7 10L2 5.2L3.25 4Z" fill="#101112" />
                 </svg>
             </legend>
+
             {visibleFilter &&
                 <div className="catalog-filters__item-drop catalog-drop-filter">
                     <div className="catalog-drop-filter__inner">

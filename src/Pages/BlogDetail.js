@@ -2,11 +2,14 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { AsideBlog, BlogText } from '../Components';
+import { useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min';
+import { AsideBlog, BlogText, Crumbs } from '../Components';
 
 function BlogDetail() {
 
     let { id } = useParams();
+
+    const { url } = useRouteMatch();
 
     const [news, setNews] = useState([]);
 
@@ -23,19 +26,7 @@ function BlogDetail() {
         <main className="page blog-text">
             {activeNews &&
                 <div className="container">
-                    <nav className="breadcrumbs" aria-label="breadcrumbs">
-                        <ol className="breadcrumbs__list">
-                            <li className="breadcrumbs__item">
-                                <Link to="/">Главная</Link>
-                            </li>
-                            <li className="breadcrumbs__item">
-                                <Link to="/blog">Блог</Link>
-                            </li>
-                            <li className="breadcrumbs__item">
-                                <span>{activeNews.title}</span>
-                            </li>
-                        </ol>
-                    </nav>
+                    <Crumbs title={activeNews.title} id={id} url={url.split('/')[1]} />
 
                     <h1 className="title page__title">{activeNews.title}</h1>
 

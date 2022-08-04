@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { BlogItem, EmptyPage } from '../Components';
+import { BlogItem, Crumbs, EmptyPage } from '../Components';
 import { AppContext } from '../context';
 
 function Blog({ title, empty }) {
@@ -8,7 +8,7 @@ function Blog({ title, empty }) {
     return (
         <main className="page blog-page">
             <div className="container">
-
+                <Crumbs title={title} />
                 <h1 className="title blog-page__title">{title}</h1>
 
                 <div className="blog-grid">

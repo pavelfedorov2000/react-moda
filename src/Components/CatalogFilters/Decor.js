@@ -27,6 +27,7 @@ function Decor({ checkedFilters, onCheckChange, setCheckedFilters }) {
     useEffect(() => {
         document.body.addEventListener('click', handleOutsideClick);
     }, []);
+
     return (
         <fieldset ref={filterRef} className="catalog-filters__item catalog-filters__item--decor">
             <legend onClick={toggleFilter} className="catalog-filters__item-title">

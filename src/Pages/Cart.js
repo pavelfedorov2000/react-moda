@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BasketTable, BasketTotal, Checkout, Crumbs } from '../Components';
-//import { Link } from 'react-router-dom';
 import Sticky from "wil-react-sticky";
 import { clearCart } from '../redux/actions/cart';
 

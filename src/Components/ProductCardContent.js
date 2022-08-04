@@ -8,6 +8,8 @@ import { AppContext } from '../context';
 
 function ProductCardContent({ setFavorite, onClickAddFavorite, onClickRemoveFavorite, onAddCart, id, articul, name, brand, logo, sizes, color, price, imageUrl, discount, newProduct, isFavorite, favorite, inBasket }) {
 
+    console.log(isFavorite);
+    console.log(inBasket);
     const { basketProduct, setBasketProduct } = useContext(AppContext);
 
     const availableSizes = [42, 44, 46, 48, 50, 52];
@@ -65,16 +67,16 @@ function ProductCardContent({ setFavorite, onClickAddFavorite, onClickRemoveFavo
             </div>
             <div className="product-card__prices-wrap">
                 <div className="prices product-card__prices">
-                    {discount != 0 &&
+                    {discount !== 0 &&
                         <div className="old-price product-card__old-price">{`${Math.floor(price * 100 / (100 - discount))} ₽`}</div>
                     }
                     <div className={discount != 0 ? 'new-price' : 'price'}>{`${price} ₽`}</div>
                 </div>
                 <div className="labels product-card__labels">
-                    {discount != 0 &&
+                    {discount !== 0 &&
                         <span class="label label--discount">{`${discount}%`}</span>
                     }
-                    {newProduct && newProduct != undefined &&
+                    {newProduct && newProduct !== undefined &&
                         <span class="label label--new">new</span>
                     }
                 </div>

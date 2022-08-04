@@ -4,6 +4,8 @@ import { Header, Footer, Auth, DropBasket, Social, BurgerMenu } from './Componen
 import axios from 'axios';
 import { AppContext } from './context';
 import AppRouter from './Components/AppRouter';
+import { removeFavoriteProduct } from './redux/actions/favorite';
+import { useDispatch } from 'react-redux';
 
 function App() {
 
@@ -59,6 +61,13 @@ function App() {
         });
     }, []); // [] = componentDidMout
 
+    const [sizesList, setSizesList] = useState([]);
+    React.useEffect(() => {
+        axios.get('/sizes').then(({ data }) => {
+            setSizesList(data);
+        });
+    }, []); // [] = componentDidMout
+
     const [activeCategory, setActiveCategory] = useState(null);
 
     /* if (categories.length) {
@@ -109,6 +118,29 @@ function App() {
 
     const [visibleCatalogCardPopup, setVisibleCatalogCardPopup] = useState(null);
 
+    const dispatch = useDispatch();
+
+    // Экшн на добавление в избранное
+    const onClickAddFavorite = obj => {
+        dispatch({
+            type: 'ADD_FAVORITE_PRODUCT',
+            payload: obj
+        });
+    }
+
+    // Экшн на удаление из избранного
+    const onClickRemoveFavorite = (id) => {
+        dispatch(removeFavoriteProduct(id));
+    }
+
+    // Экшн на добавление в корзину
+    const onAddCart = obj => {
+        dispatch({
+            type: 'ADD_PRODUCT_TO_CART',
+            payload: obj
+        });
+    }
+
     return (
         <AppContext.Provider value={{
             phone,
@@ -120,7 +152,11 @@ function App() {
             onChangeCategory,
             categories,
             blog,
-            discounts
+            discounts,
+            sizesList,
+            onAddCart,
+            onClickAddFavorite,
+            onClickRemoveFavorite
         }}>
             <div className={classNames('wrapper', {
                 '_lock': visibleBurgerMenu

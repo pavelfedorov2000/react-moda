@@ -56,7 +56,9 @@ function CatalogFilters({ visibleFilters, onCloseFilters }) {
                         </svg>
                     </button>
                 }
+
                 <div className="catalog-filters__title">{activeFilter}</div>
+
                 <button onClick={onCloseFilters} className="catalog-filters__close" type="button" aria-label="Закрыть фильтры">
                     <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <line x1="2.64645" y1="16.6464" x2="16.7886" y2="2.50431" stroke="black" />
@@ -64,6 +66,7 @@ function CatalogFilters({ visibleFilters, onCloseFilters }) {
                     </svg>
                 </button>
             </div>
+
             <div className="catalog-filters__row">
                 <Sort sortFilters={sortFilters} />
                 <Color onCheckChange={onCheckChange} checkedColors={checkedColors} setCheckedColors={setCheckedColors} />
@@ -72,6 +75,7 @@ function CatalogFilters({ visibleFilters, onCloseFilters }) {
                 <Brand onCheckChange={onCheckChange} checkedBrands={checkedBrands} setCheckedBrands={setCheckedBrands} />
                 <Style onCheckChange={onCheckChange} checkedStyles={checkedStyles} setCheckedStyles={setCheckedStyles} />
             </div>
+
             <button onClick={handleResetFilters} className="catalog-filters__reset-btn" type="reset">
                 <span>Очистить все</span>
                 <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

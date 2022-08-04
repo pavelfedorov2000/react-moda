@@ -4,10 +4,10 @@ import Button from '../Button';
 function Personal() {
     return (
         <form className="profile-personal profile-page__form">
-            <input className="input" name="name" />
-            <input className="input" name="surname" />
-            <input className="input" name="phone" type="tel" />
-            <input className="input" name="email" type="email" />
+            <input className="input" name="name" value="Иванка" />
+            <input className="input" name="surname" value="Иванова" />
+            <input className="input" name="phone" type="tel" value="+7 (999) 999-99-99 " />
+            <input className="input" name="email" type="email" value="post@mail.ru" />
             <div className="profile-personal__row-field profile-personal__gender">
                 <div className="profile-personal__field-title">Пол</div>
                 <div className="profile-personal__gender-radios">

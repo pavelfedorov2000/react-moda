@@ -1,12 +1,14 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import { OtherNews } from '../Components';
+import { Crumbs, OtherNews } from '../Components';
 
 function NewsDetail() {
 
     let { id } = useParams();
+
+    const { url } = useRouteMatch();
 
     const [news, setNews] = useState([]);
 
@@ -28,19 +30,8 @@ function NewsDetail() {
             <div className="container">
                 {activeNews &&
                     <>
-                        <nav className="breadcrumbs" aria-label="breadcrumbs">
-                            <ol className="breadcrumbs__list">
-                                <li className="breadcrumbs__item">
-                                    <Link to="/">Главная</Link>
-                                </li>
-                                <li className="breadcrumbs__item">
-                                    <Link to="/news">Новости и акции</Link>
-                                </li>
-                                <li className="breadcrumbs__item">
-                                    <span>{activeNews.title}</span>
-                                </li>
-                            </ol>
-                        </nav>
+                        <Crumbs title={activeNews.title} id={id} url={url.split('/')[1]} />
+
                         <article className="news-detail">
                             <h1 className="title page__title">{activeNews.title}</h1>
                             <div className="news-detail__inner">

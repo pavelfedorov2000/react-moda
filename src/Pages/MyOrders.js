@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
-import { OrderTableItem, PageNav, EmptyPage } from '../Components';
+import { OrderTableItem, PageNav, EmptyPage, Crumbs } from '../Components';
 import { RouterContext } from '../context';
 //import { useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min';
 
@@ -13,6 +13,7 @@ function MyOrders({ title, empty }) {
     return (
         <main className="page profile-page">
             <div className="container">
+                <Crumbs title={title} />
 
                 <h1 className="title page__title">Профиль</h1>
 

@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
 import { CatalogCard, SliderArrows } from '../Components';
+import { CatalogCardPopupContext } from '../context';
 
-function SliderSection({ products, title, onClickAddFavorite, onClickRemoveFavorite }) {
+function SliderSection({ products, title }) {
     const sliderLength = 6;
     // Разворачиваем массив товаров в новый массив рандомных товаров
     /* const randomProducts = [...products];
@@ -11,6 +12,8 @@ function SliderSection({ products, title, onClickAddFavorite, onClickRemoveFavor
     const max = randomProducts.length;
     const [sliderProducts, setSliderProducts] = useState(randomProducts.splice(Math.floor(min + Math.random() * (max + 1 - min)), sliderLength));
     console.log(sliderProducts); */
+
+    const { setVisibleCatalogCardPopup } = useContext(CatalogCardPopupContext);
 
     return (
         products.length > 4 ?
@@ -33,7 +36,7 @@ function SliderSection({ products, title, onClickAddFavorite, onClickRemoveFavor
                 <SplideTrack>
                     {products.map(product => (
                         <SplideSlide key={product.id}>
-                            <CatalogCard onClickAddFavorite={onClickAddFavorite} onClickRemoveFavorite={onClickRemoveFavorite} {...product} />
+                            <CatalogCard setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} {...product} />
                         </SplideSlide>
                     ))}
                 </SplideTrack>
@@ -45,7 +48,7 @@ function SliderSection({ products, title, onClickAddFavorite, onClickRemoveFavor
                 </div>
                 <div className="slider-section__items">
                     {products.map(product => (
-                        <CatalogCard key={product.id} onClickAddFavorite={onClickAddFavorite} onClickRemoveFavorite={onClickRemoveFavorite} {...product} />
+                        <CatalogCard key={product.id} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} {...product} />
                     ))}
                 </div>
             </div>
