@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { RouterContext } from '../context';
 
-function Crumbs({ title, id, url, product, cart }) {
+function Crumbs({ title, id, url, product }) {
     const { routes } = useContext(RouterContext);
 
     const prevRoute = routes.find(route => route.path === `/${url}`);

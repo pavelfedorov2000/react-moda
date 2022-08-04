@@ -1,20 +1,19 @@
 import React from 'react';
 
+const deliveryInputs = {
+    index: "Индекс",
+    street: "Улица",
+    home: "Дом, корпус",
+    flat: "Квартира/офис",
+};
+
 function Delivery({ selectedDelivery, setSelectedDelivery, deliveryOptions }) {
-
-    const deliveryInputs = {
-        index: "Индекс",
-        street: "Улица",
-        home: "Дом, корпус",
-        flat: "Квартира/офис",
-    };
-
     return (
         <fieldset>
             <legend className="checkout-form__item-title">Условия доставки</legend>
             <div className="checkout-form__radios">
                 {deliveryOptions.map((option, i) => (
-                    <label className="checkout-form__item-radio checkout-radio checkout-radio--without-border">
+                    <label key={option} className="checkout-form__item-radio checkout-radio checkout-radio--without-border">
                         <input onChange={() => setSelectedDelivery(i)} className="radio-box" type="radio" name="delivery" checked={i == selectedDelivery ? true : false} />
                         <div className="checkout-radio__wrap">
                             <span className="radio-style"></span>

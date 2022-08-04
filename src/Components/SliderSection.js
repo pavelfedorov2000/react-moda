@@ -1,54 +1,53 @@
-import React, { useContext } from 'react';
+import React, { useMemo } from 'react';
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
 import { CatalogCard, SliderArrows } from '../Components';
-import { CatalogCardPopupContext } from '../context';
 
-function SliderSection({ products, title }) {
+const splideBreakpoints = {
+    1024: { perPage: 2, gap: '3rem' },
+    767: { perPage: 1 },
+    500: { gap: '2rem' }
+};
+
+function SliderSection({ products, title, setVisibleCatalogCardPopup, id }) {
     const sliderLength = 6;
-    // Разворачиваем массив товаров в новый массив рандомных товаров
-    /* const randomProducts = [...products];
-    const min = 0;
-    const max = randomProducts.length;
-    const [sliderProducts, setSliderProducts] = useState(randomProducts.splice(Math.floor(min + Math.random() * (max + 1 - min)), sliderLength));
-    console.log(sliderProducts); */
+    const filteredProducts = id !== undefined ? products.filter(product => product.id !== id) : products;
 
-    const { setVisibleCatalogCardPopup } = useContext(CatalogCardPopupContext);
+    const splideOptions = useMemo(() => {
+        return {
+            speed: 1000,
+            gap: '5.2rem',
+            perPage: sliderLength - 2,
+            perMove: 1,
+            breakpoints: splideBreakpoints,
+        }
+    }, [sliderLength, splideBreakpoints]);
 
     return (
-        products.length > 4 ?
-            <Splide className="slider-section" hasTrack={false} aria-label={title} options={{
-                speed: 1000,
-                gap: '5.2rem',
-                perPage: sliderLength - 2,
-                perMove: 1,
-                //arrows: false,
-                breakpoints: {
-                    1024: { perPage: 2, gap: '3rem' },
-                    767: { perPage: 1 },
-                    500: { gap: '2rem' }
-                },
-            }}>
-                <div className="section__title">
+        filteredProducts.length > 4 ?
+            <Splide className="slider-section" hasTrack={false} aria-label={title} options={splideOptions}>
+                <div className="section__top">
                     <h2 className="title">{title}</h2>
                     <SliderArrows />
                 </div>
+
                 <SplideTrack>
-                    {products.map(product => (
+                    {filteredProducts.map(product => (
                         <SplideSlide key={product.id}>
-                            <CatalogCard setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} {...product} />
+                            <CatalogCard {...product} product={product} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} />
                         </SplideSlide>
                     ))}
                 </SplideTrack>
             </Splide>
             :
             <div className="slider-section" >
-                <div className="section__title">
+                <div className="section__top">
                     <h2 className="title">{title}</h2>
                 </div>
+
                 <div className="slider-section__items">
-                    {products.map(product => (
-                        <CatalogCard key={product.id} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} {...product} />
+                    {filteredProducts.map(product => (
+                        <CatalogCard key={product.id} {...product} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} />
                     ))}
                 </div>
             </div>

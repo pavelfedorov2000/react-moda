@@ -14,9 +14,9 @@ function Brands() {
     return (
         <section className="section brands">
             <div className="container">
-                <div className="section__title">
+                <div className="section__top">
                     <h2 className="title">Бренды</h2>
-                    
+
                     <Link to="/brands" className="all-link">
                         <span>Смотреть все</span>
                         <svg viewBox="0 0 56 16" fill="none" xmlns="http://www.w3.org/2000/svg">

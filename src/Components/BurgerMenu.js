@@ -1,10 +1,13 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import close from '../assets/images/icons/close-thin.svg';
 import { ShopsSearch, HeaderRegion, Call, WhatsApp } from '../Components';
+import { AppContext } from '../context';
 
-function BurgerMenu({ categories, activeCategory, onChangeCategory, visibleBurgerMenu, onCloseBurgerMenu, dropMenuCategories, links }) {
+function BurgerMenu({ visibleBurgerMenu, onCloseBurgerMenu, dropMenuCategories, links }) {
+    const { activeCategory, onChangeCategory, categories } = useContext(AppContext);
+
     return (
         <div className={classNames('burger-menu', {
             'active': visibleBurgerMenu

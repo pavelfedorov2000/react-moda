@@ -9,6 +9,7 @@ function Blog({ title, empty }) {
         <main className="page blog-page">
             <div className="container">
                 <Crumbs title={title} />
+
                 <h1 className="title blog-page__title">{title}</h1>
 
                 <div className="blog-grid">

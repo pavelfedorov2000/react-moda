@@ -6,7 +6,8 @@ import { Crumbs, OtherNews } from '../Components';
 
 function NewsDetail() {
 
-    let { id } = useParams();
+    const { id } = useParams();
+    console.log(id);
 
     const { url } = useRouteMatch();
 
@@ -20,10 +21,8 @@ function NewsDetail() {
 
     //console.log(news);
 
-    const activeNews = news.filter(news => news.id == id)[0];
-    //console.log(activeNews);
+    const activeNews = news.find(news => news.id == id);
     const otherNews = news.filter(news => news.id != id);
-    //console.log(otherNews);
 
     return (
         <main className="page">

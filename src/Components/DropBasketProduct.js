@@ -1,14 +1,10 @@
 import classNames from 'classnames';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AppContext } from '../context';
 
 function DropBasketProduct({ id, articul, name, brand, size, imageUrl, color, discount, onRemoveItem, onPlusItem, onMinusItem, totalCount, totalPrice }) {
 
-    const { setBasketProduct } = useContext(AppContext);
-
     const handleRemoveCartItem = () => {
-        setBasketProduct(false);
         onRemoveItem(id);
     }
     const handleMinusCartItem = () => {
@@ -21,7 +17,9 @@ function DropBasketProduct({ id, articul, name, brand, size, imageUrl, color, di
     return (
         <div className="basket-product drop-basket__product">
             <Link to={`/product-card/${id}`} className="basket-product__img"><img src={imageUrl} alt="фото" /></Link>
+
             <Link to={`/product-card/${id}`} className="product-title basket-product__title">{name} {brand}</Link>
+
             <dl className="product-list basket-product__list">
                 <div>
                     <dt>Артикул:</dt>
@@ -36,6 +34,7 @@ function DropBasketProduct({ id, articul, name, brand, size, imageUrl, color, di
                     <dd>{size}</dd>
                 </div>
             </dl>
+
             <div className="drop-basket__product-wrap">
                 <button onClick={handleRemoveCartItem} className="basket-product__btn basket-product__btn--delete" type="button">
                     <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,13 +46,16 @@ function DropBasketProduct({ id, articul, name, brand, size, imageUrl, color, di
                     </svg>
                     <span>Удалить</span>
                 </button>
+
                 <div className="basket-product__counter counter">
                     <button onClick={handleMinusCartItem} className="counter__btn" type="button">
                         <svg viewBox="0 0 10 2" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <line y1="1" x2="10" y2="1" stroke="#9B9B9B" strokeWidth="2" />
                         </svg>
                     </button>
+
                     <input className="counter__input" type="number" value={totalCount} readonly />
+
                     <button onClick={handlePlusCartItem} className="counter__btn" type="button">
                         <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <line y1="5" x2="10" y2="5" stroke="#9B9B9B" strokeWidth="2" />
@@ -61,12 +63,14 @@ function DropBasketProduct({ id, articul, name, brand, size, imageUrl, color, di
                         </svg>
                     </button>
                 </div>
+
                 <div className="basket-product__prices-wrap drop-basket__product-prices">
-                    {discount != 0 &&
+                    {discount !== 0 &&
                         <div className="price old-price basket-product__old-price">{`${Math.floor(totalPrice * 100 / (100 - discount))} ₽`}</div>
                     }
+
                     <div className={classNames('price', {
-                        'new-price': discount != 0
+                        'new-price': discount !== 0
                     })}>{`${totalPrice} ₽`}</div>
                 </div>
             </div>

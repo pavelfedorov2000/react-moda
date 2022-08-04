@@ -52,7 +52,7 @@ function Brand({ onCheckChange, checkedBrands, setCheckedBrands }) {
                                 {brands.map((brand, i) => (
                                     <label key={brand} className="catalog-drop-filter__item">
                                         <input onChange={() => onCheckChange(brands, i, checkedBrands, setCheckedBrands)} className="check-box" type="checkbox" checked={checkedBrands.includes(brand) ? true : false} />
-                                        <span class="check-style">
+                                        <span className="check-style">
                                             <span style={{ backgroundImage: `url(${checkIcon})` }}></span>
                                         </span>
                                         <span className="check-text">{brand}</span>

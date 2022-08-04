@@ -7,7 +7,7 @@ function AsideBlog({ asideNews }) {
             <h2 className="aside-blog__title">Другие новости</h2>
             <div className="aside-blog__items">
                 {asideNews.map(article => (
-                    <BlogItem key={article.id} {...article} className="aside-blog__item" />
+                    <BlogItem key={article.id} {...article} isUrlSplice={true} className="aside-blog__item" />
                 ))}
             </div>
         </aside>

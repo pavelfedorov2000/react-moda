@@ -36,7 +36,7 @@ function OrderTableItem({ totalPrice, index, date, delivery, items }) {
                 </div>
                 <div className="order-item__images">
                     {Object.keys(items).map(item => (
-                        <div className="order-item__img">
+                        <div key={items[item].items[0].id} className="order-item__img">
                             <img src={items[item].items[0].imageUrl} alt="фото" />
                         </div>
                     ))}

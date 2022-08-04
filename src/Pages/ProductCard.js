@@ -1,23 +1,45 @@
 import axios from 'axios';
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { ProductDetails, ProductLinks, ProductCardContent, SliderSection, CatalogCardPopup, SliderArrows, Crumbs } from '../Components';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import { removeFavoriteProduct } from '../redux/actions/favorite';
-import { useDispatch, useSelector } from 'react-redux';
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
 import { Fancybox as NativeFancybox } from "@fancyapps/ui/dist/fancybox.esm.js";
 import "@fancyapps/ui/dist/fancybox.css";
 import classNames from 'classnames';
-import { AppContext } from '../context';
 
+const splideOptions = {
+    type: 'loop',
+    speed: 1000,
+    gap: '5.2rem',
+    perPage: 2,
+    perMove: 1,
+    breakpoints: {
+        1024: { gap: '3rem' },
+        767: { perPage: 1, gap: '2rem' },
+    },
+};
+
+const tabs = [{
+    id: 'details',
+    text: 'Детали',
+}, {
+    id: 'delivery',
+    text: 'Доставка',
+}, {
+    id: 'payment',
+    text: 'Оплата',
+}, {
+    id: 'shops-availability',
+    text: 'Наличие в магазинах',
+}, {
+    id: 'video',
+    text: 'Видео',
+}];
 
 function ProductCard() {
 
-    const { setBasketProduct } = useContext(AppContext);
-
-    const dispatch = useDispatch();
-    let { id } = useParams();
+    const { id } = useParams();
 
     const [products, setProducts] = useState([]);
 
@@ -27,78 +49,8 @@ function ProductCard() {
         });
     }, []); // [] = componentDidMout */
 
-    const favoriteProducts = useSelector(({ favorite }) => favorite.products); // вытаскиваем товары из стора
-    const basketProducts = useSelector(({ cart }) => cart.items); // вытаскиваем товары из стора
-
     let activeProduct = products.filter(product => product.id == id)[0];
-    console.log(activeProduct);
-
-    if (activeProduct && favoriteProducts.length > 0) {
-        const thisFavorite = favoriteProducts.find(product => product.id == activeProduct.id);
-        if (thisFavorite) {
-            activeProduct = {
-                ...activeProduct,
-                isFavorite: true
-            }
-        }
-    }
-
-    if (activeProduct && basketProducts.length > 0) {
-        const thisInBasket = basketProducts.find(product => product.items[0].id == activeProduct.id);
-        if (thisInBasket) {
-            activeProduct = {
-                ...activeProduct,
-                inBasket: true
-            }
-        }
-    }
-
-    const [favorite, setFavorite] = useState(false);
-
-    // Экшн на добавление в избранное
-    const handleAddProductToFavorite = obj => {
-        dispatch({
-            type: 'ADD_FAVORITE_PRODUCT',
-            payload: obj
-        });
-    }
-
-    // Экшн на удаление из избранного
-    const handleRemoveFavoriteProduct = (id) => {
-        dispatch(removeFavoriteProduct(id));
-    }
-
-    // Экшн на добавление в корзину
-    const handleAddProductToCart = obj => {
-        setBasketProduct(true);
-        dispatch({
-            type: 'ADD_PRODUCT_TO_CART',
-            payload: obj
-        });
-    }
-
-    const tabs = [
-        {
-            id: 'details',
-            text: 'Детали',
-        },
-        {
-            id: 'delivery',
-            text: 'Доставка',
-        },
-        {
-            id: 'payment',
-            text: 'Оплата',
-        },
-        {
-            id: 'shops-availability',
-            text: 'Наличие в магазинах',
-        },
-        {
-            id: 'video',
-            text: 'Видео',
-        },
-    ];
+    //console.log(activeProduct);
 
     const [activeTab, setActiveTab] = useState(0);
     const onClickTab = (i) => {
@@ -119,26 +71,16 @@ function ProductCard() {
                         <Crumbs title={`${activeProduct.name} ${activeProduct.brand}`} product={true} />
 
                         <div className="product-card__inner">
-                            <ProductCardContent onAddCart={handleAddProductToCart} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} {...activeProduct} favorite={favorite} setFavorite={setFavorite} />
+                            <ProductCardContent {...activeProduct} />
 
-                            <Splide className="product-card__slider" hasTrack={false} options={{
-                                type: 'loop',
-                                speed: 1000,
-                                gap: '5.2rem',
-                                perPage: 2,
-                                perMove: 1,
-                                breakpoints: {
-                                    1024: { gap: '3rem' },
-                                    767: { perPage: 1, gap: '2rem' },
-                                },
-                            }}>
+                            <Splide className="product-card__slider" hasTrack={false} options={splideOptions}>
                                 <SliderArrows round={true} />
                                 <SplideTrack>
                                     {Array(4).fill(0).map((_, index) => (
                                         <SplideSlide key={index + 1}>
                                             <a data-fancybox="gallery" className="product-card__slider-item" href={index % 2 != 0 ? 'https://www.youtube.com/watch?v=L1e8YEozOD8' : activeProduct.imageUrl}>
                                                 <img src={activeProduct.imageUrl} alt="фото" />
-                                                {index % 2 != 0 && <div class="player-btn"></div>}
+                                                {index % 2 != 0 && <div className="player-btn"></div>}
                                             </a>
                                         </SplideSlide>
                                     ))}
@@ -162,14 +104,14 @@ function ProductCard() {
                                 <>
                                     {tabs.map((tab, i) => (
                                         tab.id === 'details' ? <ProductDetails id={tab.id} key={tab.id} index={i} activeTab={activeTab} {...activeProduct} /> :
-                                            <div key={tab.id} id={tab.id} class={classNames('tabs-content', {
+                                            <div key={tab.id} id={tab.id} className={classNames('tabs-content', {
                                                 'tabs-content--active': i === activeTab
                                             })}>
                                                 {tab.id === 'video' ?
-                                                    <div class="product-card__videos">
+                                                    <div className="product-card__videos">
                                                         {Array(2).fill(0).map((_, index) => (
-                                                            <div key={`video-${index}`} class="product-card__video">
-                                                                <iframe src="https://www.youtube.com/embed/L1e8YEozOD8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                            <div key={`video-${index}`} className="product-card__video">
+                                                                <iframe src="https://www.youtube.com/embed/L1e8YEozOD8" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                                                             </div>
                                                         ))}
                                                     </div> :
@@ -195,14 +137,14 @@ function ProductCard() {
                     <aside className="product-card__page">
                         {['С этим товаром рекомендуем', 'Похожие товары'].map((section, i) => (
                             <section>
-                                <SliderSection key={`aside-section_${i + 1}`} products={products} {...activeProduct} title={section} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} />
+                                <SliderSection key={`aside-section_${i + 1}`} id={id} products={products} {...activeProduct} title={section} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} />
                             </section>
                         ))}
                     </aside>
 
                     {visibleCatalogCardPopup !== null &&
                         <div className="overlay active">
-                            <CatalogCardPopup products={products} visibleCatalogCardPopup={visibleCatalogCardPopup} closeCatalogCardPopup={closeCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onAddCart={handleAddProductToCart} />
+                            <CatalogCardPopup products={products} visibleCatalogCardPopup={visibleCatalogCardPopup} closeCatalogCardPopup={closeCatalogCardPopup} />
                         </div>
                     }
                 </div>

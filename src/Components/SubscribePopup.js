@@ -1,7 +1,6 @@
 import React from 'react';
 import SubscribePopupItem from './SubscribePopupItem';
 
-
 function SubscribePopup({ onCloseSubscribePopup, subscribes, currentSubscribe, onChangeSubscribe, title }) {
 
     const saleItems = ['e-mail', 'sms'];

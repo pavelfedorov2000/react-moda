@@ -39,7 +39,7 @@ function Header({ onAsideBasketOpener, onAsideAuthOpener, onOpenBurgerMenu, drop
                         <nav className="header__nav">
                             {categories.map((category, i) => (
                                 <Link key={category.href} to="/home" onClick={() => onChangeCategory(i)} className={classNames('header__nav-link', {
-                                    'active': category.href === activeCategory || i === 0
+                                    'active': i === activeCategory
                                 })}>{category.text}</Link>
                             ))}
                         </nav>

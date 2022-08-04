@@ -4,17 +4,19 @@ import { Crumbs, PageNav } from '../Components';
 
 function Profile({ title, empty, SubPage }) {
 
-    let { index } = useParams();
+    const { index } = useParams();
+    const { url } = useRouteMatch();
 
     return (
         <main className="page profile-page">
             <div className="container">
-                <Crumbs title={title} />
+                <Crumbs title={title} id={index} url={url.split('/')[1]} />
 
                 <h1 className="title page__title">Профиль</h1>
 
                 <div className="profile-page__inner">
                     <PageNav />
+
                     <div className="profile-page__body">
 
                         {!index &&

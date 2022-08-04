@@ -27,34 +27,33 @@ function ProductLinks({ name, brand }) {
         return str;
     }
 
-    const productLinks = React.useMemo(() => [
-        {
-            src: loriata,
-            title: `Все ${generateWord(name)} ${brandUpper(brand)}`,
-            subtitle: 'Категория и бренд',
-        },
-        {
-            src: loriata,
-            title: `Все товары ${brandUpper(brand)}`,
-            subtitle: 'Бренд',
-        },
-        {
-            src: coat,
-            title: `Все ${generateWord(name)}`,
-            subtitle: 'Категория',
-            cover: true
-        },
-        {
-            src: certificate,
-            title: 'Только оригинальные бренды',
-            subtitle: 'Гарантия подлинности',
-        },
-    ], []);
+    const productLinks = React.useMemo(() => [{
+        id: 0,
+        src: loriata,
+        title: `Все ${generateWord(name)} ${brandUpper(brand)}`,
+        subtitle: 'Категория и бренд',
+    }, {
+        id: 1,
+        src: loriata,
+        title: `Все товары ${brandUpper(brand)}`,
+        subtitle: 'Бренд',
+    }, {
+        id: 2,
+        src: coat,
+        title: `Все ${generateWord(name)}`,
+        subtitle: 'Категория',
+        cover: true
+    }, {
+        id: 3,
+        src: certificate,
+        title: 'Только оригинальные бренды',
+        subtitle: 'Гарантия подлинности',
+    }], [name, brand, loriata, coat, certificate]);
 
     return (
         <ul className="product-links">
             {productLinks.map(item => (
-                <li className="product-links__item">
+                <li key={item.id} className="product-links__item">
                     <a href="#" className="product-links__item-link">
                         <div className={classNames('product-links__item-img', {
                             'product-links__item-img--cover': item.cover

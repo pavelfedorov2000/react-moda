@@ -24,6 +24,7 @@ function OrderSuccessTable({ totalPrice, date, personal, delivery, payment, clas
                 <p>{`№RU${date.split('.').join('')}`}</p>
                 <p>от <time dateTime={date.split('.').reverse().join('-')}>{date}</time></p>
             </div>
+
             <div className="order-details-table__item">
                 <div className="order-details-table__item-title">Получатель:</div>
                 <p>{name} {surname}</p>
@@ -31,14 +32,17 @@ function OrderSuccessTable({ totalPrice, date, personal, delivery, payment, clas
                 <p>{phone}</p>
                 <p>{`г.${city}`}</p>
             </div>
+
             <div className="order-details-table__item">
                 <div className="order-details-table__item-title">Доставка:</div>
                 <p>{deliveryWord === 'Доставка' ? deliveryStr : delivery}</p>
             </div>
+
             <div className="order-details-table__item">
                 <div className="order-details-table__item-title">Оплата:</div>
                 <p>{payWord === 'Оплата' ? payStr : payment}</p>
             </div>
+
             <div className="order-details-table__item">
                 <div className="order-details-table__item-wrap">
                     <div className="order-details-table__item-title">
@@ -47,10 +51,12 @@ function OrderSuccessTable({ totalPrice, date, personal, delivery, payment, clas
                     </div>
                     <span className="order-status">Не оплачен</span>
                 </div>
+
                 {className === 'profile-page__order-table' &&
                     <Link to="/pay" className="btn order-details-table__btn">Оплатить</Link>
                 }
             </div>
+
             {className === 'order-success-table__head' &&
                 <div className="order-details-table__item">
                     <Link to="/orders" className="btn order-details-table__btn">Оплатить</Link>

@@ -5,13 +5,11 @@ import axios from 'axios';
 import { AppContext } from './context';
 import AppRouter from './Components/AppRouter';
 import { removeFavoriteProduct } from './redux/actions/favorite';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 function App() {
 
     const phone = '8 800 250 30 05';
-
-    const [basketProduct, setBasketProduct] = useState(false);
 
     const [visibleAsideBasket, setVisibleAsideBasket] = useState(false);
     // Открытие / закрытие боковой корзины
@@ -68,14 +66,10 @@ function App() {
         });
     }, []); // [] = componentDidMout
 
-    const [activeCategory, setActiveCategory] = useState(null);
-
-    /* if (categories.length) {
-        React.useCallback(() => setActiveCategory());
-    } */
+    const [activeCategory, setActiveCategory] = useState(0);
 
     const onChangeCategory = (i) => {
-        setActiveCategory(categories[i].href);
+        setActiveCategory(i);
     }
 
     const dropMenuCategories = [
@@ -116,7 +110,7 @@ function App() {
         }
     ];
 
-    const [visibleCatalogCardPopup, setVisibleCatalogCardPopup] = useState(null);
+    //const [visibleCatalogCardPopup, setVisibleCatalogCardPopup] = useState(null);
 
     const dispatch = useDispatch();
 
@@ -144,10 +138,6 @@ function App() {
     return (
         <AppContext.Provider value={{
             phone,
-            basketProduct,
-            setBasketProduct,
-            visibleCatalogCardPopup,
-            setVisibleCatalogCardPopup,
             activeCategory,
             onChangeCategory,
             categories,
@@ -161,8 +151,8 @@ function App() {
             <div className={classNames('wrapper', {
                 '_lock': visibleBurgerMenu
             })}>
-                <Header onOpenBurgerMenu={openBurgerMenu} categories={categories} activeCategory={activeCategory} onChangeCategory={onChangeCategory} onAsideBasketOpener={openAsideBasket} onAsideAuthOpener={openAsideAuth} dropMenuCategories={dropMenuCategories} links={links} />
-                <BurgerMenu visibleBurgerMenu={visibleBurgerMenu} onCloseBurgerMenu={closeBurgerMenu} categories={categories} activeCategory={activeCategory} onChangeCategory={onChangeCategory} dropMenuCategories={dropMenuCategories} links={links} />
+                <Header onOpenBurgerMenu={openBurgerMenu} categories={categories} onAsideBasketOpener={openAsideBasket} onAsideAuthOpener={openAsideAuth} dropMenuCategories={dropMenuCategories} links={links} />
+                <BurgerMenu visibleBurgerMenu={visibleBurgerMenu} onCloseBurgerMenu={closeBurgerMenu} categories={categories} dropMenuCategories={dropMenuCategories} links={links} />
                 <AppRouter />
                 <Footer socials={Social} />
                 <div className={classNames('overlay', {

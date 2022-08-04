@@ -6,133 +6,135 @@ import emptyProducts from '../assets/images/icons/empty-catalog.svg';
 import emptyBlog from '../assets/images/icons/empty-blog.svg';
 import { RouterContext } from '../context';
 
-function AppRouter() {
+const routes = [{
+    path: "/",
+    component: CatalogHome,
+    exact: true
+}, {
+    path: "/home",
+    component: Home
+}, {
+    title: "Каталог",
+    path: "/catalog",
+    component: Catalog,
+    empty: {
+        icon: {
+            src: emptyProducts
+        },
+        title: {
+            text: "Нет актуальных товаров"
+        }
+    }
+}, {
+    title: "Избранные товары",
+    path: "/favorite",
+    component: Favorite,
+    empty: {
+        icon: {
+            src: emptyProducts
+        },
+        title: {
+            text: "Нет актуальных товаров"
+        }
+    }
+}, {
+    path: "/product-card/:id",
+    component: ProductCard
+}, {
+    title: "Ваша корзина",
+    path: "/cart",
+    component: Cart
+}, {
+    title: "Спасибо за заказ!",
+    before: "/cart",
+    path: "/order-success",
+    component: OrderSuccess
+}, {
+    title: "Бренды",
+    path: "/brands",
+    component: Brands
+}, {
+    title: "Блог",
+    path: "/blog",
+    component: Blog,
+    exact: true,
+    empty: {
+        icon: {
+            src: emptyBlog
+        },
+        title: {
+            text: "Нет актуальных товаров"
+        }
+    }
+}, {
+    path: "/blog/:id",
+    component: BlogDetail,
+    exact: true
+}, {
+    title: "Новости и акции",
+    path: "/news",
+    component: News,
+    exact: true,
+    empty: {
+        icon: {
+            src: emptyBlog
+        },
+        title: {
+            text: "Нет актуальных новостей и акций"
+        }
+    }
+}, {
+    path: "/news/:id",
+    component: NewsDetail,
+    exact: true
+}, {
+    profile: true,
+    title: "Мои заказы",
+    path: "/orders",
+    component: Profile,
+    SubPage: MyOrders,
+    exact: true,
+    empty: {
+        icon: {
+            src: emptyBlog
+        },
+        title: {
+            text: "Нет актуальных товаров"
+        }
+    }
+}, {
+    profile: true,
+    title: "Подробнее о заказе",
+    path: "/orders/:index",
+    component: Profile,
+    SubPage: OrderDetail,
+    exact: true,
+    notVisible: true
+}, {
+    profile: true,
+    title: "Скидки",
+    path: "/discounts",
+    component: Profile,
+    SubPage: Discounts,
+}, {
+    profile: true,
+    title: "Управление подписками",
+    path: "/subscribes",
+    component: Profile,
+    SubPage: Subscribes,
+}, {
+    profile: true,
+    title: "Персональные данные",
+    path: "/personal",
+    component: Profile,
+    SubPage: Personal,
+}, {
+    title: "Похоже, мы не можем найти нужную вам страницу",
+    path: "/not-found",
+    component: NotFound
+}];
 
-    const routes = [{
-        path: "/",
-        component: CatalogHome,
-        exact: true
-    }, {
-        path: "/home",
-        component: Home
-    }, {
-        title: "Каталог",
-        path: "/catalog",
-        component: Catalog,
-        empty: {
-            icon: {
-                src: emptyProducts
-            },
-            title: {
-                text: "Нет актуальных товаров"
-            }
-        }
-    }, {
-        title: "Избранные товары",
-        path: "/favorite",
-        component: Favorite,
-        empty: {
-            icon: {
-                src: emptyProducts
-            },
-            title: {
-                text: "Нет актуальных товаров"
-            }
-        }
-    }, {
-        path: "/product-card/:id",
-        component: ProductCard
-    }, {
-        title: "Ваша корзина",
-        path: "/cart",
-        component: Cart
-    }, {
-        title: "Спасибо за заказ!",
-        before: "/cart",
-        path: "/order-success",
-        component: OrderSuccess
-    }, {
-        title: "Бренды",
-        path: "/brands",
-        component: Brands
-    }, {
-        title: "Блог",
-        path: "/blog",
-        component: Blog,
-        exact: true,
-        empty: {
-            icon: {
-                src: emptyBlog
-            },
-            title: {
-                text: "Нет актуальных товаров"
-            }
-        }
-    }, {
-        path: "/blog/:id",
-        component: BlogDetail,
-        exact: true
-    }, {
-        title: "Новости и акции",
-        path: "/news",
-        component: News,
-        exact: true,
-        empty: {
-            icon: {
-                src: emptyBlog
-            },
-            title: {
-                text: "Нет актуальных новостей и акций"
-            }
-        }
-    }, {
-        path: "/news/:id",
-        component: NewsDetail,
-        exact: true
-    }, {
-        profile: true,
-        title: "Мои заказы",
-        path: "/orders",
-        component: Profile,
-        SubPage: MyOrders,
-        exact: true,
-        empty: {
-            icon: {
-                src: emptyBlog
-            },
-            title: {
-                text: "Нет актуальных товаров"
-            }
-        }
-    }, {
-        profile: true,
-        path: "/orders/:index",
-        component: Profile,
-        SubPage: OrderDetail,
-        exact: true
-    }, {
-        profile: true,
-        title: "Скидки",
-        path: "/discounts",
-        component: Profile,
-        SubPage: Discounts,
-    }, {
-        profile: true,
-        title: "Управление подписками",
-        path: "/subscribes",
-        component: Profile,
-        SubPage: Subscribes,
-    }, {
-        profile: true,
-        title: "Персональные данные",
-        path: "/personal",
-        component: Profile,
-        SubPage: Personal,
-    }, {
-        title: "Похоже, мы не можем найти нужную вам страницу",
-        path: "/not-found",
-        component: NotFound
-    }];
+function AppRouter() {
 
     return (
         <RouterContext.Provider value={{

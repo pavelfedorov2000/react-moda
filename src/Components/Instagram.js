@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
 import SliderArrows from './SliderArrows';
+import { Link } from 'react-router-dom';
 
 function Instagram() {
 
@@ -24,16 +25,17 @@ function Instagram() {
                     767: { perPage: 2, gap: '2rem' }
                 },
             }}>
-                <div className="section__title">
+                <div className="section__top">
                     <h2 className="title">Мы в инстаграм</h2>
                     <SliderArrows />
                 </div>
+
                 <SplideTrack>
                     {instagramPhotos.map(item => (
                         <SplideSlide key={item.id}>
-                            <a href="#">
+                            <Link to="/instagram">
                                 <img src={item.imageUrl} alt="фото" width="336" height="336" />
-                            </a>
+                            </Link>
                         </SplideSlide>
                     ))}
                 </SplideTrack>

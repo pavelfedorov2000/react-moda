@@ -5,6 +5,13 @@ import '@splidejs/react-splide/css/core';
 import SaleItem from './SaleItem';
 import SliderArrows from './SliderArrows';
 
+const sliderOptions = {
+    type: 'loop',
+    perPage: 1,
+    speed: 1000,
+    gap: '2rem',
+};
+
 function PromoSale() {
     const [promoSale, setPromoSale] = useState([]);
     React.useEffect(() => {
@@ -16,12 +23,7 @@ function PromoSale() {
     return (
         <section className="promo-sale">
             <div className="promo-sale__grid">
-                <Splide className="promo-sale__slider" hasTrack={false} options={{
-                    type: 'loop',
-                    perPage: 1,
-                    speed: 1000,
-                    gap: '2rem',
-                }}>
+                <Splide className="promo-sale__slider" hasTrack={false} options={sliderOptions}>
                     <SliderArrows className="promo-sale__slider-arrows" />
                     <SplideTrack>
                         {promoSale.length > 0 && Array(3).fill(promoSale[0]).map(slide => (

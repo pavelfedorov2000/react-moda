@@ -3,38 +3,38 @@ import { Link } from 'react-router-dom';
 import SaleItem from './SaleItem';
 import dropMenuSale from '../assets/images/content/drop-menu-img.jpg';
 
-function DropMenu({ dropMenuCategories, links }) {
-    const dropMenuItems = {
-        categories: [
-            "Блузки и рубашки",
-            "Брюки",
-            "Верхняя одежда",
-            "Джемперы, свитеры",
-            "Джинсы",
-            "Домашняя одежда",
-        ],
-        "Популярное": [
-            "Водолазки",
-            "Вечерние платья",
-            "Джинсы",
-            "Топы",
-            "Юбки",
-        ],
-        "Бренды": [
-            "Allora",
-            "AllSaints",
-            "Allura",
-            "Bibi",
-            "B2B Black to Black",
-            "BeMyMom",
-            "Dirkje",
-            "Djdutchjeans",
-            "Dja Fashion",
-            "Faba",
-            "все бренды",
-        ]
-    };
+const dropMenuItems = {
+    categories: [
+        "Блузки и рубашки",
+        "Брюки",
+        "Верхняя одежда",
+        "Джемперы, свитеры",
+        "Джинсы",
+        "Домашняя одежда",
+    ],
+    "Популярное": [
+        "Водолазки",
+        "Вечерние платья",
+        "Джинсы",
+        "Топы",
+        "Юбки",
+    ],
+    "Бренды": [
+        "Allora",
+        "AllSaints",
+        "Allura",
+        "Bibi",
+        "B2B Black to Black",
+        "BeMyMom",
+        "Dirkje",
+        "Djdutchjeans",
+        "Dja Fashion",
+        "Faba",
+        "все бренды",
+    ]
+};
 
+function DropMenu({ dropMenuCategories, links }) {
     return (
         <ul className="header__list">
             {dropMenuCategories.map((item, index) => (

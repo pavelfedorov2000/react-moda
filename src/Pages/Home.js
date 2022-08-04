@@ -2,14 +2,9 @@ import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Collection, Brands, Actual, PromoSale, IconsSlider, SliderSection, Instagram, SeoText, BlogItem, CatalogCardPopup } from '../Components';
-//import { useParams } from 'react-router-dom';
 import { AppContext, CatalogCardPopupContext } from '../context';
 
 function Home() {
-
-    //let { category } = useParams();
-
-    //console.log(category);
 
     const { blog } = useContext(AppContext);
 
@@ -20,8 +15,6 @@ function Home() {
             setProducts(data);
         });
     }, []); // [] = componentDidMout
-
-    //console.log(products);
 
     const blogPreview = blog.slice(0, 3);
 
@@ -40,16 +33,16 @@ function Home() {
                     <PromoSale />
                     <IconsSlider />
                     <section className="section">
-                        <SliderSection products={products} title="Популярные товары" />
+                        <SliderSection products={products} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} title="Популярные товары" />
                     </section>
                     <Actual />
                     <Brands />
                     <section className="section">
-                        <SliderSection products={products} title="Новинки" />
+                        <SliderSection products={products} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} title="Новинки" />
                     </section>
                     <Collection />
                     <section className="section blog-section">
-                        <div className="section__title">
+                        <div className="section__top">
                             <h2 className="title">Блог</h2>
                             <Link to="/blog" className="all-link">
                                 <span>Смотреть все</span>
@@ -75,7 +68,7 @@ function Home() {
 
             {visibleCatalogCardPopup !== null &&
                 <div className="overlay active">
-                    <CatalogCardPopup visibleCatalogCardPopup={visibleCatalogCardPopup} products={products} closeCatalogCardPopup={closeCatalogCardPopup} />
+                    <CatalogCardPopup products={products} visibleCatalogCardPopup={visibleCatalogCardPopup} closeCatalogCardPopup={closeCatalogCardPopup} />
                 </div>
             }
         </CatalogCardPopupContext.Provider>

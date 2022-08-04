@@ -13,7 +13,10 @@ function Actual() {
 
     return (
         <section className="section actual">
-            <h2 className="title section__title">Актуально</h2>
+            <div className="section__top">
+                <h2 className="title">Актуально</h2>
+            </div>
+
             <div className="actual__grid">
                 {actual.map(item => (
                     <SaleItem key={item.id} className="actual__item" src={item.imageUrl} title={item.title} subtitle={item.subtitle} saleText={item.saleText} />

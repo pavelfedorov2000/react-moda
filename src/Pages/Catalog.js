@@ -39,34 +39,11 @@ function Catalog({ title }) {
         },
     ];
 
-    //const { visibleCatalogCardPopup, setVisibleCatalogCardPopup } = useContext(AppContext);
-
     const dispatch = useDispatch();
     const products = useSelector(({ products }) => products.products); // вытаскиваем товары из стора
     //console.log(products);
     const isLoaded = useSelector(({ products }) => products.isLoaded); // вытаскиваем состояние загрузки из стора
     const { sortBy, sortPrices, sortColors, sortSizes, sortBrands, sortStyles } = useSelector(({ filters }) => filters); // вытаскиваем сортировку по из стора сразу через деструктуризацию
-
-    /* // Экшн на добавление в избранное
-    const handleAddProductToFavorite = obj => {
-        dispatch({
-            type: 'ADD_FAVORITE_PRODUCT',
-            payload: obj
-        });
-    }
-
-    // Экшн на удаление из избранного
-    const handleRemoveFavoriteProduct = (id) => {
-        dispatch(removeFavoriteProduct(id));
-    }
-
-    // Экшн на добавление в корзину
-    const handleAddProductToCart = obj => {
-        dispatch({
-            type: 'ADD_PRODUCT_TO_CART',
-            payload: obj
-        });
-    } */
 
     React.useEffect(() => {
         dispatch(fetchProducts(sortBy, sortPrices, sortColors, sortSizes, sortBrands, sortStyles)); // вернет функцию
@@ -209,7 +186,7 @@ function Catalog({ title }) {
 
             {visibleCatalogCardPopup !== null &&
                 <div className="overlay active">
-                    <CatalogCardPopup visibleCatalogCardPopup={visibleCatalogCardPopup} products={products} closeCatalogCardPopup={closeCatalogCardPopup} />
+                    <CatalogCardPopup products={products} visibleCatalogCardPopup={visibleCatalogCardPopup} closeCatalogCardPopup={closeCatalogCardPopup} />
                 </div>
             }
         </>

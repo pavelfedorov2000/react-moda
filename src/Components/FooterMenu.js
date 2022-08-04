@@ -135,7 +135,7 @@ function FooterMenu() {
     return (
         <div className="footer__cols">
             {footerMenu.map((col, i) => (
-                <div className="footer__col">
+                <div key={col.name} className="footer__col">
                     <div className="footer__col-title">{col.title.text}</div>
 
                     <ul className="footer__list">
