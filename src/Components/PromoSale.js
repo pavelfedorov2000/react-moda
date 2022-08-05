@@ -4,6 +4,7 @@ import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
 import SaleItem from './SaleItem';
 import SliderArrows from './SliderArrows';
+import { Link } from 'react-router-dom';
 
 const sliderOptions = {
     type: 'loop',
@@ -29,17 +30,20 @@ function PromoSale() {
                         {promoSale.length > 0 && Array(3).fill(promoSale[0]).map(slide => (
                             <SplideSlide key={slide.id} className="promo-sale__slider-item">
                                 <article className="sale-item">
-                                    <a href="#" className="sale-item__img">
+                                    <Link to="/catalog" className="sale-item__img">
                                         <img src={slide.imageUrl} alt="фото" width="336" height="250" />
                                         {slide.saleText !== undefined && <span className="sale-item__discount">{slide.saleText}</span>}
-                                    </a>
-                                    <a href="#" className="sale-item__title">{slide.title}</a>
+                                    </Link>
+
+                                    <Link to="/catalog" className="sale-item__title">{slide.title}</Link>
+
                                     <div className="sale-item__descr">{slide.subtitle}</div>
                                 </article>
                             </SplideSlide>
                         ))}
                     </SplideTrack>
                 </Splide>
+
                 {promoSale.length > 0 && promoSale.map((item, i) => (
                     i !== 0 && <SaleItem key={item.id} className="promo-sale__item" src={item.imageUrl} title={item.title} subtitle={item.subtitle} saleText={item.saleText} />
                 ))}

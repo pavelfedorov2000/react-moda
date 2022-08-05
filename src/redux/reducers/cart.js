@@ -17,7 +17,7 @@ const cart = (state = initialState, action) => {
                 [action.payload.id]: {
                     items: currentItems,
                     totalPrice: currentItems.reduce((sum, obj) => sum + obj.price, 0),
-                    totalDiscount: currentItems.reduce((sum, obj) => sum + (obj.discount != 0 ? obj.price * obj.discount / 100 : 0), 0),
+                    totalDiscount: currentItems.reduce((sum, obj) => sum + (obj.discount != 0 ? obj.price * obj.discount / 100 : 0), 0)
                 }
             };
 
@@ -30,14 +30,15 @@ const cart = (state = initialState, action) => {
                 items: newItems,
                 totalCount,
                 totalPrice,
-                totalDiscount,
+                totalDiscount
             };
         }
+
         case 'CLEAR_CART': return {
             ...state,
             items: {},
             totalPrice: 0,
-            totalCount: 0,
+            totalCount: 0
         }
 
         case 'REMOVE_CART_ITEM': {
@@ -46,14 +47,16 @@ const cart = (state = initialState, action) => {
             const currentTotalDiscount = newItems[action.payload].totalDiscount;
             const currentTotalCount = newItems[action.payload].items.length;
             delete newItems[action.payload];
+
             return {
                 ...state,
                 items: newItems,
                 totalPrice: state.totalPrice - currentTotalPrice,
                 totalDiscount: state.totalDiscount - currentTotalDiscount,
-                totalCount: state.totalCount - currentTotalCount,
+                totalCount: state.totalCount - currentTotalCount
             }
         }
+
         case 'MINUS_ITEM': {
             const oldItems = state.items[action.payload].items;
             const newObjItems = oldItems.length > 1 ? state.items[action.payload].items.slice(1) : oldItems;
@@ -75,20 +78,22 @@ const cart = (state = initialState, action) => {
                 items: newItems,
                 totalCount,
                 totalPrice,
-                totalDiscount,
+                totalDiscount
             };
         }
+
         case 'PLUS_ITEM': {
             const newObjItems = [
                 ...state.items[action.payload].items,
                 state.items[action.payload].items[0]
             ];
+
             const newItems = {
                 ...state.items,
                 [action.payload]: {
                     items: newObjItems,
                     totalPrice: Object.values(newObjItems).reduce((sum, obj) => sum + obj.price, 0),
-                    totalDiscount: Object.values(newObjItems).reduce((sum, obj) => sum + (obj.discount != 0 ? obj.price * obj.discount / 100 : 0), 0),
+                    totalDiscount: Object.values(newObjItems).reduce((sum, obj) => sum + (obj.discount != 0 ? obj.price * obj.discount / 100 : 0), 0)
                 }
             };
 
@@ -101,7 +106,7 @@ const cart = (state = initialState, action) => {
                 items: newItems,
                 totalCount,
                 totalPrice,
-                totalDiscount,
+                totalDiscount
             };
         }
         default:

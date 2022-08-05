@@ -6,6 +6,18 @@ import sliderImageRight from '../assets/images/content/blog-text-slider/02.jpg';
 import { AppContext } from '../context';
 import SliderArrows from './SliderArrows';
 
+const splideOptions = {
+    type: 'loop',
+    speed: 1000,
+    gap: '5.2rem',
+    perPage: 2,
+    perMove: 1,
+    breakpoints: {
+        1024: { gap: '3rem' },
+        767: { perPage: 1, gap: '2rem' },
+    },
+};
+
 function BlogText({ tags }) {
     const { phone } = useContext(AppContext);
 
@@ -47,18 +59,8 @@ function BlogText({ tags }) {
                     вопросы нашим
                     менеджерам.</p>
             </div>
-            
-            <Splide className="blog-text__slider" hasTrack={false} options={{
-                type: 'loop',
-                speed: 1000,
-                gap: '5.2rem',
-                perPage: 2,
-                perMove: 1,
-                breakpoints: {
-                    1024: { gap: '3rem' },
-                    767: { perPage: 1, gap: '2rem' },
-                },
-            }}>
+
+            <Splide className="blog-text__slider" hasTrack={false} options={splideOptions}>
                 <SliderArrows round={true} />
                 <SplideTrack>
                     {Array(4).fill(0).map((_, index) => (

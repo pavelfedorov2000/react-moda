@@ -1,8 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import classnames from 'classnames';
-import { FormRow, FormAgree, Logo, FooterMenu } from '../Components';
+import { FormRow, FormAgree, Logo, FooterMenu, Phone, Social } from '../Components';
 import PaymentLogos from '../assets/images/logo/payment.png';
-import { AppContext } from '../context';
 import { Link } from 'react-router-dom';
 
 const footerLinks = [
@@ -12,8 +11,7 @@ const footerLinks = [
 
 const [sale, ...rest] = footerLinks[1]; // Достаем красную ссылку (распродажа)
 
-function Footer({ socials }) {
-    const { phone } = useContext(AppContext);
+function Footer() {
 
     return (
         <footer className="footer">
@@ -21,15 +19,7 @@ function Footer({ socials }) {
                 <div className="container footer__inner footer__inner--top">
                     <Logo className="footer" width="167" height="25" />
 
-                    <ul className="social footer__social">
-                        {socials.filter(soc => !soc.auth).map(soc => (
-                            <li key={soc.name} className="social__item">
-                                <a className="social__link" href={soc.link} target="_blank" rel="nofollow">
-                                    <soc.svg />
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
+                    <Social className="footer__social" filterParam="auth" />
 
                     <div className="footer__menus">
                         {footerLinks.map((nav, i) => (
@@ -49,7 +39,7 @@ function Footer({ socials }) {
                 <div className="container">
                     <div className="footer__inner footer__inner--main">
                         <div className="footer__contact">
-                            <a href={`tel:${phone.split(' ').join('')}`} className="footer__phone">{phone}</a>
+                            <Phone className="footer__phone" />
                             <div className="footer__contact-descr">Круглосуточно без выходных</div>
                         </div>
 

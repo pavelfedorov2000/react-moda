@@ -16,6 +16,7 @@ function BurgerMenu({ visibleBurgerMenu, onCloseBurgerMenu, dropMenuCategories, 
                 <button onClick={onCloseBurgerMenu} className="burger-menu__close" type="button" aria-label="Закрыть меню">
                     <img src={close} alt="крестик" width="20" height="20" />
                 </button>
+
                 <nav className="header__nav">
                     {categories.map((category, i) => (
                         <Link key={category.name} to={`/${category.name}`} onClick={() => onChangeCategory(i)} className={classNames('header__nav-link', {
@@ -24,17 +25,20 @@ function BurgerMenu({ visibleBurgerMenu, onCloseBurgerMenu, dropMenuCategories, 
                     ))}
                 </nav>
             </div>
+
             <HeaderRegion />
+
             <ul className="burger-menu__list">
                 {dropMenuCategories.map((link, i) => (
                     <li key={`link-${i}`} className="burger-menu__list-item">
                         <Link className="burger-menu__list-link" to={link.path}>{link.title}</Link>
                     </li>
                 ))}
+
                 {links.reverse().map((link, i) => (
                     <li key={`link-${i}`} className="burger-menu__list-item">
                         <Link className={classNames('burger-menu__list-link', {
-                            'burger-menu__list-link--red': i == links.reverse().length - 1
+                            'burger-menu__list-link--red': i === links.reverse().length - 1
                         })} to={link.path}>{link.title}</Link>
                     </li>
                 ))}
@@ -42,6 +46,7 @@ function BurgerMenu({ visibleBurgerMenu, onCloseBurgerMenu, dropMenuCategories, 
 
             <div className="burger-menu__bottom">
                 <ShopsSearch />
+
                 <div className="header__contact">
                     <Call className="header__call" />
                     <WhatsApp />

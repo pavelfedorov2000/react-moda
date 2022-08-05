@@ -31,19 +31,27 @@ function Home() {
             <main className="page home-page">
                 <div className="container home-page__wrapper">
                     <PromoSale />
+
                     <IconsSlider />
+
                     <section className="section">
                         <SliderSection products={products} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} title="Популярные товары" />
                     </section>
+
                     <Actual />
+
                     <Brands />
+
                     <section className="section">
                         <SliderSection products={products} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} title="Новинки" />
                     </section>
+
                     <Collection />
+
                     <section className="section blog-section">
                         <div className="section__top">
                             <h2 className="title">Блог</h2>
+
                             <Link to="/blog" className="all-link">
                                 <span>Смотреть все</span>
                                 <svg viewBox="0 0 56 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,13 +61,16 @@ function Home() {
                                 </svg>
                             </Link>
                         </div>
+
                         <div className="blog-grid">
                             {blogPreview.map(article => (
                                 <BlogItem key={article.id} {...article} otherPage={true} actualPage="blog" className="blog-grid__item" />
                             ))}
                         </div>
                     </section>
+
                     <Instagram />
+
                     <div className="section">
                         <SeoText className="home-page__seo-text" />
                     </div>

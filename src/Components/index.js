@@ -2,6 +2,7 @@ export { default as Button } from './Button';
 export { default as BurgerMenu } from './BurgerMenu';
 export { default as Header } from './Header';
 export { default as Logo } from './Logo';
+export { default as Phone } from './Phone';
 export { default as Call } from './Call';
 export { default as HeaderRegion } from './HeaderRegion';
 export { default as ShopsSearch } from './ShopsSearch';
@@ -57,12 +58,6 @@ export { default as ProductDetailsSection } from './ProductDetailsSection';
 export { default as ProductLinks } from './ProductLinks';
 export { default as ProductCardContent } from './ProductCardContent';
 
-export { default as SubscribeItem } from './SubscribeItem';
-export { default as SubscribePopup } from './SubscribePopup';
-export { default as SubscribePopupItem } from './SubscribePopupItem';
-export { default as SubscribePopupSelect } from './SubscribePopupSelect';
-export { default as SubscribeCheck } from './SubscribeCheck';
-
 export { default as OrderSuccessTable } from './OrderSuccessTable';
 export { default as OrderProduct } from './OrderProduct';
 export { default as OrderTableItem } from './OrderTableItem';
@@ -82,5 +77,5 @@ export { default as BlogText } from './BlogText';
 export { default as AsideBlog } from './AsideBlog';
 
 export { default as Personal } from './Profile/Personal';
-export { default as Subscribes } from './Profile/Subscribes';
+export { default as Subscribes } from './Profile/Subscribes/Subscribes';
 export { default as Discounts } from './Profile/Discounts';

@@ -11,7 +11,7 @@ function OrderSuccess({ title }) {
     return (
         <main className="page">
             <div className="container">
-                <Crumbs title={title} cart={true} />
+                <Crumbs title={title} />
 
                 <h1 className="title page__title">{title}</h1>
 

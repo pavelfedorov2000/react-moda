@@ -2,8 +2,9 @@ import classNames from 'classnames';
 import React, { useState } from 'react';
 import { Enter, Register } from './Auth/index';
 import PasswordRecovery from './Auth/PasswordRecovery';
+import Social from './Social';
 
-function Auth({ visibleAsideAuth, onCloseAsideAuth, socials }) {
+function Auth({ visibleAsideAuth, onCloseAsideAuth }) {
 
     // Табы Вход / Регистрация
     const authTabs = ['enter', 'register'];
@@ -34,9 +35,7 @@ function Auth({ visibleAsideAuth, onCloseAsideAuth, socials }) {
     // логика задизейбленной кнопки
     const [disabledBtn, setDisabledBtn] = useState(true);
     const onInputChange = (e) => {
-        //console.log(e.target.value.length);
         setDisabledBtn(e.target.value.length > 0 ? false : true);
-        //console.log(disabledBtn);
     }
 
     // Восстановление пароля
@@ -106,17 +105,7 @@ function Auth({ visibleAsideAuth, onCloseAsideAuth, socials }) {
                                     <div className="aside-popup__social-title ">
                                         Или войдите через
                                     </div>
-                                    <ul className="social">
-                                        {socials.filter(soc => !soc.footer).map(soc => (
-                                            <li key={soc.name} className={classNames('social__item', {
-                                                'social__item--google': soc.name === 'google'
-                                            })}>
-                                                <a className="social__link" href={soc.link} target="_blank" rel="nofollow">
-                                                    <soc.svg />
-                                                </a>
-                                            </li>
-                                        ))}
-                                    </ul>
+                                    <Social filterParam="footer" />
                                 </div>
                             }
                         </>

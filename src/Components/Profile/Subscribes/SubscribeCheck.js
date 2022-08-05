@@ -1,5 +1,5 @@
 import React from 'react';
-import checkIcon from '../assets/images/icons/check.svg';
+import checkIcon from '../../../assets/images/icons/check.svg';
 
 function SubscribeCheck({ item, onCheckSubscribeCheckbox, checkedSubscribeCheckbox, onClickChangeSubscribe, obj, name }) {
 

@@ -6,37 +6,70 @@ import '@splidejs/react-splide/css/core';
 import { useSelector } from "react-redux";
 import { AppContext } from "../../context";
 import SliderArrows from "../SliderArrows";
+import Button from "../Button";
+
+const splideOptions = {
+    type: 'loop',
+    speed: 1000,
+    gap: '2rem',
+    perPage: 1,
+    perMove: 1,
+    breakpoints: {
+        1024: { perPage: 2, gap: '2rem' },
+        767: { perPage: 1 },
+    },
+};
 
 function CatalogCardPopup({ products, closeCatalogCardPopup, visibleCatalogCardPopup }) {
 
-    const { onClickAddFavorite, onClickRemoveFavorite, onAddCart, sizesList } = useContext(AppContext);
+    const productList = React.useMemo(() => [{
+        id: 0,
+        key: "Сезон",
+        value: "Демисезон"
+    }, {
+        id: 1,
+        key: "Материал",
+        value: "Альпака"
+    }, {
+        id: 2,
+        key: "Состав материала",
+        value: "Шерсть 38%, Альпака 62%"
+    }, {
+        id: 3,
+        key: "Диапазон температур, °С",
+        value: "от 0 до +15"
+    }, {
+        id: 4,
+        key: "Страна производства",
+        value: "Латвия"
+    }, {
+        id: 5,
+        key: "Параметры модели",
+        value: "89-60-84"
+    }, {
+        id: 6,
+        key: "Рост модели на фото",
+        value: "176 см"
+    }, {
+        id: 7,
+        key: "Длина рукава:",
+        value: "60 см"
+    }], []);
 
-    const productList = {
-        "Сезон": "Демисезон",
-        "Материал": "Альпака",
-        "Состав материала": "Шерсть 38%, Альпака 62%",
-        "Диапазон температур, °С": "от 0 до +15",
-        "Страна производства": "Латвия",
-        "Параметры модели": "89-60-84",
-        "Рост модели на фото": "176 см",
-        "Длина рукава:": "60 см",
-    };
+    const { onClickAddFavorite, onClickRemoveFavorite, onAddCart, sizesList } = useContext(AppContext);
 
     const catalogPopupRef = useRef();
 
     const favorites = useSelector(({ favorite }) => favorite.products); // вытаскиваем товары из стора
     const basketProducts = useSelector(({ cart }) => cart.items); // вытаскиваем товары из стора
-    console.log(Object.keys(basketProducts));
 
     const activeProduct = products.find(product => product.id === visibleCatalogCardPopup);
 
     const { id, articul, name, brand, sizes, color, price, imageUrl, discount, newProduct, isFavorite } = activeProduct;
-    console.log(basketProducts[id]);
 
     const isFavoriteProduct = favorites.length > 0 && favorites.find(product => product.id === id) || isFavorite;
 
     const isBasketProduct = Object.keys(basketProducts).length > 0 && basketProducts[id] !== undefined && basketProducts[id].items[0].inBasket || false;
-    console.log(isBasketProduct);
 
     const onAddFavoriteProduct = () => {
         const obj = {
@@ -79,6 +112,10 @@ function CatalogCardPopup({ products, closeCatalogCardPopup, visibleCatalogCardP
         setCheckedSize(size);
     }
 
+    const favoriteClickCondition = (isFavoriteProduct) => {
+        return isFavoriteProduct ? onRemoveFavoriteProduct : onAddFavoriteProduct;
+    }
+
     /* const handleOutsideClick = (event) => {
       const path = event.path || (event.composedPath && event.composedPath());
       if (!path.includes(catalogPopupRef.current)) {
@@ -110,17 +147,7 @@ function CatalogCardPopup({ products, closeCatalogCardPopup, visibleCatalogCardP
             </div>
 
             <div className="product-popup__inner">
-                <Splide className="product-popup__slider" hasTrack={false} options={{
-                    type: 'loop',
-                    speed: 1000,
-                    gap: '2rem',
-                    perPage: 1,
-                    perMove: 1,
-                    breakpoints: {
-                        1024: { perPage: 2, gap: '2rem' },
-                        767: { perPage: 1 },
-                    },
-                }}>
+                <Splide className="product-popup__slider" hasTrack={false} options={splideOptions}>
                     <SliderArrows round={true} />
                     <SplideTrack>
                         {Array(4).fill(0).map((_, index) => (
@@ -148,36 +175,8 @@ function CatalogCardPopup({ products, closeCatalogCardPopup, visibleCatalogCardP
                         <ProductSizes sizes={sizes} checkedSize={checkedSize} onCheckSize={onCheckSize} />
 
                         <div className="product-card-form__buttons">
-                            <button onClick={onAddProductToCart} className="btn product-card-form__btn" type="button" style={{ backgroundColor: `${isBasketProduct ? '#479458' : '#ee3333'}` }}>
-                                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M10.9933 15.1668H4.99996C3.85329 15.1668 2.99329 14.8602 2.45996 14.2535C1.92662 13.6468 1.71995 12.7668 1.85995 11.6268L2.45996 6.62683C2.63329 5.1535 3.00663 3.8335 5.60662 3.8335H10.4066C13 3.8335 13.3733 5.1535 13.5533 6.62683L14.1533 11.6268C14.2866 12.7668 14.0866 13.6535 13.5533 14.2535C13 14.8602 12.1466 15.1668 10.9933 15.1668Z"
-                                        fill="white" />
-                                    <path
-                                        d="M10.6673 5.8335C10.394 5.8335 10.1673 5.60683 10.1673 5.3335V3.00016C10.1673 2.28016 9.72065 1.8335 9.00065 1.8335H7.00065C6.28065 1.8335 5.83398 2.28016 5.83398 3.00016V5.3335C5.83398 5.60683 5.60732 5.8335 5.33398 5.8335C5.06065 5.8335 4.83398 5.60683 4.83398 5.3335V3.00016C4.83398 1.72683 5.72732 0.833496 7.00065 0.833496H9.00065C10.274 0.833496 11.1673 1.72683 11.1673 3.00016V5.3335C11.1673 5.60683 10.9407 5.8335 10.6673 5.8335Z"
-                                        fill="white" />
-                                </svg>
-                                <span>{isBasketProduct ? 'В корзине' : 'Добавить в корзину'}</span>
-                            </button>
-
-                            {isFavoriteProduct ?
-                                <button onClick={onRemoveFavoriteProduct} className="btn product-card-form__btn btn--border" type="button">
-                                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M9.99984 18.0413C9.7415 18.0413 9.4915 18.008 9.28317 17.933C6.09984 16.8413 1.0415 12.9663 1.0415 7.24134C1.0415 4.32467 3.39984 1.95801 6.29984 1.95801C7.70817 1.95801 9.02484 2.50801 9.99984 3.49134C10.9748 2.50801 12.2915 1.95801 13.6998 1.95801C16.5998 1.95801 18.9582 4.33301 18.9582 7.24134C18.9582 12.9747 13.8998 16.8413 10.7165 17.933C10.5082 18.008 10.2582 18.0413 9.99984 18.0413Z"
-                                            fill="#EE3333" />
-                                    </svg>
-                                    <span>В избранном</span>
-                                </button> :
-                                <button onClick={onAddFavoriteProduct} className="btn product-card-form__btn btn--border" type="button">
-                                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M9.99984 18.0418C9.7415 18.0418 9.4915 18.0085 9.28317 17.9335C6.09984 16.8418 1.0415 12.9668 1.0415 7.24183C1.0415 4.32516 3.39984 1.9585 6.29984 1.9585C7.70817 1.9585 9.02484 2.5085 9.99984 3.49183C10.9748 2.5085 12.2915 1.9585 13.6998 1.9585C16.5998 1.9585 18.9582 4.3335 18.9582 7.24183C18.9582 12.9752 13.8998 16.8418 10.7165 17.9335C10.5082 18.0085 10.2582 18.0418 9.99984 18.0418ZM6.29984 3.2085C4.0915 3.2085 2.2915 5.01683 2.2915 7.24183C2.2915 12.9335 7.7665 16.1002 9.6915 16.7585C9.8415 16.8085 10.1665 16.8085 10.3165 16.7585C12.2332 16.1002 17.7165 12.9418 17.7165 7.24183C17.7165 5.01683 15.9165 3.2085 13.7082 3.2085C12.4415 3.2085 11.2665 3.80016 10.5082 4.82516C10.2748 5.14183 9.7415 5.14183 9.50817 4.82516C8.73317 3.79183 7.5665 3.2085 6.29984 3.2085Z"
-                                            fill="#101112" />
-                                    </svg>
-                                    <span>В избранное</span>
-                                </button>
-                            }
+                            <Button clickHandler={onAddProductToCart} isBasketProduct={isBasketProduct} className="product-card-form__btn product-cart-btn" type="button" icon cart />
+                            <Button clickHandler={favoriteClickCondition(isFavoriteProduct)} isFavoriteProduct={isFavoriteProduct} className="product-card-form__btn product-favorite-btn" border favorite icon type="button" />
                         </div>
                     </form>
 
@@ -185,10 +184,10 @@ function CatalogCardPopup({ products, closeCatalogCardPopup, visibleCatalogCardP
                         <div className="about-product__title">О товаре</div>
 
                         <dl className="about-product__list">
-                            {Object.keys(productList).map((key, i) => (
-                                <div key={`key${i + 1}`}>
-                                    <dt>{key}</dt>
-                                    <dd>{productList[key]}</dd>
+                            {productList.map(item => (
+                                <div key={item.id}>
+                                    <dt>{item.key}</dt>
+                                    <dd>{item.value}</dd>
                                 </div>
                             ))}
                         </dl>

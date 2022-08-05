@@ -253,8 +253,8 @@
     // .header__search-btn
 
     &__search-btn {
-        display: none;
         @extend %bg-contain;
+        display: none;
 
         @media (max-width: 1024px) {
             display: block;
@@ -340,8 +340,7 @@
 }
 
 .call {
-    display: flex;
-    align-items: flex-end;
+    @extend %vertical-align;
 
     &__link {
         @extend .header__action;
@@ -404,18 +403,6 @@
             }
         }
 
-        &:after {
-            //content: '';
-            position: absolute;
-            top: 0.3rem;
-            right: 0;
-            width: 1.4rem;
-            height: 1.5rem;
-            //background-image: url(../images/icons/drop.svg);
-            @extend %bg-contain;
-            transition: 0.3s transform;
-        }
-
         &--active {
             &:after {
                 transform: rotate(180deg);
@@ -453,8 +440,6 @@
             }
         }
 
-        //white-space: nowrap;
-
         &:not(:last-child) {
             margin-bottom: 1.7rem;
         }
@@ -480,8 +465,8 @@
     // .header-info-line__inner
 
     &__inner {
-        padding: 0 1.6rem;
         @extend %flex-row-center;
+        padding: 0 1.6rem;
         animation: marquee 15s linear infinite;
         width: 100%;
         flex-shrink: 0;
@@ -503,8 +488,8 @@
     }
 
     &__close {
-        display: none;
         @extend %pos-center-y;
+        display: none;
 
         @media (min-width: 1025px) {
             display: block;

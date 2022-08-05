@@ -103,7 +103,9 @@ function ProductCard() {
                                 </div>
                                 <>
                                     {tabs.map((tab, i) => (
-                                        tab.id === 'details' ? <ProductDetails id={tab.id} key={tab.id} index={i} activeTab={activeTab} {...activeProduct} /> :
+                                        tab.id === 'details' ?
+                                            <ProductDetails id={tab.id} key={tab.id} index={i} activeTab={activeTab} {...activeProduct} />
+                                            :
                                             <div key={tab.id} id={tab.id} className={classNames('tabs-content', {
                                                 'tabs-content--active': i === activeTab
                                             })}>

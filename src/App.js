@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { useState } from 'react';
-import { Header, Footer, Auth, DropBasket, Social, BurgerMenu } from './Components';
+import { Header, Footer, Auth, DropBasket, BurgerMenu } from './Components';
 import axios from 'axios';
 import { AppContext } from './context';
 import AppRouter from './Components/AppRouter';
@@ -146,7 +146,7 @@ function App() {
             sizesList,
             onAddCart,
             onClickAddFavorite,
-            onClickRemoveFavorite
+            onClickRemoveFavorite,
         }}>
             <div className={classNames('wrapper', {
                 '_lock': visibleBurgerMenu
@@ -154,11 +154,11 @@ function App() {
                 <Header onOpenBurgerMenu={openBurgerMenu} categories={categories} onAsideBasketOpener={openAsideBasket} onAsideAuthOpener={openAsideAuth} dropMenuCategories={dropMenuCategories} links={links} />
                 <BurgerMenu visibleBurgerMenu={visibleBurgerMenu} onCloseBurgerMenu={closeBurgerMenu} categories={categories} dropMenuCategories={dropMenuCategories} links={links} />
                 <AppRouter />
-                <Footer socials={Social} />
+                <Footer />
                 <div className={classNames('overlay', {
                     'active': visibleAsideBasket || visibleAsideAuth
                 })}>
-                    <Auth onCloseAsideAuth={closeAsideAuth} visibleAsideAuth={visibleAsideAuth} socials={Social} />
+                    <Auth onCloseAsideAuth={closeAsideAuth} visibleAsideAuth={visibleAsideAuth} />
                     <DropBasket onCloseAsideBasket={closeAsideBasket} visibleAsideBasket={visibleAsideBasket} />
                 </div>
             </div>

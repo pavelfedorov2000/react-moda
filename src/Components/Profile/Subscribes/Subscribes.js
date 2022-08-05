@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { SubscribeItem, SubscribePopup, Button } from '../../Components';
-import { fetchSubscribes, cancelSubscribe } from '../../redux/actions/subscribes';
+import { fetchSubscribes, cancelSubscribe } from '../../../redux/actions/subscribes';
+import Button from '../../Button';
+import SubscribeItem from './SubscribeItem';
+import SubscribePopup from './SubscribePopup';
 
 function Subscribes() {
     const dispatch = useDispatch();
     const subscribes = useSelector(({ subscribes }) => subscribes.subscribes); // вытаскиваем подписки из стора
-    //console.log(subscribes);
 
     // Экшн на отмену подписки
     const handleCancelSubscribe = (id) => {
@@ -51,10 +52,11 @@ function Subscribes() {
                     <h4 className="subscribe-item__title">Модная рассылка раз в неделю</h4>
                     <div className="subscribe-item__content">
                         <div className="subscribe-item__email">На почту past@mail.ru</div>
-                        <Button className="subscribe-item__btn" title="Подписаться" />
+                        <Button className="subscribe-item__btn" text="Подписаться" />
                     </div>
                 </div>
             </div>
+
             {visibleSubscribePopup !== null &&
                 <div className="overlay active">
                     <SubscribePopup onChangeSubscribe={handleChangeSubscribe} currentSubscribe={subscribes[visibleSubscribePopup]} subscribes={subscribes[visibleSubscribePopup].items} onCloseSubscribePopup={onCloseSubscribePopup} {...subscribes[visibleSubscribePopup]} />
@@ -63,5 +65,6 @@ function Subscribes() {
         </>
     );
 }
+
 
 export default Subscribes;

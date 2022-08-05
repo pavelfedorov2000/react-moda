@@ -26,13 +26,16 @@ function Header({ onAsideBasketOpener, onAsideAuthOpener, onOpenBurgerMenu, drop
                 <div className="container header__top-inner">
                     <HeaderRegion />
                     <ShopsSearch />
+
                     <div className="header__contact">
                         <Call phone={phone} className="header__call" />
                         <WhatsApp className="header__whatsapp" />
                     </div>
                 </div>
             </div>
+
             <HeaderInfoLine />
+
             <div className="header__main">
                 <div className="container">
                     <div className="header__main-top">
@@ -43,10 +46,13 @@ function Header({ onAsideBasketOpener, onAsideAuthOpener, onOpenBurgerMenu, drop
                                 })}>{category.text}</Link>
                             ))}
                         </nav>
+
                         <button onClick={onOpenBurgerMenu} className="burger-btn" type="button" aria-label="Открыть меню">
                             <img src={burger} alt="кнопка бургер" width="20" height="20" />
                         </button>
+
                         <Logo className="header" width="207" height="31" />
+
                         <div className="header__actions">
                             <button onClick={toggleSearch} className="header__search-btn" type="button" style={{ backgroundImage: `url(${search})` }}></button>
                             <Link to="/orders" className="header__action">
@@ -60,6 +66,7 @@ function Header({ onAsideBasketOpener, onAsideAuthOpener, onOpenBurgerMenu, drop
                                 </svg>
                                 <span>Профиль</span>
                             </Link>
+
                             <Link to="/favorite" className="header__action">
                                 <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -75,6 +82,7 @@ function Header({ onAsideBasketOpener, onAsideAuthOpener, onOpenBurgerMenu, drop
                                     }
                                 </span>
                             </Link>
+
                             <button onClick={onAsideBasketOpener} className="header__action" type="button">
                                 <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -94,6 +102,7 @@ function Header({ onAsideBasketOpener, onAsideAuthOpener, onOpenBurgerMenu, drop
                             </button>
                         </div>
                     </div>
+
                     <div className={classNames('header__main-bottom', {
                         'header__main-bottom--active': visibleSearch
                     })}>
