@@ -39,7 +39,7 @@ function DropBasket({ visibleAsideBasket, onCloseAsideBasket }) {
                 <div div className="drop-basket__inner">
                     <div className="aside-popup__title">Ваша корзина</div>
 
-                    {totalCount == 0 ?
+                    {totalCount === 0 ?
                         <div className="drop-basket__empty">
                             Вы еще не добавили товары в корзину
                         </div>

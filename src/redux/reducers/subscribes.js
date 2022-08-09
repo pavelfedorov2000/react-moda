@@ -11,7 +11,7 @@ const subscribes = (state = initialState, action) => {
             };
         case 'CHANGE_SUBSCRIBE':
             const subscribesCopy = [...state.subscribes];
-            let currentSubscribe = subscribesCopy.filter(subscribe => subscribe.id == action.payload.id)[0];
+            let currentSubscribe = subscribesCopy.find(subscribe => subscribe.id == action.payload.id);
             //console.log(currentSubscribe);
             subscribesCopy.splice(+action.payload.id, 1);
             //console.log(action.payload);
@@ -26,8 +26,7 @@ const subscribes = (state = initialState, action) => {
                 subscribes: changedSubscribes,
             };
         case 'CANCEL_SUBSCRIBE':
-            const newSubscribes = [...state.subscribes];
-            const filteredSubscribes = newSubscribes.filter(subscribe => subscribe.id != action.payload);
+            const filteredSubscribes = [...state.subscribes].filter(subscribe => subscribe.id != action.payload);
             return {
                 ...state,
                 subscribes: filteredSubscribes,

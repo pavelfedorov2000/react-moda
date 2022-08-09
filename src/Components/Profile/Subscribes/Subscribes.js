@@ -1,13 +1,35 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { SubscribesContext } from '../../../context';
 import { fetchSubscribes, cancelSubscribe } from '../../../redux/actions/subscribes';
 import Button from '../../Button';
 import SubscribeItem from './SubscribeItem';
 import SubscribePopup from './SubscribePopup';
 
 function Subscribes() {
+    React.useEffect(() => {
+        dispatch(fetchSubscribes()); // вернет функцию
+    }, []); // [] = componentDidMout
+
     const dispatch = useDispatch();
     const subscribes = useSelector(({ subscribes }) => subscribes.subscribes); // вытаскиваем подписки из стора
+
+    const [visibleSubscribePopup, setVisibleSubscribePopup] = useState(null);
+
+    const currentSubscribe = subscribes && subscribes[visibleSubscribePopup];
+
+    let obj;
+    if (currentSubscribe) {
+        const { id, title, items } = currentSubscribe;
+
+        obj = {
+            id,
+            title,
+            items
+        };
+    }
+
+    const saleItems = ['e-mail', 'sms'];
 
     // Экшн на отмену подписки
     const handleCancelSubscribe = (id) => {
@@ -22,17 +44,8 @@ function Subscribes() {
         });
     }
 
-    React.useEffect(() => {
-        dispatch(fetchSubscribes()); // вернет функцию
-    }, []); // [] = componentDidMout
-
-    //const [subscribes, setSubscribes] = useState([]);
-
-    const [visibleSubscribePopup, setVisibleSubscribePopup] = useState(null);
-
     const onSubscribePopupOpen = (i) => {
         setVisibleSubscribePopup(i);
-        //console.log(visibleSubscribePopup);
     }
 
     const onCloseSubscribePopup = () => {
@@ -45,9 +58,11 @@ function Subscribes() {
                 {subscribes.length !== 0 ?
                     subscribes.map((subscribe, i) => (
                         <SubscribeItem onClickUnsubscribe={handleCancelSubscribe} handlerSubscribePopup={onSubscribePopupOpen} index={i} key={subscribe.id} {...subscribe} />
-                    )) :
+                    ))
+                    :
                     <div>Нет активных подписок!</div>
                 }
+
                 <div className="profile-subscribes__item subscribe-item profile-subscribes__item--aside">
                     <h4 className="subscribe-item__title">Модная рассылка раз в неделю</h4>
                     <div className="subscribe-item__content">
@@ -58,9 +73,17 @@ function Subscribes() {
             </div>
 
             {visibleSubscribePopup !== null &&
-                <div className="overlay active">
-                    <SubscribePopup onChangeSubscribe={handleChangeSubscribe} currentSubscribe={subscribes[visibleSubscribePopup]} subscribes={subscribes[visibleSubscribePopup].items} onCloseSubscribePopup={onCloseSubscribePopup} {...subscribes[visibleSubscribePopup]} />
-                </div>
+                <SubscribesContext.Provider value={{
+                    subscribes,
+                    currentSubscribe,
+                    handleChangeSubscribe,
+                    obj,
+                    saleItems
+                }}>
+                    <div className="overlay active">
+                        <SubscribePopup onCloseSubscribePopup={onCloseSubscribePopup} />
+                    </div>
+                </SubscribesContext.Provider>
             }
         </>
     );

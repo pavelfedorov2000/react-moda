@@ -109,14 +109,14 @@ function BasketProduct({ id, articul, name, brand, size, sizes, price, imageUrl,
             </div>
             <div className="basket-product__prices">
                 <div className="basket-product__prices-wrap">
-                    {discount != 0 &&
+                    {discount !== 0 &&
                         <div className="price old-price basket-product__old-price">{`${Math.floor(totalPrice * 100 / (100 - discount))} ₽`}</div>
                     }
                     <div className={classNames('price', {
-                        'new-price': discount != 0
+                        'new-price': discount !== 0
                     })}>{`${totalPrice} ₽`}</div>
                 </div>
-                {discount != 0 &&
+                {discount !== 0 &&
                     <div className="basket-product__discount">
                         <div className="basket-product__discount-percent">{`Сумма скидки ${discount}%`}</div>
                         <div className="basket-product__discount-sum">{`(${totalDiscount} ₽)`}</div>

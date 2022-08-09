@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 function DropBasketProduct({ id, articul, name, brand, size, imageUrl, color, discount, onRemoveItem, onPlusItem, onMinusItem, totalCount, totalPrice }) {

@@ -20,7 +20,7 @@ function Profile({ title, empty, SubPage }) {
                     <div className="profile-page__body">
 
                         {!index &&
-                            <h2 class="profile-page__title">{title}</h2>
+                            <h2 className="profile-page__title">{title}</h2>
                         }
 
                         <SubPage empty={empty} />

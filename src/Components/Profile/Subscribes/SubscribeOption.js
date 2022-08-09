@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import checkIcon from '../../../assets/images/icons/check.svg';
+import { SubscribeItemContext, SubscribesContext } from '../../../context';
 
-function SubscribeOption({ option, item, i, checkedSubscribeSelect, onCheckSubscribeSelect, onClickChangeSubscribe, obj }) {
+function SubscribeOption({ option, i, checkedSubscribeSelect, onCheckSubscribeSelect }) {
 
-    const selectHandler = (e) => {
+    const { handleChangeSubscribe, obj } = useContext(SubscribesContext);
+    const { item } = useContext(SubscribeItemContext);
 
+    const selectHandler = () => {
         onCheckSubscribeSelect();
 
-        obj.items[e.target.getAttribute('name')] = !checkedSubscribeSelect;
+        obj.items[item] = !checkedSubscribeSelect;
 
-        onClickChangeSubscribe(obj);
+        handleChangeSubscribe(obj);
     }
 
     return (
