@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-const Button = ({ clickHandler, className, border, text, type, disabled, icon, isFavoriteProduct, isBasketProduct, favorite, cart }) => {
+const Button = ({ clickHandler, className, border, text, type, disabled, icon, isFavoriteProduct, isBasketProduct, favorite, cart, transparent, remove }) => {
 
     return (
         <button
@@ -11,6 +11,7 @@ const Button = ({ clickHandler, className, border, text, type, disabled, icon, i
             style={cart && { backgroundColor: `${isBasketProduct ? '#479458' : '#ee3333'}` }}
             className={classNames('btn', className, {
                 'btn--border': border,
+                'btn--transparent': transparent
             })}>
             {text}
 
@@ -32,11 +33,19 @@ const Button = ({ clickHandler, className, border, text, type, disabled, icon, i
                         {favorite &&
                             <>
                                 {isFavoriteProduct ?
-                                    <svg className="favorite" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M9.99984 18.0413C9.7415 18.0413 9.4915 18.008 9.28317 17.933C6.09984 16.8413 1.0415 12.9663 1.0415 7.24134C1.0415 4.32467 3.39984 1.95801 6.29984 1.95801C7.70817 1.95801 9.02484 2.50801 9.99984 3.49134C10.9748 2.50801 12.2915 1.95801 13.6998 1.95801C16.5998 1.95801 18.9582 4.33301 18.9582 7.24134C18.9582 12.9747 13.8998 16.8413 10.7165 17.933C10.5082 18.008 10.2582 18.0413 9.99984 18.0413Z"
-                                            fill="#EE3333" />
-                                    </svg>
+                                    <>
+                                        {transparent ?
+                                            <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M4.8107 8.4963L4.81072 8.49625L4.80354 8.49379C4.08775 8.24832 3.12853 7.67452 2.35329 6.82545C1.58257 5.98132 1.02051 4.89635 1.02051 3.62091C1.02051 2.43666 1.97787 1.47925 3.14967 1.47925C3.72137 1.47925 4.25163 1.70161 4.64462 2.09796L4.99967 2.45605L5.35473 2.09796C5.74773 1.70161 6.27797 1.47925 6.84968 1.47925C8.02096 1.47925 8.97884 2.44032 8.97884 3.62091C8.97884 4.89855 8.41668 5.98347 7.64615 6.8269C6.87106 7.67533 5.91188 8.24823 5.19581 8.49379L5.1958 8.49373L5.18865 8.4963C5.15481 8.50849 5.09099 8.52092 4.99967 8.52092C4.90836 8.52092 4.84454 8.50849 4.8107 8.4963Z"
+                                                    stroke="#479458" />
+                                            </svg> :
+                                            <svg className="favorite" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9.99984 18.0413C9.7415 18.0413 9.4915 18.008 9.28317 17.933C6.09984 16.8413 1.0415 12.9663 1.0415 7.24134C1.0415 4.32467 3.39984 1.95801 6.29984 1.95801C7.70817 1.95801 9.02484 2.50801 9.99984 3.49134C10.9748 2.50801 12.2915 1.95801 13.6998 1.95801C16.5998 1.95801 18.9582 4.33301 18.9582 7.24134C18.9582 12.9747 13.8998 16.8413 10.7165 17.933C10.5082 18.008 10.2582 18.0413 9.99984 18.0413Z"
+                                                    fill="#EE3333" />
+                                            </svg>
+                                        }
+                                    </>
                                     :
                                     <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -47,12 +56,25 @@ const Button = ({ clickHandler, className, border, text, type, disabled, icon, i
                             </>
                         }
                     </>
+                    <>
+                        {remove &&
+                            <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g opacity="0.8">
+                                    <path
+                                        d="M8.26018 0.916504L4.99935 4.17734L1.73852 0.916504L0.916016 1.739L4.17685 4.99984L0.916016 8.26067L1.73852 9.08317L4.99935 5.82234L8.26018 9.08317L9.08268 8.26067L5.82185 4.99984L9.08268 1.739L8.26018 0.916504Z"
+                                        fill="#101112" />
+                                </g>
+                            </svg>
+                        }
+                    </>
                 </>
             }
 
             {cart && <span>{isBasketProduct ? 'В корзине' : 'Добавить в корзину'}</span>}
 
-            {favorite && <span>В избранно{isFavoriteProduct ? 'м' : 'е'}</span>}
+            {favorite && <span style={{ color: `${isFavoriteProduct && transparent ? '#479458' : 'inherit'}` }}>В избранно{isFavoriteProduct ? 'м' : 'е'}</span>}
+
+            {remove && <span>Удалить</span>}
         </button>
     );
 }

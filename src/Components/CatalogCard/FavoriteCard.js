@@ -5,9 +5,9 @@ import heartFilled from '../../assets/images/icons/heart-filled.svg';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../../context';
 
-function FavoriteCard({ id, name, brand, sizes, price, imageUrl, discount, newProduct }) {
+function FavoriteCard({ id, name, brand, sizes, price, imageUrl, discount, newProduct, setVisibleCatalogCardPopup }) {
 
-    const { setVisibleCatalogCardPopup, sizesList, onClickRemoveFavorite } = useContext(AppContext);
+    const { sizesList, onClickRemoveFavorite } = useContext(AppContext);
 
     const onRemoveFavoriteProduct = () => {
         onClickRemoveFavorite(id);

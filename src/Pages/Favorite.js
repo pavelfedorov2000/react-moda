@@ -49,7 +49,7 @@ function Favorite({ title, empty, setBasketProduct }) {
                                     <div className="catalog__cards">
                                         {
                                             favorites.map(product => (
-                                                <FavoriteCard onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} key={product.id} {...product} />
+                                                <FavoriteCard setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} onClickRemoveFavorite={handleRemoveFavoriteProduct} key={product.id} {...product} />
                                             ))}
                                     </div>
                                 }
@@ -61,7 +61,7 @@ function Favorite({ title, empty, setBasketProduct }) {
             {
                 visibleCatalogCardPopup !== null &&
                 <div className="overlay active">
-                    <CatalogCardPopup products={products} onCloseCatalogCardPopup={closeCatalogCardPopup} onClickAddFavorite={handleAddProductToFavorite} onClickRemoveFavorite={handleRemoveFavoriteProduct} onAddCart={handleAddProductToCart} visibleCatalogCardPopup={visibleCatalogCardPopup} setBasketProduct={setBasketProduct} />
+                    <CatalogCardPopup products={products} onCloseCatalogCardPopup={closeCatalogCardPopup} visibleCatalogCardPopup={visibleCatalogCardPopup} setBasketProduct={setBasketProduct} />
                 </div>
             }
         </>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SubscribesContext } from '../../../context';
 import { fetchSubscribes, cancelSubscribe } from '../../../redux/actions/subscribes';
@@ -32,17 +32,17 @@ function Subscribes() {
     const saleItems = ['e-mail', 'sms'];
 
     // Экшн на отмену подписки
-    const handleCancelSubscribe = (id) => {
+    const handleCancelSubscribe = useCallback((id) => {
         dispatch(cancelSubscribe(id));
-    }
+    }, []);
 
     // Экшн на изменение подписок
-    const handleChangeSubscribe = (obj) => {
+    const handleChangeSubscribe = useCallback((obj) => {
         dispatch({
             type: 'CHANGE_SUBSCRIBE',
             payload: obj
         });
-    }
+    }, []);
 
     const onSubscribePopupOpen = (i) => {
         setVisibleSubscribePopup(i);

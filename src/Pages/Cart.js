@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BasketTable, BasketTotal, Checkout, Crumbs } from '../Components';
 import Sticky from "wil-react-sticky";
@@ -36,12 +36,12 @@ function Cart({ title }) {
     }
 
     // Экшн на подтверждение заказа
-    const handleOrderSubmit = obj => {
+    const handleOrderSubmit = useCallback((obj) => {
         dispatch({
             type: 'SET_ORDER_DATA',
             payload: obj
         });
-    }
+    }, []);
 
     return (
         <main className="page basket-page">

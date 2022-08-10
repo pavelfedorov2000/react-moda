@@ -31,8 +31,8 @@ function Personal() {
                 <div className="profile-personal__field-title">Пароль</div>
                 <a data-fancybox href="#password-change" className="input profile-personal__change-password-btn">Изменить</a>
             </div>
-            
-            <Button className="profile-personal__btn" title="Сохранить изменения" type="submit" />
+
+            <Button className="profile-personal__btn" text="Сохранить изменения" type="submit" />
         </form>
     );
 }

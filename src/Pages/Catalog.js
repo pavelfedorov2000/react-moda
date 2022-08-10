@@ -7,47 +7,37 @@ import { setSortBy, setSortPrices, resetSortPrices, setSortColors, setSortSizes,
 import { fetchProducts } from '../redux/actions/products';
 import { CatalogFiltersContext } from '../context';
 
-
 function Catalog({ title }) {
-
-    // Фильтры
-    const sortFilters = [
-        {
-            name: 'возрастанию цены',
-            type: 'price',
-            order: 'asc'
-        },
-        {
-            name: 'убыванию цены',
-            type: 'price',
-            order: 'desc'
-        },
-        {
-            name: 'популярности',
-            type: 'popular',
-            order: 'desc'
-        },
-        {
-            name: 'новинкам',
-            type: 'newProduct',
-            order: 'desc'
-        },
-        {
-            name: 'скидкам',
-            type: 'discount',
-            order: 'desc'
-        },
-    ];
+    // Фильтр (селект)
+    const sortFilters = [{
+        name: 'возрастанию цены',
+        type: 'price',
+        order: 'asc'
+    }, {
+        name: 'убыванию цены',
+        type: 'price',
+        order: 'desc'
+    }, {
+        name: 'популярности',
+        type: 'popular',
+        order: 'desc'
+    }, {
+        name: 'новинкам',
+        type: 'newProduct',
+        order: 'desc'
+    }, {
+        name: 'скидкам',
+        type: 'discount',
+        order: 'desc'
+    }];
 
     const dispatch = useDispatch();
     const products = useSelector(({ products }) => products.products); // вытаскиваем товары из стора
-    //console.log(products);
     const isLoaded = useSelector(({ products }) => products.isLoaded); // вытаскиваем состояние загрузки из стора
     const { sortBy, sortPrices, sortColors, sortSizes, sortBrands, sortStyles } = useSelector(({ filters }) => filters); // вытаскиваем сортировку по из стора сразу через деструктуризацию
 
     React.useEffect(() => {
         dispatch(fetchProducts(sortBy, sortPrices, sortColors, sortSizes, sortBrands, sortStyles)); // вернет функцию
-        //console.log(products);
     }, [sortBy, sortPrices, sortColors, sortBrands, sortStyles, sortSizes]); // [] = componentDidMout
 
 
@@ -56,7 +46,6 @@ function Catalog({ title }) {
     }, []);
 
     const onSelectSortPrices = useCallback((from, to) => {
-        //console.log(from, to);
         dispatch(setSortPrices(from, to)); // экшн выбор диапазона цен
     }, []);
 

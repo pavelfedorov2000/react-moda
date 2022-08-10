@@ -83,6 +83,7 @@ function CatalogCardPopup({ products, closeCatalogCardPopup, visibleCatalogCardP
             discount,
             isFavorite: true
         };
+
         onClickAddFavorite(obj);
     }
 
@@ -103,6 +104,7 @@ function CatalogCardPopup({ products, closeCatalogCardPopup, visibleCatalogCardP
             discount,
             inBasket: true
         };
+        
         onAddCart(obj);
         closeCatalogCardPopup();
     }
@@ -115,18 +117,6 @@ function CatalogCardPopup({ products, closeCatalogCardPopup, visibleCatalogCardP
     const favoriteClickCondition = (isFavoriteProduct) => {
         return isFavoriteProduct ? onRemoveFavoriteProduct : onAddFavoriteProduct;
     }
-
-    /* const handleOutsideClick = (event) => {
-      const path = event.path || (event.composedPath && event.composedPath());
-      if (!path.includes(catalogPopupRef.current)) {
-        onCloseCatalogCardPopup();
-      }
-    }
-   
-    useEffect(() => {
-      document.body.addEventListener('click', handleOutsideClick);
-    }, []); */
-
 
     return (
         <div ref={catalogPopupRef} className="popup product-popup">

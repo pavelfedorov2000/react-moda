@@ -1,15 +1,21 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AppContext } from '../context';
+import Button from './Button';
+import Counter from './Counter';
 
-function DropBasketProduct({ id, articul, name, brand, size, imageUrl, color, discount, onRemoveItem, onPlusItem, onMinusItem, totalCount, totalPrice }) {
+function DropBasketProduct({ id, articul, name, brand, size, imageUrl, color, discount, totalCount, totalPrice }) {
+    const { onRemoveItem, onMinusItem, onPlusItem } = useContext(AppContext);
 
     const handleRemoveCartItem = () => {
         onRemoveItem(id);
     }
+
     const handleMinusCartItem = () => {
         onMinusItem(id);
     }
+
     const handlePlusCartItem = () => {
         onPlusItem(id);
     }
@@ -36,33 +42,9 @@ function DropBasketProduct({ id, articul, name, brand, size, imageUrl, color, di
             </dl>
 
             <div className="drop-basket__product-wrap">
-                <button onClick={handleRemoveCartItem} className="basket-product__btn basket-product__btn--delete" type="button">
-                    <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g opacity="0.8">
-                            <path
-                                d="M8.26018 0.916504L4.99935 4.17734L1.73852 0.916504L0.916016 1.739L4.17685 4.99984L0.916016 8.26067L1.73852 9.08317L4.99935 5.82234L8.26018 9.08317L9.08268 8.26067L5.82185 4.99984L9.08268 1.739L8.26018 0.916504Z"
-                                fill="#101112" />
-                        </g>
-                    </svg>
-                    <span>Удалить</span>
-                </button>
+                <Button clickHandler={handleRemoveCartItem} className="basket-product__btn basket-product__btn--delete" transparent remove icon type="button" />
 
-                <div className="basket-product__counter counter">
-                    <button onClick={handleMinusCartItem} className="counter__btn" type="button">
-                        <svg viewBox="0 0 10 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <line y1="1" x2="10" y2="1" stroke="#9B9B9B" strokeWidth="2" />
-                        </svg>
-                    </button>
-
-                    <input className="counter__input" type="number" value={totalCount} readonly />
-
-                    <button onClick={handlePlusCartItem} className="counter__btn" type="button">
-                        <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <line y1="5" x2="10" y2="5" stroke="#9B9B9B" strokeWidth="2" />
-                            <line x1="5" y1="10" x2="5" stroke="#9B9B9B" strokeWidth="2" />
-                        </svg>
-                    </button>
-                </div>
+                <Counter className="basket-product__counter" totalCount={totalCount} handleMinusCartItem={handleMinusCartItem} handlePlusCartItem={handlePlusCartItem} />
 
                 <div className="basket-product__prices-wrap drop-basket__product-prices">
                     {discount !== 0 &&

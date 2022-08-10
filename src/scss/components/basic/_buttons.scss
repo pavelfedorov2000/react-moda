@@ -75,6 +75,17 @@
         }
     }
 
+    &--transparent {
+        background-color: transparent;
+        color: #101112;
+
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: transparent;
+            }
+        }
+    }
+
     &--black {
         background-color: #101112;
 

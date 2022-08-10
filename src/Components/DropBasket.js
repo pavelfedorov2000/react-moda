@@ -3,25 +3,13 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { DropBasketProduct } from '../Components';
-import { removeCartItem, plusItem, minusItem } from '../redux/actions/cart';
 
 function DropBasket({ visibleAsideBasket, onCloseAsideBasket }) {
-    const dispatch = useDispatch();
     const { totalPrice, totalCount, items } = useSelector(({ cart }) => cart);
 
     const addedProducts = Object.keys(items).map(key => {
         return items[key].items[0];
     });
-
-    const onRemoveItem = (id) => {
-        dispatch(removeCartItem(id)); // диспатчим экшн на удаление
-    }
-    const onMinusItem = (id) => {
-        dispatch(minusItem(id)); // диспатчим экшн на +1
-    }
-    const onPlusItem = (id) => {
-        dispatch(plusItem(id)); // диспатчим экшн на удаление -1
-    }
 
     return (
         <div id="drop-basket" className={classNames('aside-popup drop-basket aside-popup--basket', {
@@ -47,7 +35,7 @@ function DropBasket({ visibleAsideBasket, onCloseAsideBasket }) {
                         <>
                             <div className="drop-basket__products">
                                 {addedProducts.map(product => (
-                                    <DropBasketProduct key={product.id} {...product} onRemoveItem={onRemoveItem} onMinusItem={onMinusItem} onPlusItem={onPlusItem} totalPrice={items[product.id].totalPrice} totalCount={items[product.id].items.length} />
+                                    <DropBasketProduct key={product.id} {...product} totalPrice={items[product.id].totalPrice} totalCount={items[product.id].items.length} />
                                 ))}
                             </div>
 

@@ -27,6 +27,7 @@ export { default as CatalogHomeCard } from './CatalogHomeCard';
 export { default as PromoSale } from './PromoSale';
 export { default as IconsSlider } from './IconsSlider';
 export { default as Actual } from './Actual';
+export { default as BlogSection } from './BlogSection';
 export { default as Brands } from './Brands';
 export { default as Instagram } from './Instagram';
 
@@ -44,7 +45,7 @@ export { default as CatalogCardPopup } from './CatalogCard/CatalogCardPopup';
 
 export { default as ProductSizes } from './ProductSizes';
 
-
+export { default as Counter } from './Counter';
 export { default as BasketTable } from './BasketTable';
 export { default as BasketProduct } from './BasketProduct';
 export { default as DropBasketProduct } from './DropBasketProduct';

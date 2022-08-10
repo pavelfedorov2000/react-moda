@@ -1,11 +1,12 @@
 import classNames from 'classnames';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Header, Footer, Auth, DropBasket, BurgerMenu } from './Components';
 import axios from 'axios';
 import { AppContext } from './context';
 import AppRouter from './Components/AppRouter';
+import { removeCartItem, plusItem, minusItem } from './redux/actions/cart';
 import { removeFavoriteProduct } from './redux/actions/favorite';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 function App() {
 
@@ -72,68 +73,66 @@ function App() {
         setActiveCategory(i);
     }
 
-    const dropMenuCategories = [
-        {
-            title: "Одежда",
-            path: "catalog"
-        },
-        {
-            title: "Обувь",
-            path: "catalog"
-        },
-        {
-            title: "Аксессуары",
-            path: "catalog"
-        },
-        {
-            title: "Бренды",
-            path: "brands"
-        },
-        {
-            title: "Новинки",
-            path: "catalog"
-        },
-    ];
+    const dropMenuCategories = [{
+        title: "Одежда",
+        path: "catalog"
+    }, {
+        title: "Обувь",
+        path: "catalog"
+    }, {
+        title: "Аксессуары",
+        path: "catalog"
+    }, {
+        title: "Бренды",
+        path: "brands"
+    }, {
+        title: "Новинки",
+        path: "catalog"
+    }];
 
-    const links = [
-        {
-            title: "Распродажа",
-            path: "catalog"
-        },
-        {
-            title: "Блог",
-            path: "blog"
-        },
-        {
-            title: "Новости",
-            path: "news"
-        }
-    ];
-
-    //const [visibleCatalogCardPopup, setVisibleCatalogCardPopup] = useState(null);
+    const links = [{
+        title: "Распродажа",
+        path: "catalog"
+    }, {
+        title: "Блог",
+        path: "blog"
+    }, {
+        title: "Новости",
+        path: "news"
+    }];
 
     const dispatch = useDispatch();
 
     // Экшн на добавление в избранное
-    const onClickAddFavorite = obj => {
+    const onClickAddFavorite = useCallback((obj) => {
         dispatch({
             type: 'ADD_FAVORITE_PRODUCT',
             payload: obj
         });
-    }
+    }, []);
 
     // Экшн на удаление из избранного
-    const onClickRemoveFavorite = (id) => {
+    const onClickRemoveFavorite = useCallback((id) => {
         dispatch(removeFavoriteProduct(id));
-    }
+    }, []);
 
     // Экшн на добавление в корзину
-    const onAddCart = obj => {
+    const onAddCart = useCallback((obj) => {
         dispatch({
             type: 'ADD_PRODUCT_TO_CART',
             payload: obj
         });
-    }
+    }, []);
+
+    const onRemoveItem = useCallback((id) => {
+        dispatch(removeCartItem(id)); // диспатчим экшн на удаление
+    }, []);
+    const onMinusItem = useCallback((id) => {
+        dispatch(minusItem(id)); // диспатчим экшн на +1
+    }, []);
+    const onPlusItem = useCallback((id) => {
+        dispatch(plusItem(id)); // диспатчим экшн на удаление -1
+    }, []);
 
     return (
         <AppContext.Provider value={{
@@ -147,6 +146,9 @@ function App() {
             onAddCart,
             onClickAddFavorite,
             onClickRemoveFavorite,
+            onRemoveItem,
+            onMinusItem,
+            onPlusItem
         }}>
             <div className={classNames('wrapper', {
                 '_lock': visibleBurgerMenu
@@ -165,24 +167,5 @@ function App() {
         </AppContext.Provider>
     );
 }
-
-//<Route path="/" render={() => <CatalogHome categories={categories} />} />
-//<Route path="/home" render={() => <Home blog={blog} />} />
-//<Route path="/catalog" render={() => <Catalog />} />
-//<Route path="/favorite" render={() => <Favorite generateCrumbs={generateCrumbs} />} />
-//<Route path="/cart" render={() => <Cart />} />
-//<Route path="/order-success" render={() => <OrderSuccess />} />
-//<Route path="/product-card/:id" render={() => <ProductCard />} />
-//<Route path="/brands" render={() => <Brands generateCrumbs={generateCrumbs} />} />
-//<Route path="/not-found" component={NotFound} />
-//<Route path="/profile" component={Profile} />
-//<Route path="/blog" exact render={() => <Blog blog={blog} generateCrumbs={generateCrumbs} />} />
-//<Route path="/blog/:id" exact render={() => <BlogDetail />} />
-//<Route path="/news" exact render={() => <News news={news} generateCrumbs={generateCrumbs} />} />
-//<Route path="/news/:id" exact render={() => <NewsDetail />} />
-//<Redirect to="/not-found" />
-//<Route path="/home" render={() => <Home blog={blog} />} />
-//<Route path="/:category" render={() => <Home blog={blog} />} />
-//<Route path="/catalog-home" render={() => <CatalogHome onChangeCategory={onChangeCategory} categories={categories} />} />
 
 export default App;
