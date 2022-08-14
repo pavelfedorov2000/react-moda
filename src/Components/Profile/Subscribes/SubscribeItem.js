@@ -1,6 +1,6 @@
 import React from 'react';
 
-function SubscribeItem({id, title, items, handlerSubscribePopup, index, onClickUnsubscribe }) {
+function SubscribeItem({ id, title, items, handlerSubscribePopup, index, onClickUnsubscribe }) {
 
     const onChangeSubscribeItem = (i) => {
         handlerSubscribePopup(i);
@@ -18,7 +18,7 @@ function SubscribeItem({id, title, items, handlerSubscribePopup, index, onClickU
                 <div className="subscribe-item__wrap">
                     <ul className="subscribe-item__list">
                         {Object.entries(items).map(item => (
-                            item[1] === true && <li key={item}>{`— ${li[item[0]]}`}</li>
+                            item[1] === true && <li key={item.toString()}>{`— ${li[item[0]]}`}</li>
                         ))}
                     </ul>
 
@@ -29,7 +29,7 @@ function SubscribeItem({id, title, items, handlerSubscribePopup, index, onClickU
                 </div>
 
                 <div className="subscribe-item__text">Описание подписки на распродажу и акции для женщин и мужчин</div>
-                
+
                 <div className="subscribe-item__bottom">
                     <button onClick={(e) => {
                         e.preventDefault();

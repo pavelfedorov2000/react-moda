@@ -11,8 +11,8 @@ function ProductDetails({ details, id, index, activeTab }) {
         <div id={id} className={classNames('tabs-content product-details', {
             'tabs-content--active': index === activeTab
         })}>
-            {sections.map((section, i) => (
-                <ProductDetailsSection key={`section_${i + 1}`} section={section} />
+            {sections.map(section => (
+                <ProductDetailsSection key={section.toString()} section={section} />
             ))}
         </div>
     );

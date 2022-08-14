@@ -9,25 +9,19 @@ import axios from 'axios';
 import { Crumbs } from '../Components';
 
 function Brands({ title }) {
-
-    const categories = React.useMemo(() => [
-        {
-            name: "Все",
-            imageUrl: coat
-        },
-        {
-            name: "Женщинам",
-            imageUrl: woman
-        },
-        {
-            name: "Мужчинам",
-            imageUrl: man
-        },
-        {
-            name: "Детям",
-            imageUrl: children
-        }
-    ], []);
+    const categories = React.useMemo(() => [{
+        name: "Все",
+        imageUrl: coat
+    }, {
+        name: "Женщинам",
+        imageUrl: woman
+    }, {
+        name: "Мужчинам",
+        imageUrl: man
+    }, {
+        name: "Детям",
+        imageUrl: children
+    }], []);
 
     const [alphabet, setAlphabet] = useState([]);
     React.useEffect(() => {
@@ -98,7 +92,7 @@ function Brands({ title }) {
                             <dd className="brands-alphabet__row">
                                 <div className="brands-alphabet__col">
                                     {alphabet[key].map(name => (
-                                        <Link key={`brand ${name}`} to="/not-found" className="brands-alphabet__link">{name}</Link>
+                                        <Link key={name.toString()} to="/not-found" className="brands-alphabet__link">{name}</Link>
                                     ))}
                                 </div>
                             </dd>

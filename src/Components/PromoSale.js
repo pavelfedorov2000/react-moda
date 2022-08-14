@@ -28,7 +28,7 @@ function PromoSale() {
                     <SliderArrows className="promo-sale__slider-arrows" />
                     <SplideTrack>
                         {promoSale.length > 0 && Array(3).fill(promoSale[0]).map(slide => (
-                            <SplideSlide key={slide.id} className="promo-sale__slider-item">
+                            <SplideSlide key={slide.id + 1} className="promo-sale__slider-item">
                                 <article className="sale-item">
                                     <Link to="/catalog" className="sale-item__img">
                                         <img src={slide.imageUrl} alt="фото" width="336" height="250" />

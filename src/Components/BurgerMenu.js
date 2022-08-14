@@ -29,14 +29,14 @@ function BurgerMenu({ visibleBurgerMenu, onCloseBurgerMenu, dropMenuCategories, 
             <HeaderRegion />
 
             <ul className="burger-menu__list">
-                {dropMenuCategories.map((link, i) => (
-                    <li key={`link-${i}`} className="burger-menu__list-item">
+                {dropMenuCategories.map(link => (
+                    <li key={link.toString()} className="burger-menu__list-item">
                         <Link className="burger-menu__list-link" to={link.path}>{link.title}</Link>
                     </li>
                 ))}
 
                 {links.reverse().map((link, i) => (
-                    <li key={`link-${i}`} className="burger-menu__list-item">
+                    <li key={link.toString()} className="burger-menu__list-item">
                         <Link className={classNames('burger-menu__list-link', {
                             'burger-menu__list-link--red': i === links.reverse().length - 1
                         })} to={link.path}>{link.title}</Link>

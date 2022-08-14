@@ -22,6 +22,7 @@ function OtherNews({ otherNews, title }) {
                 <h2 className="title">{title}</h2>
                 <SliderArrows />
             </div>
+
             <SplideTrack>
                 {otherNews.map(news => (
                     <SplideSlide key={news.id}>

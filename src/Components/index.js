@@ -33,8 +33,6 @@ export { default as Instagram } from './Instagram';
 
 export { default as SeoText } from './SeoText';
 
-export { default as Pagination } from './Pagination';
-
 export { default as AsideFilters } from './AsideFilters';
 export { default as CatalogFilters } from './CatalogFilters';
 export { default as CatalogView } from './CatalogView';

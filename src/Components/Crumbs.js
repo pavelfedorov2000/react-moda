@@ -11,8 +11,11 @@ function Crumbs({ title, id, url, product }) {
         <nav className="breadcrumbs" aria-label="breadcrumbs">
             <ol className="breadcrumbs__list">
                 <li className="breadcrumbs__item"><Link to="/home">Главная</Link></li>
+
                 {product && <li className="breadcrumbs__item"><Link to={`/catalog`}>Каталог</Link></li>}
+
                 {id !== undefined && <li className="breadcrumbs__item"><Link to={`/${url}`}>{prevRoute.title}</Link></li>}
+
                 <li className="breadcrumbs__item"><span>{title}</span></li>
             </ol>
         </nav>

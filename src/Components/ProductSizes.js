@@ -10,7 +10,7 @@ function ProductSizes({ sizes, checkedSize, onCheckSize }) {
             <div className="product-card-form__title product-sizes__title">Размер:</div>
             <div className="product-sizes__row">
                 {sizesList.map(size => (
-                    <label key={size} className="product-sizes__item">
+                    <label key={size.toString()} className="product-sizes__item">
                         <input onChange={() => onCheckSize(size)} className="radio-box" type="radio" name="size" checked={size == checkedSize && sizesList.includes(sizes[sizes.indexOf(size)]) ? true : false} disabled={!sizesList.includes(sizes[sizes.indexOf(size)]) ? true : false} />
                         <span className="radio-text">{size}</span>
                     </label>

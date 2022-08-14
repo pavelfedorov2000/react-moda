@@ -3,7 +3,6 @@ import { useParams, useRouteMatch } from 'react-router-dom/cjs/react-router-dom.
 import { Crumbs, PageNav } from '../Components';
 
 function Profile({ title, empty, SubPage }) {
-
     const { index } = useParams();
     const { url } = useRouteMatch();
 

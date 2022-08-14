@@ -87,8 +87,5 @@ function CatalogFilters({ visibleFilters, onCloseFilters }) {
         </form>
     );
 }
-//
-//<Material />
-//<Decor checked={checked} checkedFilters={checkedFilters} setCheckedFilters={setCheckedFilters} onCheckChange={onCheckChange} />
 
 export default CatalogFilters;

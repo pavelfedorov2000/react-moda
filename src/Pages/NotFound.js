@@ -16,7 +16,7 @@ function NotFound({ title }) {
                         <ul className="breadcrumbs__list">
                             {crumbs.map((crumb, i) => (
                                 <li className="breadcrumbs__item">
-                                    <Link key={`crumb-${i + 1}`} to={`/${i === 0 ? 'home' : 'catalog'}`} className="breadcrumbs__link">{crumb}</Link>
+                                    <Link key={crumb.toString()} to={`/${i === 0 ? 'home' : 'catalog'}`} className="breadcrumbs__link">{crumb}</Link>
                                 </li>
                             ))}
                         </ul>

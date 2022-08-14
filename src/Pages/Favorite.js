@@ -12,22 +12,6 @@ function Favorite({ title, empty, setBasketProduct }) {
         dispatch(removeFavoriteProduct(id));
     }
 
-    // Экшн на добавление в избранное
-    const handleAddProductToFavorite = obj => {
-        dispatch({
-            type: 'ADD_FAVORITE_PRODUCT',
-            payload: obj
-        });
-    }
-
-    // Экшн на добавление в корзину
-    const handleAddProductToCart = obj => {
-        dispatch({
-            type: 'ADD_PRODUCT_TO_CART',
-            payload: obj
-        });
-    }
-
     const [visibleCatalogCardPopup, setVisibleCatalogCardPopup] = useState(null);
     const closeCatalogCardPopup = () => {
         setVisibleCatalogCardPopup(null);
@@ -38,10 +22,13 @@ function Favorite({ title, empty, setBasketProduct }) {
             <main className="page catalog">
                 <div className="container">
                     <Crumbs title={title} />
+
                     <div className="catalog__page">
                         <h1 className="title page__title catalog__title">{title}</h1>
+
                         <div className="catalog__inner">
                             <AsideFilters />
+
                             <div className="catalog__body">
                                 {favorites.length == 0 ?
                                     <EmptyPage {...empty} />
@@ -58,6 +45,7 @@ function Favorite({ title, empty, setBasketProduct }) {
                     </div>
                 </div>
             </main>
+
             {
                 visibleCatalogCardPopup !== null &&
                 <div className="overlay active">

@@ -78,7 +78,7 @@ function ProductCardContent({ id, articul, name, brand, logo, sizes, color, pric
                         <div className="old-price product-card__old-price">{`${Math.floor(price * 100 / (100 - discount))} ₽`}</div>
                     }
 
-                    <div className={discount != 0 ? 'new-price' : 'price'}>{`${price} ₽`}</div>
+                    <div className={discount !== 0 ? 'new-price' : 'price'}>{`${price} ₽`}</div>
                 </div>
 
                 <div className="labels product-card__labels">

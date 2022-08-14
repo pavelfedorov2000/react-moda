@@ -5,10 +5,7 @@ import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { Crumbs, OtherNews } from '../Components';
 
 function NewsDetail() {
-
     const { id } = useParams();
-    console.log(id);
-
     const { url } = useRouteMatch();
 
     const [news, setNews] = useState([]);
@@ -18,8 +15,6 @@ function NewsDetail() {
             setNews(data);
         });
     }, []); // [] = componentDidMout */
-
-    //console.log(news);
 
     const activeNews = news.find(news => news.id == id);
     const otherNews = news.filter(news => news.id != id);
@@ -47,6 +42,7 @@ function NewsDetail() {
                                 </div>
                             </div>
                         </article>
+
                         <aside className="other-news">
                             <OtherNews otherNews={otherNews} title="Другие новости и акции" />
                         </aside>

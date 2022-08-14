@@ -9,11 +9,14 @@ function Collection() {
                 <div className="promo-collection__img">
                     <img src={collectionImg} alt="жилетка" width="724" height="350" />
                 </div>
+
                 <div className="promo-collection__suptitle">Ретро стиль в современной одежде</div>
+
                 <div className="title promo-collection__title">
                     Свитеры и жилетки.<br />
                     Зима 2022
                 </div>
+
                 <Link to="/catalog" className="all-link promo-collection__link">
                     <span>Смотреть коллекцию</span>
                     <svg viewBox="0 0 56 16" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,14 +1,11 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min';
 import { AsideBlog, BlogText, Crumbs } from '../Components';
 
 function BlogDetail() {
-
     let { id } = useParams();
-
     const { url } = useRouteMatch();
 
     const [news, setNews] = useState([]);

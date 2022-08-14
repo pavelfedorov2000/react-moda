@@ -49,8 +49,7 @@ function ProductCard() {
         });
     }, []); // [] = componentDidMout */
 
-    let activeProduct = products.filter(product => product.id == id)[0];
-    //console.log(activeProduct);
+    let activeProduct = products.find(product => product.id == id);
 
     const [activeTab, setActiveTab] = useState(0);
     const onClickTab = (i) => {
@@ -76,8 +75,8 @@ function ProductCard() {
                             <Splide className="product-card__slider" hasTrack={false} options={splideOptions}>
                                 <SliderArrows round={true} />
                                 <SplideTrack>
-                                    {Array(4).fill(0).map((_, index) => (
-                                        <SplideSlide key={index + 1}>
+                                    {Array(4).fill(0).map((slide, index) => (
+                                        <SplideSlide key={slide.toString()}>
                                             <a data-fancybox="gallery" className="product-card__slider-item" href={index % 2 != 0 ? 'https://www.youtube.com/watch?v=L1e8YEozOD8' : activeProduct.imageUrl}>
                                                 <img src={activeProduct.imageUrl} alt="фото" />
                                                 {index % 2 != 0 && <div className="player-btn"></div>}
@@ -111,8 +110,8 @@ function ProductCard() {
                                             })}>
                                                 {tab.id === 'video' ?
                                                     <div className="product-card__videos">
-                                                        {Array(2).fill(0).map((_, index) => (
-                                                            <div key={`video-${index}`} className="product-card__video">
+                                                        {Array(2).fill(0).map(video => (
+                                                            <div key={video.toString()} className="product-card__video">
                                                                 <iframe src="https://www.youtube.com/embed/L1e8YEozOD8" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                                                             </div>
                                                         ))}
@@ -137,9 +136,9 @@ function ProductCard() {
                     </main>
 
                     <aside className="product-card__page">
-                        {['С этим товаром рекомендуем', 'Похожие товары'].map((section, i) => (
+                        {['С этим товаром рекомендуем', 'Похожие товары'].map(section => (
                             <section>
-                                <SliderSection key={`aside-section_${i + 1}`} id={id} products={products} {...activeProduct} title={section} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} />
+                                <SliderSection key={section.toString()} id={id} products={products} {...activeProduct} title={section} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} />
                             </section>
                         ))}
                     </aside>

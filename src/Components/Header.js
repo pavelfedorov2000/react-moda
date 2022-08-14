@@ -7,7 +7,7 @@ import { DropMenu, SearchForm, HeaderInfoLine, ShopsSearch, HeaderRegion, WhatsA
 import classNames from 'classnames';
 import { AppContext } from '../context';
 
-function Header({ onAsideBasketOpener, onAsideAuthOpener, onOpenBurgerMenu, dropMenuCategories, links }) {
+function Header({ onAsideBasketOpener, onOpenBurgerMenu, dropMenuCategories, links }) {
 
     const { phone, categories, activeCategory, onChangeCategory } = useContext(AppContext);
     // Вытаскиваем из стора общее количество добавленных в корзину товаров (сразу через деструктуризацию)
@@ -75,7 +75,7 @@ function Header({ onAsideBasketOpener, onAsideAuthOpener, onOpenBurgerMenu, drop
                                 </svg>
                                 <span>
                                     Избранное
-                                    {products.length != 0 ?
+                                    {products.length !== 0 ?
                                         <span>{`(${products.length})`}</span>
                                         :
                                         null
@@ -93,7 +93,7 @@ function Header({ onAsideBasketOpener, onAsideAuthOpener, onOpenBurgerMenu, drop
                                         fill="#101112" />
                                 </svg>
                                 <span>Корзина
-                                    {totalCount != 0 ?
+                                    {totalCount !== 0 ?
                                         <span>{`(${totalCount})`}</span>
                                         :
                                         null

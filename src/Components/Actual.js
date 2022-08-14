@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import SaleItem from './SaleItem';
 
 function Actual() {
-
     const [actual, setActual] = useState([]);
     React.useEffect(() => {
         axios.get('/actual').then(({ data }) => {

@@ -4,6 +4,13 @@ import '@splidejs/react-splide/css/core';
 import axios from 'axios';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
+const splideOptions = {
+    autoWidth: true,
+    gap: '5.2rem',
+    pagination: false,
+    arrows: false,
+};
+
 function IconsSlider() {
 
     const [categoriesIcons, setCategoriesIcons] = useState([]);
@@ -13,16 +20,9 @@ function IconsSlider() {
         });
     }, []); // [] = componentDidMout
 
-    //console.log(categoriesIcons);
-
     return (
         <div className="section">
-            <Splide className="icons-slider" hasTrack={false} aria-label="Категории" options={{
-                autoWidth: true,
-                gap: '5.2rem',
-                pagination: false,
-                arrows: false,
-            }}>
+            <Splide className="icons-slider" hasTrack={false} aria-label="Категории" options={splideOptions}>
                 <SplideTrack>
                     {categoriesIcons.map(item => (
                         <SplideSlide key={item.id} style={{ width: '12.8rem' }}>

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../context';
 
-function CatalogHomeCard({ href, imageUrl, text, index }) {
+function CatalogHomeCard({ imageUrl, text, index }) {
     const { onChangeCategory } = useContext(AppContext);
 
     return (

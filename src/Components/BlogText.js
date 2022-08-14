@@ -24,8 +24,8 @@ function BlogText({ tags }) {
     return (
         <article className="blog-text__content">
             <div className="tags blog-text__tags">
-                {tags.map((tag, i) => (
-                    <a key={`tag_${i + 1}`} href="#" className="tag blog-text__tag">{`#${tag}`}</a>
+                {tags.map(tag => (
+                    <a key={tag.toString()} href="#" className="tag blog-text__tag">{`#${tag}`}</a>
                 ))}
             </div>
 
@@ -63,8 +63,8 @@ function BlogText({ tags }) {
             <Splide className="blog-text__slider" hasTrack={false} options={splideOptions}>
                 <SliderArrows round={true} />
                 <SplideTrack>
-                    {Array(4).fill(0).map((_, index) => (
-                        <SplideSlide className="blog-text__slider-item" key={index + 1}>
+                    {Array(4).fill(0).map((slide, index) => (
+                        <SplideSlide className="blog-text__slider-item" key={slide.toString()}>
                             <img src={index % 2 !== 0 ? sliderImageLeft : sliderImageRight} alt="фото" />
                         </SplideSlide>
                     ))}

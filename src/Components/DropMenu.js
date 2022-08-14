@@ -38,20 +38,20 @@ function DropMenu({ dropMenuCategories, links }) {
     return (
         <ul className="header__list">
             {dropMenuCategories.map((item, index) => (
-                <li key={`list-item-${index}`} className="header__list-item">
+                <li key={item.toString()} className="header__list-item">
                     <Link className="header__list-link" to={item.path}>{item.title}</Link>
 
                     <div className="drop-menu">
                         <div className="drop-menu__row">
                             {Object.keys(dropMenuItems).map((key, i) => (
-                                <div key={`col-${i}`} className={`drop-menu__col drop-menu__col--${i + 1}`}>
+                                <div key={key.toString()} className={`drop-menu__col drop-menu__col--${i + 1}`}>
                                     <div className="drop-menu__col-title">
                                         {i === 0 ? `Вс${(index === 0 || index === 1) ? 'я' : 'е'} ${item.title}` : key}
                                     </div>
 
                                     <ul className="drop-menu__list">
-                                        {dropMenuItems[key].map((li, j) => (
-                                            <li key={`li-${j}`} className="drop-menu__list-item">
+                                        {dropMenuItems[key].map(li => (
+                                            <li key={li.toString()} className="drop-menu__list-item">
                                                 <Link to="/" className="drop-menu__list-link">{li}</Link>
                                             </li>
                                         ))}
@@ -65,8 +65,8 @@ function DropMenu({ dropMenuCategories, links }) {
                 </li>
             ))}
 
-            {links.map((link, i) => (
-                <li key={`link_${i + 1}`} className="header__list-item">
+            {links.map(link => (
+                <li key={link.toString()} className="header__list-item">
                     <Link className="header__list-link" to={link.path}>{link.title}</Link>
                 </li>
             ))}

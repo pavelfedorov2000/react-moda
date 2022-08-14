@@ -3,10 +3,9 @@ import { useSelector } from 'react-redux';
 import { OrderSuccessTable, OrderProduct, Crumbs } from '../Components';
 
 function OrderSuccess({ title }) {
-
-    //const { totalPrice } = useSelector(({ cart }) => cart);
     const { data } = useSelector(({ order }) => order);
     const currentOrder = data[data.length - 1];
+    console.log(currentOrder);
 
     return (
         <main className="page">
@@ -24,8 +23,8 @@ function OrderSuccess({ title }) {
                     <div className="order-success-table__body">
                         <div className="product-title order-success-table__title">Товары:</div>
                         <div className="order-success-table__products">
-                            {Object.keys(currentOrder.items).map((product, i) => (
-                                <OrderProduct key={`product_${i + 1}`} {...currentOrder.items[product].items[0]} totalCount={currentOrder.items[product].items.length} />
+                            {Object.keys(currentOrder.items).map(product => (
+                                <OrderProduct key={currentOrder.items[product].items[0].id} {...currentOrder.items[product].items[0]} totalCount={currentOrder.items[product].items.length} />
                             ))}
                         </div>
                     </div>
