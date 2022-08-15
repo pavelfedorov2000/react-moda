@@ -67,12 +67,13 @@ function Brands({ title }) {
                     <div className="brands-wrap">
                         <div className="brands-index-list">
                             {Object.keys(alphabet).map(key => (
-                                <a onClick={onAddActiveBrand} href={`#${key}`} className={classNames('brands-index-list__item', {
+                                <a key={key.toString()} onClick={onAddActiveBrand} href={`#${key}`} className={classNames('brands-index-list__item', {
                                     'brands-index-list__item--active': activeBrand === key
                                 })}>{key}</a>
                             ))}
                         </div>
-                        {activeBrand != null &&
+                        
+                        {activeBrand !== null &&
                             <button onClick={onRemoveActiveBrand} className="cancel-brand-letter" type="button">
                                 <span>Отменить</span>
                                 <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -27,11 +27,11 @@ function PromoSale() {
                 <Splide className="promo-sale__slider" hasTrack={false} options={sliderOptions}>
                     <SliderArrows className="promo-sale__slider-arrows" />
                     <SplideTrack>
-                        {promoSale.length > 0 && Array(3).fill(promoSale[0]).map(slide => (
-                            <SplideSlide key={slide.id + 1} className="promo-sale__slider-item">
+                        {promoSale.length > 0 && promoSale.map(slide => (
+                            <SplideSlide key={slide.id} className="promo-sale__slider-item">
                                 <article className="sale-item">
                                     <Link to="/catalog" className="sale-item__img">
-                                        <img src={slide.imageUrl} alt="фото" width="336" height="250" />
+                                        <img src={promoSale[0].imageUrl} alt="фото" width="336" height="250" />
                                         {slide.saleText !== undefined && <span className="sale-item__discount">{slide.saleText}</span>}
                                     </Link>
 

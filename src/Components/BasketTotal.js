@@ -1,8 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FormRow } from '../Components';
 
 function BasketTotal({ totalPrice, totalDiscount, handleOrderSubmit, orderData, onClearCart }) {
+    const { data } = useSelector(({ order }) => order);
+    const currentOrder = data[data.length - 1];
+    //const personalData = currentOrder.personal || false;
+    let valid = false;
+    //valid = Object.keys(currentOrder.personal).some(item => item === undefined);
 
     const loyaltyPercent = 3; // Программа лояльности
     const loyaltyDiscount = totalPrice * loyaltyPercent / 100;
@@ -45,7 +51,6 @@ function BasketTotal({ totalPrice, totalDiscount, handleOrderSubmit, orderData, 
                 <div className="basket-total__overall-title">Итого</div>
                 <div className="basket-total__overall-sum">{`${totalPrice ? overallSum : 0} ₽`}</div>
             </div>
-
 
             <Link onClick={onSubmitOrder} to="/order-success" className="btn basket-total__btn">Отправить заказ</Link>
             <div className="basket-total__agreement">

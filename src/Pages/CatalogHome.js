@@ -10,7 +10,7 @@ function CatalogHome() {
             <div className="container">
                 <div className="catalog-home__grid">
                     {categories.map((category, i) => (
-                        <CatalogHomeCard key={category.name} {...category} index={i} />
+                        <CatalogHomeCard key={category.href} {...category} index={i} />
                     ))}
                 </div>
             </div>

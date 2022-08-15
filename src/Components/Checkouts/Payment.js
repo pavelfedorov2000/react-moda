@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { CheckoutContext } from '../../context';
 
-function Payment({ selectedPayment, setSelectedPayment, payment }) {
+function Payment({ payment }) {
+    const { selectedPayment, setSelectedPayment } = useContext(CheckoutContext);
 
     return (
         <fieldset>
@@ -8,15 +10,15 @@ function Payment({ selectedPayment, setSelectedPayment, payment }) {
             <div className="checkout-form__radios">
                 {Object.keys(payment).map((radio, i) => (
                     <label key={`${payment.radioName}-${i + 1}`} className="checkout-form__item-radio checkout-radio checkout-radio--without-border">
-                        <input onChange={() => setSelectedPayment(i)} className="radio-box" type="radio" name="payment" checked={i == selectedPayment ? true : false} />
+                        <input onChange={() => setSelectedPayment(i)} className="radio-box" type="radio" name="payment" checked={i === selectedPayment ? true : false} />
                         <div className="checkout-radio__wrap">
                             <span className="radio-style"></span>
                             <div className="checkout-radio__content">
                                 <div className="checkout-radio__title">{radio}</div>
-                                {i == selectedPayment &&
+                                {i === selectedPayment &&
                                     <div className="checkout-radio__hidden">
                                         <p>
-                                            {i == 0 ? payment[radio] : <a href="#">{payment[radio]}</a>}
+                                            {i === 0 ? payment[radio] : <a href="#">{payment[radio]}</a>}
                                         </p>
                                     </div>
                                 }

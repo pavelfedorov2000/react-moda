@@ -12,8 +12,8 @@ function App() {
 
     const phone = '8 800 250 30 05';
 
-    const [visibleAsideBasket, setVisibleAsideBasket] = useState(false);
     // Открытие / закрытие боковой корзины
+    const [visibleAsideBasket, setVisibleAsideBasket] = useState(false);
     const openAsideBasket = () => {
         setVisibleAsideBasket(!visibleAsideBasket);
     }
@@ -21,8 +21,8 @@ function App() {
         setVisibleAsideBasket(!visibleAsideBasket);
     }
 
-    const [visibleAsideAuth, setVisibleAsideAuth] = useState(false);
     // Открытие / закрытие боковой авторизации
+    const [visibleAsideAuth, setVisibleAsideAuth] = useState(false);
     const openAsideAuth = () => {
         setVisibleAsideAuth(!visibleAsideAuth);
     }
@@ -30,8 +30,8 @@ function App() {
         setVisibleAsideAuth(!visibleAsideAuth);
     }
 
-    const [visibleBurgerMenu, setVisibleBurgerMenu] = useState(false);
     // Открытие / закрытие бургер-меню
+    const [visibleBurgerMenu, setVisibleBurgerMenu] = useState(false);
     const openBurgerMenu = () => {
         setVisibleBurgerMenu(true);
     }
@@ -74,29 +74,37 @@ function App() {
     }
 
     const dropMenuCategories = [{
+        id: 0,
         title: "Одежда",
         path: "catalog"
     }, {
+        id: 1,
         title: "Обувь",
         path: "catalog"
     }, {
+        id: 2,
         title: "Аксессуары",
         path: "catalog"
     }, {
+        id: 3,
         title: "Бренды",
         path: "brands"
     }, {
+        id: 4,
         title: "Новинки",
         path: "catalog"
     }];
 
     const links = [{
+        id: 0,
         title: "Распродажа",
         path: "catalog"
     }, {
+        id: 1,
         title: "Блог",
         path: "blog"
     }, {
+        id: 2,
         title: "Новости",
         path: "news"
     }];

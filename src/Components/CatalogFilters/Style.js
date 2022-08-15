@@ -51,7 +51,7 @@ function Style({ onCheckChange, checkedStyles, setCheckedStyles }) {
                             {styles.map((style, i) => (
                                 <label key={style} className="catalog-drop-filter__item">
                                     <input onChange={() => onCheckChange(styles, i, checkedStyles, setCheckedStyles)} className="check-box" type="checkbox" checked={checkedStyles.includes(style) ? true : false} />
-                                    <span class="check-style">
+                                    <span className="check-style">
                                         <span style={{ backgroundImage: `url(${checkIcon})` }}></span>
                                     </span>
                                     <span className="check-text">{style}</span>

@@ -10,7 +10,7 @@ function Sort({ sortFilters }) {
 
     const [visibleFilter, setVisibleFilter] = useState(false);
 
-    const activeSort = sortFilters.filter(item => item.type == sortBy.type)[0].name;
+    const activeSort = sortFilters.find(item => item.type == sortBy.type).name;
     const [activeSortText, setActiveSortText] = useState(activeSort);
 
     const [radio, setRadio] = useState(false);
@@ -48,7 +48,7 @@ function Sort({ sortFilters }) {
                 <div className="catalog-filters__item-drop catalog-drop-filter">
                     <div className="catalog-drop-filter__inner">
                         {sortFilters && sortFilters.map(filter => (
-                            <label key={filter.type} className="catalog-drop-filter__item">
+                            <label key={filter.id} className="catalog-drop-filter__item">
                                 <input onChange={() => toggleRadio(filter)} className="radio-box" type="radio" name="sort_filter" checked={sortBy.type === filter.type && sortBy.order === filter.order ? true : false} />
                                 <span className="radio-style">
                                     <span style={{ backgroundImage: `url(${checkIcon})` }}></span>

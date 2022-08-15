@@ -63,8 +63,8 @@ function BlogText({ tags }) {
             <Splide className="blog-text__slider" hasTrack={false} options={splideOptions}>
                 <SliderArrows round={true} />
                 <SplideTrack>
-                    {Array(4).fill(0).map((slide, index) => (
-                        <SplideSlide className="blog-text__slider-item" key={slide.toString()}>
+                    {Array(4).fill(0).map((_, index) => (
+                        <SplideSlide className="blog-text__slider-item" key={index}>
                             <img src={index % 2 !== 0 ? sliderImageLeft : sliderImageRight} alt="фото" />
                         </SplideSlide>
                     ))}

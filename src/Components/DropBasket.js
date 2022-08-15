@@ -41,7 +41,7 @@ function DropBasket({ visibleAsideBasket, onCloseAsideBasket }) {
 
                             <div className="drop-basket__total">
                                 <div className="drop-basket__total-title">Товаров на сумму</div>
-                                <div className="drop-basket__total-sum">{`${totalPrice} ₽`}</div>
+                                <div className="drop-basket__total-sum">{totalPrice} ₽</div>
                             </div>
                         </>
                     }

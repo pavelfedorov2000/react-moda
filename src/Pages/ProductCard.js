@@ -21,20 +21,33 @@ const splideOptions = {
 };
 
 const tabs = [{
-    id: 'details',
+    id: 0,
+    href: 'details',
     text: 'Детали',
 }, {
-    id: 'delivery',
+    id: 1,
+    href: 'delivery',
     text: 'Доставка',
 }, {
-    id: 'payment',
+    id: 2,
+    href: 'payment',
     text: 'Оплата',
 }, {
-    id: 'shops-availability',
+    id: 3,
+    href: 'shops-availability',
     text: 'Наличие в магазинах',
 }, {
-    id: 'video',
+    id: 4,
+    href: 'video',
     text: 'Видео',
+}];
+
+const asideSections = [{
+    id: 0,
+    title: 'С этим товаром рекомендуем'
+}, {
+    id: 1,
+    title: 'Похожие товары'
 }];
 
 function ProductCard() {
@@ -75,8 +88,8 @@ function ProductCard() {
                             <Splide className="product-card__slider" hasTrack={false} options={splideOptions}>
                                 <SliderArrows round={true} />
                                 <SplideTrack>
-                                    {Array(4).fill(0).map((slide, index) => (
-                                        <SplideSlide key={slide.toString()}>
+                                    {Array(4).fill(0).map((_, index) => (
+                                        <SplideSlide key={index}>
                                             <a data-fancybox="gallery" className="product-card__slider-item" href={index % 2 != 0 ? 'https://www.youtube.com/watch?v=L1e8YEozOD8' : activeProduct.imageUrl}>
                                                 <img src={activeProduct.imageUrl} alt="фото" />
                                                 {index % 2 != 0 && <div className="player-btn"></div>}
@@ -103,15 +116,15 @@ function ProductCard() {
                                 <>
                                     {tabs.map((tab, i) => (
                                         tab.id === 'details' ?
-                                            <ProductDetails id={tab.id} key={tab.id} index={i} activeTab={activeTab} {...activeProduct} />
+                                            <ProductDetails id={tab.href} key={tab.id} index={i} activeTab={activeTab} {...activeProduct} />
                                             :
-                                            <div key={tab.id} id={tab.id} className={classNames('tabs-content', {
+                                            <div key={tab.id} id={tab.href} className={classNames('tabs-content', {
                                                 'tabs-content--active': i === activeTab
                                             })}>
-                                                {tab.id === 'video' ?
+                                                {tab.href === 'video' ?
                                                     <div className="product-card__videos">
-                                                        {Array(2).fill(0).map(video => (
-                                                            <div key={video.toString()} className="product-card__video">
+                                                        {Array(2).fill(0).map((_, index) => (
+                                                            <div key={index} className="product-card__video">
                                                                 <iframe src="https://www.youtube.com/embed/L1e8YEozOD8" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                                                             </div>
                                                         ))}
@@ -136,9 +149,9 @@ function ProductCard() {
                     </main>
 
                     <aside className="product-card__page">
-                        {['С этим товаром рекомендуем', 'Похожие товары'].map(section => (
-                            <section>
-                                <SliderSection key={section.toString()} id={id} products={products} {...activeProduct} title={section} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} />
+                        {asideSections.map(section => (
+                            <section key={section.id}>
+                                <SliderSection id={id} products={products} {...activeProduct} title={section.title} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} />
                             </section>
                         ))}
                     </aside>

@@ -19,8 +19,8 @@ function BurgerMenu({ visibleBurgerMenu, onCloseBurgerMenu, dropMenuCategories, 
 
                 <nav className="header__nav">
                     {categories.map((category, i) => (
-                        <Link key={category.name} to={`/${category.name}`} onClick={() => onChangeCategory(i)} className={classNames('header__nav-link', {
-                            'active': category.name === activeCategory
+                        <Link key={category.href} to={`/${category.name}`} onClick={() => onChangeCategory(i)} className={classNames('header__nav-link', {
+                            'active': category.text === categories[activeCategory].text
                         })}>{category.text}</Link>
                     ))}
                 </nav>
@@ -30,13 +30,13 @@ function BurgerMenu({ visibleBurgerMenu, onCloseBurgerMenu, dropMenuCategories, 
 
             <ul className="burger-menu__list">
                 {dropMenuCategories.map(link => (
-                    <li key={link.toString()} className="burger-menu__list-item">
+                    <li key={link.id} className="burger-menu__list-item">
                         <Link className="burger-menu__list-link" to={link.path}>{link.title}</Link>
                     </li>
                 ))}
 
                 {links.reverse().map((link, i) => (
-                    <li key={link.toString()} className="burger-menu__list-item">
+                    <li key={link.id} className="burger-menu__list-item">
                         <Link className={classNames('burger-menu__list-link', {
                             'burger-menu__list-link--red': i === links.reverse().length - 1
                         })} to={link.path}>{link.title}</Link>

@@ -4,7 +4,6 @@ import { Link, useParams } from 'react-router-dom';
 import { OrderProduct, OrderSuccessTable } from '../../Components';
 
 function OrderDetail() {
-
     let { index } = useParams();
 
     const { data } = useSelector(({ order }) => order);
@@ -28,6 +27,7 @@ function OrderDetail() {
             <h2 className="profile-page__title">Заказ №RU{detailOrder.date.split('.').join('')}-{+index + 1}</h2>
 
             <OrderSuccessTable {...detailOrder} className="profile-page__order-table" />
+            
             <div className="profile-page-goods">
                 <div className="product-title profile-page-goods__title">Товары:</div>
                 <div className="profile-page-goods__list">

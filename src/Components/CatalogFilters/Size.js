@@ -50,7 +50,7 @@ function Size({ onCheckChange, onSelectSortSizes, onResetSortSizes, checkedSizes
                             {sizesList.map((size, i) => (
                                 <label key={size} className="catalog-drop-filter__item">
                                     <input onChange={() => onCheckChange(sizesList, i, checkedSizes, setCheckedSizes)} className="check-box" type="checkbox" checked={checkedSizes.includes(size) ? true : false} />
-                                    <span class="check-style">
+                                    <span className="check-style">
                                         <span style={{ backgroundImage: `url(${checkIcon})` }}></span>
                                     </span>
                                     <span className="check-text">{size}</span>

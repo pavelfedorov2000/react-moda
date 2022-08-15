@@ -83,11 +83,11 @@ function ProductCardContent({ id, articul, name, brand, logo, sizes, color, pric
 
                 <div className="labels product-card__labels">
                     {discount !== 0 &&
-                        <span class="label label--discount">{`${discount}%`}</span>
+                        <span className="label label--discount">{`${discount}%`}</span>
                     }
 
                     {newProduct && newProduct !== undefined &&
-                        <span class="label label--new">new</span>
+                        <span className="label label--new">new</span>
                     }
                 </div>
             </div>

@@ -10,22 +10,27 @@ import { CatalogFiltersContext } from '../context';
 function Catalog({ title }) {
     // Фильтр (селект)
     const sortFilters = [{
+        id: 0,
         name: 'возрастанию цены',
         type: 'price',
         order: 'asc'
     }, {
+        id: 1,
         name: 'убыванию цены',
         type: 'price',
         order: 'desc'
     }, {
+        id: 2,
         name: 'популярности',
         type: 'popular',
         order: 'desc'
     }, {
+        id: 3,
         name: 'новинкам',
         type: 'newProduct',
         order: 'desc'
     }, {
+        id: 4,
         name: 'скидкам',
         type: 'discount',
         order: 'desc'

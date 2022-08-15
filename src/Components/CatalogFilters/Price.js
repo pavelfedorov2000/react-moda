@@ -55,18 +55,20 @@ function Price({ fromPrice, toPrice, setFromPrice, setToPrice }) {
                     <path fillRule="evenodd" clipRule="evenodd" d="M3.25 4L7 7.6L10.75 4L12 5.2L7 10L2 5.2L3.25 4Z" fill="#101112" />
                 </svg>
             </legend>
+
             {visibleFilter &&
                 <div className="catalog-filters__item-drop catalog-drop-filter">
                     <div className="catalog-drop-filter__inner catalog-drop-filter__price-range price-range">
                         <div className="price-range__item">
                             <span>От</span>
-                            <input onChange={onChangeFromPrice} className="price-range__input" name="price_from" type="number" min={sortPrices[0]} placeholder={sortPrices[0]} value={fromPrice} />
+                            <input onChange={onChangeFromPrice} className="price-range__input" name="price_from" type="number" min={sortPrices[0]} placeholder={sortPrices[0]} value={fromPrice || ''} />
                         </div>
                         <div className="price-range__item">
                             <span>До</span>
-                            <input onChange={onChangeToPrice} className="price-range__input" name="price_to" type="number" max={sortPrices[1]} placeholder="100 000" value={toPrice} />
+                            <input onChange={onChangeToPrice} className="price-range__input" name="price_to" type="number" max={sortPrices[1]} placeholder="100 000" value={toPrice || ''} />
                         </div>
                     </div>
+
                     <div className="catalog-drop-filter__buttons">
                         <button onClick={handleResetPrices} className="btn catalog-drop-filter__btn btn--border" type="reset">
                             Очистить все

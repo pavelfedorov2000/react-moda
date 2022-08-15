@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CheckoutContext } from '../../context';
 
 const deliveryInputs = {
     index: "Индекс",
@@ -7,14 +8,16 @@ const deliveryInputs = {
     flat: "Квартира/офис",
 };
 
-function Delivery({ selectedDelivery, setSelectedDelivery, deliveryOptions }) {
+function Delivery({ deliveryOptions }) {
+    const { selectedDelivery, setSelectedDelivery } = useContext(CheckoutContext);
+    
     return (
         <fieldset>
             <legend className="checkout-form__item-title">Условия доставки</legend>
             <div className="checkout-form__radios">
                 {deliveryOptions.map((option, i) => (
                     <label key={option} className="checkout-form__item-radio checkout-radio checkout-radio--without-border">
-                        <input onChange={() => setSelectedDelivery(i)} className="radio-box" type="radio" name="delivery" checked={i == selectedDelivery ? true : false} />
+                        <input onChange={() => setSelectedDelivery(i)} className="radio-box" type="radio" name="delivery" checked={i === selectedDelivery ? true : false} />
                         <div className="checkout-radio__wrap">
                             <span className="radio-style"></span>
                             <div className="checkout-radio__content">
@@ -29,8 +32,8 @@ function Delivery({ selectedDelivery, setSelectedDelivery, deliveryOptions }) {
                                         <dd>1 дня</dd>
                                     </div>
                                 </dl>
-                                {i == 0 ?
-                                    i == selectedDelivery &&
+                                {i === 0 ?
+                                    i === selectedDelivery &&
                                     <div className="checkout-radio__hidden">
                                         <div className="checkout-radio__inputs">
                                             {Object.keys(deliveryInputs).map(input => (

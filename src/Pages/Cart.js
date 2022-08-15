@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { BasketTable, BasketTotal, Checkout, Crumbs } from '../Components';
 import Sticky from "wil-react-sticky";
 import { clearCart } from '../redux/actions/cart';
+import { CheckoutContext } from '../context';
 
 const payment = {
     "Оплата при получении": "Наличными или банковской картой при получении",
@@ -19,15 +20,22 @@ function Cart({ title }) {
     const [selectedDelivery, setSelectedDelivery] = useState(null);
     const [selectedPayment, setSelectedPayment] = useState(null);
 
-    let personalData;
-
+    let personalData = {
+        name: "Имя",
+        surname: "Фамилия",
+        phone: "Ваш телефон",
+        email: "Ваш e-mail",
+        city: "Город, населенный пункт"
+    };
+    
     // Объект который пойдет в store через action
     let orderData = {
         date: new Date().toLocaleString().split(',')[0],
-        delivery: deliveryOptions[selectedDelivery],
-        payment: Object.keys(payment)[selectedPayment],
+        delivery: deliveryOptions[selectedDelivery] || deliveryOptions[0],
+        payment: Object.keys(payment)[selectedPayment] || Object.keys(payment)[0],
         items: items,
-        totalPrice
+        totalPrice,
+        personalData
     };
 
     // Очистка корзины после подтверждения заказа
@@ -58,7 +66,14 @@ function Cart({ title }) {
                             <BasketTotal totalPrice={totalPrice} totalDiscount={totalDiscount} handleOrderSubmit={handleOrderSubmit} orderData={orderData} personalData={personalData} onClearCart={handleClearCart} />
                         </Sticky>
 
-                        <Checkout orderData={orderData} personalData={personalData} payment={payment} deliveryOptions={deliveryOptions} selectedDelivery={selectedDelivery} setSelectedDelivery={setSelectedDelivery} selectedPayment={selectedPayment} setSelectedPayment={setSelectedPayment} />
+                        <CheckoutContext.Provider value={{
+                            selectedDelivery,
+                            setSelectedDelivery,
+                            selectedPayment,
+                            setSelectedPayment
+                        }}>
+                            <Checkout orderData={orderData} personalData={orderData.personalData} payment={payment} deliveryOptions={deliveryOptions} />
+                        </CheckoutContext.Provider>
                     </div>
                 </form>
             </div>

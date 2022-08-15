@@ -1,5 +1,5 @@
 const initialState = {
-    data: [],
+    data: []
 };
 
 const order = (state = initialState, action) => {

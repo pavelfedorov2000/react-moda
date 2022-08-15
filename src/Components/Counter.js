@@ -10,7 +10,7 @@ function Counter({ handleMinusCartItem, handlePlusCartItem, totalCount, classNam
                 </svg>
             </button>
 
-            <input className="counter__input" type="number" value={totalCount} readonly />
+            <input className="counter__input" type="number" value={totalCount} readOnly />
 
             <button onClick={handlePlusCartItem} className="counter__btn" type="button">
                 <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">

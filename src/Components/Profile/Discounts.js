@@ -26,7 +26,7 @@ function Discounts() {
                 <div className="personal-discout__title">{`Ваша персональная скидка - ${personalDiscount}%`}</div>
                 <ul className="personal-discout__list">
                     {info.items.map((item, i) => (
-                        <li key={`list-item_${i + 1}`}>{`- ${item}`}{i === info.items.length - 1 ? ';' : '.'}</li>
+                        <li key={item.toString()}>{`- ${item}`}{i === info.items.length - 1 ? ';' : '.'}</li>
                     ))}
                 </ul>
             </div>
