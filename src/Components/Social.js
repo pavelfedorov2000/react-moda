@@ -42,7 +42,7 @@ function Social({ className, filterParam }) {
             href: 'https://www.tiktok.com/'
         },
         footer: true
-    }], [instagram, vk, facebook, youtube, tiktok, google]);
+    }]);
 
     return (
         <ul className={classNames('social', className)}>

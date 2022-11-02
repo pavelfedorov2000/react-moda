@@ -20,6 +20,7 @@ export { default as Crumbs } from './Crumbs';
 export { default as PageNav } from './PageNav';
 export { default as Time } from './Time';
 export { default as EmptyPage } from './EmptyPage';
+export { default as Prices } from './Prices';
 
 export { default as CatalogHomeCard } from './CatalogHomeCard';
 
@@ -55,7 +56,9 @@ export { default as ProductColor } from './ProductColor';
 export { default as ProductDetails } from './ProductDetails';
 export { default as ProductDetailsSection } from './ProductDetailsSection';
 export { default as ProductLinks } from './ProductLinks';
+export { default as ProductCardDelivery } from './ProductCardDelivery';
 export { default as ProductCardContent } from './ProductCardContent';
+export { default as ProductCardInfo } from './ProductCardInfo';
 
 export { default as OrderSuccessTable } from './OrderSuccessTable';
 export { default as OrderProduct } from './OrderProduct';

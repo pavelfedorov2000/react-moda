@@ -4,7 +4,7 @@ import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
 import SaleItem from './SaleItem';
 import SliderArrows from './SliderArrows';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 const sliderOptions = {
     type: 'loop',
@@ -23,30 +23,23 @@ function PromoSale() {
 
     return (
         <section className="promo-sale">
-            <div className="promo-sale__grid">
-                <Splide className="promo-sale__slider" hasTrack={false} options={sliderOptions}>
-                    <SliderArrows className="promo-sale__slider-arrows" />
-                    <SplideTrack>
-                        {promoSale.length > 0 && promoSale.map(slide => (
-                            <SplideSlide key={slide.id} className="promo-sale__slider-item">
-                                <article className="sale-item">
-                                    <Link to="/catalog" className="sale-item__img">
-                                        <img src={promoSale[0].imageUrl} alt="фото" width="336" height="250" />
-                                        {slide.saleText !== undefined && <span className="sale-item__discount">{slide.saleText}</span>}
-                                    </Link>
+            <div className="container">
+                <div className="promo-sale__grid">
+                    <Splide className="promo-sale__slider" hasTrack={false} options={sliderOptions}>
+                        <SliderArrows className="promo-sale__slider-arrows" />
+                        <SplideTrack>
+                            {promoSale.length > 0 && promoSale.map(slide => (
+                                <SplideSlide key={slide.id} className="promo-sale__slider-item">
+                                    <SaleItem src={promoSale[0].imageUrl} title={slide.title} subtitle={slide.subtitle} saleText={slide.saleText} imgWidth="1112" imgHeight="610" />
+                                </SplideSlide>
+                            ))}
+                        </SplideTrack>
+                    </Splide>
 
-                                    <Link to="/catalog" className="sale-item__title">{slide.title}</Link>
-
-                                    <div className="sale-item__descr">{slide.subtitle}</div>
-                                </article>
-                            </SplideSlide>
-                        ))}
-                    </SplideTrack>
-                </Splide>
-
-                {promoSale.length > 0 && promoSale.map((item, i) => (
-                    i !== 0 && <SaleItem key={item.id} className="promo-sale__item" src={item.imageUrl} title={item.title} subtitle={item.subtitle} saleText={item.saleText} />
-                ))}
+                    {promoSale.length > 0 && promoSale.map((item, i) => (
+                        i !== 0 && <SaleItem key={item.id} className="promo-sale__item" src={item.imageUrl} title={item.title} subtitle={item.subtitle} saleText={item.saleText} />
+                    ))}
+                </div>
             </div>
         </section>
     );

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const splideOptions = {
     speed: 1000,
-    gap: '5.2rem',
+    gap: `${getComputedStyle(document.documentElement).getPropertyValue('--gap')}`,
     perPage: 4,
     breakpoints: {
         1024: { perPage: 3, gap: '3rem' },
@@ -35,7 +35,7 @@ function Instagram() {
                 <SplideTrack>
                     {instagramPhotos.map(item => (
                         <SplideSlide key={item.id}>
-                            <Link to="/instagram">
+                            <Link className="full-link" to="/instagram">
                                 <img src={item.imageUrl} alt="фото" width="336" height="336" />
                             </Link>
                         </SplideSlide>

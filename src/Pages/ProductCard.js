@@ -1,17 +1,17 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { ProductDetails, ProductLinks, ProductCardContent, SliderSection, CatalogCardPopup, SliderArrows, Crumbs } from '../Components';
+import { ProductLinks, ProductCardContent, SliderSection, CatalogCardPopup, SliderArrows, Crumbs, ProductCardInfo } from '../Components';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
-import { Fancybox as NativeFancybox } from "@fancyapps/ui/dist/fancybox.esm.js";
+//import { Fancybox as NativeFancybox } from "@fancyapps/ui/dist/fancybox.esm.js";
 import "@fancyapps/ui/dist/fancybox.css";
-import classNames from 'classnames';
+
 
 const splideOptions = {
     type: 'loop',
     speed: 1000,
-    gap: '5.2rem',
+    gap: `${getComputedStyle(document.documentElement).getPropertyValue('--gap')}`,
     perPage: 2,
     perMove: 1,
     breakpoints: {
@@ -19,28 +19,6 @@ const splideOptions = {
         767: { perPage: 1, gap: '2rem' },
     },
 };
-
-const tabs = [{
-    id: 0,
-    href: 'details',
-    text: 'Детали',
-}, {
-    id: 1,
-    href: 'delivery',
-    text: 'Доставка',
-}, {
-    id: 2,
-    href: 'payment',
-    text: 'Оплата',
-}, {
-    id: 3,
-    href: 'shops-availability',
-    text: 'Наличие в магазинах',
-}, {
-    id: 4,
-    href: 'video',
-    text: 'Видео',
-}];
 
 const asideSections = [{
     id: 0,
@@ -103,48 +81,7 @@ function ProductCard() {
                                 <ProductLinks {...activeProduct} />
                             </div>
 
-                            <div className="product-card__info">
-                                <div className="product-card__tabs-wrap">
-                                    <div className="product-card__tabs">
-                                        {tabs.map((tab, i) => (
-                                            <button onClick={() => onClickTab(i)} key={tab.id} className={classNames('tab product-card__tab', {
-                                                'tab--active': i === activeTab
-                                            })}>{tab.text}</button>
-                                        ))}
-                                    </div>
-                                </div>
-                                <>
-                                    {tabs.map((tab, i) => (
-                                        tab.id === 'details' ?
-                                            <ProductDetails id={tab.href} key={tab.id} index={i} activeTab={activeTab} {...activeProduct} />
-                                            :
-                                            <div key={tab.id} id={tab.href} className={classNames('tabs-content', {
-                                                'tabs-content--active': i === activeTab
-                                            })}>
-                                                {tab.href === 'video' ?
-                                                    <div className="product-card__videos">
-                                                        {Array(2).fill(0).map((_, index) => (
-                                                            <div key={index} className="product-card__video">
-                                                                <iframe src="https://www.youtube.com/embed/L1e8YEozOD8" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                                                            </div>
-                                                        ))}
-                                                    </div> :
-                                                    <>
-                                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi recusandae maxime aliquid fugiat dolorum
-                                                            deserunt quia rem consectetur quaerat! Error dolore est assumenda, temporibus reprehenderit quia labore
-                                                            impedit ea laboriosam.</p>
-                                                        <p>Quae explicabo mollitia, fugiat atque quos nostrum architecto deleniti velit corrupti vel maiores ipsa.
-                                                            Inventore tenetur quis laudantium, ut eos fugit, sequi dolorum necessitatibus dicta velit aut totam
-                                                            voluptatibus iste?</p>
-                                                        <p>Exercitationem, enim? Quae numquam doloremque mollitia vitae corrupti autem odit maiores ipsum illo. Quos
-                                                            corporis deleniti, facere officia eum perferendis consectetur vero numquam consequuntur quae? Pariatur
-                                                            repudiandae quisquam neque. Autem?</p>
-                                                    </>
-                                                }
-                                            </div>
-                                    ))}
-                                </>
-                            </div>
+                            <ProductCardInfo activeProduct={activeProduct} activeTab={activeTab} onClickTab={onClickTab} />
                         </div>
                     </main>
 

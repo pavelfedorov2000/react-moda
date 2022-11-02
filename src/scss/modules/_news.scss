@@ -1,7 +1,7 @@
 .news-page {
     &__grid {
         display: grid;
-        gap: 5.2rem;
+        gap: var(--gap);
 
         @media (max-width: 1024px) {
             gap: 3rem;

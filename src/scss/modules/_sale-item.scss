@@ -1,4 +1,5 @@
 .sale-item {
+    position: relative;
     // .sale-item__img
 
     &__img {
@@ -12,6 +13,7 @@
             transition: transform 0.8s linear;
             transform: translateZ(0);
         }
+
         @media (any-hover: hover) {
             &:hover {
                 img {

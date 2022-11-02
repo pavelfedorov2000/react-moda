@@ -1,10 +1,15 @@
 // colors
+:root {
+    --container-width: 150rem;
+    --container-padding: 1.6rem;
+
+    --gap: 5.2rem;
+}
+
 $dark: #101112;
 $green: #479458;
 $red: #ee3333;
 
-$container: 150rem;
-$gap: 1.6rem;
 
 // Typography
 
@@ -169,6 +174,7 @@ $gap: 1.6rem;
 }
 
 @mixin scrollbar {
+    scrollbar-width: thin;
     overflow-y: auto;
 
     &::-webkit-scrollbar {

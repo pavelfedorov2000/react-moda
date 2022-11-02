@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const splideOptions = {
     autoWidth: true,
-    gap: '5.2rem',
+    gap: `${getComputedStyle(document.documentElement).getPropertyValue('--gap')}`,
     pagination: false,
     arrows: false,
 };
@@ -21,22 +21,24 @@ function IconsSlider() {
     }, []); // [] = componentDidMout
 
     return (
-        <div className="section">
-            <Splide className="icons-slider" hasTrack={false} aria-label="Категории" options={splideOptions}>
-                <SplideTrack>
-                    {categoriesIcons.map(item => (
-                        <SplideSlide key={item.id} style={{ width: '12.8rem' }}>
-                            <Link className="icons-slider__item" to="/catalog">
-                                <div className="icons-slider__item-img">
-                                    <img src={item.imageUrl} alt={item.title} />
-                                </div>
-                                <span className="icons-slider__item-title">{item.title}</span>
-                            </Link>
-                        </SplideSlide>
-                    ))}
-                </SplideTrack>
-            </Splide>
-        </div>
+        <section className="section">
+            <div className="container">
+                <Splide className="icons-slider" hasTrack={false} aria-label="Категории" options={splideOptions}>
+                    <SplideTrack>
+                        {categoriesIcons.map(item => (
+                            <SplideSlide key={item.id} style={{ width: '12.8rem' }}>
+                                <Link className="icons-slider__item" to="/catalog">
+                                    <span className="icons-slider__item-img">
+                                        <img src={item.imageUrl} alt={item.title} />
+                                    </span>
+                                    <span className="icons-slider__item-title">{item.title}</span>
+                                </Link>
+                            </SplideSlide>
+                        ))}
+                    </SplideTrack>
+                </Splide>
+            </div>
+        </section>
     );
 }
 

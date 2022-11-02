@@ -10,7 +10,7 @@ function BlogItem({ id, imageUrl, date, title, text, tags, className, isUrlSplic
     url = isUrlSplice ? [...url].reverse().filter((_, i) => i !== 0 && i !== 1).reverse().join('') : url;
 
     url = otherPage ? `${url[0]}${actualPage}` : url;
-    
+
     return (
         <article className={classNames('blog-item', className !== undefined && className)}>
             <NavLink to={`${url}/${id}`} className="blog-item__img"><img src={imageUrl} alt="фото" /></NavLink>

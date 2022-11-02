@@ -12,10 +12,10 @@ function Collection() {
 
                 <div className="promo-collection__suptitle">Ретро стиль в современной одежде</div>
 
-                <div className="title promo-collection__title">
+                <h3 className="title promo-collection__title">
                     Свитеры и жилетки.<br />
                     Зима 2022
-                </div>
+                </h3>
 
                 <Link to="/catalog" className="all-link promo-collection__link">
                     <span>Смотреть коллекцию</span>

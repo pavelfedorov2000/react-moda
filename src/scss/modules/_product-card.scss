@@ -23,7 +23,7 @@
 
     &__inner {
         display: grid;
-        gap: 5.2rem;
+        gap: var(--gap);
 
         @media (max-width: 1024px) {
             gap: 3rem;
@@ -192,7 +192,7 @@
 
     &__videos {
         display: grid;
-        gap: 5.2rem;
+        gap: var(--gap);
 
         @media (max-width: 1024px) {
             gap: 3rem;
@@ -291,7 +291,7 @@
 
     &__row {
         display: grid;
-        gap: 5.2rem;
+        gap: var(--gap);
 
         @media (max-width: 1024px) {
             gap: 3rem;

@@ -1,75 +1,76 @@
 .promo-sale {
+    padding-bottom: 7rem;
 
-  &__grid {
-    display: grid;
-    gap: 4.4rem 5.2rem;
+    &__grid {
+        display: grid;
+        gap: 4.4rem var(--gap);
 
-    @media(max-width: 1024px) {
-      gap: 3rem;
+        @media(max-width: 1024px) {
+            gap: 3rem;
+        }
+
+        @media(min-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media(min-width: 1025px) {
+            grid-template-columns: calc(1112 / 1500 * 100%) 1fr;
+        }
+
+        .sale-item {
+            &__img {
+                height: 25rem;
+            }
+        }
     }
 
-    @media(min-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
+    &__slider {
+        width: 100%;
+
+        @media(max-width: 1024px) {
+            width: calc(100vw - 3.2rem);
+        }
+
+        @media(min-width: 768px) and (max-width: 1024px) {
+            grid-column: span 2;
+        }
+
+        @media(min-width: 1025px) {
+            grid-row: span 2;
+        }
+
+        .splide__pagination {
+            position: absolute;
+            bottom: 5.4rem+1.2rem+2.5rem;
+            left: 2.5rem;
+        }
     }
 
-    @media(min-width: 1025px) {
-      grid-template-columns: calc(1112 / 1500 * 100%) 1fr;
+    &__slider-item {
+        @extend %flex-col;
+
+        .sale-item__img {
+            flex-grow: 1;
+            height: 61rem;
+
+            @media(max-width: 1024px) {
+                height: 45rem;
+            }
+
+            @media(max-width: 767px) {
+                height: 25rem;
+            }
+        }
     }
 
-    .sale-item {
-      &__img {
-        height: 25rem;
-      }
+    &__slider-arrows {
+        position: absolute;
+        right: 0;
+        bottom: 2.4rem;
+        z-index: 25;
+
+        @media(max-width: 500px) {
+            display: none;
+        }
     }
-  }
-
-  &__slider {
-    width: 100%;
-
-    @media(max-width: 1024px) {
-      width: calc(100vw - 3.2rem);
-    }
-
-    @media(min-width: 768px) and (max-width: 1024px) {
-      grid-column: span 2;
-    }
-
-    @media(min-width: 1025px) {
-      grid-row: span 2;
-    }
-
-    .splide__pagination {
-      position: absolute;
-      bottom: 5.4rem+1.2rem+2.5rem;
-      left: 2.5rem;
-    }
-  }
-
-  &__slider-item {
-    @extend %flex-col;
-
-    .sale-item__img {
-      flex-grow: 1;
-      height: 61rem;
-
-      @media(max-width: 1024px) {
-        height: 45rem;
-      }
-
-      @media(max-width: 767px) {
-        height: 25rem;
-      }
-    }
-  }
-
-  &__slider-arrows {
-    position: absolute;
-    right: 0;
-    bottom: 2.4rem;
-    z-index: 25;
-
-    @media(max-width: 500px) {
-      display: none;
-    }
-  }
 }

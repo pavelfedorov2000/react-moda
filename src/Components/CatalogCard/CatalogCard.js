@@ -5,6 +5,7 @@ import heartFilled from '../../assets/images/icons/heart-filled.svg';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../../context';
 import { useSelector } from 'react-redux';
+import Prices from '../Prices';
 
 function CatalogCard({ id, name, brand, imageUrl, price, color, sizes, discount, newProduct, isFavorite, setVisibleCatalogCardPopup }) {
 
@@ -35,7 +36,7 @@ function CatalogCard({ id, name, brand, imageUrl, price, color, sizes, discount,
     }
 
     return (
-        <div className="catalog-card">
+        <article className="catalog-card">
             <div className="labels">
                 {discount !== 0 &&
                     <span className="label catalog-card__label label--discount">{`${discount}%`}</span>
@@ -71,16 +72,8 @@ function CatalogCard({ id, name, brand, imageUrl, price, color, sizes, discount,
 
             <div className="catalog-card__subtitle">{brand}</div>
 
-            <div className="prices">
-                <div className={classNames('price', {
-                    'new-price': discount !== 0
-                })}>{`${price} ₽`}</div>
-
-                {discount !== 0 &&
-                    <div className="old-price catalog-card__old-price">{`${Math.floor(price * 100 / (100 - discount))} ₽`}</div>
-                }
-            </div>
-        </div>
+            <Prices price={price} discount={discount} />
+        </article>
     );
 }
 

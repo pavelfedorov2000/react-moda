@@ -23,34 +23,32 @@ function Home() {
             setVisibleCatalogCardPopup
         }}>
             <main className="page home-page">
-                <div className="container home-page__wrapper">
-                    <PromoSale />
+                <PromoSale />
 
-                    <IconsSlider />
+                <IconsSlider />
 
-                    <section className="section">
-                        <SliderSection products={products} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} title="Популярные товары" />
-                    </section>
+                <SliderSection products={products} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} title="Популярные товары" />
 
-                    <Actual />
+                <Actual />
 
-                    <Brands />
+                <Brands />
 
-                    <section className="section">
-                        <SliderSection products={products} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} title="Новинки" />
-                    </section>
+                <SliderSection products={products} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} title="Новинки" />
 
-                    <Collection />
-
-                    <BlogSection />
-
-                    <Instagram />
-
-                    <div className="section">
-                        <SeoText className="home-page__seo-text" />
+                <section className="section">
+                    <div className="container">
+                        <Collection />
                     </div>
-                </div>
+                </section>
+
+                <BlogSection />
+
+                <Instagram />
             </main>
+
+            <div className="container">
+                <SeoText className="home-page__seo-text section" />
+            </div>
 
             {visibleCatalogCardPopup !== null &&
                 <div className="overlay active">

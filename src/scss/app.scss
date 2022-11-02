@@ -38,11 +38,14 @@ body {
     font-family: 'Raleway', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-feature-settings: 'pnum' on, 'lnum' on;
+    font-feature-settings: 'pnum'on, 'lnum'on;
     color: #000;
-    overflow-x: hidden;
     font-size: 1.4rem;
     line-height: 2.1rem;
+
+    @media(max-width: 1024px) {
+        overflow-x: hidden;
+    }
 
     &._lock {
         overflow-y: hidden;
@@ -53,7 +56,7 @@ button,
 textarea,
 input {
     font-family: 'Raleway', sans-serif;
-    font-feature-settings: 'pnum' on, 'lnum' on;
+    font-feature-settings: 'pnum'on, 'lnum'on;
 }
 
 dt {
@@ -76,7 +79,6 @@ a {
 
     @media (any-hover: hover) {
         &:hover {
-            //color: $green;
             color: #777;
         }
     }
@@ -86,8 +88,11 @@ a {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    overflow-x: hidden;
     position: relative;
+
+    @media(max-width: 1024px) {
+        overflow-x: hidden;
+    }
 
     &._lock {
         overflow-y: hidden;
@@ -95,9 +100,9 @@ a {
 }
 
 .container {
-    width: $container + $gap * 2;
+    width: calc(var(--container-width) + var(--container-padding) * 2);
     max-width: 100%;
-    padding: 0 $gap;
+    padding: 0 var(--container-padding);
     margin: 0 auto;
 }
 
@@ -112,6 +117,17 @@ a {
     clip: rect(0 0 0 0);
 }
 
+.full-link {
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+}
+
 .fancybox__content {
     padding: 0 !important;
     overflow: visible;
@@ -122,18 +138,6 @@ a {
     right: -5rem !important;
     width: 3.2rem !important;
     height: 3.2rem !important;
-}
-
-.home-page {
-    padding-top: 1.5rem;
-
-    &__wrapper {
-        > * {
-            &:first-child {
-                padding-bottom: 7rem;
-            }
-        }
-    }
 }
 
 @import 'components/components';

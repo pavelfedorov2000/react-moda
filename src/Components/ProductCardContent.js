@@ -1,8 +1,6 @@
 import React, { useContext, useState } from 'react';
-import { ProductSizes, ProductColors, Button } from '../Components';
+import { ProductSizes, ProductColors, Button, ProductCardDelivery, Prices } from '../Components';
 import loriata from '../assets/images/logo/loriata.png';
-import delivery from '../assets/images/icons/delivery-issue.svg';
-import truck from '../assets/images/icons/truck.svg';
 import { AppContext } from '../context';
 import { useSelector } from 'react-redux';
 
@@ -73,17 +71,11 @@ function ProductCardContent({ id, articul, name, brand, logo, sizes, color, pric
             </div>
 
             <div className="product-card__prices-wrap">
-                <div className="prices product-card__prices">
-                    {discount !== 0 &&
-                        <div className="old-price product-card__old-price">{`${Math.floor(price * 100 / (100 - discount))} ₽`}</div>
-                    }
-
-                    <div className={discount !== 0 ? 'new-price' : 'price'}>{`${price} ₽`}</div>
-                </div>
+                <Prices price={price} discount={discount} className="product-card__prices" />
 
                 <div className="labels product-card__labels">
                     {discount !== 0 &&
-                        <span className="label label--discount">{`${discount}%`}</span>
+                        <span className="label label--discount">{discount}%</span>
                     }
 
                     {newProduct && newProduct !== undefined &&
@@ -104,31 +96,7 @@ function ProductCardContent({ id, articul, name, brand, logo, sizes, color, pric
                 <button className="scroll-link" data-link="details" type="button">Подробнее</button>
             </section>
 
-            <section className="product-card__section product-card-delivery">
-                <h4 className="product-card__section-title">Доставка</h4>
-
-                <div className="product-card-delivery__row">
-                    <div className="product-card-delivery__item">
-                        <img className="product-card-delivery__item-img" src={delivery}
-                            alt="иконка курьера" width="35" height="35" />
-
-                        <div className="product-card-delivery__item-text">
-                            В пункты выдачи заказов - бесплатно при покупке от 1&nbsp;500&nbsp;₽
-                        </div>
-                    </div>
-
-                    <div className="product-card-delivery__item">
-                        <img className="product-card-delivery__item-img" src={truck}
-                            alt="иконка грузовика" width="35" height="35" />
-
-                        <div className="product-card-delivery__item-text">
-                            По адресу курьером - с&nbsp;примеркой, бесплатно при покупке от 1&nbsp;500&nbsp;₽
-                        </div>
-                    </div>
-                </div>
-
-                <button className="scroll-link" data-link="delivery" type="button">Подробнее</button>
-            </section>
+            <ProductCardDelivery />
 
             <form action="#" className="product-card-form">
                 <ProductColors />

@@ -1,81 +1,90 @@
 .page {
-  position: relative;
-  flex: 1 0 auto; // Footer at bottom
-  padding-bottom: 11rem;
+    position: relative;
+    flex: 1 0 auto; // Footer at bottom
+    padding-bottom: 11rem;
 
-  @media (max-width: 1024px) {
-    padding-bottom: 0rem;
-  }
-
-  @media (max-width: 767px) {
-    padding-top: 2.4rem;
-  }
-
-  @media (max-width: 500px) {
-    padding-bottom: 3rem;
-  }
-
-  &__title {
-    &:not(:last-child) {
-      margin-bottom: 4rem;
-
-      @media (max-width: 500px) {
-        margin-bottom: 2rem;
-      }
+    @media (max-width: 1024px) {
+        padding-bottom: 0rem;
     }
-  }
 
-  &__subtitle {
-    @extend %text-20;
-    font-weight: 500;
+    @media (max-width: 767px) {
+        padding-top: 2.4rem;
+    }
 
     @media (max-width: 500px) {
-      font-size: 1.4rem;
-      line-height: 2.1rem;
+        padding-bottom: 3rem;
     }
 
-    &:not(:last-child) {
-      margin-bottom: 5.2rem;
+    &__title {
+        &:not(:last-child) {
+            margin-bottom: 4rem;
 
-      @media (max-width: 500px) {
-        margin-bottom: 2.5rem;
-      }
+            @media (max-width: 500px) {
+                margin-bottom: 2rem;
+            }
+        }
     }
-  }
+
+    &__subtitle {
+        @extend %text-20;
+        font-weight: 500;
+
+        @media (max-width: 500px) {
+            font-size: 1.4rem;
+            line-height: 2.1rem;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: var(--gap);
+
+            @media (max-width: 500px) {
+                margin-bottom: 2.5rem;
+            }
+        }
+    }
+}
+
+.home-page {
+    padding-top: 1.5rem;
+    padding-bottom: 0;
+
+    &__seo-text {
+        max-width: 111.2rem;
+    }
 }
 
 .empty-page {
-  display: grid;
-  place-items: center;
-  gap: 3rem;
-  text-align: center;
-
-  @media (max-width: 767px) {
-    gap: 2rem;
-  }
-
-  // .empty-page__img
-
-  &__img {
-    width: 10rem;
-    height: 10rem;
+    display: grid;
+    place-items: center;
+    gap: 3rem;
+    text-align: center;
 
     @media (max-width: 767px) {
-      width: 7rem;
-      height: 7rem;
+        gap: 2rem;
     }
-  }
 
-  // .empty-page__text
+    // .empty-page__img
 
-  &__text {
-    @extend %text-25;
-    font-weight: 500;
-    color: #c0c0c0;
+    &__img {
+        width: 10rem;
+        height: 10rem;
 
-    @media (max-width: 767px) {
-      font-size: 2rem;
-      line-height: 3rem;
+        @media (max-width: 767px) {
+            width: 7rem;
+            height: 7rem;
+        }
     }
-  }
+
+    // .empty-page__text
+
+    &__text {
+        @extend %text-25;
+        font-weight: 500;
+        color: #c0c0c0;
+
+        @media (max-width: 767px) {
+            font-size: 2rem;
+            line-height: 3rem;
+        }
+    }
 }

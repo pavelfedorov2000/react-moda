@@ -15,13 +15,13 @@
     }],
     "promo": [{
         "id": 0,
-        "saletext": "Мега распродажа",
+        "saleText": "Мега распродажа",
         "title": "На верхнюю одежду",
         "subtitle": "Подготовь себя к зиме",
         "imageUrl": "https://i.ibb.co/C1CcWXr/01.jpg"
     }, {
         "id": 1,
-        "saletext": "до 30% ",
+        "saleText": "до 30% ",
         "title": "Уютные головные уборы",
         "subtitle": "Точно не будет холодно",
         "imageUrl": "https://i.ibb.co/p02K32W/02.jpg"
@@ -74,19 +74,19 @@
     }],
     "actual": [{
         "id": 0,
-        "saletext": "до 30% ",
+        "saleText": "до 30% ",
         "title": "Яркие пальто",
         "subtitle": "Стильные модели разных фасонов",
         "imageUrl": "https://i.ibb.co/WVc1HW8/01.jpg"
     }, {
         "id": 1,
-        "saletext": "до 20% ",
+        "saleText": "до 20% ",
         "title": "Головные уборы",
         "subtitle": "Сочетание моды и комфорта",
         "imageUrl": "https://i.ibb.co/2dN2Swm/02.jpg"
     }, {
         "id": 2,
-        "saletext": "до 40% ",
+        "saleText": "до 40% ",
         "title": "Подростковая одежда",
         "subtitle": "Недетские скидки",
         "imageUrl": "https://i.ibb.co/d6GL3Y8/03.jpg"

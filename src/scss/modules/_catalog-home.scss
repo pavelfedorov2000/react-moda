@@ -1,85 +1,85 @@
 .catalog-home {
 
-  padding-top: 1.5rem;
-  // .catalog-home__grid
+    padding-top: 1.5rem;
+    // .catalog-home__grid
 
-  &__grid {
-    display: grid;
-    gap: 2rem;
+    &__grid {
+        display: grid;
+        gap: 2rem;
 
-    &:not(:last-child) {
-      margin-bottom: 11rem;
+        &:not(:last-child) {
+            margin-bottom: 11rem;
 
-      @media(max-width: 1024px) {
-        margin-bottom: 7rem;
-      }
+            @media(max-width: 1024px) {
+                margin-bottom: 7rem;
+            }
 
-      @media(max-width: 767px) {
-        margin-bottom: 3rem;
-      }
+            @media(max-width: 767px) {
+                margin-bottom: 3rem;
+            }
+        }
+
+        @media(min-width: 768px) {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        @media(min-width: 1025px) {
+            gap: var(--gap);
+        }
     }
-
-    @media(min-width: 768px) {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3rem;
-    }
-
-    @media(min-width: 1025px) {
-      gap: 5.2rem;
-    }
-  }
 }
 
 .catalog-home-card {
 
-  position: relative;
-  height: 61rem;
-
-  @media(max-width: 1024px) {
-    height: 35rem;
-  }
-
-  @media(max-width: 767px) {
-    height: 55rem;
-  }
-
-  @media(max-width: 500px) {
-    height: 30rem;
-  }
-
-  @media (any-hover: hover) {
-    &:hover {
-      .catalog-home-card__title {
-        height: 100%;
-      }
-    }
-  }
-
-  // .catalog-home-card__title
-
-  &__title {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba($dark, .6);
-    padding: 0 2.4rem;
-    @extend %flex-center;
-    text-align: center;
-    @extend %text-25;
-    font-weight: 500;
-    color: #fff;
-    height: 8.6rem;
-    transition: .5s height;
+    position: relative;
+    height: 61rem;
 
     @media(max-width: 1024px) {
-      height: 6rem;
-      font-size: 2rem;
-      line-height: 3rem;
+        height: 35rem;
     }
-  }
 
-  &__img {
-    @extend %cover;
-  }
+    @media(max-width: 767px) {
+        height: 55rem;
+    }
+
+    @media(max-width: 500px) {
+        height: 30rem;
+    }
+
+    @media (any-hover: hover) {
+        &:hover {
+            .catalog-home-card__title {
+                height: 100%;
+            }
+        }
+    }
+
+    // .catalog-home-card__title
+
+    &__title {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba($dark, .6);
+        padding: 0 2.4rem;
+        @extend %flex-center;
+        text-align: center;
+        @extend %text-25;
+        font-weight: 500;
+        color: #fff;
+        height: 8.6rem;
+        transition: .5s height;
+
+        @media(max-width: 1024px) {
+            height: 6rem;
+            font-size: 2rem;
+            line-height: 3rem;
+        }
+    }
+
+    &__img {
+        @extend %cover;
+    }
 }

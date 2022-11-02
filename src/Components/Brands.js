@@ -36,7 +36,6 @@ function Brands() {
                 </div>
             </div>
         </section>
-
     );
 }
 

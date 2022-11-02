@@ -2,12 +2,11 @@ import React from 'react';
 
 function AsideFilters() {
     return (
-        <div className="aside-filters">
-            <div className="banner aside-filters__banner">
+        <aside className="aside-filters">
+            <a href="#" className="banner aside-filters__banner">
                 Рекламный баннер
-            </div>
-        </div>
-
+            </a>
+        </aside>
     );
 }
 

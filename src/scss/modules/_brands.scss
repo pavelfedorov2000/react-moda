@@ -3,7 +3,7 @@
         @media (min-width: 1025px) {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
-            gap: 5.2rem;
+            gap: var(--gap);
         }
 
         @media (max-width: 1024px) {
@@ -15,7 +15,10 @@
     &__item {
         @extend %flex-center;
         height: 15.4rem;
-        padding: 2.8rem 3rem;
+
+        @media(min-width: 1025px) {
+            padding: 2.8rem 3rem;
+        }
 
         @media (max-width: 1024px) {
             width: 18rem;
@@ -50,7 +53,7 @@
         flex-shrink: 0;
 
         &:not(:last-child) {
-            margin-right: 5.2rem;
+            margin-right: var(--gap);
         }
     }
 
@@ -156,7 +159,7 @@
 }
 
 .brands-wrap {
-    padding: 4rem 0 5.2rem;
+    padding: 4rem 0 var(--gap);
 
     @media (min-width: 1025px) {
         display: flex;

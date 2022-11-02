@@ -9,7 +9,7 @@ import SliderArrows from './SliderArrows';
 const splideOptions = {
     type: 'loop',
     speed: 1000,
-    gap: '5.2rem',
+    gap: `${getComputedStyle(document.documentElement).getPropertyValue('--gap')}`,
     perPage: 2,
     perMove: 1,
     breakpoints: {

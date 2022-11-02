@@ -16,7 +16,7 @@ function SliderSection({ products, title, setVisibleCatalogCardPopup, id }) {
     const splideOptions = useMemo(() => {
         return {
             speed: 1000,
-            gap: '5.2rem',
+            gap: `${getComputedStyle(document.documentElement).getPropertyValue('--gap')}`,
             perPage: sliderLength - 2,
             perMove: 1,
             breakpoints: splideBreakpoints,
@@ -24,33 +24,42 @@ function SliderSection({ products, title, setVisibleCatalogCardPopup, id }) {
     }, [sliderLength, splideBreakpoints]);
 
     return (
-        filteredProducts.length > 4 ?
-            <Splide className="slider-section" hasTrack={false} aria-label={title} options={splideOptions}>
-                <div className="section__top">
-                    <h2 className="title">{title}</h2>
-                    <SliderArrows />
-                </div>
+        <section className="section">
+            <div className="container">
+                {filteredProducts.length > 4 ?
+                    <Splide hasTrack={false} aria-label={title} options={splideOptions}>
+                        <div className="section__top">
+                            <h2 className="title">{title}</h2>
+                            {filteredProducts.length > 4 && <SliderArrows />}
+                        </div>
 
-                <SplideTrack>
-                    {filteredProducts.map(product => (
-                        <SplideSlide key={product.id}>
-                            <CatalogCard {...product} product={product} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} />
-                        </SplideSlide>
-                    ))}
-                </SplideTrack>
-            </Splide>
-            :
-            <div className="slider-section" >
-                <div className="section__top">
-                    <h2 className="title">{title}</h2>
-                </div>
+                        <SplideTrack>
+                            {filteredProducts.map(product => (
+                                <SplideSlide key={product.id}>
+                                    <CatalogCard {...product} product={product} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} />
+                                </SplideSlide>
+                            ))}
+                        </SplideTrack>
+                    </Splide>
+                    :
+                    <>
+                        <div className="section__top">
+                            <h2 className="title">{title}</h2>
+                        </div>
 
-                <div className="slider-section__items">
-                    {filteredProducts.map(product => (
-                        <CatalogCard key={product.id} {...product} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} />
-                    ))}
-                </div>
+                        <div className="slider-section__items">
+                            {filteredProducts.map(product => (
+                                filteredProducts.length > 4 ?
+                                    <SplideSlide key={product.id}>
+                                        <CatalogCard {...product} product={product} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} />
+                                    </SplideSlide>
+                                    :
+                                    <CatalogCard key={product.id} {...product} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} />
+                            ))}
+                        </div>
+                    </>}
             </div>
+        </section>
     );
 }
 

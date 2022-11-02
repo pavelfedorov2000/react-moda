@@ -1,172 +1,172 @@
 .form-row {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
 
-  label.error {
-    margin-top: 0.3rem;
+    label.error {
+        margin-top: 0.3rem;
 
-    &+.form-row__btn {
-      background-color: $red;
-      border-color: $red;
-    }
-  }
-
-  // .subscribe-form__input
-
-  &__input {
-    @extend %vertical-align;
-    @extend %text-14;
-    width: 100%;
-    height: 5.2rem;
-    border: 0.1rem solid #101112;
-    border-right: none;
-    padding: 0 6.8rem 0 1.6rem;
-
-    &::placeholder {
-      color: #9b9b9b;
+        & + .form-row__btn {
+            background-color: $red;
+            border-color: $red;
+        }
     }
 
-    &.error {
-      border-color: $red;
-    }
-  }
+    // .subscribe-form__input
 
-  // .subscribe-form__btn
+    &__input {
+        @extend %vertical-align;
+        @extend %text-14;
+        width: 100%;
+        height: var(--gap);
+        border: 0.1rem solid #101112;
+        border-right: none;
+        padding: 0 6.8rem 0 1.6rem;
 
-  &__btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 5.2rem;
-    height: 5.2rem;
-    background-color: #101112;
-    border: 0.1rem solid #101112;
-    transition: 0.3s all;
-    background-size: 2.3rem 1.6rem;
-    background-position: center;
-    background-repeat: no-repeat;
+        &::placeholder {
+            color: #9b9b9b;
+        }
 
-    &.default {
-      background-color: #101112;
-      border: 0.1rem solid #101112;
+        &.error {
+            border-color: $red;
+        }
     }
 
-    @media (any-hover: hover) {
-      &:hover {
-        background-color: $green;
-        border-color: $green;
-      }
+    // .subscribe-form__btn
+
+    &__btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: var(--gap);
+        height: var(--gap);
+        background-color: #101112;
+        border: 0.1rem solid #101112;
+        transition: 0.3s all;
+        background-size: 2.3rem 1.6rem;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        &.default {
+            background-color: #101112;
+            border: 0.1rem solid #101112;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: $green;
+                border-color: $green;
+            }
+        }
     }
-  }
 }
 
 .form-agree {
-  display: flex;
-  align-items: flex-start;
-  cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
 
-  .check-style {
-    width: 2rem;
-    height: 2rem;
-  }
+    .check-style {
+        width: 2rem;
+        height: 2rem;
+    }
 
-  .check-box:checked~.check-style:before {
-    width: 1.3rem;
-    height: 1rem;
-  }
+    .check-box:checked ~ .check-style:before {
+        width: 1.3rem;
+        height: 1rem;
+    }
 
-  .check-text {
-    @extend %text-12;
-    margin-left: 1rem;
-  }
+    .check-text {
+        @extend %text-12;
+        margin-left: 1rem;
+    }
 }
 
 .subscribe-form {
-  // .subscribe-form__wrap
+    // .subscribe-form__wrap
 
-  &__wrap {
-    &:not(:last-child) {
-      margin-bottom: 1.4rem;
+    &__wrap {
+        &:not(:last-child) {
+            margin-bottom: 1.4rem;
+        }
     }
-  }
 
-  &__success {
-    margin-top: 2rem;
-  }
-
-  .form-agree {
-    flex-wrap: wrap;
-
-    .check-text {
-      max-width: calc(100% - 3rem);
+    &__success {
+        margin-top: 2rem;
     }
-  }
+
+    .form-agree {
+        flex-wrap: wrap;
+
+        .check-text {
+            max-width: calc(100% - 3rem);
+        }
+    }
 }
 
 .input-wrap {
-  position: relative;
+    position: relative;
 
-  .input {
-    width: 100%;
-  }
+    .input {
+        width: 100%;
+    }
 }
 
 .input {
-  @extend %text-13;
-  border: 0.1rem solid #c0c0c0;
-  padding: 1.4rem;
+    @extend %text-13;
+    border: 0.1rem solid #c0c0c0;
+    padding: 1.4rem;
 
-  &::placeholder {
-    color: #777;
-  }
+    &::placeholder {
+        color: #777;
+    }
 }
 
 .pass-btn {
-  @extend %bg-cover;
-  position: absolute;
-  top: 1.2rem;
-  right: 1.2rem;
+    @extend %bg-cover;
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
 
-  svg {
-    width: 2.4rem;
-    height: 2.4rem;
+    svg {
+        width: 2.4rem;
+        height: 2.4rem;
 
-    path {
-      transition: .3s fill;
+        path {
+            transition: .3s fill;
+        }
     }
-  }
 
-  @media (any-hover: hover) {
-    &:hover {
-      svg path {
-        fill: $red;
-      }
+    @media (any-hover: hover) {
+        &:hover {
+            svg path {
+                fill: $red;
+            }
+        }
     }
-  }
 }
 
 .form-success {
-  @extend %text-14;
-  font-weight: 500;
-  color: $green;
+    @extend %text-14;
+    font-weight: 500;
+    color: $green;
 }
 
 input[type='number'] {
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
 
-  &::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-  }
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+    }
 }
 
 input[type='number'] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
 
 input[type='number']:hover,
 input[type='number']:focus {
-  -moz-appearance: number-input;
+    -moz-appearance: number-input;
 }
