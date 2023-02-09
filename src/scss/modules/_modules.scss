@@ -1,14 +1,24 @@
+@import './action-header';
 @import './header';
-@import './burger';
+@import './nav-header';
+@import './region-header';
+@import './header-info-line';
+@import './whatsapp';
 @import './drop-menu';
 @import './search-form';
+
+@import './burger-btn';
+@import './burger';
+
 @import './footer';
 
 @import './promo-sale';
 @import './icons-slider';
 @import './actual';
-@import './collection';
+@import './promo-collection';
+
 @import './catalog';
+@import './catalog-view';
 @import './catalog-home';
 @import './catalog-card';
 
@@ -34,6 +44,7 @@
 @import './profile';
 @import './discounts';
 @import './subscribes';
+@import './subscribe-item';
 @import './sale-item';
 @import './sale-popup';
 @import './personal';

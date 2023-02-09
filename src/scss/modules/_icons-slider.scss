@@ -1,11 +1,10 @@
 .icons-slider {
-
     // .icons-slider__item
 
     &__item {
         @extend %flex-col-center;
         text-align: center;
-        transition: 0.3s color;
+        transition: $transition color;
 
         @media (max-width: 767px) {
             margin-right: 2.5rem;
@@ -18,7 +17,7 @@
         @extend %flex-center;
         width: 12.8rem;
         height: 12.8rem;
-        background-color: #f4f4f6;
+        background-color: var(--gray-bg);
         border-radius: 7.1rem;
         overflow: hidden;
 

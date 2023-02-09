@@ -1,0 +1,31 @@
+.action-header {
+    @extend %text-16;
+    @extend %vertical-align;
+    font-weight: 600;
+    transition: $transition color;
+
+    svg {
+        margin-right: 0.6rem;
+        fill: var(--dark);
+
+        @media (max-width: 1024px) {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+
+    img {
+        flex-shrink: 0;
+        margin-right: 0.6rem;
+    }
+
+    @media (any-hover: hover) {
+        &:hover {
+            color: var(--gray);
+
+            svg {
+                fill: var(--gray);
+            }
+        }
+    }
+}

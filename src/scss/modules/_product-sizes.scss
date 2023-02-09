@@ -31,30 +31,30 @@
             text-align: center;
             border: 0.1rem solid #000;
             cursor: pointer;
-            transition: 0.3s all;
+            transition: $transition all;
             @media (any-hover: hover) {
                 &:hover {
-                    background-color: $dark;
+                    background-color: var(--dark);
                     color: #fff;
                 }
             }
         }
 
         .radio-box:checked + .radio-text {
-            background-color: $dark;
+            background-color: var(--dark);
             color: #fff;
         }
 
         .radio-box:disabled {
             & + .radio-text {
                 position: relative;
-                color: #9b9b9b;
-                border-color: #9b9b9b;
+                color: var(--gray);
+                border-color: var(--gray);
                 cursor: not-allowed;
                 @media (any-hover: hover) {
                     &:hover {
                         background-color: transparent;
-                        color: #9b9b9b;
+                        color: var(--gray);
                     }
                 }
 
@@ -65,7 +65,7 @@
                     left: 1.6rem;
                     width: 0.1rem;
                     height: 4.735rem;
-                    background-color: #9b9b9b;
+                    background-color: var(--gray);
                     transform: rotate(-45deg);
                 }
             }

@@ -9,12 +9,8 @@
 .blog-tags {
     display: flex;
     flex-wrap: wrap;
-    padding-bottom: 1.3rem;
-    margin: -0.7rem -0.7rem 0;
-
-    > * {
-        margin: 0.7rem;
-    }
+    gap: 1.4rem;
+    padding-bottom: 2rem;
 }
 
 .blog-tag {
@@ -22,25 +18,22 @@
     @extend %text-14;
     font-weight: 500;
     padding: 0.8rem 1rem;
-    border: 0.1rem solid #505661;
-    transition: 0.3s all;
+    border: 0.1rem solid var(--dark-gray);
+    transition: $transition all;
 
     svg {
         width: 1.6rem;
         height: 1.6rem;
         margin-left: 0.5rem;
-
-        path {
-            transition: 0.3s fill;
-        }
+        transition: $transition fill;
     }
 
     @media (any-hover: hover) {
         &:hover {
-            background-color: #505661;
+            background-color: var(--dark-gray);
             color: #fff;
 
-            svg path {
+            svg {
                 fill: #fff;
             }
         }
@@ -60,7 +53,6 @@
     }
 
     &__item {
-
         &:nth-child(10n + 1),
         &:nth-child(10n + 7) {
             grid-row: span 2;
@@ -123,7 +115,7 @@
 .date,
 .blog-item-text,
 .tag {
-    color: #9b9b9b;
+    color: var(--gray);
 }
 
 .tag {
@@ -144,7 +136,7 @@
     a {
         @media (any-hover: hover) {
             &:hover {
-                color: #9b9b9b;
+                color: var(--gray);
             }
         }
     }
@@ -336,9 +328,7 @@
     // .blog-text__tags
 
     &__tags {
-        &:not(:last-child) {
-            margin-bottom: 3rem;
-        }
+        margin-bottom: 3rem;
     }
 
     // .blog-text__text
@@ -366,10 +356,6 @@
     &__slider {
         width: 100%;
         position: relative;
-
-        /* @media (max-width: 1024px) {
-            width: calc(100vw - 1.6rem * 2);
-        } */
     }
 
     &__slider-item {

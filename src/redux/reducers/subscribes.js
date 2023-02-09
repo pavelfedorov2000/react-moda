@@ -10,26 +10,31 @@ const subscribes = (state = initialState, action) => {
                 subscribes: action.payload,
             };
         case 'CHANGE_SUBSCRIBE':
-            const subscribesCopy = [...state.subscribes];
+            /* const subscribesCopy = [...state.subscribes];
             let currentSubscribe = subscribesCopy.find(subscribe => subscribe.id == action.payload.id);
-            //console.log(currentSubscribe);
             subscribesCopy.splice(+action.payload.id, 1);
-            //console.log(action.payload);
             currentSubscribe = action.payload;
             const changedSubscribes = [
                 ...subscribesCopy,
                 currentSubscribe
-            ]
-            //const thisSubscribe = newSubscribes;
+            ] */
             return {
                 ...state,
-                subscribes: changedSubscribes,
+                subscribes: state.subscribes.map(subscribe => {
+                    if (subscribe.id === action.payload.id) {
+                        return {
+                            ...subscribe,
+                            ...action.payload
+                        }
+                    }
+
+                    return subscribe;
+                }),
             };
         case 'CANCEL_SUBSCRIBE':
-            const filteredSubscribes = [...state.subscribes].filter(subscribe => subscribe.id != action.payload);
             return {
                 ...state,
-                subscribes: filteredSubscribes,
+                subscribes: state.subscribes.filter(subscribe => subscribe.id !== action.payload),
             };
         default:
             return state;

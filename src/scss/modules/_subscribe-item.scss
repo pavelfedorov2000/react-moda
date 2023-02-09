@@ -1,0 +1,125 @@
+.subscribe-item {
+    @extend %flex-col;
+    // .subscribe-item__title
+
+    &__title {
+        @extend %text-16;
+        font-weight: 600;
+        background-color: var(--gray-bg);
+        padding: 2.5rem;
+    }
+
+    // .subscribe-item__content
+
+    &__content {
+        padding: 1.5rem 2.5rem 2.5rem;
+        border: 0.1rem solid var(--line-color);
+        border-top: none;
+        @extend %flex-col;
+
+        @media (max-width: 1024px) {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        > * {
+            &:not(:last-child) {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+
+    &__email {
+        @extend %text-14;
+        flex-grow: 1;
+    }
+
+    &__wrap {
+        display: grid;
+        gap: 1.5rem;
+
+        @media (min-width: 1025px) {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+    }
+
+    // .subscribe-item__list
+
+    &__list {
+        li {
+            @extend %text-14;
+
+            &:not(:last-child) {
+                margin-bottom: 1.4rem;
+            }
+        }
+    }
+
+    &__text {
+        @extend %text-13;
+        color: var(--dark-gray);
+    }
+
+    // .subscribe-item__buttons
+
+    &__bottom {
+        @extend %vertical-align;
+
+        @media (max-width: 1024px) {
+            display: grid;
+            gap: 1.5rem;
+        }
+    }
+
+    &__notify {
+        @extend %text-13;
+
+        @media (min-width: 1025px) {
+            margin-left: 1.6rem;
+        }
+    }
+
+    // .subscribe-item__change-btn
+
+    &__change-btn {
+        @extend %text-14;
+        text-decoration: underline;
+        text-align: left;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: var(--gray);
+            }
+        }
+    }
+
+    // .subscribe-item__cancel-btn
+
+    &__cancel-btn {
+        @extend %text-13;
+        font-weight: 500;
+        padding: 1.3rem 2rem;
+
+        &[disabled] {
+            border: 0.1rem solid var(--line-color);
+            background-color: transparent;
+            color: var(--gray);
+
+            @media (any-hover: hover) {
+                &:hover {
+                    color: var(--gray);
+                }
+            }
+        }
+    }
+
+    // .subscribe-item__btn
+
+    &__btn {
+        @extend %text-14;
+        font-weight: 500;
+        padding: 1.3rem 3rem;
+    }
+}

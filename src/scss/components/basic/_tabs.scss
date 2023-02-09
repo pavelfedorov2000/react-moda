@@ -8,7 +8,7 @@
 
     @media (any-hover: hover) {
         &:hover {
-            color: #9b9b9b;
+            color: var(--gray);
         }
     }
 
@@ -19,17 +19,17 @@
         bottom: 0;
         width: 0%;
         height: 0.2rem;
-        background-color: $green;
-        transition: 0.3s width;
+        background-color: var(--green);
+        transition: $transition width;
     }
 
-    &--active {
+    &.active {
         font-weight: 600;
-        color: $green;
+        color: var(--green);
 
         @media (any-hover: hover) {
             &:hover {
-                color: $green;
+                color: var(--green);
             }
         }
 
@@ -42,7 +42,7 @@
 .tabs-content {
     display: none;
 
-    &--active {
+    &.active {
         display: block;
     }
 }

@@ -1,101 +1,98 @@
 .slider-arrows {
-  display: flex;
+    display: flex;
 }
 
 .splide {
-  &__arrow {
-    width: 5.6rem;
-    height: 1.6rem;
+    &__arrow {
+        width: 5.6rem;
+        height: 1.6rem;
 
-    svg {
-      width: 5.6rem;
-      height: 1.6rem;
+        svg {
+            width: 5.6rem;
+            height: 1.6rem;
 
-      @media (max-width: 500px) {
-        width: 5rem;
-        height: 1rem;
-      }
-    }
-
-    @media (any-hover: hover) {
-      &:hover {
-        svg path {
-          fill: #101112;
+            @media (max-width: 500px) {
+                width: 5rem;
+                height: 1rem;
+            }
         }
-      }
+
+        @media (any-hover: hover) {
+            &:hover {
+                svg path {
+                    fill: var(--dark);
+                }
+            }
+        }
+
+        &--next {
+            @media (min-width: 501px) {
+                margin-left: 1.2rem;
+            }
+
+            @media (min-width: 768px) {
+                margin-left: 1.6rem;
+            }
+        }
     }
 
-    &--next {
-      @media (min-width: 501px) {
-        margin-left: 1.2rem;
-      }
+    &__pagination {
+        li {
+            &:not(:last-child) {
+                margin-right: 0.8rem;
+            }
+        }
 
-      @media (min-width: 768px) {
-        margin-left: 1.6rem;
-      }
+        &__page {
+            width: 2rem;
+            height: 0.4rem;
+            border-radius: 0;
+            background-color: #fff;
+            opacity: 0.3;
+
+            &.is-active {
+                opacity: 1;
+            }
+        }
     }
-  }
-
-  &__pagination {
-    li {
-      &:not(:last-child) {
-        margin-right: 0.8rem;
-      }
-    }
-
-    &__page {
-      width: 2rem;
-      height: 0.4rem;
-      border-radius: 0;
-      background-color: #fff;
-      opacity: 0.3;
-
-      &.is-active {
-        opacity: 1;
-      }
-    }
-  }
 }
 
 .product-popup__slider,
 .blog-text__slider,
 .product-card__slider {
-  .splide__arrow {
-    position: absolute;
-    @extend %pos-center-y;
-    z-index: 20;
-    width: 4.2rem;
-    height: 4.2rem;
-    border-radius: 50%;
-    @extend %flex-center;
-    background-color: #fff;
-    transition: background-color 0.3s;
+    .splide__arrow {
+        position: absolute;
+        @extend %pos-center-y;
+        z-index: 20;
+        width: 4.2rem;
+        height: 4.2rem;
+        border-radius: 50%;
+        @extend %flex-center;
+        background-color: #fff;
+        transition: background-color $transition;
 
-    svg {
-      width: 2.8rem;
-      height: 2.8rem;
-
-      path {
-        transition: 0.3s fill;
-      }
-    }
-
-    @media (any-hover: hover) {
-      &:hover {
-        background-color: $dark;
-
-        svg path {
-          fill: #fff;
+        svg {
+            width: 2.8rem;
+            height: 2.8rem;
+            transition: $transition fill;
         }
-      }
-    }
 
-    &--prev {
-      left: 2rem;
-    }
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: var(--dark);
 
-    &--next {
-      right: 2rem;
+                svg {
+                    fill: #fff;
+                }
+            }
+        }
+
+        &--prev {
+            left: 2rem;
+        }
+
+        &--next {
+            right: 2rem;
+        }
     }
-  }
 }

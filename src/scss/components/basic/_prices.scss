@@ -1,21 +1,21 @@
 .prices {
-  display: flex;
-  align-items: flex-end;
+    display: flex;
+    align-items: flex-end;
 }
 
 .price {
-  @extend %text-16;
-  font-weight: 600;
+    @extend %text-16;
+    font-weight: 600;
 }
 
 .new-price {
-  @extend %text-16;
-  color: $red;
-  font-weight: 600;
+    @extend %text-16;
+    color: var(--red);
+    font-weight: 600;
 }
 
 .old-price {
-  font-weight: 500;
-  color: #9b9b9b;
-  text-decoration: line-through;
+    font-weight: 500;
+    color: var(--gray);
+    text-decoration: line-through;
 }

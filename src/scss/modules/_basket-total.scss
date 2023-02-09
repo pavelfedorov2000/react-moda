@@ -1,6 +1,5 @@
 .basket-total {
-
-    border: 0.1rem solid #c0c0c0;
+    border: 0.1rem solid var(--gray-c0);
     padding: 4rem;
 
     @media (max-width: 500px) {
@@ -27,11 +26,11 @@
     &__auth-btn {
         @extend %text-14;
         font-weight: 600;
-        transition: 0.3s color;
+        transition: $transition color;
 
         @media (any-hover: hover) {
             &:hover {
-                color: $green;
+                color: var(--green);
             }
         }
     }
@@ -48,7 +47,7 @@
 
     &__list {
         padding-bottom: 2.4rem;
-        border-bottom: 0.1rem solid #eaeaea;
+        border-bottom: 0.1rem solid var(--line-color);
     }
 
     // .basket-total__list-item
@@ -63,7 +62,7 @@
 
         dd span {
             font-weight: 600;
-            color: $red;
+            color: var(--red);
         }
     }
 
@@ -92,16 +91,16 @@
 
     &__agreement {
         @extend %text-13;
-        //color: #505661;
+        //color: var(--dark-gray);
 
         a {
-            //color: #101112;
+            //color: var(--dark);
             font-weight: 500;
 
             @media (any-hover: hover) {
                 &:hover {
-                    //color: $green;
-                    color: #9b9b9b;
+                    //color: var(--green);
+                    color: var(--gray);
                 }
             }
         }

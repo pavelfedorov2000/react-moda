@@ -30,7 +30,7 @@
     &__link {
         @extend %text-20;
         font-weight: 500;
-        color: #9b9b9b;
+        color: var(--gray);
 
         @media (max-width: 500px) {
             font-size: 1.6rem;
@@ -38,12 +38,12 @@
         }
 
         &.active {
-            color: #101112;
+            color: var(--dark);
         }
 
         @media (any-hover: hover) {
             &:hover {
-                color: $red;
+                color: var(--red);
             }
         }
     }
@@ -53,21 +53,18 @@
         svg {
             width: 5.6rem;
             height: 1.6rem;
+            transition: $transition fill;
 
             @media (max-width: 767px) {
                 width: 4rem;
                 height: 1.2rem;
             }
-
-            path {
-                transition: 0.3s fill;
-            }
         }
 
         @media (any-hover: hover) {
             &:hover {
-                svg path {
-                    fill: $red;
+                svg {
+                    fill: var(--red);
                 }
             }
         }

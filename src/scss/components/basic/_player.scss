@@ -1,31 +1,31 @@
 .player-btn {
-  position: absolute;
-  @extend %pos-center-xy;
-  width: 8rem;
-  height: 8rem;
-  border-radius: 50%;
-  border: 0.1rem solid rgba(#fff, 0.7);
-  transition: 0.3s background-color;
-
-  &::before {
-    content: '';
+    @extend %pos-center-xy;
     position: absolute;
-    @extend %pos-center-y;
-    left: calc(50% - 2.1rem / 2);
-    width: 2.1rem;
-    height: 2.4rem;
-    background-color: #fff;
-    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-    transition: 0.3s background-color;
-  }
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    border: 0.1rem solid rgba(#fff, 0.7);
+    transition: $transition background-color;
 
-  @media (any-hover: hover) {
-    &:hover {
-      background-color: #fff;
-
-      &::before {
-        background-color: #101112;
-      }
+    &::before {
+        @extend %pos-center-y;
+        content: '';
+        position: absolute;
+        left: calc(50% - 2.1rem / 2);
+        width: 2.1rem;
+        height: 2.4rem;
+        background-color: #fff;
+        clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+        transition: $transition background-color;
     }
-  }
+
+    @media (any-hover: hover) {
+        &:hover {
+            background-color: #fff;
+
+            &::before {
+                background-color: var(--dark);
+            }
+        }
+    }
 }

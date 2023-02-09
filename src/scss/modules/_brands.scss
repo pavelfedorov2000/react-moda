@@ -16,7 +16,7 @@
         @extend %flex-center;
         height: 15.4rem;
 
-        @media(min-width: 1025px) {
+        @media (min-width: 1025px) {
             padding: 2.8rem 3rem;
         }
 
@@ -95,11 +95,11 @@
         @extend %text-16;
         font-weight: 600;
         text-align: center;
-        transition: 0.3s color;
+        transition: $transition color;
 
         @media (any-hover: hover) {
             &:hover {
-                color: #9b9b9b;
+                color: var(--gray);
             }
         }
     }
@@ -122,7 +122,7 @@
         margin-right: 2rem;
 
         &--active {
-            color: $green;
+            color: var(--green);
         }
     }
 }
@@ -132,27 +132,24 @@
     @extend %text-12;
     font-weight: 600;
     letter-spacing: 0.1em;
-    color: #9b9b9b;
+    color: var(--gray);
     text-transform: uppercase;
-    transition: 0.3s color;
+    transition: $transition color;
 
     svg {
-        width: 1.6rem;
-        height: 1.6rem;
         flex-shrink: 0;
         margin-left: 0.5rem;
-
-        path {
-            transition: 0.3s fill;
-        }
+        width: 1.6rem;
+        height: 1.6rem;
+        transition: $transition fill;
     }
 
     @media (any-hover: hover) {
         &:hover {
-            color: $red;
+            color: var(--red);
 
-            svg path {
-                fill: $red;
+            svg {
+                fill: var(--red);
             }
         }
     }
@@ -227,7 +224,7 @@
 
         @media (any-hover: hover) {
             &:hover {
-                color: #9b9b9b;
+                color: var(--gray);
             }
         }
     }

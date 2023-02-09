@@ -80,7 +80,7 @@
     &__text {
         @extend %text-25;
         font-weight: 500;
-        color: #c0c0c0;
+        color: var(--gray-c0);
 
         @media (max-width: 767px) {
             font-size: 2rem;

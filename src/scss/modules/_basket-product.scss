@@ -26,13 +26,14 @@
 
     &__buttons {
         display: flex;
+        gap: 2.8rem;
         grid-area: buttons;
     }
 
     &__btn {
         @extend %vertical-align;
         @extend %text-13;
-        transition: 0.3s color;
+        transition: $transition color;
 
         svg {
             width: 1rem;
@@ -40,23 +41,17 @@
             margin-right: 0.4rem;
         }
 
-        &:not(:last-child) {
-            margin-right: 2.8rem;
-        }
-
         &--delete {
             svg {
-                path {
-                    transition: 0.3s fill;
-                }
+                transition: $transition fill;
             }
 
             @media (any-hover: hover) {
                 &:hover {
-                    color: $red;
+                    color: var(--red);
 
-                    svg path {
-                        fill: $red;
+                    svg {
+                        fill: var(--red);
                     }
                 }
             }
@@ -64,17 +59,15 @@
 
         &--favorite {
             svg {
-                path {
-                    transition: 0.3s stroke;
-                }
+                transition: $transition stroke;
             }
 
             @media (any-hover: hover) {
                 &:hover {
-                    color: $green;
+                    color: var(--green);
 
-                    svg path {
-                        stroke: $green;
+                    svg {
+                        stroke: var(--green);
                     }
                 }
             }

@@ -1,10 +1,10 @@
 .btn {
     @extend %flex-center;
     @extend %text-14;
-    background-color: $green;
+    background-color: var(--green);
     color: #fff;
     text-align: center;
-    transition: 0.3s all;
+    transition: $transition all;
 
     @media (any-hover: hover) {
         &:hover {
@@ -13,7 +13,7 @@
     }
 
     &[disabled] {
-        background-color: #eaeaea;
+        background-color: var(--line-color);
         border: none;
         cursor: not-allowed;
 
@@ -28,16 +28,13 @@
         width: 1.6rem;
         height: 1.6rem;
         margin-right: 0.8rem;
-
-        path {
-            transition: 0.3s fill;
-        }
+        transition: $transition fill;
     }
 
     &--disabled {
         background-color: transparent;
-        border: 0.1rem solid #eaeaea;
-        color: #9b9b9b;
+        border: 0.1rem solid var(--line-color);
+        color: var(--gray);
 
         @media (any-hover: hover) {
             &:hover {
@@ -49,17 +46,14 @@
     }
 
     &--border {
-        border: 0.1rem solid #101112;
+        border: 0.1rem solid var(--dark);
         background-color: transparent;
-        color: #101112;
+        color: var(--dark);
 
         svg {
             width: 2rem;
             height: 2rem;
-
-            path {
-                transition: 0.3s fill;
-            }
+            transition: $transition fill;
         }
 
         @media (any-hover: hover) {
@@ -68,7 +62,7 @@
                 border-color: #2d703c;
                 color: #2d703c;
 
-                svg path {
+                svg {
                     fill: #2d703c;
                 }
             }
@@ -77,7 +71,7 @@
 
     &--transparent {
         background-color: transparent;
-        color: #101112;
+        color: var(--dark);
 
         @media (any-hover: hover) {
             &:hover {
@@ -87,11 +81,11 @@
     }
 
     &--black {
-        background-color: #101112;
+        background-color: var(--dark);
 
         @media (any-hover: hover) {
             &:hover {
-                background-color: $green;
+                background-color: var(--green);
                 color: #fff;
             }
         }
@@ -125,50 +119,11 @@ a {
 }
 
 .scroll-link {
-    transition: 0.3s color;
+    transition: $transition color;
 
     @media (any-hover: hover) {
         &:hover {
-            color: #9b9b9b;
-        }
-    }
-}
-
-.all-link {
-    @extend %vertical-align;
-    @extend %text-16;
-    color: #9b9b9b;
-    position: relative;
-
-    @media (max-width: 500px) {
-        font-size: 1.2rem;
-        line-height: 1.8rem;
-    }
-
-    svg {
-        width: 5.6rem;
-        height: 1.6rem;
-        margin-left: 1.6rem;
-
-        @media (max-width: 500px) {
-            width: 4rem;
-            height: 1rem;
-        }
-
-        path {
-            transition: 0.3s fill;
-        }
-    }
-
-    @media (any-hover: hover) {
-        &:hover {
-            color: $dark;
-
-            svg {
-                path {
-                    fill: $dark;
-                }
-            }
+            color: var(--gray);
         }
     }
 }

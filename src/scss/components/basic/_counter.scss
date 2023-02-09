@@ -12,14 +12,14 @@
             width: 1rem;
 
             line {
-                transition: 0.3s stroke;
+                transition: $transition stroke;
             }
         }
 
         @media (any-hover: hover) {
             &:hover {
                 svg line {
-                    stroke: $green;
+                    stroke: var(--green);
                 }
             }
         }

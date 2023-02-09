@@ -64,7 +64,7 @@
         display: block;
         height: 61rem;
 
-        @media(max-width: 1024px) {
+        @media (max-width: 1024px) {
             height: 48rem;
         }
 
@@ -243,7 +243,7 @@
 
     &__tabs {
         padding-bottom: 1.2rem;
-        border-bottom: 0.1rem solid #eaeaea;
+        border-bottom: 0.1rem solid var(--line-color);
 
         @media (max-width: 767px) {
             width: 175%;
@@ -270,8 +270,8 @@
             left: 0;
             width: 0%;
             height: 0.2rem;
-            background-color: #101112;
-            transition: 0.3s width;
+            background-color: var(--dark);
+            transition: $transition width;
         }
 
         &.tab--active {
@@ -362,11 +362,11 @@
 }
 
 .product-cart-btn {
-    background-color: $red;
+    background-color: var(--red);
 
     @media (any-hover: hover) {
         &:hover {
-            background-color: $red;
+            background-color: var(--red);
             box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.25);
         }
     }
@@ -375,11 +375,11 @@
 .product-favorite-btn {
     @media (any-hover: hover) {
         &:hover {
-            border-color: $red;
-            color: $red;
+            border-color: var(--red);
+            color: var(--red);
 
             svg path {
-                fill: $red;
+                fill: var(--red);
             }
         }
     }
@@ -412,7 +412,7 @@
             }
 
             dt {
-                color: #505661;
+                color: var(--dark-gray);
                 padding-right: 0.3rem;
             }
         }

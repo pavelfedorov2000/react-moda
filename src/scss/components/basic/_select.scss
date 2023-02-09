@@ -10,20 +10,17 @@
         padding-right: 1.8rem;
         font-weight: 600;
         cursor: pointer;
-        border: 0.1rem solid #c0c0c0;
+        border: 0.1rem solid var(--gray-c0);
 
         svg {
             width: 2rem;
             height: 2rem;
-            transition: 0.3s transform;
-            path {
-                transition: 0.3s fill;
-            }
+            transition: $transition fill;
+            transition: $transition transform;
+
             @media (any-hover: hover) {
                 &:hover {
-                    path {
-                        fill: $green;
-                    }
+                    fill: var(--green);
                 }
             }
         }
@@ -44,7 +41,7 @@
         z-index: 25;
         background-color: #fff;
         padding: 2rem 1.5rem;
-        border: 0.1rem solid #c0c0c0;
+        border: 0.1rem solid var(--gray-c0);
         border-top-color: #fff;
     }
 
@@ -53,7 +50,7 @@
 
         &:checked {
             & + .radio-style {
-                border-color: #101112;
+                border-color: var(--dark);
                 span {
                     opacity: 1;
                 }
@@ -69,22 +66,6 @@
 
         &:not(:last-child) {
             margin-bottom: 1.4rem;
-        }
-
-        .radio-style {
-            position: relative;
-            width: 1.6rem;
-            height: 1.6rem;
-            border-radius: 50%;
-            flex-shrink: 0;
-            border: 0.1rem solid #c0c0c0;
-            span {
-                @extend %bg-contain;
-                position: absolute;
-                @extend %pos-center-xy;
-                width: 0.9rem;
-                height: 0.6rem;
-            }
         }
     }
 

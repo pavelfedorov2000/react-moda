@@ -7,13 +7,12 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 import ScrollToTop from './ScrollToTop';
 
-
 ReactDOM.render(
-  <Router>
-    <ScrollToTop />
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </Router>,
-  document.getElementById('root')
+    <Router>
+        <ScrollToTop />
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </Router>,
+    document.getElementById('root')
 );

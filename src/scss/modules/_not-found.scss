@@ -14,7 +14,8 @@
         line-height: 130%;
         font-weight: 600;
         letter-spacing: 0.02em;
-        color: #c0c0c0;
+        color: var(--gray-c0);
+
         @media (max-width: 500px) {
             font-size: 9rem;
         }

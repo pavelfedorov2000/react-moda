@@ -4,12 +4,31 @@
     --container-padding: 1.6rem;
 
     --gap: 5.2rem;
+
+    --dark: #101112;
+    --dark-gray: #505661;
+    --gray: #9b9b9b;
+    --gray-777: #777;
+    --gray-bg: #f4f4f6;
+    --gray-c0: #c0c0c0;
+    --line-color: #eaeaea;
+    --green: #479458;
+    --green-second: #2d703c;
+    --red: #ee3333;
+
+    --icon-size: 1.6rem;
+    --icon-size_xl: 3.2rem;
 }
 
 $dark: #101112;
 $green: #479458;
 $red: #ee3333;
 
+$transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+$duration: 0.3s; // указывать только в секундах!
+$duration--long: 1s; // указывать только в секундах!
+$delay: $duration;
+$transition: $duration $transition-timing;
 
 // Typography
 
@@ -171,19 +190,4 @@ $red: #ee3333;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-}
-
-@mixin scrollbar {
-    scrollbar-width: thin;
-    overflow-y: auto;
-
-    &::-webkit-scrollbar {
-        width: 0.5rem;
-        border-radius: 0.4rem;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: #c0c0c0;
-        border-radius: 0.4rem;
-    }
 }

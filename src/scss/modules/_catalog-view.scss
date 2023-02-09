@@ -1,0 +1,37 @@
+.catalog-view {
+    display: flex;
+    gap: 1.6rem;
+
+    @media (max-width: 767px) {
+        flex-direction: row-reverse;
+    }
+
+    @media (max-width: 500px) {
+        gap: 1.4rem;
+    }
+
+    &__btn {
+        @extend %vertical-align;
+
+        svg {
+            width: 1.9rem;
+            height: 1.9rem;
+
+            @media (max-width: 500px) {
+                width: 1.8rem;
+                height: 1.8rem;
+            }
+
+            rect {
+                stroke: var(--gray-c0);
+                transition: $transition stroke;
+            }
+        }
+
+        &.active {
+            svg rect {
+                stroke: var(--dark-gray);
+            }
+        }
+    }
+}

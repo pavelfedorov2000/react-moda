@@ -1,35 +1,16 @@
 @import 'fonts';
 @import 'vars';
+@import 'mixins';
 @import 'null';
 
 html {
     box-sizing: border-box;
-    font-size: calc(100vw / 1920 * 10);
+    @include remAll();
 
     &.disable-fix {
         @media (min-width: 1025px) {
             padding-right: 17px;
         }
-    }
-
-    @media (max-width: 1600px) {
-        font-size: calc(100vw / 1600 * 10);
-    }
-
-    @media (max-width: 1440px) {
-        font-size: calc(100vw / 1440 * 10);
-    }
-
-    @media (max-width: 1024px) {
-        font-size: calc(100vw / 768 * 10);
-    }
-
-    @media (max-width: 767px) {
-        font-size: calc(100vw / 500 * 10);
-    }
-
-    @media (max-width: 500px) {
-        font-size: calc(100vw / 360 * 10);
     }
 }
 
@@ -38,14 +19,11 @@ body {
     font-family: 'Raleway', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-feature-settings: 'pnum'on, 'lnum'on;
+    font-feature-settings: 'pnum' on, 'lnum' on;
     color: #000;
     font-size: 1.4rem;
     line-height: 2.1rem;
-
-    @media(max-width: 1024px) {
-        overflow-x: hidden;
-    }
+    overflow-x: hidden;
 
     &._lock {
         overflow-y: hidden;
@@ -56,7 +34,7 @@ button,
 textarea,
 input {
     font-family: 'Raleway', sans-serif;
-    font-feature-settings: 'pnum'on, 'lnum'on;
+    font-feature-settings: 'pnum' on, 'lnum' on;
 }
 
 dt {
@@ -74,29 +52,28 @@ img {
     }
 }
 
+.icon {
+    flex-shrink: 0;
+    width: var(--icon-size);
+    height: var(--icon-size);
+}
+
 a {
-    transition: 0.3s all;
+    transition: $transition all;
 
     @media (any-hover: hover) {
         &:hover {
-            color: #777;
+            color: var(--gray-777);
         }
     }
 }
 
 .wrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    position: relative;
-
-    @media(max-width: 1024px) {
-        overflow-x: hidden;
-    }
-
-    &._lock {
-        overflow-y: hidden;
-    }
+    overflow-x: hidden;
 }
 
 .container {

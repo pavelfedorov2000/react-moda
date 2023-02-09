@@ -1,46 +1,40 @@
 .social {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: max-content;
-  // .social__item
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    // .social__item
 
-  &__item {
-    flex-shrink: 0;
+    &__item {
+        flex-shrink: 0;
 
-    svg {
-      width: 2.6rem;
-      height: 2.6rem;
-
-      path,
-      rect {
-        transition: 0.3s fill;
-      }
-    }
-
-    @media (any-hover: hover) {
-      &:hover {
-        svg rect {
-          fill: $red;
+        svg {
+            width: 2.6rem;
+            height: 2.6rem;
+            transition: $transition fill;
         }
-      }
-    }
 
-    &--google {
-      @media (any-hover: hover) {
-        &:hover {
-          svg {
-            path {
-              fill: $red;
+        @media (any-hover: hover) {
+            &:hover {
+                svg {
+                    fill: var(--red);
+                }
             }
-          }
         }
-      }
-    }
-  }
 
-  &__link {
-    @extend %flex-center;
-    width: 100%;
-    height: 100%;
-  }
+        &--google {
+            @media (any-hover: hover) {
+                &:hover {
+                    svg {
+                        fill: var(--red);
+                    }
+                }
+            }
+        }
+    }
+
+    &__link {
+        @extend %flex-center;
+        width: 100%;
+        height: 100%;
+    }
 }

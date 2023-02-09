@@ -7,7 +7,7 @@
                 height: 35rem;
             }
 
-            @media(max-width: 767px) {
+            @media (max-width: 767px) {
                 height: 45rem;
             }
         }
@@ -117,7 +117,7 @@
             &:not(:last-child) {
                 margin-bottom: 3rem;
 
-                @media(max-width: 500px) {
+                @media (max-width: 500px) {
                     margin-bottom: 2rem;
                 }
             }
@@ -129,104 +129,6 @@
         align-items: flex-start;
         padding-bottom: 2rem;
         border-bottom: 0.1rem solid #efefef;
-    }
-
-    &__view {
-        display: flex;
-
-        @media(max-width: 767px) {
-            flex-direction: row-reverse;
-        }
-    }
-
-    &__view-btn {
-        @extend %vertical-align;
-
-        svg {
-            width: 1.9rem;
-            height: 1.9rem;
-
-            @media (max-width: 500px) {
-                width: 1.8rem;
-                height: 1.8rem;
-            }
-
-            rect {
-                transition: 0.3s stroke;
-            }
-        }
-
-        margin-right: 1.6rem;
-
-        @media(max-width: 767px) {
-            margin-left: 1.6rem;
-            margin-right: 0;
-        }
-
-        @media (max-width: 500px) {
-            margin-left: 1.4rem;
-        }
-
-        &:last-child {
-            margin-right: 0;
-
-            @media(max-width: 767px) {
-                margin-left: 0;
-            }
-        }
-
-        &.active {
-            svg rect {
-                stroke: #505661;
-            }
-        }
-    }
-
-    &__cards {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-
-        @media (max-width: 767px) {
-            gap: 1.2rem 1.6rem;
-            grid-template-columns: 1fr;
-        }
-
-        &--two-cols {
-            grid-template-columns: repeat(2, 1fr);
-
-            .catalog-card {
-                &__img {
-                    height: 81.3rem;
-
-                    @media (max-width: 1024px) {
-                        height: 50rem;
-                    }
-
-                    @media (max-width: 767px) {
-                        height: 35rem;
-                    }
-
-                    @media (max-width: 500px) {
-                        height: 21rem;
-                    }
-                }
-            }
-        }
-
-        &--row {
-            @media (max-width: 767px) {
-                grid-template-columns: 1fr;
-            }
-
-            .catalog-card {
-                &__img {
-                    @media (max-width: 767px) {
-                        height: 45rem;
-                    }
-                }
-            }
-        }
     }
 
     &__seo-text {
@@ -249,9 +151,8 @@
 }
 
 .grid-btn {
-
     svg {
-        @media(max-width: 767px) {
+        @media (max-width: 767px) {
             display: none;
         }
 
@@ -265,33 +166,49 @@
     }
 }
 
-/* .search-results {
-    &__top {
-        @media (min-width: 768px) {
-            display: flex;
-            align-items: flex-end;
-        }
+.catalog-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
 
-        &:not(:last-child) {
-            margin-bottom: 4rem;
+    @media (max-width: 767px) {
+        gap: 1.2rem 1.6rem;
+        grid-template-columns: 1fr;
+    }
 
-            @media (max-width: 500px) {
-                margin-bottom: 3rem;
+    &--two-cols {
+        grid-template-columns: repeat(2, 1fr);
+
+        .catalog-card {
+            &__img {
+                height: 81.3rem;
+
+                @media (max-width: 1024px) {
+                    height: 50rem;
+                }
+
+                @media (max-width: 767px) {
+                    height: 35rem;
+                }
+
+                @media (max-width: 500px) {
+                    height: 21rem;
+                }
             }
         }
     }
 
-    &__num {
-        @extend %text-13;
-        color: #777;
-
-        @media (min-width: 768px) {
-            margin-left: 1.6rem;
-            margin-bottom: 0.4rem;
+    &--row {
+        @media (max-width: 767px) {
+            grid-template-columns: 1fr;
         }
 
-        @media (max-width: 767px) {
-            margin-top: 0.5rem;
+        .catalog-card {
+            &__img {
+                @media (max-width: 767px) {
+                    height: 45rem;
+                }
+            }
         }
     }
-} */
+}

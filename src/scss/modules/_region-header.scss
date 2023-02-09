@@ -1,0 +1,70 @@
+.region-header {
+    @extend %text-14;
+    position: relative;
+    display: inline-flex;
+    gap: 0.6rem;
+
+    // .region-header__value
+
+    &__value {
+        display: inline-block;
+        padding-right: 2rem;
+        font-weight: 600;
+        cursor: pointer;
+        background-size: 1.4rem;
+        background-position: right center;
+        background-repeat: no-repeat;
+        transition: $transition color;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: var(--gray);
+            }
+        }
+
+        &.active {
+            &:after {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    // .region-header__drop
+
+    &__drop {
+        position: absolute;
+        top: calc(100% + 1.4rem);
+        left: 50%;
+        z-index: 20;
+        background-color: #fff;
+        box-shadow: 0rem -0.1rem 1rem rgba(0, 0, 0, 0.1);
+        width: 24.7rem;
+        padding: 2rem 1.5rem;
+
+        @media (max-width: 500px) {
+            width: 100%;
+            left: 0;
+        }
+    }
+
+    // .region-header__drop-item
+
+    &__drop-item {
+        cursor: pointer;
+        transition: $transition color;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: var(--gray);
+            }
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 1.7rem;
+        }
+
+        &.active {
+            font-weight: 600;
+        }
+    }
+}

@@ -1,4 +1,3 @@
-// setPizzas должна взять массив пицц pizzas и создать объект
 import axios from 'axios';
 
 export const setLoaded = payload => ({
@@ -6,7 +5,6 @@ export const setLoaded = payload => ({
     payload
 });
 
-// асинхронный action (redux thunk): получение (axios), потом сохранение (dispatch)
 export const fetchProducts = (sortBy, sortPrices, sortColors, sortSizes, sortBrands, sortStyles) => (dispatch) => {
     dispatch(setLoaded(false));
 
