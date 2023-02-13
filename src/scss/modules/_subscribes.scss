@@ -14,6 +14,7 @@
 
     @media (min-width: 1025px) {
         grid-template-columns: 1fr 33.6rem;
+        align-items: flex-start;
     }
 
     &__list {
@@ -22,17 +23,20 @@
     }
 
     &__aside {
+        min-height: 22.3rem;
         background-color: var(--gray-bg);
 
         @media (min-width: 768px) {
             justify-content: flex-end;
         }
 
-        .subscribe-item__content {
-            padding-top: 0;
-            align-items: flex-start;
-            border: none;
-            flex-grow: 1;
+        .subscribe-item {
+            &__content {
+                padding-top: 0;
+                align-items: flex-start;
+                border: none;
+                flex-grow: 1;
+            }
         }
     }
 }

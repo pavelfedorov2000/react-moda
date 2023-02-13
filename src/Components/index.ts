@@ -46,12 +46,12 @@ export { default as SeoText } from './SeoText';
 
 export { default as AsideFilters } from './AsideFilters';
 export { default as CatalogFilters } from './CatalogFilters';
+export { default as CatalogFilter } from './CatalogFilter';
 export { default as FiltersButton } from './FiltersButton';
 export { default as CatalogView } from './CatalogView';
 export { default as CatalogCard } from './CatalogCard/CatalogCard';
-export { default as FavoriteCard } from './CatalogCard/FavoriteCard';
 export { default as Loader } from './CatalogCard/Loader';
-export { default as CatalogCardPopup } from './CatalogCard/CatalogCardPopup';
+export { default as ProductPopup } from './ProductPopup';
 
 export { default as ProductSizes } from './ProductSizes';
 

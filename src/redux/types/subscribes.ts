@@ -14,7 +14,11 @@ interface SetSubscribesAction {
 
 interface ChangeSubscribeAction {
     type: ActionType.ChangeSubscribe;
-    payload: Subscribe;
+    payload: string;
+}
+
+interface SubmitSubscribeAction {
+    type: ActionType.SubmitSubscribe;
 }
 
 interface CancelSubscribeAction {
@@ -32,8 +36,9 @@ interface CloseSubscribeAction {
 }
 
 export type SubscibesAction =
-    | SetSubscribesAction
+    SetSubscribesAction
     | ChangeSubscribeAction
+    | SubmitSubscribeAction
     | CancelSubscribeAction
     | OpenSubscribeAction
     | CloseSubscribeAction;

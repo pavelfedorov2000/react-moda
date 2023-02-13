@@ -1,53 +1,47 @@
 import classNames from 'classnames';
-import React, { useContext, useState } from 'react';
-import { CatalogFiltersContext } from '../context';
-import { Sort, Size, Color, Brand, Price, Style } from './CatalogFilters/index';
+import { useState } from 'react';
+import { FILTERS_TITLE } from '../constants/filters';
+import { Filter, FILTERS } from '../enums/Filter';
+import { SortFilters } from '../enums/SortFilter';
+import { useActions } from '../hooks/useActions';
+import { useTypedSelector } from '../hooks/useTypedSelector';
+import CatalogFilter from './CatalogFilter';
+//import { Sort, Price } from './CatalogFilters/index';
 
-function CatalogFilters({ visibleFilters, onCloseFilters }) {
+/* interface Props {
+    isVisible: boolean;
+    onClose: () => void;
+} */
 
-    const { sortFilters, sortColors, sortSizes, sortBrands, sortStyles, onResetFilters } = useContext(CatalogFiltersContext);
+const CatalogFilters = () => {
+    const { isVisible } = useTypedSelector((state) => state.filtersReducer);
+    const { resetFilters, closeFilters } = useActions();
 
-    const onCheckChange = (arr, index, filters, setFilters) => {
-        let checkText = arr[index];
-        let copy;
-        if (!filters.includes(checkText)) {
-            copy = [...filters];
-            copy.push(checkText);
-        } else {
-            copy = [...filters];
-            copy.splice(copy.indexOf(checkText), 1);
-        }
-        setFilters(copy);
-    }
-
-    const [activeFilter, setActiveFilter] = useState('Фильтры');
+    const [activeFilter, setActiveFilter] = useState(FILTERS_TITLE);
     /* const onCloseFilter = () => {
       setActiveFilter('Фильтры');
     } */
 
-    const [checkedColors, setCheckedColors] = useState(sortColors);
+    /* const [checkedColors, setCheckedColors] = useState(sortColors);
     const [checkedSizes, setCheckedSizes] = useState(sortSizes);
     const [checkedBrands, setCheckedBrands] = useState(sortBrands);
     const [checkedStyles, setCheckedStyles] = useState(sortStyles);
     const [fromPrice, setFromPrice] = useState(null);
-    const [toPrice, setToPrice] = useState(null);
+    const [toPrice, setToPrice] = useState(null); */
+    console.log(FILTERS);
+    console.log(Object.keys(FILTERS));
+    
 
     const handleResetFilters = () => {
-        onResetFilters();
-        setCheckedColors([]);
-        setCheckedSizes([]);
-        setCheckedBrands([]);
-        setCheckedStyles([]);
-        setFromPrice('');
-        setToPrice('');
+        resetFilters();
     }
 
     return (
         <form action="#" className={classNames('catalog-filters', {
-            'active': visibleFilters
+            'active': isVisible
         })}>
             <div className="catalog-filters__header">
-                {activeFilter !== 'Фильтры' &&
+                {activeFilter !== FILTERS_TITLE &&
                     <button className="catalog-filters__back-btn" type="button" aria-label="Назад">
                         <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" clipRule="evenodd"
@@ -59,7 +53,7 @@ function CatalogFilters({ visibleFilters, onCloseFilters }) {
 
                 <div className="catalog-filters__title">{activeFilter}</div>
 
-                <button onClick={onCloseFilters} className="catalog-filters__close" type="button" aria-label="Закрыть фильтры">
+                <button onClick={closeFilters} className="catalog-filters__close" type="button" aria-label="Закрыть фильтры">
                     <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <line x1="2.64645" y1="16.6464" x2="16.7886" y2="2.50431" stroke="black" />
                         <line x1="3.35355" y1="2.64645" x2="17.4957" y2="16.7886" stroke="black" />
@@ -68,12 +62,8 @@ function CatalogFilters({ visibleFilters, onCloseFilters }) {
             </div>
 
             <div className="catalog-filters__row">
-                <Sort sortFilters={sortFilters} />
-                <Color onCheckChange={onCheckChange} checkedColors={checkedColors} setCheckedColors={setCheckedColors} />
-                <Size onCheckChange={onCheckChange} checkedSizes={checkedSizes} setCheckedSizes={setCheckedSizes} />
-                <Price fromPrice={fromPrice} toPrice={toPrice} setFromPrice={setFromPrice} setToPrice={setToPrice} />
-                <Brand onCheckChange={onCheckChange} checkedBrands={checkedBrands} setCheckedBrands={setCheckedBrands} />
-                <Style onCheckChange={onCheckChange} checkedStyles={checkedStyles} setCheckedStyles={setCheckedStyles} />
+                
+                
             </div>
 
             <button onClick={handleResetFilters} className="catalog-filters__reset-btn" type="reset">

@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Pages } from '../enums/Page';
+import { Page } from '../interfaces/Route';
 
 const crumbs = ['Перейти на главную', 'Женщинам', 'Детям', 'Мужчинам', 'Аксессуары'];
 
-const NotFound = ({ title }) => {
+const NotFound = ({ title }: Page) => {
     return (
         <main className="page not-found-page">
             <div className="container">

@@ -1,4 +1,4 @@
 export interface ProductDetailsListItem {
-    key: string;
+    property: string;
     value: string;
 }

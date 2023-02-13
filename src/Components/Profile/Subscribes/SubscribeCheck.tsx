@@ -11,25 +11,9 @@ const SubscribeCheck = ({ text }: Props) => {
     const { currentSubscribe } = useTypedSelector((state) => state.subscribesReducer);
     const isChecked = currentSubscribe?.items?.find(item => item.name === text)?.active;
 
-    const handleChangeSubscribe = () => {
-        changeSubscribe({
-            ...currentSubscribe,
-            items: currentSubscribe?.items?.map(item => {
-                if (item.name === text) {
-                    return {
-                        ...item,
-                        active: !isChecked
-                    }
-                } else {
-                    return item;
-                }
-            })
-        });
-    }
-
     return (
         <label className="sale-popup__form-check">
-            <input onChange={handleChangeSubscribe} className="check-box" type="checkbox" checked={isChecked} />
+            <input onChange={() => changeSubscribe(text)} className="check-box" type="checkbox" checked={isChecked} />
             <span className="check-style">
                 <span style={{ backgroundImage: `url(${checkIcon})` }}></span>
             </span>

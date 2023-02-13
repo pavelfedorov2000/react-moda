@@ -1,8 +1,8 @@
-import { useSelector } from 'react-redux';
 import { CartIcon, FavoriteIcon, UserIcon } from './icons';
 import search from '../../assets/images/icons/search.svg';
 import { Link } from 'react-router-dom';
 import { Pages, SubPages } from '../../enums/Page';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 const headerActions = [{
     href: SubPages.Orders,
@@ -21,10 +21,9 @@ const profile = headerActions[0];
 
 const HeaderActions = ({ onClick, onClickSearch }) => {
     //const { totalCount } = useSelector(({ cart }) => cart);
-    //const { products } = useSelector(({ favorite }) => favorite);
+    const { products } = useTypedSelector((state) => state.favoriteReducer);
 
     const totalCount = 1;
-    const products = 2;
 
     return (
         <div className="header__actions">

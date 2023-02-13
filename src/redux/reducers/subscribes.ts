@@ -17,17 +17,34 @@ const subscribesReducer = (state = initialState, action: SubscibesAction): Subsc
         case ActionType.ChangeSubscribe:
             return {
                 ...state,
-                subscribes: state.subscribes.map((subscribe) => {
-                    if (subscribe.id === action.payload.id) {
-                        return {
-                            ...subscribe,
-                            ...action.payload
+                currentSubscribe: {
+                    ...state.currentSubscribe,
+                    items: state.currentSubscribe?.items?.map(item => {
+                        if (item.name === action.payload) {
+                            return {
+                                ...item,
+                                active: !item.active
+                            }
+                        } else {
+                            return item;
                         }
+                    })
+                }
+            };
+        case ActionType.SubmitSubscribe:
+            const currentSubscribe = state.currentSubscribe;
+            
+            return {
+                ...state,
+                subscribes: currentSubscribe ? state.subscribes.map((subscribe) => {
+                    if (subscribe.id === currentSubscribe.id) {
+                        return currentSubscribe
                     } else {
-                        return subscribe;
+                        return subscribe
                     }
-                }),
-                currentSubscribe: action.payload
+                }) : state.subscribes,
+                isPopupVisible: false,
+                currentSubscribe: undefined
             };
         case ActionType.CancelSubscribe:
             return {

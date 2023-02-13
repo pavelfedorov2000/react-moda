@@ -28,7 +28,7 @@ const DropMenu = () => {
                                 </div>
                             ))}
 
-                            <SaleItem className="drop-menu__sale" src={dropMenuSale} title="Новинки зима 2022" subtitle="Зимняя коллекция" />
+                            <SaleItem className="drop-menu__sale" imageUrl={dropMenuSale} title="Новинки зима 2022" subtitle="Зимняя коллекция" />
                         </div>
                     </div>
                 </li>

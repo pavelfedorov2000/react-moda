@@ -1,13 +1,19 @@
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { Pages } from '../enums/Page';
-import { SaleItem as Props } from '../interfaces/SaleItem';
+import { SaleItem as SaleItemType } from '../interfaces/SaleItem';
 
-const SaleItem = ({ src, title, subtitle, saleText, className, imgWidth, imgHeight }: Props) => {
+interface Props extends SaleItemType {
+    className?: string;
+    imgWidth?: number;
+    imgHeight?: number;
+}
+
+const SaleItem = ({ imageUrl, title, subtitle, saleText, className, imgWidth, imgHeight}: Props) => {
     return (
         <article className={classNames('sale-item', className)}>
             <div className="sale-item__img">
-                <img src={src} alt="фото" width={imgWidth || 336} height={imgHeight || 250} />
+                <img src={imageUrl} alt="фото" width={imgWidth || 336} height={imgHeight || 250} />
                 <span className="sale-item__discount">{saleText}</span>
             </div>
             <h3 className="sale-item__title"><Link className="full-link" to={Pages.Catalog}>{title}</Link></h3>

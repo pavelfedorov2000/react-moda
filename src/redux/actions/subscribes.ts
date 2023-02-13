@@ -20,9 +20,13 @@ export const setSubscribes = (subscribes: Subscribe[]) => ({
     payload: subscribes
 });
 
-export const changeSubscribe = (subscribe: Subscribe) => ({
+export const changeSubscribe = (text: string) => ({
     type: ActionType.ChangeSubscribe,
-    payload: subscribe
+    payload: text
+});
+
+export const submitSubscribe = () => ({
+    type: ActionType.SubmitSubscribe,
 });
 
 export const cancelSubscribe = (id?: number) => ({

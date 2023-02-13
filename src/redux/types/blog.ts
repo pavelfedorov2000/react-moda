@@ -22,6 +22,6 @@ interface FetchBlogErrorAction {
 }
 
 export type BlogAction =
-    | FetchBlogAction
+    FetchBlogAction
     | FetchBlogSuccessAction
     | FetchBlogErrorAction;

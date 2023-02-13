@@ -1,16 +1,18 @@
-/* import filters from './filters';
-import products from './products';
-import favorite from './favorite';
-import cart from './cart';
-import order from './order';
-import subscribes from './subscribes'; */
 import blogReducer from './blog';
 import subscribesReducer from './subscribes';
+import productsReducer from './products';
+import productReducer from './product';
+import filtersReducer from './filters';
+import favoriteReducer from './favorite';
 import { combineReducers } from 'redux';
 
 export const rootReducer = combineReducers({
     blogReducer,
-    subscribesReducer
+    subscribesReducer,
+    productsReducer,
+    filtersReducer,
+    favoriteReducer,
+    productReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

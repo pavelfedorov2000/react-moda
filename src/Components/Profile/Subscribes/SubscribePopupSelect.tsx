@@ -5,10 +5,11 @@ import SubscribeOption from './SubscribeOption';
 const options = ['Да', 'Нет'];
 
 interface Props {
+    text: string;
     active?: boolean;
 }
 
-const SubscribePopupSelect = ({ active }: Props) => {
+const SubscribePopupSelect = ({ text, active }: Props) => {
     const [activeSelect, setActiveSelect] = useState(false);
     const toggleSelect = () => {
         setActiveSelect((prevState) => !prevState);
@@ -28,7 +29,7 @@ const SubscribePopupSelect = ({ active }: Props) => {
             {activeSelect &&
                 <div className="select__content">
                     {options.map((option, i) => (
-                        <SubscribeOption key={option} index={i} option={option} isChecked={active} />
+                        <SubscribeOption key={option} index={i} option={option} text={text} />
                     ))}
                 </div>
             }

@@ -6,7 +6,7 @@ const SubscribePopupItem = ({ active, name }: SubscribeOption) => {
     return (
         <div className="sale-popup__form-item">
             <SubscribeCheck text={name} />
-            <SubscribePopupSelect active={active} />
+            <SubscribePopupSelect text={name} active={active} />
         </div>
     );
 }

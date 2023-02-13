@@ -1,11 +1,16 @@
 import classNames from 'classnames';
-import React from 'react';
+import { CatalogViewOption } from '../enums/CatalogView';
 
-function CatalogView({ onViewChange, catalogView }) {
+interface Props {
+    onChange: () => void;
+    view: string;
+}
+
+const CatalogView = ({ onChange, view }: Props) => {
     return (
         <div className="catalog-view">
-            <button onClick={onViewChange} type="button" className={classNames('catalog-view__btn grid-btn', {
-                'active': catalogView === 'grid'
+            <button onClick={onChange} type="button" className={classNames('catalog-view__btn grid-btn', {
+                'active': view === CatalogViewOption.GRID
             })}>
                 <svg viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="0.5" y="0.5" width="7" height="7" rx="0.5" />
@@ -18,8 +23,8 @@ function CatalogView({ onViewChange, catalogView }) {
                     <rect x="0.5" y="10.9214" width="17" height="6.57895" rx="0.5" />
                 </svg>
             </button>
-            <button onClick={onViewChange} type="button" className={classNames('catalog-view__btn col-btn', {
-                'active': catalogView === 'col'
+            <button onClick={onChange} type="button" className={classNames('catalog-view__btn col-btn', {
+                'active': view === CatalogViewOption.COL
             })}>
                 <svg viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="0.5" y="0.5" width="7" height="18" rx="0.5" />

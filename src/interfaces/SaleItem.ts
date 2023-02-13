@@ -1,9 +1,7 @@
 export interface SaleItem {
-    src?: string;
+    id?: number;
+    imageUrl?: string;
     title: string;
     subtitle: string;
     saleText?: string;
-    className?: string;
-    imgWidth?: number;
-    imgHeight?: number;
 }

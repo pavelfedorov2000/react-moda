@@ -1,12 +1,13 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { SaleItem as SaleItemType } from '../interfaces/SaleItem';
 import SaleItem from './SaleItem';
 
 const Actual = () => {
-    const [actual, setActual] = useState([]);
+    const [actual, setActual] = useState<SaleItemType[]>([]);
     useEffect(() => {
-        axios.get('/actual').then(({ data }) => {
+        axios.get<SaleItemType[]>('/actual').then(({ data }) => {
             setActual(data);
         });
     }, []);
@@ -17,11 +18,13 @@ const Actual = () => {
                 <h2 className="title">Актуально</h2>
             </div>
 
-            <div className="actual__grid">
-                {actual.map(item => (
-                    <SaleItem key={item.id} className="actual__item" src={item.imageUrl} title={item.title} subtitle={item.subtitle} saleText={item.saleText} />
+            <ul className="grid actual__grid grid--items-xl_4">
+                {actual.map((item) => (
+                    <li key={item.id}>
+                        <SaleItem {...item} />
+                    </li>
                 ))}
-            </div>
+            </ul>
         </section>
     );
 }

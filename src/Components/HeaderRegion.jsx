@@ -1,25 +1,24 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import drop from '../assets/images/icons/drop.svg';
 import classNames from 'classnames';
+import { CITIES } from '../constants/cities';
 
-const citiesList = ['Санкт-Петербург', 'Москва'];
-
-function HeaderRegion() {
+const HeaderRegion = () => {
     const [visibleSelect, setVisibleSelect] = useState(false);
 
     const citySelectRef = useRef();
 
-    const [currentCity, setCity] = useState(citiesList[0]);
+    const [currentCity, setCity] = useState(CITIES[0]);
 
-    const [cities, setCities] = useState(citiesList.reverse());
+    const [cities, setCities] = useState(CITIES.reverse());
 
     const toggleSelect = () => {
-        setVisibleSelect(!visibleSelect);
+        setVisibleSelect((prevState) => !prevState);
     }
 
     const selectCity = (e) => {
         setCity(e.target.textContent);
-        setCities(citiesList.reverse());
+        setCities(CITIES.reverse());
     }
 
     const handleOutsideClick = (event) => {

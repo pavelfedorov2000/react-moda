@@ -8,7 +8,7 @@ interface Props extends BlogItemType {
     className?: string;
     isUrlSplice?: boolean;
     otherPage?: boolean;
-    actualPage?: boolean;
+    actualPage?: string;
 }
 
 const BlogItem = ({ id, imageUrl, date, title, text, tags, className, isUrlSplice, otherPage, actualPage }: Props) => {

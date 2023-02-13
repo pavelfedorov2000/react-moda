@@ -1,4 +1,3 @@
-import React from 'react';
 import ProductColor from './ProductColor';
 
 const productColors = [{
@@ -19,7 +18,7 @@ const productColors = [{
     gradient: 'linear-gradient(140.19deg, #90011B 22.16%, rgba(144, 1, 27, 0) 91.48%);'
 }];
 
-function ProductColors() {
+const ProductColors = () => {
     return (
         <div className="product-color product-card-form__color">
             <div className="product-color__row">

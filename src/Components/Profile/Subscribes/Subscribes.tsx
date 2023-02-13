@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useActions } from '../../../hooks/useActions';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
-import { Subscribe } from '../../../interfaces/Subscribe';
 import Button from '../../Button';
 import SubscribeItem from './SubscribeItem';
 import SubscribePopup from './SubscribePopup';
@@ -9,7 +8,6 @@ import SubscribePopup from './SubscribePopup';
 const Subscribes = () => {
     const { fetchSubscribes } = useActions();
     const { subscribes, isPopupVisible } = useTypedSelector((state) => state.subscribesReducer);
-    const filteredSubscribes = subscribes.filter((subscribe) => subscribe.items?.some(item => item.active));
 
     useEffect(() => {
         fetchSubscribes();
@@ -18,9 +16,10 @@ const Subscribes = () => {
     return (
         <>
             <div className="profile-subscribes">
-                {filteredSubscribes.length !== 0 ?
+                {subscribes.length !== 0 ?
                     <ul className="profile-subscribes__list">
                         {subscribes
+                            .filter((subscribe) => subscribe.items?.some(item => item.active))
                             .map((subscribe) => (
                                 <li key={subscribe.id}>
                                     <SubscribeItem {...subscribe} />

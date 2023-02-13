@@ -1,7 +1,6 @@
-import React from 'react';
 import { PersonalData, Delivery, Payment } from './Checkouts';
 
-function Checkout({ personalData, payment, deliveryOptions, orderData }) {
+const Checkout = ({ personalData, payment, deliveryOptions, orderData }) => {
 
     return (
         <section className="checkout">

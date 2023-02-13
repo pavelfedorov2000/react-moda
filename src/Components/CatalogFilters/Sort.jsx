@@ -1,13 +1,8 @@
-import React, { useRef, useEffect, useState, useContext } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import checkIcon from '../../assets/images/icons/check.svg';
-import { CatalogFiltersContext } from '../../context';
 
-function Sort({ sortFilters }) {
-
+const Sort = ({ items }) => {
     const filterRef = useRef();
-
-    const { sortBy, onSelectSortType } = useContext(CatalogFiltersContext);
-
     const [visibleFilter, setVisibleFilter] = useState(false);
 
     const activeSort = sortFilters.find(item => item.type == sortBy.type).name;
@@ -17,11 +12,11 @@ function Sort({ sortFilters }) {
 
     const toggleRadio = (filter) => {
         onSelectSortType(filter);
-        setRadio(!radio);
+        setRadio((prevState) => !prevState);
     }
 
     const toggleFilter = () => {
-        setVisibleFilter(!visibleFilter);
+        setVisibleFilter((prevState) => !prevState);
     }
 
     const handleOutsideClick = (event) => {
@@ -47,13 +42,13 @@ function Sort({ sortFilters }) {
             {visibleFilter &&
                 <div className="catalog-filters__item-drop catalog-drop-filter">
                     <div className="catalog-drop-filter__inner">
-                        {sortFilters && sortFilters.map(filter => (
+                        {items && items.map((filter) => (
                             <label key={filter.id} className="catalog-drop-filter__item">
                                 <input onChange={() => toggleRadio(filter)} className="radio-box" type="radio" name="sort_filter" checked={sortBy.type === filter.type && sortBy.order === filter.order ? true : false} />
                                 <span className="radio-style">
                                     <span style={{ backgroundImage: `url(${checkIcon})` }}></span>
                                 </span>
-                                <span className="radio-text">{`По ${filter.name}`}</span>
+                                <span className="radio-text">{filter.text}</span>
                             </label>
                         ))}
                     </div>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { ProductLinks, ProductCardContent, SliderSection, CatalogCardPopup, SliderArrows, Crumbs, ProductCardInfo } from '../Components';
+import { ProductLinks, ProductCardContent, SliderSection, SliderArrows, Crumbs, ProductCardInfo, ProductPopup } from '../Components';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
@@ -9,18 +9,15 @@ import { useEffect } from 'react';
 import { Sections } from '../enums/Section';
 import { splideOptions } from '../constants/splide';
 
-const sliderOptions = {
-    ...splideOptions,
-    type: 'loop',
-};
-
 const asideSections = [{
     name: 'recommended',
     title: Sections.Recommend.title
 }, {
     name: 'similar',
     title: Sections.SimilarGoods.title
-}];
+    }];
+
+const YOU_TUBE_LINK = 'https://www.youtube.com/watch?v=L1e8YEozOD8';
 
 const ProductCard = () => {
     const { id } = useParams();
@@ -40,12 +37,6 @@ const ProductCard = () => {
         setActiveTab(i);
     }
 
-    const [visibleCatalogCardPopup, setVisibleCatalogCardPopup] = useState(null);
-
-    const closeCatalogCardPopup = () => {
-        setVisibleCatalogCardPopup(null);
-    }
-
     return (
         <>
             {activeProduct &&
@@ -56,14 +47,17 @@ const ProductCard = () => {
                         <div className="product-card__inner">
                             <ProductCardContent {...activeProduct} />
 
-                            <Splide className="product-card__slider" hasTrack={false} options={sliderOptions}>
+                            <Splide className="product-card__slider" hasTrack={false} options={{
+                                ...splideOptions,
+                                type: 'loop',
+                            }}>
                                 <SliderArrows round={true} />
                                 <SplideTrack>
                                     {Array(4).fill(0).map((_, index) => (
                                         <SplideSlide key={index}>
-                                            <a data-fancybox="gallery" className="product-card__slider-item" href={index % 2 != 0 ? 'https://www.youtube.com/watch?v=L1e8YEozOD8' : activeProduct.imageUrl}>
+                                            <a data-fancybox="gallery" className="product-card__slider-item" href={index % 2 !== 0 ? YOU_TUBE_LINK : activeProduct.imageUrl}>
                                                 <img src={activeProduct.imageUrl} alt="фото" />
-                                                {index % 2 != 0 && <div className="player-btn"></div>}
+                                                {index % 2 !== 0 && <div className="player-btn"></div>}
                                             </a>
                                         </SplideSlide>
                                     ))}
@@ -79,16 +73,16 @@ const ProductCard = () => {
                     </main>
 
                     <aside className="product-card__page">
-                        {asideSections.map(section => (
+                        {asideSections.map((section) => (
                             <section key={section.id}>
                                 <SliderSection id={id} items={products} {...activeProduct} title={section.title} />
                             </section>
                         ))}
                     </aside>
 
-                    {visibleCatalogCardPopup !== null &&
+                    {activeProduct &&
                         <div className="overlay active">
-                            <CatalogCardPopup products={products} visibleCatalogCardPopup={visibleCatalogCardPopup} closeCatalogCardPopup={closeCatalogCardPopup} />
+                            <ProductPopup {...activeProduct} />
                         </div>
                     }
                 </div>
