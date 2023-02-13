@@ -1,54 +1,51 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { CartIcon, FavoriteIcon, UserIcon } from './icons';
 import search from '../../assets/images/icons/search.svg';
 import { Link } from 'react-router-dom';
+import { Pages, SubPages } from '../../enums/Page';
 
 const headerActions = [{
-    href: '/orders',
-    icon: '<UserIcon />',
+    href: SubPages.Orders,
+    icon: UserIcon,
     text: 'Профиль'
 }, {
-    href: '/favorite',
-    icon: '<UserIcon />',
+    href: Pages.Favorite,
+    icon: FavoriteIcon,
     text: 'Избранное'
 }, {
-    icon: '<CartIcon />',
+    icon: CartIcon,
     text: 'Корзина'
 }];
 
+const profile = headerActions[0];
+
 const HeaderActions = ({ onClick, onClickSearch }) => {
-    const { totalCount } = useSelector(({ cart }) => cart);
-    const { products } = useSelector(({ favorite }) => favorite);
+    //const { totalCount } = useSelector(({ cart }) => cart);
+    //const { products } = useSelector(({ favorite }) => favorite);
+
+    const totalCount = 1;
+    const products = 2;
 
     return (
         <div className="header__actions">
             <button onClick={onClickSearch} className="header__search-btn" type="button" style={{ backgroundImage: `url(${search})` }}></button>
             <Link to="/orders" className="action-header">
-                <UserIcon />
-                <span>Профиль</span>
+                {<profile.icon />}
+                <span>{profile.text}</span>
             </Link>
 
             <Link to="/favorite" className="action-header">
                 <FavoriteIcon />
                 <span>
                     Избранное
-                    {products.length !== 0 ?
-                        <span>({products.length})</span>
-                        :
-                        null
-                    }
+                    {products.length !== 0 && <span>({products.length})</span>}
                 </span>
             </Link>
 
             <button onClick={onClick} className="action-header" type="button">
                 <CartIcon />
                 <span>Корзина
-                    {totalCount !== 0 ?
-                        <span>({totalCount})</span>
-                        :
-                        null
-                    }
+                    {totalCount !== 0 && <span>({totalCount})</span>}
                 </span>
             </button>
         </div>

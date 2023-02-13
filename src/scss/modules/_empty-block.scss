@@ -1,0 +1,35 @@
+.empty-block {
+    display: grid;
+    place-items: center;
+    gap: 3rem;
+    text-align: center;
+
+    @media (max-width: 767px) {
+        gap: 2rem;
+    }
+
+    // .empty-page__img
+
+    &__img {
+        width: 10rem;
+        height: 10rem;
+
+        @media (max-width: 767px) {
+            width: 7rem;
+            height: 7rem;
+        }
+    }
+
+    // .empty-page__text
+
+    &__text {
+        @extend %text-25;
+        font-weight: 500;
+        color: var(--gray-c0);
+
+        @media (max-width: 767px) {
+            font-size: 2rem;
+            line-height: 3rem;
+        }
+    }
+}

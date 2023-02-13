@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import coat from '../assets/images/icons/coat-hanger.svg';
 import woman from '../assets/images/content/brands/woman.png';
 import man from '../assets/images/content/brands/man.png';
@@ -23,7 +23,7 @@ const categories = [{
     imageUrl: children
 }];
 
-function Brands({ title }) {
+const Brands = ({ title }) => {
     const [alphabet, setAlphabet] = useState([]);
     useEffect(() => {
         axios.get('/alphabet').then(({ data }) => {
@@ -48,7 +48,9 @@ function Brands({ title }) {
             <div className="container">
                 <Crumbs title={title} />
 
-                <h1 className="title page__title">{title}</h1>
+                <div className="page__top">
+                    <h1 className="title">{title}</h1>
+                </div>
 
                 <div className="brands-page__body">
                     <div className="brands-categories">

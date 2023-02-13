@@ -7,10 +7,7 @@
 
     &__top {
         @extend %flex-row-center;
-
-        &:not(:last-child) {
-            margin-bottom: 3rem;
-        }
+        margin-bottom: 3rem;
     }
 }
 

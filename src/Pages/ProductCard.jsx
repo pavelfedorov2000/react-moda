@@ -1,34 +1,28 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ProductLinks, ProductCardContent, SliderSection, CatalogCardPopup, SliderArrows, Crumbs, ProductCardInfo } from '../Components';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
 import "@fancyapps/ui/dist/fancybox.css";
 import { useEffect } from 'react';
+import { Sections } from '../enums/Section';
+import { splideOptions } from '../constants/splide';
 
-
-const splideOptions = {
+const sliderOptions = {
+    ...splideOptions,
     type: 'loop',
-    speed: 1000,
-    gap: `${getComputedStyle(document.documentElement).getPropertyValue('--gap')}`,
-    perPage: 2,
-    perMove: 1,
-    breakpoints: {
-        1024: { gap: '3rem' },
-        767: { perPage: 1, gap: '2rem' },
-    },
 };
 
 const asideSections = [{
-    id: 0,
-    title: 'С этим товаром рекомендуем'
+    name: 'recommended',
+    title: Sections.Recommend.title
 }, {
-    id: 1,
-    title: 'Похожие товары'
+    name: 'similar',
+    title: Sections.SimilarGoods.title
 }];
 
-function ProductCard() {
+const ProductCard = () => {
     const { id } = useParams();
 
     const [products, setProducts] = useState([]);
@@ -39,7 +33,7 @@ function ProductCard() {
         });
     }, []);
 
-    let activeProduct = products.find(product => product.id == id);
+    const activeProduct = products.find(product => product.id === id);
 
     const [activeTab, setActiveTab] = useState(0);
     const onClickTab = (i) => {
@@ -62,7 +56,7 @@ function ProductCard() {
                         <div className="product-card__inner">
                             <ProductCardContent {...activeProduct} />
 
-                            <Splide className="product-card__slider" hasTrack={false} options={splideOptions}>
+                            <Splide className="product-card__slider" hasTrack={false} options={sliderOptions}>
                                 <SliderArrows round={true} />
                                 <SplideTrack>
                                     {Array(4).fill(0).map((_, index) => (
@@ -87,7 +81,7 @@ function ProductCard() {
                     <aside className="product-card__page">
                         {asideSections.map(section => (
                             <section key={section.id}>
-                                <SliderSection id={id} products={products} {...activeProduct} title={section.title} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} />
+                                <SliderSection id={id} items={products} {...activeProduct} title={section.title} />
                             </section>
                         ))}
                     </aside>

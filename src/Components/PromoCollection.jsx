@@ -1,13 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import collectionImg from '../assets/images/content/collection.jpg';
+import collectionPicture from '../assets/images/content/collection.jpg';
 import AllLink from './AllLink';
 
 const PromoCollection = () => {
     return (
         <article className="promo-collection">
             <div className="promo-collection__img">
-                <img src={collectionImg} alt="жилетка" width="724" height="350" />
+                <img src={collectionPicture} alt="жилетка" width="724" height="350" />
             </div>
 
             <div className="promo-collection__suptitle">Ретро стиль в современной одежде</div>

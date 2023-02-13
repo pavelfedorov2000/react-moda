@@ -1,0 +1,23 @@
+.date,
+.blog-item-text,
+.tag {
+    color: var(--gray);
+}
+
+.tag {
+    @media (any-hover: hover) {
+        &:hover {
+            color: #000;
+        }
+    }
+}
+
+.date {
+    display: block;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}

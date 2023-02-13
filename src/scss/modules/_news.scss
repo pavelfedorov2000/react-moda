@@ -15,11 +15,7 @@
 
 .other-news {
     &__top {
-        @extend %flex-row-center;
-
-        &:not(:last-child) {
-            margin-bottom: 4rem;
-        }
+        margin-bottom: 4rem;
     }
 
     .blog-item__img {

@@ -15,13 +15,11 @@
         padding-bottom: 3rem;
     }
 
-    &__title {
-        &:not(:last-child) {
-            margin-bottom: 4rem;
+    &__top {
+        margin-bottom: 4rem;
 
-            @media (max-width: 500px) {
-                margin-bottom: 2rem;
-            }
+        @media (max-width: 500px) {
+            margin-bottom: 2rem;
         }
     }
 
@@ -50,41 +48,5 @@
 
     &__seo-text {
         max-width: 111.2rem;
-    }
-}
-
-.empty-page {
-    display: grid;
-    place-items: center;
-    gap: 3rem;
-    text-align: center;
-
-    @media (max-width: 767px) {
-        gap: 2rem;
-    }
-
-    // .empty-page__img
-
-    &__img {
-        width: 10rem;
-        height: 10rem;
-
-        @media (max-width: 767px) {
-            width: 7rem;
-            height: 7rem;
-        }
-    }
-
-    // .empty-page__text
-
-    &__text {
-        @extend %text-25;
-        font-weight: 500;
-        color: var(--gray-c0);
-
-        @media (max-width: 767px) {
-            font-size: 2rem;
-            line-height: 3rem;
-        }
     }
 }

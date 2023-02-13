@@ -15,7 +15,7 @@ export { default as Blog } from './Blog';
 export { default as BlogDetail } from './BlogDetail';
 
 export { default as News } from './News';
-export { default as NewsDetail } from './NewsDetail';
+export { default as DetailNews } from './DetailNews';
 
 // Other
 export { default as Brands } from './Brands';

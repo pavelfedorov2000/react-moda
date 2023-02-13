@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BasketTable, BasketTotal, Checkout, Crumbs } from '../Components';
 import Sticky from "wil-react-sticky";
@@ -12,9 +12,9 @@ const payment = {
 
 const deliveryOptions = ['Курьер', 'Доставка в пункты выдачи заказов и постаматы'];
 
-function Cart({ title }) {
+const Cart = ({ title }) => {
     const dispatch = useDispatch();
-    const { totalPrice, totalDiscount, totalCount, items } = useSelector(({ cart }) => cart); // вытаскиваем общую цену, скидку и кол-во, а также товары из стора сразу через деструктуризацию
+    const { totalPrice, totalDiscount, totalCount, items } = useSelector(({ cart }) => cart);
 
     const [selectedDelivery, setSelectedDelivery] = useState(null);
     const [selectedPayment, setSelectedPayment] = useState(null);
@@ -55,7 +55,9 @@ function Cart({ title }) {
             <div className="container">
                 <Crumbs title={title} />
 
-                <h1 className="title page__title">{title}</h1>
+                <div className="page__top">
+                    <h1 className="title">{title}</h1>
+                </div>
 
                 <form action="#">
                     <div className="basket-page__body">

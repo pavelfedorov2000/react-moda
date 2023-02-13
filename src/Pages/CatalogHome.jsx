@@ -1,17 +1,11 @@
-import React, { useContext } from 'react';
 import { CatalogHomeCard } from '../Components';
-import { AppContext } from '../context';
 
 function CatalogHome() {
-    const { categories } = useContext(AppContext);
-
     return (
         <main className="page catalog-home">
             <div className="container">
                 <div className="catalog-home__grid">
-                    {categories.map((category, i) => (
-                        <CatalogHomeCard key={category.href} {...category} index={i} />
-                    ))}
+
                 </div>
             </div>
         </main>
@@ -19,3 +13,9 @@ function CatalogHome() {
 }
 
 export default CatalogHome;
+
+/* {
+    categories.map((category, i) => (
+        <CatalogHomeCard key={category.href} {...category} index={i} />
+    ))
+} */

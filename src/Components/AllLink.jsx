@@ -1,10 +1,9 @@
 import classNames from 'classnames';
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 const AllLink = ({ url, className, text }) => {
     return (
-        <Link to={`/${url}`} className={classNames('all-link', className)}>
+        <Link to={url} className={classNames('all-link', className)}>
             <span>{text}</span>
             <svg viewBox="0 0 56 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" clipRule="evenodd"

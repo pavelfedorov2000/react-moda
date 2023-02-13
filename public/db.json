@@ -1,5 +1,4 @@
 {
-    "sizes": [42, 44, 46, 48, 50, 52],
     "categories": [{
         "href": "zhenshchinam",
         "text": "Женщинам",
@@ -32,43 +31,33 @@
         "imageUrl": "https://i.ibb.co/7JPMLKt/03.jpg"
     }],
     "iconsSlider": [{
-        "id": 0,
         "imageUrl": "https://i.ibb.co/DrdQ1V8/01.png",
         "title": "Пуховики"
     }, {
-        "id": 1,
         "imageUrl": "https://i.ibb.co/rkGyf40/02.png",
         "title": "Джемперы"
     }, {
-        "id": 2,
         "imageUrl": "https://i.ibb.co/VQ23Rwf/03.png",
         "title": "Платья"
     }, {
-        "id": 3,
         "imageUrl": "https://i.ibb.co/bb1NRqV/04.png",
         "title": "Джинсы"
     }, {
-        "id": 4,
         "imageUrl": "https://i.ibb.co/RNDpHF6/05.png",
         "title": "Худи"
     }, {
-        "id": 5,
         "imageUrl": "https://i.ibb.co/KxgqBFD/06.png",
         "title": "Сумки"
     }, {
-        "id": 6,
         "imageUrl": "https://i.ibb.co/RNwJNBn/07.png",
         "title": "Перчатки"
     }, {
-        "id": 7,
         "imageUrl": "https://i.ibb.co/gwHfcMw/08.png",
         "title": "Головные уборы"
     }, {
-        "id": 8,
         "imageUrl": "https://i.ibb.co/DrdQ1V8/01.png",
         "title": "Пуховики"
     }, {
-        "id": 9,
         "imageUrl": "https://i.ibb.co/rkGyf40/02.png",
         "title": "Джемперы"
     }],
@@ -123,22 +112,16 @@
         "height": "78"
     }],
     "instagram": [{
-        "id": 0,
         "imageUrl": "https://i.ibb.co/xF2wB5Q/01.jpg"
     }, {
-        "id": 1,
         "imageUrl": "https://i.ibb.co/VYgjyd3/02.jpg"
     }, {
-        "id": 2,
         "imageUrl": "https://i.ibb.co/vHBcrrx/03.jpg"
     }, {
-        "id": 3,
         "imageUrl": "https://i.ibb.co/DkkFPyW/04.jpg"
     }, {
-        "id": 4,
         "imageUrl": "https://i.ibb.co/xF2wB5Q/01.jpg"
     }, {
-        "id": 5,
         "imageUrl": "https://i.ibb.co/VYgjyd3/02.jpg"
     }],
     "products": [{
@@ -755,26 +738,35 @@
         }
     }],
     "subscribes": [{
-        "id": "0",
+        "id": 0,
         "title": "Распродажи и акции для женщин и мужчин",
-        "items": {
-            "e-mail": true,
-            "sms": true
-        }
+        "items": [{
+            "name": "e-mail",
+            "active": true
+        }, {
+            "name": "sms",
+            "active": true
+        }]
     }, {
-        "id": "1",
+        "id": 1,
         "title": "Новинка месяца",
-        "items": {
-            "e-mail": false,
-            "sms": true
-        }
+        "items": [{
+            "name": "e-mail",
+            "active": false
+        }, {
+            "name": "sms",
+            "active": true
+        }]
     }, {
-        "id": "2",
+        "id": 2,
         "title": "Детские новые коллекции",
-        "items": {
-            "e-mail": true,
-            "sms": false
-        }
+        "items": [{
+            "name": "e-mail",
+            "active": true
+        }, {
+            "name": "sms",
+            "active": false
+        }]
     }],
     "blog": [{
         "id": 0,

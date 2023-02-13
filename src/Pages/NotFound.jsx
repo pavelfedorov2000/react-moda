@@ -1,9 +1,9 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import { Pages } from '../enums/Page';
 
 const crumbs = ['Перейти на главную', 'Женщинам', 'Детям', 'Мужчинам', 'Аксессуары'];
 
-function NotFound({ title }) {
+const NotFound = ({ title }) => {
     return (
         <main className="page not-found-page">
             <div className="container">
@@ -15,8 +15,8 @@ function NotFound({ title }) {
                     <nav className="breadcrumbs" aria-label="breadcrumbs">
                         <ul className="breadcrumbs__list">
                             {crumbs.map((crumb, i) => (
-                                <li className="breadcrumbs__item">
-                                    <Link key={crumb.toString()} to={`/${i === 0 ? 'home' : 'catalog'}`} className="breadcrumbs__link">{crumb}</Link>
+                                <li key={crumb.toString()} className="breadcrumbs__item">
+                                    <Link to={i === 0 ? Pages.Home : Pages.Catalog} className="breadcrumbs__link">{crumb}</Link>
                                 </li>
                             ))}
                         </ul>

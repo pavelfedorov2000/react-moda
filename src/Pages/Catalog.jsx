@@ -1,6 +1,6 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Collection, AsideFilters, CatalogFilters, CatalogView, CatalogCard, SeoText, Loader, CatalogCardPopup, Crumbs, FiltersBtn } from '../Components';
+import { PromoCollection, AsideFilters, CatalogFilters, CatalogView, CatalogCard, SeoText, Loader, CatalogCardPopup, Crumbs, FiltersButton } from '../Components';
 import classNames from 'classnames';
 import { setSortBy, setSortPrices, resetSortPrices, setSortColors, setSortSizes, setSortBrands, setSortStyles, resetSortColors, resetSortBrands, resetSortStyles, resetSortSizes, resetFilters } from '../redux/actions/filters';
 import { fetchProducts } from '../redux/actions/products';
@@ -8,27 +8,22 @@ import { CatalogFiltersContext } from '../context';
 import { useEffect } from 'react';
 
 const sortFilters = [{
-    id: 0,
     name: 'возрастанию цены',
     type: 'price',
     order: 'asc'
 }, {
-    id: 1,
     name: 'убыванию цены',
     type: 'price',
     order: 'desc'
 }, {
-    id: 2,
     name: 'популярности',
     type: 'popular',
     order: 'desc'
 }, {
-    id: 3,
     name: 'новинкам',
     type: 'newProduct',
     order: 'desc'
 }, {
-    id: 4,
     name: 'скидкам',
     type: 'discount',
     order: 'desc'
@@ -36,7 +31,7 @@ const sortFilters = [{
 
 const views = ['grid', 'col'];
 
-function Catalog({ title }) {
+const Catalog = ({ title }) => {
     const dispatch = useDispatch();
     const products = useSelector(({ products }) => products.products);
     const isLoaded = useSelector(({ products }) => products.isLoaded);
@@ -122,10 +117,12 @@ function Catalog({ title }) {
                 <div className="container">
                     <Crumbs title={title} />
 
-                    <Collection />
+                    <PromoCollection />
 
                     <div className="catalog__page">
-                        <h1 className="title page__title catalog__title">{title}</h1>
+                        <div className="page__top">
+                            <h1 className="title">{title}</h1>
+                        </div>
 
                         <div className="catalog__inner">
                             <AsideFilters />
@@ -157,7 +154,7 @@ function Catalog({ title }) {
                                     </CatalogFiltersContext.Provider>
 
                                     <CatalogView onViewChange={toggleCatalogView} views={views} catalogView={catalogView} />
-                                    <FiltersBtn onClick={onOpenFilters} isExpanded={visibleFilters} />
+                                    <FiltersButton onClick={onOpenFilters} isExpanded={visibleFilters} />
                                 </div>
 
                                 {isLoaded
@@ -167,7 +164,7 @@ function Catalog({ title }) {
                                         {
                                             products.map(product => (
                                                 <li key={product.id}>
-                                                    <CatalogCard {...product} isLoaded={true} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} />
+                                                    <CatalogCard {...product} isLoaded={true} />
                                                 </li>
                                             ))
                                         }

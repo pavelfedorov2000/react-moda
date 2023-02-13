@@ -1,4 +1,6 @@
 .all-link {
+    $this: &;
+
     @extend %vertical-align;
     @extend %text-16;
     color: var(--gray);
@@ -9,11 +11,12 @@
         line-height: 1.8rem;
     }
 
-    svg {
+    &__arrow {
         flex-shrink: 0;
         margin-left: 1.6rem;
         width: 5.6rem;
         height: 1.6rem;
+        fill: var(--gray-c0);
         transition: $transition fill;
 
         @media (max-width: 500px) {
@@ -26,7 +29,7 @@
         &:hover {
             color: var(--dark);
 
-            svg {
+            #{$this}__arrow {
                 fill: var(--dark);
             }
         }

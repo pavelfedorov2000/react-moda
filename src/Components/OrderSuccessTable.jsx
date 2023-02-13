@@ -1,8 +1,7 @@
 import classNames from 'classnames';
-import React from 'react';
 import { Link } from 'react-router-dom';
 
-function OrderSuccessTable({ totalPrice, date, personal, delivery, payment, className }) {
+const OrderSuccessTable = ({ totalPrice, date, personal, delivery, payment, className }) => {
     const { name, surname, phone, email, city } = personal;
 
     // Захардкоженая логика отрезания слова "Оплата", если выбран пункт "Оплата при получении" (чтобы не было дубляжа с заголовком) - чисто для практики

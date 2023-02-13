@@ -1,0 +1,1 @@
+export const phone = '8 800 250 30 05';

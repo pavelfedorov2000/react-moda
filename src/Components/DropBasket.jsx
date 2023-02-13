@@ -1,10 +1,9 @@
 import classNames from 'classnames';
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { DropBasketProduct } from '.';
 
-function DropBasket({ visibleAsideBasket, onCloseAsideBasket }) {
+const DropBasket = ({ visibleAsideBasket, onCloseAsideBasket }) => {
     const { totalPrice, totalCount, items } = useSelector(({ cart }) => cart);
 
     const addedProducts = Object.keys(items).map(key => {

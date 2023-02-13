@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { Header, Footer, Auth, DropBasket, BurgerMenu } from './Components';
 import axios from 'axios';
 import { AppContext } from './context';
@@ -9,45 +9,7 @@ import { removeFavoriteProduct } from './redux/actions/favorite';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
-const dropMenuCategories = [{
-    id: 0,
-    title: "Одежда",
-    path: "catalog"
-}, {
-    id: 1,
-    title: "Обувь",
-    path: "catalog"
-}, {
-    id: 2,
-    title: "Аксессуары",
-    path: "catalog"
-}, {
-    id: 3,
-    title: "Бренды",
-    path: "brands"
-}, {
-    id: 4,
-    title: "Новинки",
-    path: "catalog"
-}];
-
-const links = [{
-    id: 0,
-    title: "Распродажа",
-    path: "catalog"
-}, {
-    id: 1,
-    title: "Блог",
-    path: "blog"
-}, {
-    id: 2,
-    title: "Новости",
-    path: "news"
-}];
-
-const phone = '8 800 250 30 05';
-
-function App() {
+const App = () => {
     const [visibleAsideBasket, setVisibleAsideBasket] = useState(false);
     const openAsideBasket = () => {
         setVisibleAsideBasket(!visibleAsideBasket);
@@ -74,27 +36,6 @@ function App() {
         setVisibleBurgerMenu(false);
     }
 
-    const [categories, setCategories] = useState([]);
-    useEffect(() => {
-        axios.get('/categories').then(({ data }) => {
-            setCategories(data);
-        });
-    }, []);
-
-    const [blog, setBlog] = useState([]);
-    useEffect(() => {
-        axios.get('/blog').then(({ data }) => {
-            setBlog(data);
-        });
-    }, []);
-
-    const [discounts, setDiscounts] = useState([]);
-    useEffect(() => {
-        axios.get('/discounts').then(({ data }) => {
-            setDiscounts(data);
-        });
-    }, []);
-
     const [sizesList, setSizesList] = useState([]);
     useEffect(() => {
         axios.get('/sizes').then(({ data }) => {
@@ -110,7 +51,6 @@ function App() {
 
     const dispatch = useDispatch();
 
-    // Экшн на добавление в избранное
     const onClickAddFavorite = useCallback((obj) => {
         dispatch({
             type: 'ADD_FAVORITE_PRODUCT',
@@ -141,12 +81,8 @@ function App() {
 
     return (
         <AppContext.Provider value={{
-            phone,
             activeCategory,
             onChangeCategory,
-            categories,
-            blog,
-            discounts,
             sizesList,
             onAddCart,
             onClickAddFavorite,
@@ -158,15 +94,15 @@ function App() {
             <div className={classNames('wrapper', {
                 '_lock': visibleBurgerMenu
             })}>
-                <Header onOpenBurgerMenu={openBurgerMenu} categories={categories} onAsideBasketOpener={openAsideBasket} onAsideAuthOpener={openAsideAuth} dropMenuCategories={dropMenuCategories} links={links} handleOpenBurger={openBurgerMenu} visibleBurgerMenu={visibleBurgerMenu} />
-                <BurgerMenu visibleBurgerMenu={visibleBurgerMenu} onCloseBurgerMenu={closeBurgerMenu} categories={categories} dropMenuCategories={dropMenuCategories} links={links} />
+                <Header onOpenAsideBasket={openAsideBasket} onOpenBurger={openBurgerMenu} visibleBurgerMenu={visibleBurgerMenu} />
+                <BurgerMenu isVisible={visibleBurgerMenu} onClose={closeBurgerMenu} />
                 <AppRouter />
                 <Footer />
                 <div className={classNames('overlay', {
                     'active': visibleAsideBasket || visibleAsideAuth
                 })}>
-                    <Auth onCloseAsideAuth={closeAsideAuth} visibleAsideAuth={visibleAsideAuth} />
-                    <DropBasket onCloseAsideBasket={closeAsideBasket} visibleAsideBasket={visibleAsideBasket} />
+
+
                 </div>
             </div>
         </AppContext.Provider>
@@ -174,3 +110,6 @@ function App() {
 }
 
 export default App;
+
+//<Auth onCloseAsideAuth={closeAsideAuth} visibleAsideAuth={visibleAsideAuth} />
+//<DropBasket onCloseAsideBasket={closeAsideBasket} visibleAsideBasket={visibleAsideBasket} />

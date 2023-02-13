@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
-import { Collection, Brands, Actual, PromoSale, IconsSlider, SliderSection, Instagram, SeoText, CatalogCardPopup, BlogSection } from '../Components';
+import { PromoCollection, Brands, Actual, PromoSale, IconsSlider, SliderSection, Instagram, SeoText, CatalogCardPopup, BlogSection } from '../Components';
 import { CatalogCardPopupContext } from '../context';
 import { useEffect } from 'react';
+import { Sections } from '../enums/Section';
 
-function Home() {
+const Home = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -23,28 +24,28 @@ function Home() {
         <CatalogCardPopupContext.Provider value={{
             setVisibleCatalogCardPopup
         }}>
-            <main className="page home-page">
-                <PromoSale />
+            <main className="page page--padding-bottom_xs">
+                <div className="container">
+                    <PromoSale />
 
-                <IconsSlider />
+                    <IconsSlider />
 
-                <SliderSection products={products} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} title="Популярные товары" />
+                    <SliderSection items={products} title={Sections.Popular.title} />
 
-                <Actual />
+                    <Actual />
 
-                <Brands />
+                    <Brands />
 
-                <SliderSection products={products} setVisibleCatalogCardPopup={setVisibleCatalogCardPopup} title="Новинки" />
+                    <SliderSection items={products} title={Sections.New.title} />
 
-                <section className="section">
-                    <div className="container">
-                        <Collection />
-                    </div>
-                </section>
+                    <section className="section">
+                        <PromoCollection />
+                    </section>
 
-                <BlogSection />
+                    <BlogSection />
 
-                <Instagram />
+                    <Instagram {...Sections.Instagram} />
+                </div>
             </main>
 
             <div className="container">
