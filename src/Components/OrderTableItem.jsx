@@ -1,8 +1,7 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Time from './Time';
 
-function OrderTableItem({ totalPrice, index, date, delivery, items }) {
+const OrderTableItem = ({ totalPrice, index, date, delivery, items }) => {
     return (
         <div className="order-item order-table__item">
             <header className="order-item__header">

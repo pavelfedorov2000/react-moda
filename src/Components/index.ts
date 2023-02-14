@@ -6,6 +6,7 @@ export { default as Crumbs } from './Layout/Crumbs';
 export { default as Pagination } from './Pagination';
 //export { default as Grid } from './Layout/Grid';
 
+export { default as Banner } from './Banner';
 export { default as Button } from './Button';
 export { default as BurgerMenu } from './Burger/BurgerMenu';
 export { default as BurgerBtn } from './Burger/BurgerBtn';
@@ -96,3 +97,10 @@ export { default as Discounts } from './Profile/Discounts';
 export { default as DiscountsProgress } from './Discounts/DiscountsProgress';
 export { default as DiscountAdd } from './Discounts/DiscountAdd';
 export { default as PersonalDiscount } from './Discounts/PersonalDiscount';
+
+
+export { default as BrandsCategories } from './Brands/BrandsCategories';
+export { default as BrandCategory } from './Brands/BrandCategory';
+export { default as BrandsIndexList } from './Brands/BrandsIndexList';
+export { default as BrandsAlphabet } from './Brands/BrandsAlphabet';
+export { default as CancelBrandLetter } from './Brands/CancelBrandLetter';

@@ -1,8 +1,7 @@
-import React from 'react';
 import delivery from '../assets/images/icons/delivery-issue.svg';
 import truck from '../assets/images/icons/truck.svg';
 
-function ProductCardDelivery() {
+const ProductCardDelivery = () => {
     return (
         <section className="product-card__section product-card-delivery">
             <h4 className="product-card__section-title">Доставка</h4>

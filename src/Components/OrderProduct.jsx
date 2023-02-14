@@ -1,6 +1,4 @@
-import React from 'react';
-
-function OrderProduct({ articul, name, brand, size, imageUrl, color, totalCount }) {
+const OrderProduct = ({ articul, name, brand, size, imageUrl, color, totalCount }) => {
     return (
         <div className="order-product">
             <div className="order-product__img">

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Pages } from '../enums/Page';
 
 const footerMenu = [{
     name: 'catalog',
@@ -106,10 +107,10 @@ const footerMenu = [{
     }]
 }];
 
-function FooterMenu() {
+const FooterMenu = () => {
     return (
         <div className="footer__cols">
-            {footerMenu.map((col, i) => (
+            {footerMenu.map((col, index) => (
                 <div key={col.name} className="footer__col">
                     <div className="footer__col-title">{col.title.text}</div>
 
@@ -121,7 +122,7 @@ function FooterMenu() {
                         ))}
                     </ul>
 
-                    {i === footerMenu.length - 1 ? <Link to="/news" className="footer__col-title">Новости и акции</Link> : null}
+                    {index === footerMenu.length - 1 ? <Link to={Pages.News.path} className="footer__col-title">Новости и акции</Link> : null}
                 </div>
             ))}
         </div>

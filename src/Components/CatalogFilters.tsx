@@ -15,7 +15,7 @@ import CatalogFilter from './CatalogFilter';
 
 const CatalogFilters = () => {
     const { isVisible } = useTypedSelector((state) => state.filtersReducer);
-    const { resetFilters, closeFilters } = useActions();
+    const { resetFilters, closeFilters, setSortColors, setSortSizes, setSortBrands, setSortStyles, resetSortBrands, resetSortColors, resetSortPrices, resetSortSizes, resetSortStyles } = useActions();
 
     const [activeFilter, setActiveFilter] = useState(FILTERS_TITLE);
     /* const onCloseFilter = () => {
@@ -45,8 +45,7 @@ const CatalogFilters = () => {
                     <button className="catalog-filters__back-btn" type="button" aria-label="Назад">
                         <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" clipRule="evenodd"
-                                d="M12.8572 14.1072L8.57146 9.28578L12.8572 4.46436L11.4286 2.85721L5.71432 9.28578L11.4286 15.7144L12.8572 14.1072Z"
-                                fill="#505661" />
+                                d="M12.8572 14.1072L8.57146 9.28578L12.8572 4.46436L11.4286 2.85721L5.71432 9.28578L11.4286 15.7144L12.8572 14.1072Z" />
                         </svg>
                     </button>
                 }
@@ -62,8 +61,10 @@ const CatalogFilters = () => {
             </div>
 
             <div className="catalog-filters__row">
-                
-                
+                <CatalogFilter name={Filter.Brand} {...FILTERS.brand} onSelect={setSortBrands} onReset={resetSortBrands} />
+                <CatalogFilter name={Filter.Size} {...FILTERS.size} onSelect={setSortSizes} onReset={resetSortSizes} />
+                <CatalogFilter name={Filter.Style} {...FILTERS.style} onSelect={setSortStyles} onReset={resetSortStyles} />
+                <CatalogFilter name={Filter.Color} {...FILTERS.color} onSelect={setSortColors} onReset={resetSortColors} />
             </div>
 
             <button onClick={handleResetFilters} className="catalog-filters__reset-btn" type="reset">

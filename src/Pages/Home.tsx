@@ -1,10 +1,20 @@
+import { useEffect } from 'react';
 import { PromoCollection, Brands, Actual, PromoSale, IconsSlider, SliderSection, Instagram, SeoText, BlogSection, ProductPopup } from '../Components';
 import { Sections } from '../enums/Section';
+import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const Home = () => {
     const { products } = useTypedSelector((state) => state.productsReducer);
-    const { activeProduct } = useTypedSelector((state) => state.productReducer);
+    const { popupProduct } = useTypedSelector((state) => state.productReducer);
+    const { items } = useTypedSelector((state) => state.blogReducer);
+
+    const { fetchProducts, fetchBlog} = useActions();
+
+    useEffect(() => {
+        fetchProducts();
+        fetchBlog();
+    }, []);
 
     return (
         <>
@@ -20,25 +30,23 @@ const Home = () => {
 
                     <Brands />
 
-                    <SliderSection items={products} title={Sections.New.title} />
+                    <SliderSection items={products.filter((product) => product.newProduct)} title={Sections.New.title} />
 
                     <section className="section">
                         <PromoCollection />
                     </section>
 
-                    <BlogSection />
+                    <BlogSection items={[...items].slice(0, 3)} />
 
                     <Instagram {...Sections.Instagram} />
+
+                    <SeoText />
                 </div>
             </main>
 
-            <div className="container">
-                <SeoText className="home-page__seo-text section" />
-            </div>
-
-            {activeProduct &&
+            {popupProduct &&
                 <div className="overlay active">
-                    <ProductPopup {...activeProduct} />
+                    <ProductPopup {...popupProduct} />
                 </div>
             }
         </>

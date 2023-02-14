@@ -1,7 +1,6 @@
 import { PersonalData, Delivery, Payment } from './Checkouts';
 
 const Checkout = ({ personalData, payment, deliveryOptions, orderData }) => {
-
     return (
         <section className="checkout">
             <h2 className="title checkout__title">Оформление заказа</h2>

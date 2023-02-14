@@ -7,7 +7,7 @@ interface Props {
     toggleTitle: string;
     title?: string;
     items: any[];
-    onSelect: (items: string[]) => void;
+    onSelect: (items: any[]) => void;
     onReset: () => void;
 }
 
@@ -43,9 +43,9 @@ const CatalogFilter = ({ name, toggleTitle, title, items, onSelect, onReset }: P
 
     return (
         <fieldset className={`catalog-filters__item catalog-filter catalog-filters__item--${name}`}>
-            <legend onClick={toggleFilter} className="catalog-filters__item-title" style={{ fontWeight: `${items.length > 0 ? '600' : '400'}` }}>
+            <legend onClick={toggleFilter} className="catalog-filters__item-title" style={{ fontWeight: `${checkedItems.length > 0 ? '600' : '400'}` }}>
                 <span>{toggleTitle}</span>
-                {items.length > 0 &&
+                {checkedItems.length > 0 &&
                     <span className="filter-output">({checkedItems.length})</span>
                 }
                 <svg onClick={toggleFilter} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">

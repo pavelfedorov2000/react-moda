@@ -1,22 +1,13 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Pages } from '../enums/Page';
-import { useActions } from '../hooks/useActions';
-import { useTypedSelector } from '../hooks/useTypedSelector';
 import { BlogItem as BlogItemType } from '../interfaces/BlogItem';
 import AllLink from './AllLink';
 import BlogItem from './BlogItem';
 
-const BlogSection = () => {
-    const { fetchBlog } = useActions();
-    const { items } = useTypedSelector((state) => state.blogReducer);
-    const [blogPreview, setBlogPreview] = useState<BlogItemType[]>([]);
+interface Props {
+    items: BlogItemType[];
+}
 
-    useEffect(() => {
-        fetchBlog();
-        setBlogPreview([...items].slice(0, 3));
-    }, []);
-
+const BlogSection = ({ items }: Props) => {
     return (
         <section className="section">
             <div className="container">
@@ -26,10 +17,10 @@ const BlogSection = () => {
                     <AllLink url={Pages.Blog.path} />
                 </div>
 
-                <ul className="blog-grid">
-                    {blogPreview.map(article => (
+                <ul className="grid blog-grid">
+                    {items.map((article) => (
                         <li key={article.id}>
-                            <BlogItem {...article} otherPage={true} actualPage="blog" className="blog-grid__item" />
+                            <BlogItem {...article} otherPage={true} actualPage="blog" />
                         </li>
                     ))}
                 </ul>

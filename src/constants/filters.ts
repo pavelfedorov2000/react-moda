@@ -1,6 +1,11 @@
 export const FILTERS_TITLE = 'Фильтры';
 
-export const STYLES: any[] = [{
+interface Filter {
+    text: string;
+    bg?: string;
+}
+
+export const STYLES: Filter[] = [{
     text: 'деловой'
 }, {
     text: 'вечерний'
@@ -10,7 +15,7 @@ export const STYLES: any[] = [{
     text: 'спортивный'
 }];
 
-export const COLORS = [{
+export const COLORS: Filter[] = [{
     text: 'бежевый',
     bg: '143.13deg, #F1DAC4 22.32%, rgba(255, 238, 222, 0) 89.29%',
 }, {
@@ -36,7 +41,7 @@ export const COLORS = [{
     bg: '135deg, #FFB156 0%, rgba(255, 177, 86, 0) 100%',
 }];
 
-export const BRANDS: any[] = [{
+export const BRANDS: Filter[] = [{
     text: 'AllSaints'
 }, {
     text: 'Allura'

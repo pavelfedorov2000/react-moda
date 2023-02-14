@@ -1,51 +1,35 @@
-import React from 'react';
 import classNames from 'classnames';
+import { ProductTab, ProductTabs } from '../enums/ProductTab';
+import { Product } from '../interfaces/CatalogItem';
 import ProductDetails from './ProductDetails';
 
-const tabs = [{
-    id: 0,
-    href: 'details',
-    text: 'Детали',
-}, {
-    id: 1,
-    href: 'delivery',
-    text: 'Доставка',
-}, {
-    id: 2,
-    href: 'payment',
-    text: 'Оплата',
-}, {
-    id: 3,
-    href: 'shops-availability',
-    text: 'Наличие в магазинах',
-}, {
-    id: 4,
-    href: 'video',
-    text: 'Видео',
-}];
+interface Props {
+    product: Product;
+    activeTab: number;
+    onClick: (index: number) => void;
+}
 
-function ProductCardInfo({ activeProduct, activeTab, onClickTab }) {
-
+const ProductCardInfo = ({ product, activeTab, onClick }: Props) => {
     return (
         <div className="product-card__info">
             <div className="product-card__tabs-wrap">
                 <div className="product-card__tabs">
-                    {tabs.map((tab, i) => (
-                        <button onClick={() => onClickTab(i)} key={tab.id} className={classNames('tab product-card__tab', {
+                    {ProductTabs.map((tab, i) => (
+                        <button key={tab.href.toString()} onClick={() => onClick(i)} className={classNames('tab product-card__tab', {
                             'tab--active': i === activeTab
                         })}>{tab.text}</button>
                     ))}
                 </div>
             </div>
             <>
-                {tabs.map((tab, i) => (
+                {ProductTabs.map((tab, i) => (
                     activeTab === 0 ?
-                        <ProductDetails id={tab.href} key={tab.id} index={i} activeTab={activeTab} {...activeProduct} />
+                        <ProductDetails id={product.id} index={i} activeTab={activeTab} details={product.details} />
                         :
-                        <div key={tab.id} id={tab.href} className={classNames('tabs-content', {
-                            'tabs-content--active': i === activeTab
+                        <div key={tab.href.toString()} id={tab.href} className={classNames('tabs-content', {
+                            'active': i === activeTab
                         })}>
-                            {tab.href === 'video' ?
+                            {tab.href === ProductTab.Video ?
                                 <div className="product-card__videos">
                                     {Array(2).fill(0).map((_, index) => (
                                         <div key={index} className="product-card__video">

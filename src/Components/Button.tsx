@@ -1,12 +1,12 @@
 import classNames from 'classnames';
 
 interface Props {
-    clickHandler?: () => void;
+    onClick?: () => void;
     className?: string;
     border?: boolean;
-    text: string;
+    text?: string;
     type?: 'button' | 'submit' | 'reset';
-    disabled?: boolean;
+    isDisabled?: boolean;
     icon?: boolean;
     isFavoriteProduct?: boolean;
     isBasketProduct?: boolean;
@@ -16,12 +16,16 @@ interface Props {
     remove?: boolean;
 }
 
-const Button = ({ clickHandler, className, border, text, type, disabled, icon, isFavoriteProduct, isBasketProduct, favorite, cart, transparent, remove }: Props) => {
+enum CartButton {
+    Add = 'Добавить в корзину',
+    InCart = 'В корзине',
+}
 
+const Button = ({ onClick, className, border, text, type, isDisabled, icon, isFavoriteProduct, isBasketProduct, favorite, cart, transparent, remove }: Props) => {
     return (
         <button
-            onClick={clickHandler}
-            disabled={disabled}
+            onClick={onClick}
+            disabled={isDisabled}
             type={type || 'button'}
             className={classNames('btn', className, {
                 'btn--border': border,
@@ -84,7 +88,7 @@ const Button = ({ clickHandler, className, border, text, type, disabled, icon, i
                 </>
             }
 
-            {cart && <span>{isBasketProduct ? 'В корзине' : 'Добавить в корзину'}</span>}
+            {cart && <span>{isBasketProduct ? CartButton.InCart : CartButton.Add}</span>}
 
             {favorite && <span style={{ color: `${isFavoriteProduct && transparent ? '#479458' : 'inherit'}` }}>В избранно{isFavoriteProduct ? 'м' : 'е'}</span>}
 

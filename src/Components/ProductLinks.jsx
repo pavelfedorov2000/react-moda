@@ -1,33 +1,32 @@
-import React from 'react';
+import { useMemo } from 'react';
 import loriata from '../assets/images/icons/loriata.png';
 import coat from '../assets/images/icons/coat.png';
 import certificate from '../assets/images/icons/certificate.svg';
 import classNames from 'classnames';
 
+// Костыльное склонение (просто для практики)
+function generateWord(str) {
+    let nameArr = str.split('');
+    const lastLetter = nameArr[nameArr.length - 1]; // последняя буква
+    if (lastLetter === 'р' || lastLetter === 'н') { // джемпеР => все джемперЫ || комбинезоН => все комбинезонЫ
+        nameArr.push('ы');
+    }
+    if (lastLetter === 'а') {
+        nameArr.splice(-1, 1, `${nameArr[nameArr.indexOf(lastLetter) - 1] === 'м' ? 'ы' : 'и'}`); // юбкА => все юбкИ || блузкА => все блузкИ НО пижаМа => пижамЫ
+    }
+    if (lastLetter === 'к') { // пиджаК => все пиджакИ
+        nameArr.push('и');
+    }
+    return nameArr.map((letter, i) => i == 0 ? letter.toLowerCase() : letter).join(''); // делаем первую буквы маленькой и склеиваем обратно в строку
+}
+
+function brandUpper(str) {
+    str.split('').map(letter => letter.toUpperCase()).join('')
+    return str;
+}
+
 const ProductLinks = ({ name, brand }) => {
-
-    // Костыльное склонение (просто для практики)
-    function generateWord(str) {
-        let nameArr = str.split('');
-        const lastLetter = nameArr[nameArr.length - 1]; // последняя буква
-        if (lastLetter === 'р' || lastLetter === 'н') { // джемпеР => все джемперЫ || комбинезоН => все комбинезонЫ
-            nameArr.push('ы');
-        }
-        if (lastLetter === 'а') {
-            nameArr.splice(-1, 1, `${nameArr[nameArr.indexOf(lastLetter) - 1] === 'м' ? 'ы' : 'и'}`); // юбкА => все юбкИ || блузкА => все блузкИ НО пижаМа => пижамЫ
-        }
-        if (lastLetter === 'к') { // пиджаК => все пиджакИ
-            nameArr.push('и');
-        }
-        return nameArr.map((letter, i) => i == 0 ? letter.toLowerCase() : letter).join(''); // делаем первую буквы маленькой и склеиваем обратно в строку
-    }
-
-    function brandUpper(str) {
-        str.split('').map(letter => letter.toUpperCase()).join('')
-        return str;
-    }
-
-    const productLinks = React.useMemo(() => [{
+    const productLinks = useMemo(() => [{
         id: 0,
         src: loriata,
         title: `Все ${generateWord(name)} ${brandUpper(brand)}`,

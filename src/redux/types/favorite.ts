@@ -12,7 +12,7 @@ interface AddFavoriteProductAction {
 
 interface RemoveFavoriteProductAction {
     type: ActionType.RemoveFavoriteProduct;
-    payload: number;
+    payload: string;
 }
 
 export type FavoriteProductsAction = AddFavoriteProductAction | RemoveFavoriteProductAction;

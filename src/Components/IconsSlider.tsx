@@ -25,20 +25,22 @@ const IconsSlider = () => {
     }, []);
 
     return (
-        <Splide className="icons-slider" hasTrack={false} aria-label="Категории" options={splideOptions}>
-            <SplideTrack>
-                {categoriesIcons.map((item) => (
-                    <SplideSlide key={item.imageUrl.toString()} style={{ width: '12.8rem' }}>
-                        <Link className="icons-slider__item" to={Pages.Catalog}>
-                            <span className="icons-slider__item-img">
-                                <img src={item.imageUrl} alt={item.title} />
-                            </span>
-                            <span className="icons-slider__item-title">{item.title}</span>
-                        </Link>
-                    </SplideSlide>
-                ))}
-            </SplideTrack>
-        </Splide>
+        <div className="section">
+            <Splide className="icons-slider" hasTrack={false} aria-label="Категории" options={splideOptions}>
+                <SplideTrack>
+                    {categoriesIcons.map((item) => (
+                        <SplideSlide key={item.imageUrl.toString()} style={{ width: '12.8rem' }}>
+                            <Link className="icons-slider__item" to={Pages.Catalog}>
+                                <span className="icons-slider__item-img">
+                                    <img src={item.imageUrl} alt={item.title} />
+                                </span>
+                                <span className="icons-slider__item-title">{item.title}</span>
+                            </Link>
+                        </SplideSlide>
+                    ))}
+                </SplideTrack>
+            </Splide>
+        </div>
     );
 }
 

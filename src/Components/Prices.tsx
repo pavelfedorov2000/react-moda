@@ -14,7 +14,7 @@ const Prices = ({ price, discount, className }: Props) => {
             })}>{price} ₽</div>
 
             {discount !== undefined && discount !== 0 &&
-                <div className="old-price catalog-card__old-price">{Math.floor(price * 100 / (100 - discount))} ₽</div>
+                <div className="old-price">{Math.floor(price * 100 / (100 - discount))} ₽</div>
             }
         </div>
     );

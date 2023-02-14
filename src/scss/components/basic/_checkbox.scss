@@ -62,6 +62,8 @@
 
 // ===================== RADIO ===================== //
 .radio {
+    $this: &;
+
     &-box {
         width: 1px;
         height: 1px;
@@ -73,21 +75,101 @@
     &-style {
         position: relative;
         flex-shrink: 0;
+        display: flex;
         width: var(--icon-size);
         height: var(--icon-size);
         border-radius: 50%;
         border: 0.1rem solid var(--gray-c0);
 
-        span {
+        /* span {
             @extend %bg-contain;
             @extend %pos-center-xy;
             position: absolute;
             width: 0.9rem;
             height: 0.6rem;
-        }
+        } */
+
         /* span {
             opacity: 0;
             transition: $transition opacity;
         } */
+    }
+
+    &--type {
+        &_size {
+            #{$this} {
+                &-text {
+                    @extend %flex-center;
+                    width: 3.5rem;
+                    height: 3.5rem;
+                    text-align: center;
+                    border: 0.1rem solid var(--dark);
+                    cursor: pointer;
+
+                    @media (any-hover: hover) {
+                        &:hover {
+                            background-color: var(--dark);
+                            color: #fff;
+                        }
+                    }
+                }
+
+                &-box {
+                    &:checked + #{$this}-text {
+                        background-color: var(--dark);
+                        color: #fff;
+                    }
+
+                    &:disabled {
+                        & + #{$this}-text {
+                            position: relative;
+                            color: var(--gray);
+                            border-color: var(--gray);
+                            cursor: not-allowed;
+
+                            &:before {
+                                content: '';
+                                position: absolute;
+                                top: -0.7rem;
+                                left: 1.6rem;
+                                width: 0.1rem;
+                                height: 4.735rem;
+                                background-color: var(--gray);
+                                transform: rotate(-45deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &_color {
+            #{$this} {
+                &-style {
+                    @extend %flex-center;
+                    width: 3rem;
+                    height: 3rem;
+                    border-radius: 50%;
+                    border-width: 0;
+                    border-style: solid;
+
+                    span {
+                        width: 2.2rem;
+                        height: 2.2rem;
+                        border-radius: 50%;
+                    }
+                }
+
+                &-box {
+                    &:checked ~ #{$this}-style {
+                        border-width: 0.1rem;
+
+                        &:before {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

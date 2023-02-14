@@ -27,9 +27,9 @@
         }
     }
 
-    // .product-details__hide-btn
+    // .product-details__toggle-btn
 
-    &__hide-btn {
+    &__toggle {
         @extend %vertical-align;
         position: relative;
         @extend %text-13;
@@ -37,15 +37,11 @@
         white-space: nowrap;
         transition: $transition color;
 
-        @media (max-width: 500px) {
-            padding-right: 2rem;
-        }
-
-        span {
+        &-arrow {
             display: block;
             width: 1.4rem;
             height: 1.5rem;
-            margin-left: 2.5rem;
+            margin-left: 1.1rem;
             @extend %bg-contain;
             transition: $transition transform;
         }

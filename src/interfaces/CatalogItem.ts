@@ -1,7 +1,7 @@
 import { ProductDetails } from "./ProductDetails";
 
 export interface CatalogItem {
-    id: number;
+    id: string;
     imageUrl: string;
     name: string;
     brand: string;

@@ -44,7 +44,7 @@ const Header = ({ visibleBurgerMenu, onOpenBurger, onOpenAsideBasket }: Props) =
                         'active': visibleSearch
                     })}>
                         <DropMenu />
-                        <SearchForm visibleSearch={visibleSearch} />
+                        <SearchForm isVisible={visibleSearch} />
                     </div>
                 </div>
             </div>

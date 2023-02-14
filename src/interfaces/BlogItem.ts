@@ -4,5 +4,8 @@ export interface BlogItem {
     title: string,
     date?: string,
     text?: string,
-    tags?: string[]
+    tags?: string[],
+    content: {
+        items: {text: string}[]
+    }
 }

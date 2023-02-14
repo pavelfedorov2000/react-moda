@@ -4,16 +4,7 @@ import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
 import SliderArrows from './SliderArrows';
 import { useEffect } from 'react';
-
-const splideOptions = {
-    speed: 1000,
-    gap: `${getComputedStyle(document.documentElement).getPropertyValue('--gap')}`,
-    perPage: 4,
-    breakpoints: {
-        1024: { perPage: 3, gap: '3rem' },
-        767: { perPage: 2, gap: '2rem' }
-    },
-};
+import { splideOptions } from '../constants/splide';
 
 interface InstagramItem {
     imageUrl: string;
@@ -35,7 +26,10 @@ const Instagram = ({ title, dataUrl }: Props) => {
 
     return (
         <section className="section">
-            <Splide hasTrack={false} aria-label={title} options={splideOptions}>
+            <Splide hasTrack={false} aria-label={title} options={{
+                ...splideOptions,
+                perPage: 4,
+            }}>
                 <div className="section__top">
                     <h2 className="title">{title}</h2>
                     <SliderArrows />

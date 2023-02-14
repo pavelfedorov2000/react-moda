@@ -19,7 +19,7 @@ const DropMenu = () => {
                                     </div>
 
                                     <ul className="drop-menu__list">
-                                        {link.items.map(item => (
+                                        {link.items.map((item) => (
                                             <li key={item.toString()} className="drop-menu__list-item">
                                                 <Link to="/" className="drop-menu__list-link">{item}</Link>
                                             </li>
@@ -34,7 +34,7 @@ const DropMenu = () => {
                 </li>
             ))}
 
-            {links.map(link => (
+            {links.map((link) => (
                 <li key={link.path.toString()} className="header__list-item">
                     <Link className="header__list-link" to={link.path}>{link.title}</Link>
                 </li>

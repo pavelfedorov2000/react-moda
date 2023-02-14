@@ -1,7 +1,6 @@
-import React from 'react';
 import checkIcon from '../assets/images/icons/check.svg';
 
-function FormAgree() {
+const FormAgree = () => {
     return (
         <label className="form-agree">
             <input className="check-box" name="user_agree" type="checkbox" />

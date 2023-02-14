@@ -2,7 +2,7 @@ import { CatalogItem } from "../../interfaces/CatalogItem";
 import { ActionType } from "../actionsList";
 
 export interface ProductState {
-    activeProduct: CatalogItem | null;
+    popupProduct: CatalogItem | null;
 }
 
 interface OpenPopupAction {

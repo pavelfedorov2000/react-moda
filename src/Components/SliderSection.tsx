@@ -1,28 +1,16 @@
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
-import { Gaps } from '../enums/Gap';
+import { splideOptions } from '../constants/splide';
+import { CatalogItem } from '../interfaces/CatalogItem';
 import CatalogCard from './CatalogCard/CatalogCard';
 import SliderArrows from './SliderArrows';
 
-const splideOptions = {
-    speed: 1000,
-    gap: Gaps.XL,
-    perPage: 4,
-    perMove: 1,
-    breakpoints: {
-        1024: { perPage: 2, gap: Gaps.L },
-        767: { perPage: 1 },
-        500: { gap: Gaps.S }
-    },
-}
-
 interface Props {
-    items: any[];
+    items: CatalogItem[];
     title: string;
 }
 
 const SliderSection = ({ items, title }: Props) => {
-    //const sliderLength = 6;
     //const filteredProducts = id ? products.filter(product => product.id !== id) : products;
 
     return (

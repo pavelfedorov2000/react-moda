@@ -1,41 +1,47 @@
-import axios from 'axios';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { ProductLinks, ProductCardContent, SliderSection, SliderArrows, Crumbs, ProductCardInfo, ProductPopup } from '../Components';
-import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
 import "@fancyapps/ui/dist/fancybox.css";
 import { useEffect } from 'react';
 import { Sections } from '../enums/Section';
 import { splideOptions } from '../constants/splide';
-
-const asideSections = [{
-    name: 'recommended',
-    title: Sections.Recommend.title
-}, {
-    name: 'similar',
-    title: Sections.SimilarGoods.title
-    }];
+import { useTypedSelector } from '../hooks/useTypedSelector';
+import { useParams } from 'react-router-dom';
+import { fetchProducts } from '../redux/actions/products';
 
 const YOU_TUBE_LINK = 'https://www.youtube.com/watch?v=L1e8YEozOD8';
 
 const ProductCard = () => {
     const { id } = useParams();
+    const { products } = useTypedSelector((state) => state.productsReducer);
+    const { popupProduct } = useTypedSelector((state) => state.productReducer);
 
-    const [products, setProducts] = useState([]);
-
-    useEffect(() => {
-        axios.get('/products').then(({ data }) => {
-            setProducts(data);
-        });
-    }, []);
-
-    const activeProduct = products.find(product => product.id === id);
+    const activeProduct = products.find((product) => product.id == id);
 
     const [activeTab, setActiveTab] = useState(0);
-    const onClickTab = (i) => {
-        setActiveTab(i);
+    const onClickTab = (index: number) => {
+        setActiveTab(index);
     }
+
+    const asideSections = useMemo(() => [{
+        name: 'recommended',
+        title: Sections.Recommend.title,
+        items: products.filter((product) => product.id !== activeProduct?.id && product.discount)
+    }, {
+        name: 'similar',
+        title: Sections.SimilarGoods.title,
+        items: products.filter((product) => {
+            return product.id !== activeProduct?.id
+                && product.brand === activeProduct?.brand
+                || product.style === activeProduct?.style
+                || product.newProduct === activeProduct?.newProduct
+        })
+    }], [products]);
+
+    useEffect(() => {
+        fetchProducts();
+    }, []);
 
     return (
         <>
@@ -50,8 +56,9 @@ const ProductCard = () => {
                             <Splide className="product-card__slider" hasTrack={false} options={{
                                 ...splideOptions,
                                 type: 'loop',
+                                perPage: 2
                             }}>
-                                <SliderArrows round={true} />
+                                <SliderArrows isRound />
                                 <SplideTrack>
                                     {Array(4).fill(0).map((_, index) => (
                                         <SplideSlide key={index}>
@@ -68,21 +75,19 @@ const ProductCard = () => {
                                 <ProductLinks {...activeProduct} />
                             </div>
 
-                            <ProductCardInfo activeProduct={activeProduct} activeTab={activeTab} onClickTab={onClickTab} />
+                            <ProductCardInfo product={activeProduct} activeTab={activeTab} onClick={onClickTab} />
                         </div>
                     </main>
 
                     <aside className="product-card__page">
                         {asideSections.map((section) => (
-                            <section key={section.id}>
-                                <SliderSection id={id} items={products} {...activeProduct} title={section.title} />
-                            </section>
+                            <SliderSection key={section.name.toString()} items={section.items} title={section.title} />
                         ))}
                     </aside>
 
-                    {activeProduct &&
+                    {popupProduct &&
                         <div className="overlay active">
-                            <ProductPopup {...activeProduct} />
+                            <ProductPopup {...popupProduct} />
                         </div>
                     }
                 </div>

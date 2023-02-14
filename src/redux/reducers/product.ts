@@ -2,7 +2,7 @@ import { ActionType } from "../actionsList";
 import { ProductAction, ProductState } from "../types/product";
 
 const initialState: ProductState = {
-    activeProduct: null,
+    popupProduct: null,
 }
 
 const productReducer = (state = initialState, action: ProductAction):ProductState => {
@@ -10,12 +10,12 @@ const productReducer = (state = initialState, action: ProductAction):ProductStat
         case ActionType.OpenProductPopup:
             return {
                 ...state,
-                activeProduct: action.payload,
+                popupProduct: action.payload,
             };
         case ActionType.CloseProductPopup:
             return {
                 ...state,
-                activeProduct: null,
+                popupProduct: null,
             };
         default:
             return state;

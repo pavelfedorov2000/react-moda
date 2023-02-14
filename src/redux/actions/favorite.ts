@@ -6,7 +6,7 @@ export const addFavoriteProduct = (product: CatalogItem) => ({
     payload: product
 });
 
-export const removeFavoriteProduct = (id: number) => ({
+export const removeFavoriteProduct = (id: string) => ({
     type: ActionType.RemoveFavoriteProduct,
     payload: id
 });

@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../context';
@@ -82,7 +82,7 @@ function BasketProduct({ id, articul, name, brand, size, sizes, price, imageUrl,
             <div className="basket-product__prices">
                 <div className="basket-product__prices-wrap">
                     {discount !== 0 &&
-                        <div className="price old-price basket-product__old-price">{`${Math.floor(totalPrice * 100 / (100 - discount))} ₽`}</div>
+                        <div className="price old-price basket-product__old-price">{Math.floor(totalPrice * 100 / (100 - discount))} ₽</div>
                     }
 
                     <div className={classNames('price', {
@@ -92,8 +92,8 @@ function BasketProduct({ id, articul, name, brand, size, sizes, price, imageUrl,
 
                 {discount !== 0 &&
                     <div className="basket-product__discount">
-                        <div className="basket-product__discount-percent">{`Сумма скидки ${discount}%`}</div>
-                        <div className="basket-product__discount-sum">{`(${totalDiscount} ₽)`}</div>
+                        <div className="basket-product__discount-percent">Сумма скидки {discount}%</div>
+                        <div className="basket-product__discount-sum">({totalDiscount} ₽)</div>
                     </div>
                 }
             </div>

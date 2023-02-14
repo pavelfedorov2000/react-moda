@@ -1,10 +1,12 @@
-import { Redirect, Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
+import { Route } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import { routes } from '../constants/routes';
 
 const AppRouter = () => {
     return (
         <Switch>
-            {routes.map(route => (
+            {routes.map((route) => (
                 <Route
                     key={route.id}
                     exact={route.exact === true ? true : false}

@@ -4,8 +4,8 @@ import logo from '../assets/images/logo/logo.svg';
 
 interface Props {
     className?: string;
-    width: number;
-    height: number;
+    width: string | number;
+    height: string | number;
 }
 
 const Logo = ({ className, width, height }: Props) => {

@@ -1,7 +1,10 @@
 import classNames from 'classnames';
-import React from 'react';
 
-const SeoText = ({ className }) => {
+interface Props {
+    className?: string;
+}
+
+const SeoText = ({ className }: Props) => {
     return (
         <aside className={classNames('seo-text', className)}>
             <p>

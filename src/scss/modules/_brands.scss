@@ -48,18 +48,21 @@
 
     // .brands-categories__item
 
-    &__item {
-        @extend %flex-col-center;
+    > * {
         flex-shrink: 0;
 
         &:not(:last-child) {
             margin-right: var(--gap);
         }
     }
+}
+
+.brand-category {
+    @extend %flex-col-center;
 
     // .brands-categories__item-img
 
-    &__item-img {
+    &__img {
         width: 12.8rem;
         height: 12.8rem;
         border-radius: 7rem;
@@ -91,7 +94,7 @@
 
     // .brands-categories__item-title
 
-    &__item-title {
+    &__title {
         @extend %text-16;
         font-weight: 600;
         text-align: center;
@@ -107,6 +110,8 @@
 
 .brands-index-list {
     display: flex;
+    margin-left: -1rem;
+    padding-right: 1rem;
 
     @media (max-width: 1024px) {
         overflow-x: auto;
@@ -119,9 +124,9 @@
         @extend %text-16;
         font-weight: 500;
         white-space: nowrap;
-        margin-right: 2rem;
+        padding: 0 1rem;
 
-        &--active {
+        &.active {
             color: var(--green);
         }
     }
@@ -141,6 +146,7 @@
         margin-left: 0.5rem;
         width: 1.6rem;
         height: 1.6rem;
+        fill: var(--gray);
         transition: $transition fill;
     }
 

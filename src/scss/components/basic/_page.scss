@@ -1,6 +1,6 @@
 .page {
     position: relative;
-    flex: 1 0 auto; // Footer at bottom
+    flex: 1 0 auto;
     padding-bottom: 11rem;
 
     @media (max-width: 1024px) {
@@ -39,14 +39,5 @@
                 margin-bottom: 2.5rem;
             }
         }
-    }
-}
-
-.home-page {
-    padding-top: 1.5rem;
-    padding-bottom: 0;
-
-    &__seo-text {
-        max-width: 111.2rem;
     }
 }
