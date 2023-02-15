@@ -39,9 +39,9 @@
 
     &__list {
         @extend %text-14;
-        margin-bottom: 4rem;
+        margin-bottom: 2.8rem;
 
-        > * {
+        >* {
             &:last-child {
                 padding-right: 0;
 
@@ -58,40 +58,11 @@
         margin-top: 2.4rem;
     }
 
-    &__list-item {
-        font-weight: 500;
-
-        span {
-            position: relative;
-            padding-right: 2rem;
-
-            &:after {
-                @extend %bg-contain;
-                content: '';
-                position: absolute;
-                top: 0.2rem;
-                right: 0;
-                width: 1.4rem;
-                height: 1.5rem;
-                transition: $transition transform;
-            }
-
-            &.active {
-                font-weight: 600;
-
-                &:after {
-                    transform: rotate(180deg);
-                }
-            }
-        }
-
-        &:not(:last-child) {
-            margin-bottom: 2.4rem;
-        }
-    }
-
-    &__list-link {
+    &__link {
+        display: flex;
+        padding: 1.2rem 0;
         color: var(--dark);
+        font-weight: 500;
 
         &--red {
             color: var(--red);
@@ -100,7 +71,7 @@
     }
 
     &__bottom {
-        > * {
+        >* {
             &:not(:last-child) {
                 margin-bottom: 2.4rem;
             }

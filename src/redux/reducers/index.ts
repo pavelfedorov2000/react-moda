@@ -4,6 +4,10 @@ import productsReducer from './products';
 import productReducer from './product';
 import filtersReducer from './filters';
 import favoriteReducer from './favorite';
+import categoryReducer from './category';
+import burgerReducer from './burger';
+import asidePopupReducer from './asidePopup';
+
 import { combineReducers } from 'redux';
 
 export const rootReducer = combineReducers({
@@ -12,7 +16,10 @@ export const rootReducer = combineReducers({
     productsReducer,
     filtersReducer,
     favoriteReducer,
-    productReducer
+    productReducer,
+    categoryReducer,
+    burgerReducer,
+    asidePopupReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

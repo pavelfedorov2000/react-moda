@@ -10,21 +10,19 @@ interface Props {
 const BlogSection = ({ items }: Props) => {
     return (
         <section className="section">
-            <div className="container">
-                <div className="section__top">
-                    <h2 className="title">{Pages.Blog.title}</h2>
+            <div className="section__top">
+                <h2 className="title">{Pages.Blog.title}</h2>
 
-                    <AllLink url={Pages.Blog.path} />
-                </div>
-
-                <ul className="grid blog-grid">
-                    {items.map((article) => (
-                        <li key={article.id}>
-                            <BlogItem {...article} otherPage={true} actualPage="blog" />
-                        </li>
-                    ))}
-                </ul>
+                <AllLink url={Pages.Blog.path} />
             </div>
+
+            <ul className="grid blog-grid">
+                {items.map((article) => (
+                    <li key={article.id}>
+                        <BlogItem {...article} otherPage={true} actualPage="blog" />
+                    </li>
+                ))}
+            </ul>
         </section>
     );
 }

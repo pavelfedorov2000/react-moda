@@ -1,5 +1,5 @@
 import { CatalogHomeCard } from '../Components';
-import { categories } from '../constants/categories';
+import { CATEGORIES } from '../constants/categories';
 
 function CatalogHome() {
     return (
@@ -7,8 +7,8 @@ function CatalogHome() {
             <div className="container">
                 <div className="catalog-home__grid">
                     {
-                        categories.map((category) => (
-                            <CatalogHomeCard key={category.href} {...category} />
+                        CATEGORIES.map((category, index) => (
+                            <CatalogHomeCard key={category.href} index={index} {...category} />
                         ))
                     }
                 </div>

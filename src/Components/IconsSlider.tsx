@@ -4,7 +4,6 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Pages } from '../enums/Page';
-//import useRequest from '../hooks/useRequest';
 import { CategoriesSliderItem } from '../interfaces/CategoriesSliderItem';
 
 const splideOptions = {
@@ -15,7 +14,6 @@ const splideOptions = {
 };
 
 const IconsSlider = () => {
-    //const [categoriesIcons] = useRequest('/iconsSlider');
     const [categoriesIcons, setCategoriesIcons] = useState<CategoriesSliderItem[]>([]);
 
     useEffect(() => {
@@ -28,8 +26,8 @@ const IconsSlider = () => {
         <div className="section">
             <Splide className="icons-slider" hasTrack={false} aria-label="Категории" options={splideOptions}>
                 <SplideTrack>
-                    {categoriesIcons.map((item) => (
-                        <SplideSlide key={item.imageUrl.toString()} style={{ width: '12.8rem' }}>
+                    {categoriesIcons.map((item, index) => (
+                        <SplideSlide key={index} style={{ width: '12.8rem' }}>
                             <Link className="icons-slider__item" to={Pages.Catalog}>
                                 <span className="icons-slider__item-img">
                                     <img src={item.imageUrl} alt={item.title} />

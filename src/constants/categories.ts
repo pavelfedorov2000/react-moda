@@ -1,6 +1,6 @@
 import { Category } from "../interfaces/Category";
 
-export const categories: Category[] = [{
+export const CATEGORIES: Category[] = [{
     href: "zhenshchinam",
     text: "Женщинам",
     imageUrl: "https://i.ibb.co/CsFX2nz/01.jpg"

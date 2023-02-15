@@ -37,4 +37,14 @@ export enum ActionType {
 
     OpenProductPopup = 'OpenProductPopup',
     CloseProductPopup = 'CloseProductPopup',
+
+    SetCategory = 'SetCategory',
+
+    OpenBurgerMenu = 'OpenBurgerMenu',
+    CloseBurgerMenu = 'CloseBurgerMenu',
+
+    OpenAuth = 'OpenAuth',
+    OpenAsideBasket = 'OpenAsideBasket',
+    CloseAuth = 'CloseAuth',
+    CloseAsideBasket = 'CloseAsideBasket',
 }

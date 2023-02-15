@@ -1,16 +1,11 @@
 import { useState } from 'react';
-import { DropMenu, SearchForm, HeaderInfoLine, HeaderRegion, WhatsApp, Logo, BurgerBtn, HeaderActions, ContactsHeader } from '..';
+import { DropMenu, SearchForm, HeaderInfoLine, HeaderRegion, WhatsApp, Logo, HeaderActions, ContactsHeader, BurgerButton } from '..';
 import classNames from 'classnames';
 import ActionHeader from '../ActionHeader';
 import { PinIcon } from '../HeaderActions/icons';
+import NavHeader from '../NavHeader';
 
-interface Props {
-    visibleBurgerMenu: boolean;
-    onOpenBurger: () => void;
-    onOpenAsideBasket: () => void;
-}
-
-const Header = ({ visibleBurgerMenu, onOpenBurger, onOpenAsideBasket }: Props) => {
+const Header = () => {
     const [visibleSearch, setVisibleSearch] = useState(false);
     const toggleSearch = () => {
         setVisibleSearch((prevState) => !prevState);
@@ -32,12 +27,10 @@ const Header = ({ visibleBurgerMenu, onOpenBurger, onOpenAsideBasket }: Props) =
             <div className="header__main">
                 <div className="container">
                     <div className="header__main-top">
-
-                        <BurgerBtn onClick={onOpenBurger} isExpanded={visibleBurgerMenu} />
-
+                        <NavHeader className="header__nav" />
+                        <BurgerButton />
                         <Logo className="header" width={207} height={31} />
-
-                        <HeaderActions onClickSearch={toggleSearch} onClick={onOpenAsideBasket} />
+                        <HeaderActions onClickSearch={toggleSearch} />
                     </div>
 
                     <div className={classNames('header__main-bottom', {

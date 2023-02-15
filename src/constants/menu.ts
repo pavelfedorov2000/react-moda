@@ -65,3 +65,113 @@ export const dropMenu: DropMenu = {
         ]
     }]
 };
+
+export const footerMenu = [{
+    name: 'catalog',
+    title: {
+        text: "Каталог"
+    },
+    items: [{
+        link: {
+            text: 'Новинки'
+        }
+    }, {
+        link: {
+            text: 'Одежда'
+        }
+    }, {
+        link: {
+            text: 'Аксессуары'
+        }
+    }, {
+        link: {
+            text: 'Распродажа'
+        }
+    }]
+}, {
+    name: 'help',
+    title: {
+        text: "Помощь покупателю"
+    },
+    items: [{
+        link: {
+            text: 'Отследить заказ',
+            href: '/follow'
+        }
+    }, {
+        link: {
+            text: 'Доставка и оплата',
+            href: '/delivery'
+        }
+    }, {
+        link: {
+            text: 'Бесконтактная информация',
+            href: '/info'
+        }
+    }, {
+        link: {
+            text: 'Обмен и возврат',
+            href: '/exchange'
+        }
+    }, {
+        link: {
+            text: 'FAQ / Часто задаваемые вопросы',
+            href: '/faq'
+        }
+    }, {
+        link: {
+            text: 'Программа лояльности',
+            href: '/loyalty'
+        }
+    }, {
+        link: {
+            text: 'Подарочные сертификаты',
+            href: '/certificates'
+        }
+    }, {
+        link: {
+            text: 'Правила работы сайта',
+            href: '/site-rules'
+        }
+    }, {
+        link: {
+            text: 'Политика конфиденциальности',
+            href: '/politics'
+        }
+    }, {
+        link: {
+            text: 'Карта сайта',
+            href: '/site-map'
+        }
+    }]
+}, {
+    name: 'about',
+    title: {
+        text: "О компании"
+    },
+    items: [{
+        link: {
+            text: 'О компании'
+        }
+    }, {
+        link: {
+            text: 'Сотрудничество',
+            href: '/cooperation'
+        }
+    }, {
+        link: {
+            text: 'Контакты',
+            href: '/contacts'
+        }
+    }, {
+        link: {
+            text: 'Обратная связь',
+            href: '/feedback'
+        }
+    }]
+}];
+
+export const footerLinks: string[][] = [
+    ['Женщинам', 'Мужчинам', 'Детям'],
+    ['Распродажа', 'Новинки']
+];

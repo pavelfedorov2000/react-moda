@@ -4,11 +4,7 @@ import PaymentLogos from '../../assets/images/logo/payment.png';
 import { Link } from 'react-router-dom';
 import { developer } from '../../constants/developer';
 import { Pages } from '../../enums/Page';
-
-const footerLinks = [
-    ['Женщинам', 'Мужчинам', 'Детям'],
-    ['Распродажа', 'Новинки']
-];
+import { footerLinks } from '../../constants/menu';
 
 const [sale, ...rest] = footerLinks[1]; // Достаем красную ссылку (распродажа)
 
@@ -22,10 +18,10 @@ const Footer = () => {
                     <Social className="footer__social" filterParam="auth" />
 
                     <div className="footer__menus">
-                        {footerLinks.map((nav, i) => (
-                            <div key={`menu-${i}`} className="footer__menu">
-                                {nav.map((link, j) => (
-                                    <Link key={`link-${j}`} to={Pages.Catalog} className={classnames('footer__link', {
+                        {footerLinks.map((item) => (
+                            <div key={item.toString()} className="footer__menu">
+                                {item.map((link) => (
+                                    <Link key={link.toString()} to={Pages.Catalog} className={classnames('footer__link', {
                                         'footer__link--red': link === sale
                                     })}>{link}</Link>
                                 ))}

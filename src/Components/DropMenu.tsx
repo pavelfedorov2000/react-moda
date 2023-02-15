@@ -7,7 +7,7 @@ const DropMenu = () => {
     return (
         <ul className="header__list">
             {dropMenuCategories.map((item, index) => (
-                <li key={item.path.toString()} className="header__list-item">
+                <li key={index} className="header__list-item">
                     <Link className="header__list-link" to={item.path}>{item.title}</Link>
 
                     <div className="drop-menu">

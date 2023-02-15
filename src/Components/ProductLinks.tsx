@@ -2,11 +2,12 @@ import { useMemo } from 'react';
 import loriata from '../assets/images/icons/loriata.png';
 import coat from '../assets/images/icons/coat.png';
 import certificate from '../assets/images/icons/certificate.svg';
-import classNames from 'classnames';
+import { ProductLink as ProductLinkType } from '../interfaces/ProductLink';
+import ProductLink from './ProductLink';
 
 // Костыльное склонение (просто для практики)
-function generateWord(str) {
-    let nameArr = str.split('');
+function generateWord(text: string) {
+    let nameArr = text.split('');
     const lastLetter = nameArr[nameArr.length - 1]; // последняя буква
     if (lastLetter === 'р' || lastLetter === 'н') { // джемпеР => все джемперЫ || комбинезоН => все комбинезонЫ
         nameArr.push('ы');
@@ -20,13 +21,18 @@ function generateWord(str) {
     return nameArr.map((letter, i) => i == 0 ? letter.toLowerCase() : letter).join(''); // делаем первую буквы маленькой и склеиваем обратно в строку
 }
 
-function brandUpper(str) {
-    str.split('').map(letter => letter.toUpperCase()).join('')
-    return str;
+function brandUpper(text: string) {
+    text.split('').map((letter) => letter.toUpperCase()).join('')
+    return text;
 }
 
-const ProductLinks = ({ name, brand }) => {
-    const productLinks = useMemo(() => [{
+interface Props {
+    name: string;
+    brand: string;
+}
+
+const ProductLinks = ({ name, brand }: Props) => {
+    const productLinks: ProductLinkType[] = useMemo(() => [{
         id: 0,
         src: loriata,
         title: `Все ${generateWord(name)} ${brandUpper(brand)}`,
@@ -51,16 +57,8 @@ const ProductLinks = ({ name, brand }) => {
 
     return (
         <ul className="product-links">
-            {productLinks.map(item => (
-                <li key={item.id} className="product-links__item">
-                    <a href="#" className="product-links__item-link">
-                        <img className={classNames('product-links__item-img', {
-                            'product-links__item-img--cover': item.cover
-                        })} src={item.src} alt="иконка" width="40" height="40" />
-                        <span className="product-links__item-title">{item.title}</span>
-                        <span className="product-links__item-subtitle">{item.subtitle}</span>
-                    </a>
-                </li>
+            {productLinks.map((item) => (
+                <ProductLink key={item.id} {...item} />
             ))}
         </ul>
     );

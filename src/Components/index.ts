@@ -9,7 +9,7 @@ export { default as Pagination } from './Pagination';
 export { default as Banner } from './Banner';
 export { default as Button } from './Button';
 export { default as BurgerMenu } from './Burger/BurgerMenu';
-export { default as BurgerBtn } from './Burger/BurgerBtn';
+export { default as BurgerButton } from './Burger/BurgerButton';
 export { default as Tag } from './Tag';
 
 export { default as HeaderActions } from './HeaderActions/HeaderActions';
@@ -68,6 +68,7 @@ export { default as ProductColor } from './ProductColor';
 export { default as ProductDetails } from './ProductDetails';
 export { default as ProductDetailsSection } from './ProductDetailsSection';
 export { default as ProductLinks } from './ProductLinks';
+export { default as ProductLink } from './ProductLink';
 export { default as ProductCardDelivery } from './ProductCardDelivery';
 export { default as ProductCardContent } from './ProductCardContent';
 export { default as ProductCardInfo } from './ProductCardInfo';
