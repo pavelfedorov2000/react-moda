@@ -1,31 +1,13 @@
 import { useCallback, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { BasketTable, BasketTotal, Checkout, Crumbs } from '../Components';
 import Sticky from "wil-react-sticky";
-import { clearCart } from '../redux/actions/cart';
-import { CheckoutContext } from '../context';
-
-const payment = {
-    "Оплата при получении": "Наличными или банковской картой при получении",
-    "Картой онлайн": "Перейти к оплате через сервис"
-};
-
-const deliveryOptions = ['Курьер', 'Доставка в пункты выдачи заказов и постаматы'];
+import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const Cart = ({ title }) => {
-    const dispatch = useDispatch();
-    const { totalPrice, totalDiscount, totalCount, items } = useSelector(({ cart }) => cart);
+    const { totalPrice, totalDiscount, totalCount, items } = useTypedSelector((state) => state.cartReducer);
 
     const [selectedDelivery, setSelectedDelivery] = useState(null);
     const [selectedPayment, setSelectedPayment] = useState(null);
-
-    let personalData = {
-        name: "Имя",
-        surname: "Фамилия",
-        phone: "Ваш телефон",
-        email: "Ваш e-mail",
-        city: "Город, населенный пункт"
-    };
 
     // Объект который пойдет в store через action
     let orderData = {
@@ -36,11 +18,6 @@ const Cart = ({ title }) => {
         totalPrice,
         personalData
     };
-
-    // Очистка корзины после подтверждения заказа
-    const handleClearCart = () => {
-        dispatch(clearCart());
-    }
 
     // Экшн на подтверждение заказа
     const handleOrderSubmit = useCallback((obj) => {
@@ -61,20 +38,13 @@ const Cart = ({ title }) => {
 
                 <form action="#">
                     <div className="basket-page__body">
-                        <BasketTable totalPrice={totalPrice} totalCount={totalCount} items={items} dispatch={dispatch} />
+                        <BasketTable totalPrice={totalPrice} totalCount={totalCount} items={items} />
 
                         <Sticky containerSelectorFocus=".basket-page__body" offsetTop={20} stickyEnableRange={[1025, Infinity]}>
                             <BasketTotal totalPrice={totalPrice} totalDiscount={totalDiscount} handleOrderSubmit={handleOrderSubmit} orderData={orderData} personalData={personalData} onClearCart={handleClearCart} />
                         </Sticky>
 
-                        <CheckoutContext.Provider value={{
-                            selectedDelivery,
-                            setSelectedDelivery,
-                            selectedPayment,
-                            setSelectedPayment
-                        }}>
-                            <Checkout orderData={orderData} personalData={orderData.personalData} payment={payment} deliveryOptions={deliveryOptions} />
-                        </CheckoutContext.Provider>
+                        <Checkout orderData={orderData} personalData={orderData.personalData} />
                     </div>
                 </form>
             </div>

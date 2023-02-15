@@ -11,7 +11,17 @@ export enum Filter {
     Price = 'price',
 }
 
+export interface FilterType {
+    toggleTitle: string;
+    title?: string;
+    items: string[] | number[];
+}
+
 export const FILTERS = {
+    [Filter.Sort]: {
+        toggleTitle: SortFilters[0].name,
+        items: SortFilters
+    },
     [Filter.Color]: {
         toggleTitle: 'Цвет',
         items: COLORS

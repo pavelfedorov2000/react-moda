@@ -7,6 +7,8 @@ import * as ProductActionCreators from './product';
 import * as CategoryActionCreators from './category';
 import * as BurgerActionCreators from './burger';
 import * as AsidePopupActionCreators from './asidePopup';
+import * as CartActionCreators from './cart';
+import * as OrderActionCreators from './orders';
 
 export default {
     ...BlogActionCreators,
@@ -18,4 +20,6 @@ export default {
     ...CategoryActionCreators,
     ...BurgerActionCreators,
     ...AsidePopupActionCreators,
+    ...CartActionCreators,
+    ...OrderActionCreators,
 }

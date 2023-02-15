@@ -1,37 +1,55 @@
 import classNames from 'classnames';
 import { useRef, useEffect, useState } from 'react';
-import checkIcon from '../assets/images/icons/check.svg';
+import { Filter } from '../enums/Filter';
+import { useTypedSelector } from '../hooks/useTypedSelector';
+import CatalogDropFilterItem from './CatalogDropFilterItem';
+import CatalogDropSort from './CatalogDropSort';
+import PriceRange from './PriceRange';
 
 interface Props {
     name: string;
     toggleTitle: string;
     title?: string;
-    items: any[];
-    onSelect: (items: any[]) => void;
-    onReset: () => void;
+    items?: any[];
+    onSelect?: (items: any[]) => void;
+    onReset?: () => void;
 }
 
 const CatalogFilter = ({ name, toggleTitle, title, items, onSelect, onReset }: Props) => {
-    //const filterRef = useRef();
-
+    const filterRef = useRef<HTMLFieldSetElement>(null);
+    const { sortBy } = useTypedSelector((state) => state.filtersReducer);
+    
     const [visibleFilter, setVisibleFilter] = useState(false);
 
     const toggleFilter = () => {
         setVisibleFilter((prevState) => !prevState);
     }
 
+    const [checkedItems, setCheckedItems] = useState<any[]>([]);
+
+    const [priceFrom, setPriceFrom] = useState<string>('');
+    const [priceTo, setPriceTo] = useState<string>('');
+
+    const onChangeFrom = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setPriceFrom(event.target.value);
+        setCheckedItems([+priceFrom, +priceTo]);
+    }
+    const onChangeTo = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const priceToArr = priceTo.split('');
+        setPriceTo(event.target.value);
+        setCheckedItems([+priceFrom, +`${priceTo}${priceToArr[priceToArr.length - 1]}`]);
+    }
+
     const handleReset = () => {
-        //onReset([]);
+        setCheckedItems([]);
+        setPriceFrom('');
+        setPriceTo('');
+        onReset && onReset();
     }
 
-    const [checkedItems, setCheckedItems] = useState(items.map((item) => item.text));
-
-    const onCheckItem = (text: string) => {
-        setCheckedItems(checkedItems.filter((item) => item.text === text));
-    }
-
-    /* const handleOutsideClick = (event) => {
+    const handleOutsideClick = (event: any) => {
         const path = event.path || (event.composedPath && event.composedPath());
+        
         if (!path.includes(filterRef.current)) {
             setVisibleFilter(false);
         }
@@ -39,56 +57,65 @@ const CatalogFilter = ({ name, toggleTitle, title, items, onSelect, onReset }: P
 
     useEffect(() => {
         document.body.addEventListener('click', handleOutsideClick);
-    }, []); */
+    }, []);
 
     return (
-        <fieldset className={`catalog-filters__item catalog-filter catalog-filters__item--${name}`}>
-            <legend onClick={toggleFilter} className="catalog-filters__item-title" style={{ fontWeight: `${checkedItems.length > 0 ? '600' : '400'}` }}>
-                <span>{toggleTitle}</span>
-                {checkedItems.length > 0 &&
-                    <span className="filter-output">({checkedItems.length})</span>
-                }
-                <svg onClick={toggleFilter} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fillRule="evenodd" clipRule="evenodd" d="M3.25 4L7 7.6L10.75 4L12 5.2L7 10L2 5.2L3.25 4Z" fill="#101112" />
-                </svg>
+        <fieldset ref={filterRef} className={`catalog-filters__item catalog-filter catalog-filters__item--${name}`} id={`${name}_filter_heading`}>
+            <legend className="catalog-filter__title">
+                <button onClick={toggleFilter} className="catalog-filter__toggle" type="button" aria-controls={`${name}_filter_dropdown`} aria-expanded={visibleFilter} style={{ fontWeight: `${checkedItems.length > 0 ? '600' : '400'}` }}>
+                    <span>{toggleTitle ?? sortBy.name}</span>
+                    {checkedItems.length > 0 && name !== Filter.Sort &&
+                        (
+                            name === Filter.Price ?
+                            <>
+                                <span className="filter-output">({priceFrom}-</span>
+                                <span className="filter-output">{priceTo})</span>
+                            </>
+                            :
+                            <span className="filter-output">({checkedItems.length})</span>
+                        )
+                    }
+                    <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fillRule="evenodd" clipRule="evenodd" d="M3.25 4L7 7.6L10.75 4L12 5.2L7 10L2 5.2L3.25 4Z" />
+                    </svg>
+                </button>
             </legend>
 
-            {visibleFilter &&
-                <div className="catalog-filters__item-drop catalog-drop-filter">
-                    <div className="catalog-drop-filter__inner">
-                        <div className="catalog-drop-filter__body">
+            <div className={classNames('catalog-filter__drop catalog-drop-filter', {
+                'active': visibleFilter
+            })} id={`${name}_filter_dropdown`} aria-labelledby={`${name}_filter_heading`}>
+                <div className="catalog-drop-filter__inner">
+                    {name === Filter.Price ?
+                        <PriceRange from={priceFrom} to={priceTo} onChangeFrom={onChangeFrom} onChangeTo={onChangeTo} />
+                        : name === Filter.Sort ?
+                        <div className="catalog-drop-filter__items">
+                            {items?.map((item, i) => (
+                                <CatalogDropSort index={i} {...item} />
+                            ))}
+                        </div>
+                        : <div className="catalog-drop-filter__body">
                             <div className="catalog-drop-filter__title">{title ?? `Выберите ${toggleTitle}`}</div>
                             <div className="catalog-drop-filter__items">
-                                {items.map((item) => (
-                                    <label key={item.text.toString()} className="catalog-drop-filter__item">
-                                        <input onChange={() => onCheckItem(item.text)} className="check-box" type="checkbox" checked={checkedItems.includes(item.text) ? true : false} />
-                                        <span className="check-style">
-                                            <span style={{ backgroundImage: `url(${checkIcon})` }}></span>
-                                        </span>
-                                        {item.bg &&
-                                            <span style={{ background: `linear-gradient(${item.bg})` }} className={classNames('check-color', {
-                                            'check-color--white': item.bg === '#fff'
-                                        })}></span>
-                                        }
-                                        <span className="check-text">{item.text}</span>
-                                    </label>
+                                {items?.map((item) => (
+                                    <CatalogDropFilterItem checkedItems={checkedItems} setCheckedItems={setCheckedItems} items={items} item={item} />
                                 ))}
                             </div>
                         </div>
-                    </div>
+                    }
+                </div>
+                {name !== Filter.Sort &&
                     <div className="catalog-drop-filter__buttons">
-                        <button onClick={() => onReset()} className="btn catalog-drop-filter__btn btn--border" type="reset">
+                        <button onClick={handleReset} className="btn catalog-drop-filter__btn btn--border" type="reset">
                             <span>Очистить все</span>
                             <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M11.9929 3L8 6.99286L4.00714 3L3 4.00714L6.99286 8L3 11.9929L4.00714 13L8 9.00714L11.9929 13L13 11.9929L9.00714 8L13 4.00714L11.9929 3Z"
-                                    fill="#479458" />
+                                <path fillRule="evenodd" clipRule="evenodd"
+                                    d="M11.9929 3L8 6.99286L4.00714 3L3 4.00714L6.99286 8L3 11.9929L4.00714 13L8 9.00714L11.9929 13L13 11.9929L9.00714 8L13 4.00714L11.9929 3Z" />
                             </svg>
                         </button>
-                        <button onClick={() => onSelect(checkedItems)} className="btn catalog-drop-filter__btn" type="button">Применить</button>
+                        <button onClick={() => onSelect && onSelect(checkedItems)} className="btn catalog-drop-filter__btn" type="button">Применить</button>
                     </div>
-                </div>
-            }
+                }
+            </div>
         </fieldset>
     );
 };

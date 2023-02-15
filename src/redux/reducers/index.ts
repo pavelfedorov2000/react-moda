@@ -7,6 +7,8 @@ import favoriteReducer from './favorite';
 import categoryReducer from './category';
 import burgerReducer from './burger';
 import asidePopupReducer from './asidePopup';
+import cartReducer from './cart';
+import ordersReducer from './orders';
 
 import { combineReducers } from 'redux';
 
@@ -20,6 +22,8 @@ export const rootReducer = combineReducers({
     categoryReducer,
     burgerReducer,
     asidePopupReducer,
+    cartReducer,
+    ordersReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

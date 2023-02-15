@@ -1,13 +1,16 @@
-const initialState = {
+import { ActionType } from "../actionsList";
+import { CartAction, CartState } from "../types/cart";
+
+const initialState: CartState = {
     items: {},
     totalPrice: 0,
     totalCount: 0,
     totalDiscount: 0,
 };
 
-const cart = (state = initialState, action) => {
+const cartReducer = (state = initialState, action: CartAction): CartState => {
     switch (action.type) {
-        case 'ADD_PRODUCT_TO_CART': {
+        case ActionType.AddProductToCart: {
 
             const currentItems = !state.items[action.payload.id]
                 ? [action.payload]
@@ -34,14 +37,7 @@ const cart = (state = initialState, action) => {
             };
         }
 
-        case 'CLEAR_CART': return {
-            ...state,
-            items: {},
-            totalPrice: 0,
-            totalCount: 0
-        }
-
-        case 'REMOVE_CART_ITEM': {
+        case ActionType.RemoveCartProduct: {
             const newItems = { ...state.items };
             const currentTotalPrice = newItems[action.payload].totalPrice;
             const currentTotalDiscount = newItems[action.payload].totalDiscount;
@@ -57,7 +53,7 @@ const cart = (state = initialState, action) => {
             }
         }
 
-        case 'MINUS_ITEM': {
+        case ActionType.MinusProduct: {
             const oldItems = state.items[action.payload].items;
             const newObjItems = oldItems.length > 1 ? state.items[action.payload].items.slice(1) : oldItems;
             const newItems = {
@@ -82,7 +78,7 @@ const cart = (state = initialState, action) => {
             };
         }
 
-        case 'PLUS_ITEM': {
+        case ActionType.PlusProduct: {
             const newObjItems = [
                 ...state.items[action.payload].items,
                 state.items[action.payload].items[0]
@@ -109,9 +105,15 @@ const cart = (state = initialState, action) => {
                 totalDiscount
             };
         }
+        case ActionType.ClearCart: return {
+            ...state,
+            items: {},
+            totalPrice: 0,
+            totalCount: 0
+        }
         default:
             return state;
     }
 }
 
-export default cart;
+export default cartReducer;

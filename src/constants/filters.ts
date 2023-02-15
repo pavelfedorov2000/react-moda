@@ -1,6 +1,6 @@
 export const FILTERS_TITLE = 'Фильтры';
 
-interface Filter {
+export interface Filter {
     text: string;
     bg?: string;
 }

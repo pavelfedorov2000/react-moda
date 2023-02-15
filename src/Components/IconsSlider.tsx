@@ -28,7 +28,7 @@ const IconsSlider = () => {
                 <SplideTrack>
                     {categoriesIcons.map((item, index) => (
                         <SplideSlide key={index} style={{ width: '12.8rem' }}>
-                            <Link className="icons-slider__item" to={Pages.Catalog}>
+                            <Link className="icons-slider__item" to={Pages.Catalog.path}>
                                 <span className="icons-slider__item-img">
                                     <img src={item.imageUrl} alt={item.title} />
                                 </span>

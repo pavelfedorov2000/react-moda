@@ -48,6 +48,8 @@ export { default as SeoText } from './SeoText';
 export { default as AsideFilters } from './AsideFilters';
 export { default as CatalogFilters } from './CatalogFilters';
 export { default as CatalogFilter } from './CatalogFilter';
+export { default as CatalogDropFilterItem } from './CatalogDropFilterItem';
+export { default as PriceRange } from './PriceRange';
 export { default as FiltersButton } from './FiltersButton';
 export { default as CatalogView } from './CatalogView';
 export { default as CatalogCard } from './CatalogCard/CatalogCard';

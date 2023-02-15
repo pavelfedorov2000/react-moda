@@ -16,6 +16,7 @@ const ProductCard = () => {
     const { id } = useParams();
     const { products } = useTypedSelector((state) => state.productsReducer);
     const { popupProduct } = useTypedSelector((state) => state.productReducer);
+    const { sortBy, sortPrices, sortBrands, sortColors, sortSizes, sortStyles } = useTypedSelector((state) => state.filtersReducer);
 
     const activeProduct = products.find((product) => product.id == id);
 
@@ -40,8 +41,8 @@ const ProductCard = () => {
     }], [products]);
 
     useEffect(() => {
-        fetchProducts();
-    }, []);
+        fetchProducts(sortBy, sortPrices, sortColors, sortSizes, sortBrands, sortStyles);
+    }, [sortBy, sortPrices, sortColors, sortBrands, sortStyles, sortSizes]);
 
     return (
         <>

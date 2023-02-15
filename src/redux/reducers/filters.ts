@@ -1,11 +1,11 @@
+import { SortFilters } from "../../enums/SortFilter";
 import { ActionType } from "../actionsList";
 import { FiltersAction, FiltersState } from "../types/filters";
 
 const initialState: FiltersState = {
     isVisible: false,
     sortBy: {
-        type: 'price',
-        order: 'asc',
+        ...SortFilters[0]
     },
     sortPrices: [1000, 100000],
     sortColors: [],
@@ -22,16 +22,10 @@ const filtersReducer = (state = initialState, action: FiltersAction): FiltersSta
                 sortBy: action.payload,
             }
         }
-        case ActionType.SetPriceFrom: {
+        case ActionType.SetSortPrices: {
             return {
                 ...state,
-                sortPrices: [action.payload, state.sortPrices[1]],
-            }
-        }
-        case ActionType.SetPriceTo: {
-            return {
-                ...state,
-                sortPrices: [state.sortPrices[0], action.payload],
+                sortPrices: [action.payload[0], action.payload[1]],
             }
         }
         case ActionType.SetSortColors: {

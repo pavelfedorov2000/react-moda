@@ -2,39 +2,15 @@ import classNames from 'classnames';
 import { useState } from 'react';
 import { FILTERS_TITLE } from '../constants/filters';
 import { Filter, FILTERS } from '../enums/Filter';
-import { SortFilters } from '../enums/SortFilter';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import CatalogFilter from './CatalogFilter';
-//import { Sort, Price } from './CatalogFilters/index';
-
-/* interface Props {
-    isVisible: boolean;
-    onClose: () => void;
-} */
 
 const CatalogFilters = () => {
     const { isVisible } = useTypedSelector((state) => state.filtersReducer);
-    const { resetFilters, closeFilters, setSortColors, setSortSizes, setSortBrands, setSortStyles, resetSortBrands, resetSortColors, resetSortPrices, resetSortSizes, resetSortStyles } = useActions();
+    const { resetFilters, closeFilters, setSortColors, setSortSizes, setSortBrands, setSortStyles, setSortPrices, resetSortBrands, resetSortColors, resetSortPrices, resetSortSizes, resetSortStyles } = useActions();
 
     const [activeFilter, setActiveFilter] = useState(FILTERS_TITLE);
-    /* const onCloseFilter = () => {
-      setActiveFilter('Фильтры');
-    } */
-
-    /* const [checkedColors, setCheckedColors] = useState(sortColors);
-    const [checkedSizes, setCheckedSizes] = useState(sortSizes);
-    const [checkedBrands, setCheckedBrands] = useState(sortBrands);
-    const [checkedStyles, setCheckedStyles] = useState(sortStyles);
-    const [fromPrice, setFromPrice] = useState(null);
-    const [toPrice, setToPrice] = useState(null); */
-    console.log(FILTERS);
-    console.log(Object.keys(FILTERS));
-    
-
-    const handleResetFilters = () => {
-        resetFilters();
-    }
 
     return (
         <form action="#" className={classNames('catalog-filters', {
@@ -61,13 +37,15 @@ const CatalogFilters = () => {
             </div>
 
             <div className="catalog-filters__row">
+                <CatalogFilter name={Filter.Sort} {...FILTERS.sort} />
                 <CatalogFilter name={Filter.Brand} {...FILTERS.brand} onSelect={setSortBrands} onReset={resetSortBrands} />
-                <CatalogFilter name={Filter.Size} {...FILTERS.size} onSelect={setSortSizes} onReset={resetSortSizes} />
-                <CatalogFilter name={Filter.Style} {...FILTERS.style} onSelect={setSortStyles} onReset={resetSortStyles} />
                 <CatalogFilter name={Filter.Color} {...FILTERS.color} onSelect={setSortColors} onReset={resetSortColors} />
+                <CatalogFilter name={Filter.Size} {...FILTERS.size} onSelect={setSortSizes} onReset={resetSortSizes} />
+                <CatalogFilter name={Filter.Price} {...FILTERS.price} onSelect={setSortPrices} onReset={resetSortPrices} />
+                <CatalogFilter name={Filter.Style} {...FILTERS.style} onSelect={setSortStyles} onReset={resetSortStyles} />
             </div>
 
-            <button onClick={handleResetFilters} className="catalog-filters__reset-btn" type="reset">
+            <button onClick={resetFilters} className="catalog-filters__reset-btn" type="reset">
                 <span>Очистить все</span>
                 <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd"

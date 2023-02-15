@@ -8,13 +8,17 @@ const Home = () => {
     const { products } = useTypedSelector((state) => state.productsReducer);
     const { popupProduct } = useTypedSelector((state) => state.productReducer);
     const { items } = useTypedSelector((state) => state.blogReducer);
+    const { sortBy, sortPrices, sortBrands, sortColors, sortSizes, sortStyles } = useTypedSelector((state) => state.filtersReducer);
 
     const { fetchProducts, fetchBlog} = useActions();
 
     useEffect(() => {
-        fetchProducts();
         fetchBlog();
     }, []);
+
+    useEffect(() => {
+        fetchProducts(sortBy, sortPrices, sortColors, sortSizes, sortBrands, sortStyles);
+    }, [sortBy, sortPrices, sortColors, sortBrands, sortStyles, sortSizes]);
 
     return (
         <>

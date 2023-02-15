@@ -25,7 +25,7 @@ const HeaderActions = ({ onClickSearch }: Props) => {
     }, {
         href: Pages.Favorite.path,
         icon: <FavoriteIcon />,
-        text: Pages.Favorite.title,
+        text: "Избранное",
         quantity: products.length
     }, {
         icon: <CartIcon />,

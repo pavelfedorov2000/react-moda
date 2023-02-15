@@ -23,7 +23,10 @@ const ActionHeader = ({ className, href, icon, text, onClick, quantity }: Props)
                     :
                     <Link to={href} className={classNames('action-header', className)}>
                         {icon}
-                        <span>{text}</span>
+                        <span>
+                            {text}
+                            {quantity && quantity !== 0 && <span>({quantity})</span>}
+                        </span>
                     </Link>
             }
         </>

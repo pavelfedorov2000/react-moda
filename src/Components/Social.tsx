@@ -1,12 +1,18 @@
 import classNames from 'classnames';
-import { socials } from '../constants/socials';
+import { SOCIALS } from '../constants/socials';
+import { SocialList } from '../enums/Social';
 
-const Social = ({ className, filterParam }) => {
+interface Props {
+    className?: string;
+    filterParam: string;
+}
+
+const Social = ({ className, filterParam }: Props) => {
     return (
         <ul className={classNames('social', className)}>
-            {socials.filter(social => !social[filterParam]).map(social => (
+            {SOCIALS.filter((social) => social.place !== filterParam).map((social) => (
                 <li key={social.name} className={classNames('social__item', {
-                    'social__item--google': social.name === 'google'
+                    'social__item--google': social.name === SocialList.Google
                 })}>
                     <a className="social__link" href={social.link.href} target="_blank" rel="nofollow">
                         <social.svg />
