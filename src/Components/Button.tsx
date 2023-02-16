@@ -29,7 +29,8 @@ const Button = ({ onClick, className, border, text, type, isDisabled, icon, isFa
             type={type || 'button'}
             className={classNames('button', className, {
                 'button--border': border,
-                'button--transparent': transparent
+                'button--transparent': transparent,
+                'button--red': isBasketProduct === false
             })}>
             {text}
 

@@ -3,13 +3,12 @@ enum Payment {
     Card = 'Card',
 }
 
-export const PAYMENT = {
-    [Payment.Cash]: {
-        title: "Оплата при получении",
-        text: "Наличными или банковской картой при получении"
-    },
-    [Payment.Card]: {
-        title: "Картой онлайн",
-        text: "Перейти к оплате через сервис"
-    }
-};
+export const PAYMENT_OPTIONS = [{
+    name: [Payment.Cash],
+    title: "Оплата при получении",
+    text: "Наличными или банковской картой при получении"
+}, {
+    name: [Payment.Card],
+    title: "Картой онлайн",
+    text: "Перейти к оплате через сервис"
+}];

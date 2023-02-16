@@ -41,9 +41,10 @@ const Cart = ({ title, emptyBlock }: Page) => {
                     {Object.keys(items).length !== 0 ?
                         <div className="basket-page__body">
                             <BasketTable />
-                                <Sticky containerSelectorFocus=".basket-page__body" offsetTop={20} stickyEnableRange={[1025, Infinity]}>
-                                    <BasketTotal />
-                                </Sticky>
+                            <Sticky containerSelectorFocus=".basket-page__body" offsetTop={20} stickyEnableRange={[1025, Infinity]}>
+                                <BasketTotal />
+                            </Sticky>
+                            <Checkout />
                         </div>
                         : <EmptyBlock {...emptyBlock} />
                     }

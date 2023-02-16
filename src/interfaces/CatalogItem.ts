@@ -2,6 +2,7 @@ import { ProductDetails } from "./ProductDetails";
 
 export interface CatalogItem {
     id: string;
+    articul: string;
     imageUrl: string;
     name: string;
     brand: string;
@@ -17,6 +18,5 @@ export interface CatalogItem {
 
 export interface Product extends CatalogItem {
     logo: string;
-    articul: string;
     details: ProductDetails[];
 }

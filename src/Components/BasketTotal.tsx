@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { FormRow } from '.';
 import { Pages } from '../enums/Page';
@@ -8,16 +9,28 @@ const loyaltyPercent = 3; // Программа лояльности
 
 const BasketTotal = () => {
     //const { data } = useSelector(({ order }) => order);
-    const { totalPrice, totalDiscount } = useTypedSelector((state) => state.cartReducer);
-    const { clearCart } = useActions();
+    const { totalPrice, totalDiscount, items } = useTypedSelector((state) => state.cartReducer);
+    const { personalData, DELIVERY ,PAYMENT } = useTypedSelector((state) => state.orderReducer);
+    const { clearCart, setOrderData } = useActions();
     
     const loyaltyDiscount = totalPrice * loyaltyPercent / 100;
     const overallSum = totalPrice - totalDiscount - loyaltyDiscount; // Итого
 
     const handleOrderSubmit = () => {
-        //handleOrderSubmit(orderData);
+        /*  setOrderData({
+            items,
+            personalData,
+            delivery: DELIVERY,
+            payment: PAYMENT
+        }); */
         clearCart();
     }
+
+    const isSubmitButtonDisabled =
+        Object.values(personalData).some((input) => input === '')
+        || DELIVERY === ''
+        || PAYMENT === ''
+    ;
 
     return (
         <div className="basket-total">
@@ -52,7 +65,7 @@ const BasketTotal = () => {
                 <div className="basket-total__overall-title">Итого</div>
                 <div className="basket-total__overall-sum">{totalPrice ? overallSum : 0}₽</div>
             </div>
-            <Link onClick={handleOrderSubmit} to={Pages.OrderSuccess.path} className="button basket-total__btn">Отправить заказ</Link>
+            <Link onClick={handleOrderSubmit} to={Pages.OrderSuccess.path} disabled={isSubmitButtonDisabled} className="button basket-total__btn">Отправить заказ</Link>
             <div className="basket-total__agreement">
                 Нажимая на кнопку «Отправить заказ», вы принимаете условия <Link to={Pages.NotFound.path}>Публичной оферты.</Link>
             </div>

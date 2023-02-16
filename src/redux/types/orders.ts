@@ -9,4 +9,4 @@ interface SetOrderDataAction {
     payload: any[];
 }
 
-export type OrderType = SetOrderDataAction;
+export type OrdersAction = SetOrderDataAction;

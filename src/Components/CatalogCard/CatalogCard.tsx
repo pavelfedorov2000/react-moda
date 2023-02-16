@@ -7,13 +7,9 @@ import { CatalogItem } from '../../interfaces/CatalogItem';
 import { SIZES } from '../../constants/sizes';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useActions } from '../../hooks/useActions';
+import { FavoriteAriaLabel } from '../../enums/FavoriteAriaLabel';
 
-enum FavoriteAriaLabel {
-    Add = 'Добавить в избранное',
-    Remove = 'Удалить из избранного'
-}
-
-const CatalogCard = ({ id, name, brand, imageUrl, price, color, sizes, style, discount, newProduct }: CatalogItem) => {
+const CatalogCard = ({ id, articul, name, brand, imageUrl, price, color, sizes, style, discount, newProduct }: CatalogItem) => {
     const { products } = useTypedSelector((state) => state.favoriteReducer);
     const { addFavoriteProduct, removeFavoriteProduct } = useActions();
 
@@ -24,6 +20,7 @@ const CatalogCard = ({ id, name, brand, imageUrl, price, color, sizes, style, di
     const handleAddFavorite = () => {
         addFavoriteProduct({
             id,
+            articul,
             name,
             brand,
             imageUrl,
@@ -33,12 +30,13 @@ const CatalogCard = ({ id, name, brand, imageUrl, price, color, sizes, style, di
             style,
             discount,
             newProduct
-        })
+        });
     }
 
     const handleOpenPopup = () => {
         openProductPopup({
             id,
+            articul,
             name,
             brand,
             imageUrl,
@@ -48,14 +46,15 @@ const CatalogCard = ({ id, name, brand, imageUrl, price, color, sizes, style, di
             style,
             discount,
             newProduct
-        })
+        });
     }
 
     return (
         <article className="catalog-card">
             <div className="labels">
-                {discount !== 0 &&
+                {discount && discount !== 0 ?
                     <span className="label catalog-card__label label--discount">{discount}%</span>
+                    : null
                 }
 
                 {newProduct &&

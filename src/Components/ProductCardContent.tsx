@@ -9,7 +9,7 @@ import ProductCardDelivery from './ProductCardDelivery';
 import ProductColors from './ProductColors';
 import ProductSizes from './ProductSizes';
 
-const ProductCardContent = ({ id, name, brand, logo, sizes, color, imageUrl, style, price, discount, newProduct }: Product) => {
+const ProductCardContent = ({ id, articul, name, brand, logo, sizes, color, imageUrl, style, price, discount, newProduct }: Product) => {
     const { items } = useTypedSelector((state) => state.cartReducer);
     const { products } = useTypedSelector((state) => state.favoriteReducer);
     const { addFavoriteProduct, removeFavoriteProduct, addProductToCart } = useActions();
@@ -20,6 +20,7 @@ const ProductCardContent = ({ id, name, brand, logo, sizes, color, imageUrl, sty
     const handleAddProductToCart = () => {
         addProductToCart({
             id,
+            articul,
             name,
             brand,
             imageUrl,
@@ -35,6 +36,7 @@ const ProductCardContent = ({ id, name, brand, logo, sizes, color, imageUrl, sty
     const handleAddFavorite = () => {
         addFavoriteProduct({
             id,
+            articul,
             name,
             brand,
             imageUrl,
@@ -65,25 +67,25 @@ const ProductCardContent = ({ id, name, brand, logo, sizes, color, imageUrl, sty
                 <Prices price={price} discount={discount} className="product-card__prices" />
 
                 <div className="labels">
-                    {discount !== 0 &&
+                    {discount && discount !== 0 ?
                         <span className="label label--discount">{discount}%</span>
+                        : null
                     }
 
-                    {newProduct && newProduct !== undefined &&
+                    {newProduct ?
                         <span className="label label--new">new</span>
+                        : null
                     }
                 </div>
             </div>
 
             <section className="product-card__section">
                 <h4 className="product-card__section-title">О товаре</h4>
-
                 <p>
                     Пальто на запах выполнено из мягкого шерстяного драпа. Модель приталенного кроя дополнена
                     поясом в тон.
                     Особенности: воротник с лацканами, без застежки, два боковых кармана, высокая шлица.
                 </p>
-
                 <button className="scroll-link" data-link="details" type="button">Подробнее</button>
             </section>
 

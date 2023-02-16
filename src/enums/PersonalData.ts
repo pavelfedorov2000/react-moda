@@ -1,4 +1,4 @@
-enum PersonalData {
+export enum PersonalData {
     NAME = 'NAME',
     SURNAME = 'SURNAME',
     PHONE = 'PHONE',
@@ -18,12 +18,12 @@ export const PERSONAL_DATA: PersonalDataType[] = [{
     name: PersonalData.SURNAME,
     placeholder: "Фамилия"
 }, {
-    name: PersonalData.SURNAME,
+    name: PersonalData.PHONE,
     placeholder: "Ваш телефон*"
 }, {
-    name: PersonalData.SURNAME,
+    name: PersonalData.EMAIL,
     placeholder: "Ваш e-mail*"
 }, {
-    name: PersonalData.SURNAME,
+    name: PersonalData.CITY,
     placeholder: "Город, населенный пункт*"
 }];

@@ -55,7 +55,7 @@ export enum ActionType {
 
     SetOrderData = 'SetOrderData',
 
-    SetPersonaData = 'SetPersonaData',
+    SetPersonalData = 'SetPersonalData',
     SetDelivery = 'SetDelivery',
     SetPayment = 'SetPayment',
 }
