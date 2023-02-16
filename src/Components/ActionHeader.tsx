@@ -1,32 +1,32 @@
 import classNames from "classnames";
-import { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { HeaderAction } from "../interfaces/HeaderAction";
 
-interface Props {
+interface Props extends HeaderAction {
     className?: string;
-    href?: string;
-    icon: ReactNode;
-    text: string;
-    count?: number;
-    onClick?: () => void;
 }
 
-const ActionHeader = ({ className, href, icon, text, onClick, count }: Props) => {
+const ActionHeader = ({ className, href, icon, text, onClick, quantity }: Props) => {
     return (
         <>
             {
                 !href ?
                     <button onClick={onClick} className={classNames('action-header', className)} type="button">
-                        {icon}
-                        <span>
-                            {text}
-                            {count && count !== 0 && <span>({count})</span>}
-                        </span>
+                        <>
+                            {icon}
+                            <span>
+                                {text}
+                                {quantity !== 0 && <span>{quantity && '('}{quantity}{quantity && ')'}</span>}
+                            </span>
+                        </>
                     </button>
                     :
                     <Link to={href} className={classNames('action-header', className)}>
                         {icon}
-                        <span>{text}</span>
+                        <span>
+                            {text}
+                            {quantity !== 0 && <span>{quantity && '('}{quantity}{quantity && ')'}</span>}
+                        </span>
                     </Link>
             }
         </>

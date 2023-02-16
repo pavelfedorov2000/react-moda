@@ -1,43 +1,45 @@
 import { instagram, vk, facebook, youtube, tiktok, google } from '../Components/Socials';
-import { Social } from '../interfaces/Social';
+import { FilterParam, SocialList } from '../enums/Social';
+import { Social as SocialType } from '../interfaces/Social';
 
-export const socials: Social[] = [{
-    name: 'google',
+export const SOCIALS: SocialType[] = [{
+    name: SocialList.Google,
     svg: google,
     link: {
         href: 'https://www.google.com/'
     },
-    auth: true,
+    place: FilterParam.Auth,
 }, {
-    name: 'instagram',
+    name: SocialList.Instagram,
     svg: instagram,
     link: {
         href: 'https://www.instagram.com/'
     },
 }, {
-    name: 'vk',
+    name: SocialList.Vk,
     svg: vk,
     link: {
         href: 'https://vk.com/'
     },
 }, {
-    name: 'facebook',
+    name: SocialList.Facebook,
     svg: facebook,
     link: {
         href: 'https://www.facebook.com/'
     },
 }, {
-    name: 'youtube',
+    name: SocialList.Youtube,
     svg: youtube,
     link: {
         href: 'https://www.youtube.com/'
     },
-    footer: true
+    place: FilterParam.Footer,
 }, {
-    name: 'tiktok',
+    name: SocialList.Tiktok,
     svg: tiktok,
     link: {
         href: 'https://www.tiktok.com/'
     },
-    footer: true
+    place: FilterParam.Footer,
 }];
+

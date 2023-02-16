@@ -4,6 +4,5 @@ export interface Social {
     link: {
         href: string;
     },
-    auth?: boolean,
-    footer?: boolean;
+    place?: string,
 }

@@ -46,7 +46,15 @@ export const routes: Route[] = [{
 }, {
     id: 5,
     ...Pages.Cart,
-    component: Cart
+    component: Cart,
+    emptyBlock: {
+        icon: {
+            src: emptyCatalog
+        },
+        title: {
+            text: Pages.Cart.empty
+        }
+    }
 }, {
     id: 6,
     ...Pages.OrderSuccess,

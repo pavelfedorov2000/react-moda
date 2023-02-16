@@ -40,14 +40,16 @@
         column-gap: 1.5rem;
         padding-bottom: 1.7rem;
         border-bottom: 0.1rem solid #efefef;
-        grid-template-areas:
-            'image title'
-            'image .'
-            'image list'
-            'image .'
-            'image bottom';
-        grid-template-columns: 11rem auto;
-        grid-template-rows: max-content 1.4rem max-content 0.2rem max-content;
+        grid-template-areas: "image title title title"
+            "image . . ."
+            "image list list list"
+            "image . . ."
+            "image buttons counter prices";
+        grid-template-columns: 11rem 1fr 1fr 1fr;
+
+        @media(min-width: 768px) {
+            grid-template-rows: auto 1.4rem auto 0.2rem auto;
+        }
 
         @media (max-width: 767px) {
             grid-template-areas:
@@ -104,5 +106,10 @@
             height: 1.6rem;
             margin-left: 1rem;
         }
+    }
+
+    .basket-product__prices-wrap {
+        flex-direction: column;
+        gap: 0;
     }
 }

@@ -15,38 +15,36 @@ const SliderSection = ({ items, title }: Props) => {
 
     return (
         <section className="section">
-            <div className="container">
-                {items.length > 4 ?
-                    <Splide hasTrack={false} aria-label={title} options={splideOptions}>
-                        <div className="section__top">
-                            <h2 className="title">{title}</h2>
-                            {items.length > 4 && <SliderArrows />}
-                        </div>
+            {items.length > 4 ?
+                <Splide hasTrack={false} aria-label={title} options={splideOptions}>
+                    <div className="section__top">
+                        <h2 className="title">{title}</h2>
+                        {items.length > 4 && <SliderArrows />}
+                    </div>
 
-                        <SplideTrack>
-                            {items.map((item) => (
-                                <SplideSlide key={item.id}>
-                                    <CatalogCard {...item} />
-                                </SplideSlide>
-                            ))}
-                        </SplideTrack>
-                    </Splide>
-                    :
-                    <>
-                        <div className="section__top">
-                            <h2 className="title">{title}</h2>
-                        </div>
+                    <SplideTrack>
+                        {items.map((item) => (
+                            <SplideSlide key={item.id}>
+                                <CatalogCard {...item} />
+                            </SplideSlide>
+                        ))}
+                    </SplideTrack>
+                </Splide>
+                :
+                <>
+                    <div className="section__top">
+                        <h2 className="title">{title}</h2>
+                    </div>
 
-                        <ul className="grid grid--items-xl_4">
-                            {items.map((item) => (
-                                <li key={item.id}>
-                                    <CatalogCard {...item} />
-                                </li>
-                            ))}
-                        </ul>
-                    </>
-                }
-            </div>
+                    <ul className="grid grid--items-xl_4">
+                        {items.map((item) => (
+                            <li key={item.id}>
+                                <CatalogCard {...item} />
+                            </li>
+                        ))}
+                    </ul>
+                </>
+            }
         </section>
     );
 }

@@ -36,8 +36,8 @@ const Instagram = ({ title, dataUrl }: Props) => {
                 </div>
 
                 <SplideTrack>
-                    {instagramPhotos.map(item => (
-                        <SplideSlide key={item.imageUrl.toString()}>
+                    {instagramPhotos.map((item, index) => (
+                        <SplideSlide key={index}>
                             <a className="full-link" href="#">
                                 <img src={item.imageUrl} alt="фото" width="336" height="336" />
                             </a>

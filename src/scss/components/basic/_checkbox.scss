@@ -70,6 +70,14 @@
         overflow: hidden;
         position: absolute;
         clip: rect(0 0 0 0);
+
+        &:checked ~ #{$this}-style {
+            border-color: var(--dark);
+
+            span {
+                opacity: 1;
+            }
+        }
     }
 
     &-style {
@@ -81,13 +89,15 @@
         border-radius: 50%;
         border: 0.1rem solid var(--gray-c0);
 
-        /* span {
+        span {
             @extend %bg-contain;
             @extend %pos-center-xy;
             position: absolute;
             width: 0.9rem;
             height: 0.6rem;
-        } */
+            opacity: 0;
+            transition: $transition opacity;
+        }
 
         /* span {
             opacity: 0;

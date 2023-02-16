@@ -1,6 +1,10 @@
 .promo-sale {
     padding-bottom: 7rem;
 
+    @media(min-width: 1025px) {
+        padding-top: 1.5rem;
+    }
+
     &__grid {
         display: grid;
         gap: 4.4rem var(--gap);

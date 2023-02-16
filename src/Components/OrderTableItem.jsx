@@ -1,16 +1,16 @@
 import { NavLink } from 'react-router-dom';
-import Time from './Time';
+import DateTime from './DateTime';
 
 const OrderTableItem = ({ totalPrice, index, date, delivery, items }) => {
     return (
         <div className="order-item order-table__item">
             <header className="order-item__header">
                 <div className="order-item__header-wrap">
-                    <div className="order-item__title">Заказ от <Time date={date} />, №RU{date.split('.').join('')}-{index + 1}</div>
+                    <div className="order-item__title">Заказ от <DateTime date={date} />, №RU{date.split('.').join('')}-{index + 1}</div>
                     <div className="order-item__price">{`${totalPrice} ₽`}</div>
                 </div>
                 <div className="order-item__header-buttons">
-                    <span className="btn order-item__status-label">Передан в доставку</span>
+                    <span className="button order-item__status-label">Передан в доставку</span>
                     <button className="order-item__follow-link">
                         <span>Отследить посылку</span>
                         <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -24,7 +24,7 @@ const OrderTableItem = ({ totalPrice, index, date, delivery, items }) => {
             <div className="order-item__body">
                 <div className="order-item__content">
                     <div className="order-item__delivery-date">
-                        Дата доставки: <Time date={date} />
+                        Дата доставки: <DateTime date={date} />
                     </div>
                     <div className="order-item__delivery-place">
                         Доставка: <span>{delivery.split('').map((letter, i) => i === 0 ? letter.toLowerCase() : letter).join('')}</span>

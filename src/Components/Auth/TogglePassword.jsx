@@ -1,8 +1,6 @@
-import React from 'react';
-
 const TogglePassword = ({ visiblePassword, onClick }) => {
     return (
-        <button onClick={onClick} className="pass-btn" type="button">
+        <button onClick={onClick} className="password-button" type="button">
             {visiblePassword ?
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M22.4132 11.6867C20.1665 7.53335 16.2265 5.02002 11.8665 5.02002C7.50648 5.02002 3.55982 7.53335 1.33315 11.6867L1.14648 12L1.31982 12.32C3.56648 16.4734 7.50648 18.9867 11.8665 18.9867C16.2265 18.9867 20.1732 16.5067 22.4132 12.32L22.5865 12L22.4132 11.6867ZM11.8665 17.62C8.11315 17.62 4.66648 15.5267 2.66648 12C4.66648 8.47335 8.11315 6.38002 11.8665 6.38002C15.6198 6.38002 19.0265 8.48002 21.0598 12C19.0265 15.5267 15.6132 17.62 11.8665 17.62Z" fill="black" />

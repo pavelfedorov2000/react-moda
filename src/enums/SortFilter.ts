@@ -1,29 +1,29 @@
-enum SortFilterType {
+export enum SortFilterType {
     Price = 'price',
     //Popular = 'popular',
     NewProduct = 'newProduct',
     Discount = 'discount',
 }
 
-enum Order {
+export enum Order {
     ASC = 'asc',
     DESC = 'desc',
 }
 
 export const SortFilters = [{
-    name: 'возрастанию цены',
+    name: 'По возрастанию цены',
     type: SortFilterType.Price,
     order: Order.ASC
 }, {
-    name: 'убыванию цены',
+    name: 'По убыванию цены',
     type: SortFilterType.Price,
     order: Order.DESC
 }, {
-    name: 'новинкам',
+    name: 'По новинкам',
     type: SortFilterType.NewProduct,
     order: Order.DESC
 }, {
-    name: 'скидкам',
+    name: 'По скидкам',
     type: SortFilterType.Discount,
     order: Order.DESC
 }];

@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { calcOldPrice } from '../utils/oldPrice';
 
 interface Props {
     price: number;
@@ -14,7 +15,7 @@ const Prices = ({ price, discount, className }: Props) => {
             })}>{price} ₽</div>
 
             {discount !== undefined && discount !== 0 &&
-                <div className="old-price">{Math.floor(price * 100 / (100 - discount))} ₽</div>
+                <div className="old-price">{calcOldPrice(discount, price)} ₽</div>
             }
         </div>
     );

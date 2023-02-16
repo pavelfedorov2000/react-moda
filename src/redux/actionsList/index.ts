@@ -15,8 +15,7 @@ export enum ActionType {
     SetProducts = 'SetProducts',
 
     SetSortBy = 'SetSortBy',
-    SetPriceFrom = 'SetPriceFrom',
-    SetPriceTo = 'SetPriceTo',
+    SetSortPrices = 'SetSortPrices',
     SetSortColors = 'SetSortColors',
     SetSortSizes = 'SetSortSizes',
     SetSortBrands = 'SetSortBrands',
@@ -37,4 +36,26 @@ export enum ActionType {
 
     OpenProductPopup = 'OpenProductPopup',
     CloseProductPopup = 'CloseProductPopup',
+
+    SetCategory = 'SetCategory',
+
+    OpenBurgerMenu = 'OpenBurgerMenu',
+    CloseBurgerMenu = 'CloseBurgerMenu',
+
+    OpenAuth = 'OpenAuth',
+    OpenAsideBasket = 'OpenAsideBasket',
+    CloseAuth = 'CloseAuth',
+    CloseAsideBasket = 'CloseAsideBasket',
+
+    AddProductToCart = 'AddProductToCart',
+    RemoveCartProduct = 'RemoveCartProduct',
+    PlusProduct = 'PlusProduct',
+    MinusProduct = 'MinusProduct',
+    ClearCart = 'ClearCart',
+
+    SetOrderData = 'SetOrderData',
+
+    SetPersonaData = 'SetPersonaData',
+    SetDelivery = 'SetDelivery',
+    SetPayment = 'SetPayment',
 }

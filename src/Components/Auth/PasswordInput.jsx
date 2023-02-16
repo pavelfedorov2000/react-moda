@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import TogglePassword from './TogglePassword';
 
 const PasswordInput = ({ field }) => {

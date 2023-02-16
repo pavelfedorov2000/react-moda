@@ -6,14 +6,9 @@ export const setSortBy = ({ type, order }: Sort) => ({
     payload: { type, order }
 });
 
-export const setPriceFrom = (from: number) => ({
-    type: ActionType.SetPriceFrom,
-    payload: from
-});
-
-export const setPriceTo = (to: number) => ({
-    type: ActionType.SetPriceTo,
-    payload: to
+export const setSortPrices = (range: number[]) => ({
+    type: ActionType.SetSortPrices,
+    payload: range
 });
 
 export const setSortColors = (arr: string[]) => ({

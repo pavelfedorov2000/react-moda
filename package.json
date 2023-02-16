@@ -5,6 +5,7 @@
   "homepage": ".",
   "dependencies": {
     "@fancyapps/ui": "^4.0.26",
+    "@redux-devtools/extension": "^3.2.5",
     "@splidejs/react-splide": "^0.7.7",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",

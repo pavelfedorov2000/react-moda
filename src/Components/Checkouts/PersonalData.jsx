@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const PersonalData = ({ personalData, orderData }) => {
     const [data, setData] = useState(personalData);

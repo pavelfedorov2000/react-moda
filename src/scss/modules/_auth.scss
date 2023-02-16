@@ -95,11 +95,9 @@
         top: 2rem;
         right: 2rem;
         z-index: 20;
-        width: 3.2rem;
-        height: 3.2rem;
 
         svg {
-            transition: $transition fill;
+            fill: var(--dark-gray);
         }
 
         @media (any-hover: hover) {

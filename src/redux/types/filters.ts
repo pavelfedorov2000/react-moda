@@ -4,7 +4,7 @@ import { ActionType } from "../actionsList";
 export interface FiltersState {
     isVisible: boolean,
     sortBy: Sort,
-    sortPrices: [number, number],
+    sortPrices: number[],
     sortColors: string[],
     sortSizes: number[],
     sortBrands: string[],
@@ -16,14 +16,9 @@ interface SetSortByAction {
     payload: Sort;
 }
 
-interface SetPriceFromAction {
-    type: ActionType.SetPriceFrom;
-    payload: number;
-} 
-
-interface SetPriceToAction {
-    type: ActionType.SetPriceTo;
-    payload: number;
+interface SetSortPricesAction {
+    type: ActionType.SetSortPrices;
+    payload: number[];
 }
 
 interface SetSortColorsAction {
@@ -45,7 +40,6 @@ interface SetSortStylesAction {
     type: ActionType.SetSortStyles;
     payload: string[];
 }
-
 
 interface ResetSortPricesAction {
     type: ActionType.ResetSortPrices;
@@ -81,8 +75,7 @@ interface CloseFiltersAction {
 
 export type FiltersAction =
     SetSortByAction
-    | SetPriceFromAction
-    | SetPriceToAction
+    | SetSortPricesAction
     | SetSortColorsAction
     | SetSortSizesAction
     | SetSortBrandsAction

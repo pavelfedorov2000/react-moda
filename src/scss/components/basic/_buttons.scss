@@ -1,4 +1,4 @@
-.btn {
+.button {
     @extend %flex-center;
     @extend %text-14;
     background-color: var(--green);
@@ -25,10 +25,8 @@
     }
 
     svg {
-        width: 1.6rem;
-        height: 1.6rem;
         margin-right: 0.8rem;
-        transition: $transition fill;
+        fill: #fff;
     }
 
     &--disabled {
@@ -53,7 +51,6 @@
         svg {
             width: 2rem;
             height: 2rem;
-            transition: $transition fill;
         }
 
         @media (any-hover: hover) {
@@ -93,7 +90,7 @@
 }
 
 a {
-    &.btn {
+    &.button {
         @media (any-hover: hover) {
             &:hover {
                 color: #fff;
@@ -101,7 +98,7 @@ a {
         }
     }
 
-    &.btn--border {
+    &.button--border {
         @media (any-hover: hover) {
             &:hover {
                 color: #2d703c;

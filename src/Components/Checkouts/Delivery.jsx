@@ -1,6 +1,3 @@
-import React, { useContext } from 'react';
-import { CheckoutContext } from '../../context';
-
 const deliveryInputs = {
     index: "Индекс",
     street: "Улица",
@@ -9,15 +6,14 @@ const deliveryInputs = {
 };
 
 const Delivery = ({ deliveryOptions }) => {
-    const { selectedDelivery, setSelectedDelivery } = useContext(CheckoutContext);
-
+    const selectedDelivery = 0;
     return (
         <fieldset>
             <legend className="checkout-form__item-title">Условия доставки</legend>
             <div className="checkout-form__radios">
                 {deliveryOptions.map((option, i) => (
                     <label key={option} className="checkout-form__item-radio checkout-radio checkout-radio--without-border">
-                        <input onChange={() => setSelectedDelivery(i)} className="radio-box" type="radio" name="delivery" checked={i === selectedDelivery ? true : false} />
+                        <input className="radio-box" type="radio" name="delivery" checked={i === selectedDelivery ? true : false} />
                         <div className="checkout-radio__wrap">
                             <span className="radio-style"></span>
                             <div className="checkout-radio__content">
@@ -36,7 +32,7 @@ const Delivery = ({ deliveryOptions }) => {
                                     i === selectedDelivery &&
                                     <div className="checkout-radio__hidden">
                                         <div className="checkout-radio__inputs">
-                                            {Object.keys(deliveryInputs).map(input => (
+                                            {Object.keys(deliveryInputs).map((input) => (
                                                 <div key={input} className="checkout-radio__input">
                                                     <input className="input" name={input} placeholder={deliveryInputs[input]} required />
                                                 </div>
@@ -55,3 +51,5 @@ const Delivery = ({ deliveryOptions }) => {
 }
 
 export default Delivery;
+
+//onChange={() => setSelectedDelivery(i)}

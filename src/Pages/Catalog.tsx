@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PromoCollection, AsideFilters, CatalogFilters, CatalogView, CatalogCard, SeoText, Loader, Crumbs, FiltersButton, ProductPopup } from '../Components';
+import { PromoCollection, AsideFilters, CatalogFilters, CatalogView, CatalogCard, SeoText, Loader, Crumbs, FiltersButton, ProductPopup, EmptyBlock } from '../Components';
 import classNames from 'classnames';
 import { useEffect } from 'react';
 import { CatalogViewOption, CatalogViews } from '../enums/CatalogView';
@@ -46,27 +46,33 @@ const Catalog = ({ title, emptyBlock }: Page) => {
                                     <FiltersButton />
                                 </div>
 
-                                {isLoaded
-                                    ? <ul className={classNames('catalog-list', {
-                                        'catalog-list--two-cols': catalogView === CatalogViewOption.COL
-                                    })}>
+                                {products.length !== 0 ?
+                                    <>
                                         {
-                                            products.map(product => (
-                                                <li key={product.id}>
-                                                    <CatalogCard {...product} />
-                                                </li>
-                                            ))
+                                            isLoaded ?
+                                                <ul className={classNames('catalog-list', {
+                                                    'catalog-list--two-cols': catalogView === CatalogViewOption.COL
+                                                })}>
+                                                    {
+                                                        products.map(product => (
+                                                            <li key={product.id}>
+                                                                <CatalogCard {...product} />
+                                                            </li>
+                                                        ))
+                                                    }
+                                                </ul>
+                                                :
+                                                <div className={classNames('catalog-list', {
+                                                    'catalog-list--two-cols': catalogView === CatalogViewOption.COL
+                                                })}>
+                                                    {Array(18).fill(0).map((_, index) => <Loader key={index} />)}
+                                                </div>
                                         }
-                                    </ul>
+                                        <SeoText className="catalog__seo-text" />
+                                    </>
                                     :
-                                    <div className={classNames('catalog-list', {
-                                        'catalog-list--two-cols': catalogView === CatalogViewOption.COL
-                                    })}>
-                                        {Array(18).fill(0).map((_, index) => <Loader key={index} />)}
-                                    </div>
+                                    <EmptyBlock {...emptyBlock} />
                                 }
-
-                                <SeoText className="catalog__seo-text" />
                             </div>
                         </div>
                     </div>
