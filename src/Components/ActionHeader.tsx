@@ -16,7 +16,7 @@ const ActionHeader = ({ className, href, icon, text, onClick, quantity }: Props)
                             {icon}
                             <span>
                                 {text}
-                                {quantity && quantity !== 0 && <span>({quantity})</span>}
+                                {quantity !== 0 && <span>{quantity && '('}{quantity}{quantity && ')'}</span>}
                             </span>
                         </>
                     </button>
@@ -25,7 +25,7 @@ const ActionHeader = ({ className, href, icon, text, onClick, quantity }: Props)
                         {icon}
                         <span>
                             {text}
-                            {quantity && quantity !== 0 && <span>({quantity})</span>}
+                            {quantity !== 0 && <span>{quantity && '('}{quantity}{quantity && ')'}</span>}
                         </span>
                     </Link>
             }

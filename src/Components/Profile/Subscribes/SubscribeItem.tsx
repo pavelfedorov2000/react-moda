@@ -24,7 +24,7 @@ const SubscribeItem = ({ id, title, items }: Subscribe) => {
                 <div className="subscribe-item__text">Описание подписки на распродажу и акции для женщин и мужчин</div>
 
                 <div className="subscribe-item__bottom">
-                    <button onClick={() => cancelSubscribe(id)} className="btn subscribe-item__cancel-btn btn--disabled" type="button">
+                    <button onClick={() => cancelSubscribe(id)} className="button subscribe-item__cancel-btn button--disabled" type="button">
                         Отменить подписку
                     </button>
                 </div>

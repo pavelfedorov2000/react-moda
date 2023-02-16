@@ -1,6 +1,4 @@
-import React from 'react';
-
-function SizesTable(props) {
+const SizesTable = () => {
     return (
         <div>
 

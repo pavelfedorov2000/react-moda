@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { NavLink, useRouteMatch } from 'react-router-dom';
 import { BlogItem as BlogItemType } from '../interfaces/BlogItem';
 import Tag from './Tag';
-import Time from './Time';
+import DateTime from './DateTime';
 
 interface Props extends BlogItemType {
     className?: string;
@@ -23,7 +23,7 @@ const BlogItem = ({ id, imageUrl, date, title, text, tags, className, isUrlSplic
             <NavLink to={`${url}/${id}`} className="blog-item__img"><img src={imageUrl} alt="фото" /></NavLink>
 
             <div className="blog-item__content">
-                <Time date={date} dateClass={true} className={className} />
+                <DateTime date={date} dateClass className={className} />
 
                 <NavLink to={`${url}/${id}`} className={`blog-item-title ${className === 'aside-blog__item' ? 'aside-blog__item-title' : 'blog-item__title'}`}>{title}</NavLink>
 

@@ -20,7 +20,7 @@ const cartReducer = (state = initialState, action: CartAction): CartState => {
                 [action.payload.id]: {
                     items: currentItems,
                     totalPrice: currentItems.reduce((sum, obj) => sum + obj.price, 0),
-                    totalDiscount: currentItems.reduce((sum, obj) => sum + (obj.discount != 0 ? obj.price * obj.discount / 100 : 0), 0)
+                    totalDiscount: currentItems.reduce((sum, obj) => sum + (obj.discount !== 0 ? obj.price * obj.discount / 100 : 0), 0)
                 }
             };
 
@@ -60,8 +60,8 @@ const cartReducer = (state = initialState, action: CartAction): CartState => {
                 ...state.items,
                 [action.payload]: {
                     items: newObjItems,
-                    totalPrice: Object.values(newObjItems).reduce((sum, obj) => sum + obj.price, 0),
-                    totalDiscount: Object.values(newObjItems).reduce((sum, obj) => sum + (obj.discount != 0 ? obj.price * obj.discount / 100 : 0), 0),
+                    totalPrice: Object.values(newObjItems).reduce((sum: number, obj: any) => sum + obj.price, 0),
+                    totalDiscount: Object.values(newObjItems).reduce((sum: number, obj: any) => sum + (obj.discount !== 0 ? obj.price * obj.discount / 100 : 0), 0),
                 }
             };
 
@@ -89,7 +89,7 @@ const cartReducer = (state = initialState, action: CartAction): CartState => {
                 [action.payload]: {
                     items: newObjItems,
                     totalPrice: Object.values(newObjItems).reduce((sum, obj) => sum + obj.price, 0),
-                    totalDiscount: Object.values(newObjItems).reduce((sum, obj) => sum + (obj.discount != 0 ? obj.price * obj.discount / 100 : 0), 0)
+                    totalDiscount: Object.values(newObjItems).reduce((sum, obj) => sum + (obj.discount !== 0 ? obj.price * obj.discount / 100 : 0), 0)
                 }
             };
 

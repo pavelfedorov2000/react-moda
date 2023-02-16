@@ -1,7 +1,8 @@
+import { CatalogItem } from "../../interfaces/CatalogItem";
 import { ActionType } from "../actionsList";
 
 export interface CartState {
-    items: {},
+    items: any,
     totalPrice: number,
     totalCount: number,
     totalDiscount: number,
@@ -9,22 +10,22 @@ export interface CartState {
 
 interface AddProductToCartAction {
     type: ActionType.AddProductToCart;
-    payload: any;
+    payload: CatalogItem;
 }
 
 interface RemoveCartProductAction {
     type: ActionType.RemoveCartProduct;
-    payload: number;
+    payload: string;
 }
 
 interface PlusProductAction {
     type: ActionType.PlusProduct;
-    payload: number;
+    payload: string;
 }
 
 interface MinusProductAction {
     type: ActionType.MinusProduct;
-    payload: number;
+    payload: string;
 }
 
 interface ClearCartAction {

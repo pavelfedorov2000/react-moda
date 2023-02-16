@@ -45,7 +45,8 @@ export const Pages = {
     },
     [Page.Cart]: {
         title: 'Ваша корзина',
-        path: '/cart'
+        path: '/cart',
+        empty: 'Ваша корзина пуста'
     },
     [Page.OrderSuccess]: {
         title: 'Спасибо за заказ!',

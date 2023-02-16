@@ -15,6 +15,7 @@ const App = () => {
             <div className={classNames('overlay', {
                 'active': isAuthVisible || isAsideBasketVisible
             })}>
+                <DropBasket />
             </div>
         </div>
     );
@@ -23,4 +24,3 @@ const App = () => {
 export default App;
 
 //<Auth />
-//<DropBasket />

@@ -1,4 +1,7 @@
 import loriata from '../assets/images/logo/loriata.png';
+import { useCallback } from 'react';
+import { useActions } from '../hooks/useActions';
+import { useTypedSelector } from '../hooks/useTypedSelector';
 import { Product } from '../interfaces/CatalogItem';
 import Button from './Button';
 import Prices from './Prices';
@@ -6,10 +9,47 @@ import ProductCardDelivery from './ProductCardDelivery';
 import ProductColors from './ProductColors';
 import ProductSizes from './ProductSizes';
 
-const ProductCardContent = ({ id, name, brand, logo, sizes, color, price, discount, newProduct, isFavorite }: Product) => {
-    /* const favoriteClickCondition = (isFavoriteProduct) => {
-        return isFavoriteProduct ? onRemoveFavoriteProduct : onAddFavoriteProduct;
-    } */
+const ProductCardContent = ({ id, name, brand, logo, sizes, color, imageUrl, style, price, discount, newProduct }: Product) => {
+    const { items } = useTypedSelector((state) => state.cartReducer);
+    const { products } = useTypedSelector((state) => state.favoriteReducer);
+    const { addFavoriteProduct, removeFavoriteProduct, addProductToCart } = useActions();
+
+    const isFavorite = products.findIndex((product) => product.id === id) !== -1;
+    const isInBasket = Object.keys(items).includes(id);
+
+    const handleAddProductToCart = () => {
+        addProductToCart({
+            id,
+            name,
+            brand,
+            imageUrl,
+            price,
+            color,
+            sizes,
+            style,
+            discount,
+            newProduct
+        });
+    }
+
+    const handleAddFavorite = () => {
+        addFavoriteProduct({
+            id,
+            name,
+            brand,
+            imageUrl,
+            price,
+            color,
+            sizes,
+            style,
+            discount,
+            newProduct
+        })
+    }
+
+    const handleRemoveFavoriteProduct = useCallback(() => {
+        removeFavoriteProduct(id);
+    }, []);
 
     return (
         <div className="product-card__content">
@@ -55,8 +95,8 @@ const ProductCardContent = ({ id, name, brand, logo, sizes, color, price, discou
                 <ProductSizes sizes={sizes} />
 
                 <div className="product-card-form__buttons">
-                    <Button className="product-card-form__btn product-cart-btn" type="button" icon cart />
-                    <Button className="product-card-form__btn product-favorite-btn" border favorite icon type="button" />
+                    <Button onClick={handleAddProductToCart} isBasketProduct={isInBasket} className="product-card-form__btn product-cart-btn" icon cart />
+                    <Button onClick={isFavorite ? handleRemoveFavoriteProduct : handleAddFavorite} isFavoriteProduct={isFavorite} className="product-card-form__btn product-favorite-btn" border favorite icon />
                 </div>
             </form>
         </div>

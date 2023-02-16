@@ -1,0 +1,18 @@
+.icon {
+    flex-shrink: 0;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    transition: $transition fill;
+
+    &--size {
+        &_m {
+            width: var(--icon-size_m);
+            height: var(--icon-size_m);
+        }
+
+        &_xl {
+            width: var(--icon-size_xl);
+            height: var(--icon-size_xl);
+        }
+    }
+}

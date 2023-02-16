@@ -1,8 +1,7 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { OrderSuccessTable, OrderProduct, Crumbs } from '../Components';
 
-function OrderSuccess({ title }) {
+const OrderSuccess = ({ title }) => {
     const { data } = useSelector(({ order }) => order);
     const currentOrder = data[data.length - 1];
 

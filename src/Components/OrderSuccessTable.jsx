@@ -1,5 +1,7 @@
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
+import { SubPages } from '../enums/Page';
+import { formatDate } from '../utils/formatDate';
 
 const OrderSuccessTable = ({ totalPrice, date, personal, delivery, payment, className }) => {
     const { name, surname, phone, email, city } = personal;
@@ -20,7 +22,7 @@ const OrderSuccessTable = ({ totalPrice, date, personal, delivery, payment, clas
             <div className="order-details-table__item">
                 <div className="order-details-table__item-title">Заказ:</div>
                 <p>{`№RU${date.split('.').join('')}`}</p>
-                <p>от <time dateTime={date.split('.').reverse().join('-')}>{date}</time></p>
+                <p>от <time dateTime={formatDate(date)}>{date}</time></p>
             </div>
 
             <div className="order-details-table__item">
@@ -51,13 +53,13 @@ const OrderSuccessTable = ({ totalPrice, date, personal, delivery, payment, clas
                 </div>
 
                 {className === 'profile-page__order-table' &&
-                    <Link to="/pay" className="btn order-details-table__btn">Оплатить</Link>
+                    <Link to="/pay" className="button order-details-table__btn">Оплатить</Link>
                 }
             </div>
 
             {className === 'order-success-table__head' &&
                 <div className="order-details-table__item">
-                    <Link to="/orders" className="btn order-details-table__btn">Оплатить</Link>
+                    <Link to={SubPages.Orders.path} className="button order-details-table__btn">Оплатить</Link>
                 </div>
             }
         </div>

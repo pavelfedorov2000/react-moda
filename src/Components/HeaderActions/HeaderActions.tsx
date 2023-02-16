@@ -13,9 +13,10 @@ interface Props {
 
 const HeaderActions = ({ onClickSearch }: Props) => {
     const { products } = useTypedSelector((state) => state.favoriteReducer);
+    const { items } = useTypedSelector((state) => state.cartReducer);
     const { openAuth, openAsideBasket } = useActions();
 
-    const totalCount = 1;
+    const totalCount = Object.keys(items).length;
 
     const headerActions: HeaderAction[] = useMemo(() => [{
         href: SubPages.Orders.path,

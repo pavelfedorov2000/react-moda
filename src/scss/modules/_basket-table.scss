@@ -1,6 +1,4 @@
 .basket-table {
-    // .basket-table__head
-
     &__head {
         display: none;
 
@@ -17,12 +15,8 @@
         }
     }
 
-    // .basket-table__title
-
     &__title {
         @extend %text-14;
-        //@extend %text-13;
-        //color: var(--dark-gray);
 
         &:nth-child(1) {
             grid-area: title-1;
@@ -36,8 +30,6 @@
             grid-area: title-3;
         }
     }
-
-    // .basket-table__item
 
     &__item {
         padding: 2rem 0;

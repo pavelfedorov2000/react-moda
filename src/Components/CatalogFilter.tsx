@@ -1,6 +1,7 @@
 import classNames from 'classnames';
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Filter } from '../enums/Filter';
+import useHandleOutsideClick from '../hooks/useHandleOutsideClick';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import CatalogDropFilterItem from './CatalogDropFilterItem';
 import CatalogDropSort from './CatalogDropSort';
@@ -47,7 +48,9 @@ const CatalogFilter = ({ name, toggleTitle, title, items, onSelect, onReset }: P
         onReset && onReset();
     }
 
-    const handleOutsideClick = (event: any) => {
+    useHandleOutsideClick(filterRef, setVisibleFilter);
+
+    /* const handleOutsideClick = (event: any) => {
         const path = event.path || (event.composedPath && event.composedPath());
         
         if (!path.includes(filterRef.current)) {
@@ -57,7 +60,7 @@ const CatalogFilter = ({ name, toggleTitle, title, items, onSelect, onReset }: P
 
     useEffect(() => {
         document.body.addEventListener('click', handleOutsideClick);
-    }, []);
+    }, []); */
 
     return (
         <fieldset ref={filterRef} className={`catalog-filters__item catalog-filter catalog-filters__item--${name}`} id={`${name}_filter_heading`}>

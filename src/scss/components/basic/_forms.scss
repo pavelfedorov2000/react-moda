@@ -122,24 +122,15 @@
     }
 }
 
-.pass-btn {
+.password-button {
     @extend %bg-cover;
     position: absolute;
     top: 1.2rem;
     right: 1.2rem;
 
-    svg {
-        width: 2.4rem;
-        height: 2.4rem;
-
-        path {
-            transition: $transition fill;
-        }
-    }
-
     @media (any-hover: hover) {
         &:hover {
-            svg path {
+            svg {
                 fill: var(--red);
             }
         }

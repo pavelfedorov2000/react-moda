@@ -20,7 +20,7 @@ const SubscribePopup = () => {
                         <SubscribePopupItem {...item} />
                     ))}
                 </div>
-                <button onClick={() => submitSubscribe()} className="btn sale-popup__form-btn">Подписаться</button>
+                <button onClick={() => submitSubscribe()} className="button sale-popup__form-btn">Подписаться</button>
             </form>
         </div>
     );

@@ -32,7 +32,9 @@
 
     &__btn {
         @extend %vertical-align;
-        @extend %text-13;
+        font-size: 1.3rem;
+        line-height: 1.9rem;
+        color: var(--gray-777);
         transition: $transition color;
 
         svg {
@@ -43,7 +45,7 @@
 
         &--delete {
             svg {
-                transition: $transition fill;
+                fill: var(--dark);
             }
 
             @media (any-hover: hover) {
@@ -59,7 +61,12 @@
 
         &--favorite {
             svg {
+                stroke: var(--dark);
                 transition: $transition stroke;
+
+                &.favorite {
+                    stroke: var(--green);
+                }
             }
 
             @media (any-hover: hover) {
@@ -107,6 +114,8 @@
     }
 
     &__prices-wrap {
+        gap: 0.8rem;
+
         @media (min-width: 768px) {
             display: flex;
             align-items: flex-end;
@@ -124,7 +133,6 @@
 
     &__old-price {
         @extend %text-12;
-        margin-right: 0.8rem;
     }
 
     // .basket-product__discount

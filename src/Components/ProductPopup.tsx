@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import ProductSizes from "./ProductSizes";
 import Prices from "./Prices";
@@ -10,11 +10,54 @@ import { splideOptions } from "../constants/splide";
 import { useActions } from "../hooks/useActions";
 import Button from "./Button";
 import { PRODUCT_LIST } from "../constants/product-list";
+import useHandleOutsideClick from "../hooks/useHandleOutsideClick";
+import { useTypedSelector } from "../hooks/useTypedSelector";
 
-const ProductPopup = ({id, name, brand, sizes, price, imageUrl, discount, newProduct}: CatalogItem) => {
-    const catalogPopupRef = useRef();
+const ProductPopup = ({ id, name, brand, sizes, price, color, style, imageUrl, discount, newProduct }: CatalogItem) => {
+    //const catalogPopupRef = useRef<HTMLDivElement>(null);
 
-    const { closeProductPopup } = useActions();
+    const { products } = useTypedSelector((state) => state.favoriteReducer);
+    const { items } = useTypedSelector((state) => state.cartReducer);
+    const { closeProductPopup, addProductToCart, addFavoriteProduct, removeFavoriteProduct } = useActions();
+
+    const isFavorite = products.findIndex((product) => product.id === id) !== -1;
+    const isInBasket = Object.keys(items).includes(id);
+
+    const handleAddProductToCart = () => {
+        addProductToCart({
+            id,
+            name,
+            brand,
+            imageUrl,
+            price,
+            color,
+            sizes,
+            style,
+            discount,
+            newProduct
+        });
+    }
+
+    const handleAddFavorite = () => {
+        addFavoriteProduct({
+            id,
+            name,
+            brand,
+            imageUrl,
+            price,
+            color,
+            sizes,
+            style,
+            discount,
+            newProduct
+        })
+    }
+
+    const handleRemoveFavoriteProduct = useCallback(() => {
+        removeFavoriteProduct(id);
+    }, []);
+
+    //useHandleOutsideClick(catalogPopupRef, closeProductPopup);
 
     return (
         <div className="popup product-popup">
@@ -60,8 +103,8 @@ const ProductPopup = ({id, name, brand, sizes, price, imageUrl, discount, newPro
                         <ProductSizes sizes={sizes} />
 
                         <div className="product-card-form__buttons">
-                            <Button className="product-card-form__btn product-cart-btn" icon cart />
-                            <Button className="product-card-form__btn product-favorite-btn" border favorite icon />
+                            <Button onClick={handleAddProductToCart} isBasketProduct={isInBasket} className="product-card-form__btn product-cart-btn" icon cart />
+                            <Button onClick={isFavorite ? handleRemoveFavoriteProduct : handleAddFavorite} isFavoriteProduct={isFavorite} className="product-card-form__btn product-favorite-btn" border favorite icon />
                         </div>
                     </form>
 

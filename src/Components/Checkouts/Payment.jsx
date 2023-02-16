@@ -1,16 +1,12 @@
-import React, { useContext } from 'react';
-import { CheckoutContext } from '../../context';
-
 const Payment = ({ payment }) => {
-    const { selectedPayment, setSelectedPayment } = useContext(CheckoutContext);
-
+    const selectedPayment = 0;
     return (
         <fieldset>
             <legend className="checkout-form__item-title">Способ оплаты</legend>
             <div className="checkout-form__radios">
                 {Object.keys(payment).map((radio, i) => (
                     <label key={`${payment.radioName}-${i + 1}`} className="checkout-form__item-radio checkout-radio checkout-radio--without-border">
-                        <input onChange={() => setSelectedPayment(i)} className="radio-box" type="radio" name="payment" checked={i === selectedPayment ? true : false} />
+                        <input className="radio-box" type="radio" name="payment" checked={i === selectedPayment ? true : false} />
                         <div className="checkout-radio__wrap">
                             <span className="radio-style"></span>
                             <div className="checkout-radio__content">
@@ -32,3 +28,5 @@ const Payment = ({ payment }) => {
 }
 
 export default Payment;
+
+//onChange={() => setSelectedPayment(i)}

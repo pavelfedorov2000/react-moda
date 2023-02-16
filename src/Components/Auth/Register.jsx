@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PasswordInput from './PasswordInput';
 import checkIcon from '../../assets/images/icons/check.svg';
@@ -49,7 +49,7 @@ const Register = () => {
     return (
         <form action="#" className="aside-popup__form">
             <div className="aside-popup__form-inputs">
-                {inputs.map(input => (
+                {inputs.map((input) => (
                     <input key={input.name} onChange={onInputChange} className="input aside-popup__form-input" name={input.name} placeholder={`${input.placeholder}*`} />
                 ))}
                 {passwordFields.map((field, index) => (
@@ -57,7 +57,7 @@ const Register = () => {
                 ))}
             </div>
             <label className="form-agree aside-popup__form-wrap">
-                <input onChange={onAgreeCheck} className="check-box" type="checkbox" checked={agree ? true : false} />
+                <input onChange={onAgreeCheck} className="check-box" type="checkbox" checked={agree} />
                 <span className="check-style">
                     <span style={{ backgroundImage: `url(${checkIcon})` }}></span>
                 </span>
@@ -66,7 +66,7 @@ const Register = () => {
                     <Link to="/personal-data">обработку персональных данных</Link>
                 </span>
             </label>
-            <button className="btn aside-popup__form-btn" type="submit" disabled={disabled ? true : false}>Зарегистрироваться</button>
+            <button className="button aside-popup__form-btn" type="submit" disabled={disabled}>Зарегистрироваться</button>
         </form>
     );
 }
