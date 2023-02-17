@@ -17,7 +17,7 @@ const OrderDetail = () => {
     return (
         (detailOrder?
             <>
-                <BackLink href={SubPages.Orders.path} />
+                <BackLink className="profile-page__back-link" href={SubPages.Orders.path} />
 
                 <article className="order-details">
                     <h2 className="title profile-page__title">{`${SubPages.OrderDetail.title} ${formatDate(detailOrder?.date)}-${+index + 1}`}</h2>
