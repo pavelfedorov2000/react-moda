@@ -36,9 +36,9 @@ const Home = () => {
 
                     <SliderSection items={products.filter((product) => product.newProduct)} title={Sections.New.title} />
 
-                    <section className="section">
+                    <div className="section">
                         <PromoCollection />
-                    </section>
+                    </div>
 
                     <BlogSection items={[...items].slice(0, 3)} />
 

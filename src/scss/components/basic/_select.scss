@@ -5,18 +5,17 @@
     &__title {
         @extend %flex-row-center;
         @extend %text-16;
+        cursor: pointer;
         height: 4.6rem;
         padding-left: 1.5rem;
         padding-right: 1.8rem;
         font-weight: 600;
-        cursor: pointer;
         border: 0.1rem solid var(--gray-c0);
 
         svg {
-            width: 2rem;
-            height: 2rem;
-            transition: $transition fill;
-            transition: $transition transform;
+            fill: var(--dark-gray);
+            transition: $transition fill,
+                $transition transform;
 
             @media (any-hover: hover) {
                 &:hover {
@@ -51,6 +50,7 @@
         &:checked {
             & + .radio-style {
                 border-color: var(--dark);
+
                 span {
                     opacity: 1;
                 }
@@ -59,9 +59,8 @@
     }
 
     &__option {
-        position: relative;
-        //z-index: 30;
         @extend %vertical-align;
+        position: relative;
         cursor: pointer;
 
         &:not(:last-child) {
@@ -71,6 +70,6 @@
 
     &__option-text {
         @extend %text-16;
-        margin-left: 1rem;
+        margin-left: var(--offset-xs);
     }
 }

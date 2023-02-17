@@ -1,8 +1,13 @@
 import { ActionType } from "../actionsList";
 
-export const setPersonaData = (value: string) => ({
-    type: ActionType.SetPersonaData,
-    payload: value
+interface Input {
+    name: string;
+    value: string;
+}
+
+export const setPersonalData = ({ name, value }: Input) => ({
+    type: ActionType.SetPersonalData,
+    payload: { name, value }
 });
 
 export const setDelivery = (value: string) => ({

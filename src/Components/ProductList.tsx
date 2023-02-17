@@ -1,14 +1,17 @@
+import classNames from "classnames";
 import { ProductListText } from "../enums/ProductListText";
 
 interface Props {
     articul: string;
     color: string;
     size: number;
+    totalCount?: number;
+    className?: string;
 }
 
-const ProductList = ({ articul, color, size }: Props) => {
+const ProductList = ({ articul, color, size, totalCount, className }: Props) => {
     return (
-        <dl className="product-list basket-product__list">
+        <dl className={classNames('product-list', className)}>
             <div>
                 <dt>{ProductListText.Articul}:</dt>
                 <dd>{articul}</dd>
@@ -21,6 +24,12 @@ const ProductList = ({ articul, color, size }: Props) => {
                 <dt>{ProductListText.Size}:</dt>
                 <dd>{size}</dd>
             </div>
+            {totalCount &&
+                <div>
+                    <dt>{ProductListText.Quantity}:</dt>
+                    <dd>{totalCount}</dd>
+                </div>
+            }
         </dl>
     );
 };

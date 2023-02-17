@@ -130,8 +130,8 @@ a {
 .fancybox__content > .carousel__button.is-close {
     top: 0 !important;
     right: -5rem !important;
-    width: 3.2rem !important;
-    height: 3.2rem !important;
+    width: var(--icon-size_xl) !important;
+    height: var(--icon-size_xl) !important;
 }
 
 @import 'components/components';

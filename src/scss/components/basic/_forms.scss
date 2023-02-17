@@ -21,7 +21,7 @@
         height: var(--gap);
         border: 0.1rem solid var(--dark);
         border-right: none;
-        padding: 0 6.8rem 0 1.6rem;
+        padding: 0 6.8rem 0 var(--offset);
 
         &::placeholder {
             color: var(--gray);
@@ -78,7 +78,7 @@
 
     .check-text {
         @extend %text-12;
-        margin-left: 1rem;
+        margin-left: var(--offset-xs);
     }
 }
 
@@ -125,8 +125,8 @@
 .password-button {
     @extend %bg-cover;
     position: absolute;
-    top: 1.2rem;
-    right: 1.2rem;
+    top: var(--offset-m);
+    right: var(--offset-m);
 
     @media (any-hover: hover) {
         &:hover {

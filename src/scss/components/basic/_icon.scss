@@ -5,6 +5,21 @@
     transition: $transition fill;
 
     &--size {
+        &_xs {
+            width: var(--icon-size_xs);
+            height: var(--icon-size_xs);
+        }
+
+        &_s {
+            width: var(--icon-size_s);
+            height: var(--icon-size_s);
+        }
+
+        &_sm {
+            width: 2rem;
+            height: 2rem;
+        }
+
         &_m {
             width: var(--icon-size_m);
             height: var(--icon-size_m);

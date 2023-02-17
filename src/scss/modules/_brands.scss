@@ -1,5 +1,5 @@
 .brands {
-    &__inner {
+    &__list {
         @media (min-width: 1025px) {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
@@ -35,10 +35,6 @@
     }
 }
 
-.brands-page {
-    padding-bottom: 11rem;
-}
-
 .brands-categories {
     display: flex;
 
@@ -69,7 +65,7 @@
         background-color: #efefef;
 
         &:not(:last-child) {
-            margin-bottom: 1.2rem;
+            margin-bottom: var(--offset-m);
         }
 
         img {
@@ -110,8 +106,8 @@
 
 .brands-index-list {
     display: flex;
-    margin-left: -1rem;
-    padding-right: 1rem;
+    margin-left: calc(var(--offset-xs) * (-1));
+    padding-right: var(--offset-xs);
 
     @media (max-width: 1024px) {
         overflow-x: auto;
@@ -124,7 +120,7 @@
         @extend %text-16;
         font-weight: 500;
         white-space: nowrap;
-        padding: 0 1rem;
+        @include padding-x(var(--offset-xs));
 
         &.active {
             color: var(--green);
@@ -142,12 +138,8 @@
     transition: $transition color;
 
     svg {
-        flex-shrink: 0;
         margin-left: 0.5rem;
-        width: 1.6rem;
-        height: 1.6rem;
         fill: var(--gray);
-        transition: $transition fill;
     }
 
     @media (any-hover: hover) {
@@ -225,7 +217,7 @@
         display: block;
 
         &:not(:last-child) {
-            margin-bottom: 0.8rem;
+            margin-bottom: var(--offset-xxs);
         }
 
         @media (any-hover: hover) {

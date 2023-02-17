@@ -10,7 +10,7 @@ import { useTypedSelector } from '../hooks/useTypedSelector';
 import { useParams } from 'react-router-dom';
 import { fetchProducts } from '../redux/actions/products';
 
-const YOU_TUBE_LINK = 'https://www.youtube.com/watch?v=L1e8YEozOD8';
+const YOUTUBE_LINK = 'https://www.youtube.com/watch?v=L1e8YEozOD8';
 
 const ProductCard = () => {
     const { id } = useParams();
@@ -63,7 +63,7 @@ const ProductCard = () => {
                                 <SplideTrack>
                                     {Array(4).fill(0).map((_, index) => (
                                         <SplideSlide key={index}>
-                                            <a data-fancybox="gallery" className="product-card__slider-item" href={index % 2 !== 0 ? YOU_TUBE_LINK : activeProduct.imageUrl}>
+                                            <a data-fancybox="gallery" className="product-card__slider-item" href={index % 2 !== 0 ? YOUTUBE_LINK : activeProduct.imageUrl}>
                                                 <img src={activeProduct.imageUrl} alt="фото" />
                                                 {index % 2 !== 0 && <div className="player-btn"></div>}
                                             </a>

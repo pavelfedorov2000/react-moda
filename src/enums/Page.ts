@@ -50,6 +50,7 @@ export const Pages = {
     },
     [Page.OrderSuccess]: {
         title: 'Спасибо за заказ!',
+        subtitle: 'Наш менеджер свяжется с вами в ближайшее время',
         path: '/order-success'
     },
     [Page.Brands]: {

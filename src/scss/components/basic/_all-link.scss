@@ -13,7 +13,7 @@
 
     &__arrow {
         flex-shrink: 0;
-        margin-left: 1.6rem;
+        margin-left: var(--offset);
         width: 5.6rem;
         height: 1.6rem;
         fill: var(--gray-c0);

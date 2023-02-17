@@ -31,6 +31,7 @@ const BasketProduct = ({ className, id, articul, name, brand, sizes, size, price
     const handleAddFavorite = () => {
         addFavoriteProduct({
             id,
+            articul,
             name,
             brand,
             imageUrl,
@@ -51,7 +52,7 @@ const BasketProduct = ({ className, id, articul, name, brand, sizes, size, price
 
             <Link to={`/product-card/${id}`} className="product-title basket-product__title">{name} {brand}</Link>
 
-            <ProductList articul={articul} color={color} size={size} />
+            <ProductList className="basket-product__list" articul={articul} color={color} size={size} />
 
             <div className="basket-product__buttons">
                 <Button onClick={handleRemoveCartProduct} className="basket-product__btn basket-product__btn--delete" transparent remove icon />
@@ -63,8 +64,9 @@ const BasketProduct = ({ className, id, articul, name, brand, sizes, size, price
 
             <div className="basket-product__prices">
                 <div className="basket-product__prices-wrap">
-                    {discount && discount !== 0 &&
+                    {discount && discount !== 0 ?
                         <div className="old-price basket-product__old-price">{calcOldPrice(discount, price)} ₽</div>
+                        : null
                     }
 
                     <div className={classNames({
@@ -73,11 +75,12 @@ const BasketProduct = ({ className, id, articul, name, brand, sizes, size, price
                     })}>{`${totalPrice} ₽`}</div>
                 </div>
 
-                {!isAsideBasketVisible && discount && discount !== 0 &&
+                {!isAsideBasketVisible && discount && discount !== 0 ?
                     <div className="basket-product__discount">
                         <div className="basket-product__discount-percent">Сумма скидки {discount}%</div>
                         <div className="basket-product__discount-sum">({totalDiscount} ₽)</div>
                     </div>
+                    : null
                 }
             </div>
         </article>

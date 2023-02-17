@@ -1,6 +1,5 @@
 .player-btn {
     @extend %pos-center-xy;
-    position: absolute;
     width: 8rem;
     height: 8rem;
     border-radius: 50%;
@@ -10,7 +9,6 @@
     &::before {
         @extend %pos-center-y;
         content: '';
-        position: absolute;
         left: calc(50% - 2.1rem / 2);
         width: 2.1rem;
         height: 2.4rem;

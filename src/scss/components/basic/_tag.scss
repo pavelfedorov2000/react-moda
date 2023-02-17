@@ -19,5 +19,5 @@
 .tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: var(--offset-xs);
 }

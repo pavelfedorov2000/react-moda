@@ -1,8 +1,8 @@
 .promo-collection {
     display: grid;
     background-color: var(--gray-bg);
-    grid-template-rows: 5rem max-content 2.5rem max-content auto max-content 5.3rem;
-    grid-template-columns: 12.9rem auto 3rem 50%;
+    grid-template-rows: 5rem max-content 2.5rem max-content 1fr max-content 5.3rem;
+    grid-template-columns: 12.9rem 1fr 3rem 50%;
     grid-template-areas:
         '. . . image'
         '. suptitle . image'
@@ -18,7 +18,7 @@
     }
 
     @media (max-width: 767px) {
-        grid-template-rows: 14rem 2rem max-content 1rem max-content 2.6rem max-content 2rem;
+        grid-template-rows: 16rem 2rem max-content var(--offset-xs) max-content 2.6rem max-content 2rem;
         grid-template-columns: 2rem 1fr 2rem;
         grid-template-areas:
             'image image image'

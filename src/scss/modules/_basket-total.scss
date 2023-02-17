@@ -57,7 +57,7 @@
         @extend %text-13;
 
         &:not(:last-child) {
-            margin-bottom: 0.8rem;
+            margin-bottom: var(--offset-xxs);
         }
 
         dd span {
@@ -91,15 +91,12 @@
 
     &__agreement {
         @extend %text-13;
-        //color: var(--dark-gray);
 
         a {
-            //color: var(--dark);
             font-weight: 500;
 
             @media (any-hover: hover) {
                 &:hover {
-                    //color: var(--green);
                     color: var(--gray);
                 }
             }
@@ -107,7 +104,7 @@
     }
 }
 
-input[name='promocode'] {
+input[name="promocode"] {
     text-transform: uppercase;
 
     &::placeholder {
@@ -115,8 +112,7 @@ input[name='promocode'] {
     }
 
     &.valid {
-        //background-image: url(../images/icons/green-check.svg);
-        background-size: 1.6rem 1.6rem;
+        background-size: var(--icon-size);
         background-position: calc(100% - var(--gap) - 2rem) 50%;
         background-repeat: no-repeat;
     }

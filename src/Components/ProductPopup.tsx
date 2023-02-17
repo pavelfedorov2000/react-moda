@@ -13,7 +13,7 @@ import { PRODUCT_LIST } from "../constants/product-list";
 import useHandleOutsideClick from "../hooks/useHandleOutsideClick";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 
-const ProductPopup = ({ id, name, brand, sizes, price, color, style, imageUrl, discount, newProduct }: CatalogItem) => {
+const ProductPopup = ({ id, articul, name, brand, sizes, price, color, style, imageUrl, discount, newProduct }: CatalogItem) => {
     //const catalogPopupRef = useRef<HTMLDivElement>(null);
 
     const { products } = useTypedSelector((state) => state.favoriteReducer);
@@ -26,6 +26,7 @@ const ProductPopup = ({ id, name, brand, sizes, price, color, style, imageUrl, d
     const handleAddProductToCart = () => {
         addProductToCart({
             id,
+            articul,
             name,
             brand,
             imageUrl,
@@ -41,6 +42,7 @@ const ProductPopup = ({ id, name, brand, sizes, price, color, style, imageUrl, d
     const handleAddFavorite = () => {
         addFavoriteProduct({
             id,
+            articul,
             name,
             brand,
             imageUrl,
@@ -96,14 +98,14 @@ const ProductPopup = ({ id, name, brand, sizes, price, color, style, imageUrl, d
                     <div className="product-popup__content-top">
                         <div className="product-popup__title">{`${name} ${brand}`}</div>
 
-                        <Prices price={price} discount={discount} />
+                        <Prices className="product-popup__prices" price={price} discount={discount} />
                     </div>
 
                     <form className="product-popup__form product-card-form">
                         <ProductSizes sizes={sizes} />
 
                         <div className="product-card-form__buttons">
-                            <Button onClick={handleAddProductToCart} isBasketProduct={isInBasket} className="product-card-form__btn product-cart-btn" icon cart />
+                            <Button onClick={handleAddProductToCart} isBasketProduct={isInBasket} className="product-card-form__btn" icon cart />
                             <Button onClick={isFavorite ? handleRemoveFavoriteProduct : handleAddFavorite} isFavoriteProduct={isFavorite} className="product-card-form__btn product-favorite-btn" border favorite icon />
                         </div>
                     </form>

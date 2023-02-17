@@ -1,26 +1,3 @@
-.back-link {
-    @extend %text-14;
-    color: var(--green);
-    display: inline-flex;
-    align-items: flex-start;
-
-    svg {
-        width: 2rem;
-        height: 2rem;
-        margin-right: 0.8rem;
-    }
-
-    @media (any-hover: hover) {
-        &:hover {
-            color: #2d703c;
-
-            svg path {
-                fill: #2d703c;
-            }
-        }
-    }
-}
-
 .profile-page {
     padding-bottom: 11rem;
 
@@ -48,10 +25,6 @@
         @extend .profile-page__inner;
         align-items: flex-end;
         margin-bottom: 4rem;
-
-        .page__title {
-            margin-bottom: 0;
-        }
     }
 
     &__back-link {
@@ -190,11 +163,31 @@
     }
 }
 
+.orders-list {
+    display: grid;
+    row-gap: 3rem;
+}
+
+.order-details-goods {
+    padding-top: 4rem;
+
+    &__title {
+        margin-bottom: 3.5rem;
+    }
+
+    &__list {
+        display: grid;
+        gap: 1.5rem 8.2rem;
+
+        @media(min-width: 501px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
 .profile-page-goods {
     &__title {
-        &:not(:last-child) {
-            margin-bottom: 3.5rem;
-        }
+        margin-bottom: 3.5rem;
     }
 
     &__list {
@@ -232,7 +225,7 @@
             content: '';
             position: absolute;
             left: 0;
-            top: 1.2rem;
+            top: var(--offset-s);
             width: 1.2rem;
             height: 1px;
             background-color: var(--dark);

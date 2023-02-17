@@ -1,0 +1,14 @@
+.filters-button {
+    @extend %text-13;
+    font-weight: 500;
+    position: relative;
+    padding-left: 2.6rem;
+    display: none;
+    background-size: var(--icon-size);
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+
+    @media (max-width: 1024px) {
+        display: block;
+    }
+}

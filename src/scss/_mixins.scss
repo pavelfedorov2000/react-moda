@@ -16,3 +16,19 @@
     display: grid;
     row-gap: $gap;
 }
+
+@mixin padding-x($gap) {
+    padding: 0 $gap;
+}
+
+@mixin padding-y($gap) {
+    padding: $gap 0;
+}
+
+@mixin margin-x($gap) {
+    margin: 0 $gap;
+}
+
+@mixin margin-y($gap) {
+    margin: $gap 0;
+}

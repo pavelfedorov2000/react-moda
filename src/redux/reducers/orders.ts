@@ -1,11 +1,11 @@
 import { ActionType } from "../actionsList";
-import { OrdersState, OrderType } from "../types/orders";
+import { OrdersState, OrdersAction } from "../types/orders";
 
 const initialState: OrdersState = {
     data: []
 };
 
-const ordersReducer = (state = initialState, action: OrderType): OrdersState => {
+const ordersReducer = (state = initialState, action: OrdersAction): OrdersState => {
     switch (action.type) {
         case ActionType.SetOrderData: {
             return {

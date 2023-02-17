@@ -9,7 +9,7 @@ interface Props {
 const CatalogView = ({ onChange, view }: Props) => {
     return (
         <div className="catalog-view">
-            <button onClick={onChange} type="button" className={classNames('catalog-view__btn grid-btn', {
+            <button onClick={onChange} type="button" className={classNames('catalog-view__btn grid-button', {
                 'active': view === CatalogViewOption.GRID
             })}>
                 <svg viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,7 +23,7 @@ const CatalogView = ({ onChange, view }: Props) => {
                     <rect x="0.5" y="10.9214" width="17" height="6.57895" rx="0.5" />
                 </svg>
             </button>
-            <button onClick={onChange} type="button" className={classNames('catalog-view__btn col-btn', {
+            <button onClick={onChange} type="button" className={classNames('catalog-view__btn col-button', {
                 'active': view === CatalogViewOption.COL
             })}>
                 <svg viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">

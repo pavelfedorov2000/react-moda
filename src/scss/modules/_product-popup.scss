@@ -5,7 +5,6 @@
 }
 
 .popup {
-    position: absolute;
     @extend %pos-center-xy;
 
     &__close {
@@ -15,8 +14,8 @@
         z-index: 201;
 
         svg {
-            width: 3.2rem;
-            height: 3.2rem;
+            width: var(--icon-size_xl);
+            height: var(--icon-size_xl);
             fill: var(--gray-bg);
             transition: $transition fill;
         }
@@ -67,7 +66,7 @@
     &__inner {
         @media (min-width: 1025px) {
             display: grid;
-            grid-template-columns: 464 / 982 * 100% 1fr 1rem;
+            grid-template-columns: 464 / 982 * 100% 1fr var(--offset-xs);
             grid-template-rows: 3rem 59rem - 3rem - 1.5rem 1.5rem 7.6rem;
             grid-template-areas:
                 'slider . .'
@@ -94,7 +93,6 @@
 
         .splide {
             &__pagination {
-                position: absolute;
                 @extend %pos-center-x;
                 bottom: 2rem;
 
@@ -174,11 +172,14 @@
         }
     }
 
+    &__prices {
+        gap: 0.6rem;
+    }
+
     // .product-popup__old-price
 
     &__old-price {
         @extend %text-12;
-        margin-right: 0.6rem;
     }
 
     // .product-popup__form

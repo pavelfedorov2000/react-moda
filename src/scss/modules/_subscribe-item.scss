@@ -77,7 +77,7 @@
         @extend %text-13;
 
         @media (min-width: 1025px) {
-            margin-left: 1.6rem;
+            margin-left: var(--offset);
         }
     }
 

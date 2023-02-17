@@ -9,6 +9,7 @@ import burgerReducer from './burger';
 import asidePopupReducer from './asidePopup';
 import cartReducer from './cart';
 import ordersReducer from './orders';
+import orderReducer from './order';
 
 import { combineReducers } from 'redux';
 
@@ -24,6 +25,7 @@ export const rootReducer = combineReducers({
     asidePopupReducer,
     cartReducer,
     ordersReducer,
+    orderReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

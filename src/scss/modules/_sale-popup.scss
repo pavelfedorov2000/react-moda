@@ -54,7 +54,7 @@
 
     &__form-item {
         display: grid;
-        gap: 1rem;
+        gap: var(--offset-xs);
 
         @media (min-width: 768px) {
             grid-template-columns: max-content 24.7rem;
@@ -79,7 +79,7 @@
         }
 
         .check-text {
-            padding-left: 1.2rem;
+            padding-left: var(--offset-s);
         }
     }
 

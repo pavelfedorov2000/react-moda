@@ -11,6 +11,7 @@ export { default as Button } from './Button';
 export { default as BurgerMenu } from './Burger/BurgerMenu';
 export { default as BurgerButton } from './Burger/BurgerButton';
 export { default as Tag } from './Tag';
+export { default as BackLink } from './BackLink';
 
 export { default as HeaderActions } from './HeaderActions/HeaderActions';
 export { default as NavHeader } from './NavHeader';
@@ -75,7 +76,6 @@ export { default as ProductCardDelivery } from './ProductCardDelivery';
 export { default as ProductCardContent } from './ProductCardContent';
 export { default as ProductCardInfo } from './ProductCardInfo';
 
-export { default as OrderSuccessTable } from './OrderSuccessTable';
 export { default as OrderProduct } from './OrderProduct';
 export { default as OrderTableItem } from './OrderTableItem';
 

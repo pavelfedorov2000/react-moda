@@ -1,0 +1,21 @@
+.back-link {
+    @extend %text-14;
+    color: var(--green);
+    display: inline-flex;
+    align-items: flex-start;
+
+    svg {
+        margin-right: var(--offset-xxs);
+        fill: var(--green);
+    }
+
+    @media (any-hover: hover) {
+        &:hover {
+            color: #2d703c;
+
+            svg {
+                fill: #2d703c;
+            }
+        }
+    }
+}

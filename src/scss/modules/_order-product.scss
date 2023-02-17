@@ -1,11 +1,11 @@
 .order-details-table {
-    font-weight: 500;
     @extend %flex-row;
     align-items: flex-start;
     flex-wrap: wrap;
     background-color: var(--gray-bg);
     border: 0.1rem solid var(--line-color);
     padding: 1.5rem;
+    font-weight: 500;
 
     @media (max-width: 767px) {
         padding-left: 0;
@@ -61,7 +61,7 @@
         }
 
         &:not(:last-child) {
-            margin-bottom: 1rem;
+            margin-bottom: var(--offset-xs);
         }
     }
 
@@ -119,55 +119,4 @@
 .product-title {
     @extend %text-16;
     font-weight: 600;
-}
-
-.product-list {
-    @extend %text-13;
-
-    > div {
-        &:not(:last-child) {
-            margin-bottom: 0.6rem;
-        }
-    }
-
-    dt {
-        color: var(--gray);
-        float: left;
-        padding-right: 0.3rem;
-    }
-}
-
-.order-success-table {
-    &__body {
-        padding: 3rem;
-        border: 0.1rem solid var(--line-color);
-        border-top: none;
-
-        @media (max-width: 500px) {
-            padding: 1.5rem;
-        }
-    }
-
-    &__title {
-        &:not(:last-child) {
-            margin-bottom: 2.5rem;
-        }
-    }
-
-    &__products {
-        display: grid;
-        gap: calc(var(--gap) / 2) var(--gap);
-
-        @media (max-width: 1024px) {
-            gap: 3rem;
-        }
-
-        @media (min-width: 768px) {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        @media (min-width: 1025px) {
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
 }

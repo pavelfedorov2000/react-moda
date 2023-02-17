@@ -1,18 +1,3 @@
-.filters-btn {
-    @extend %text-13;
-    font-weight: 500;
-    position: relative;
-    padding-left: 2.6rem;
-    display: none;
-    background-size: 1.6rem 1.6rem;
-    background-position: 0 50%;
-    background-repeat: no-repeat;
-
-    @media (max-width: 1024px) {
-        display: block;
-    }
-}
-
 .filter-output {
     padding-left: 0.3rem;
 }
@@ -27,7 +12,7 @@
         height: 100vh;
         background-color: #fff;
         transition: $transition top;
-        padding: 2.4rem 1.6rem;
+        padding: 2.4rem var(--offset);
         overflow-y: auto;
     }
 
@@ -53,7 +38,7 @@
     &__back-btn {
         width: 2rem;
         height: 2rem;
-        margin-right: 0.8rem;
+        margin-right: var(--offset-xxs);
         flex-shrink: 0;
 
         svg {
@@ -81,7 +66,7 @@
         @media (min-width: 1025px) {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem 2.6rem;
+            gap: var(--offset-xs) 2.6rem;
             padding-right: 3rem;
         }
     }
@@ -131,12 +116,8 @@
             align-items: center;
 
             svg {
-                flex-shrink: 0;
                 margin-left: 0.5rem;
-                width: 1.6rem;
-                height: 1.6rem;
                 fill: var(--gray);
-                transition: $transition fill;
             }
         }
 
@@ -219,20 +200,20 @@
             justify-content: space-between;
             flex-direction: row-reverse;
             align-items: center;
-            padding: 1.6rem 0;
+            padding: var(--offset) 0;
             border-bottom: 0.1rem solid #efefef;
         }
 
         &:not(:last-child) {
             @media (min-width: 1025px) {
-                margin-bottom: 1.2rem;
+                margin-bottom: var(--offset-s);
             }
         }
 
         .check-text,
         .radio-text {
             @media (min-width: 1025px) {
-                margin-left: 0.8rem;
+                margin-left: var(--offset-xxs);
             }
         }
 
@@ -252,7 +233,7 @@
 
     &__inner {
         @media (min-width: 1025px) {
-            padding: 1.6rem;
+            padding: var(--offset);
         }
 
         @media (max-width: 1024px) {
@@ -310,10 +291,10 @@
         letter-spacing: 0.1em;
 
         &:not(:last-child) {
-            margin-bottom: 1.6rem;
+            margin-bottom: var(--offset);
 
             @media (max-width: 500px) {
-                margin-bottom: 1rem;
+                margin-bottom: var(--offset-xs);
             }
         }
     }
@@ -330,18 +311,17 @@
         }
 
         @media (max-width: 1024px) {
-            margin: 0 -0.8rem;
+            gap: var(--offset);
         }
     }
 
     // .catalog-drop-filter__btn
 
     &__btn {
-        padding: 0.6rem 1.6rem;
+        padding: 0.6rem var(--offset);
 
         @media (max-width: 1024px) {
-            width: 50%;
-            margin: 0 0.8rem;
+            width: calc(50% - var(--offset));
         }
 
         &[type="reset"] {
@@ -378,7 +358,7 @@
 
     &__reset-btn {
         @extend %vertical-align;
-        padding: 0.6rem 1rem;
+        padding: 0.6rem var(--offset-xs);
 
         svg {
             margin-left: 0.3rem;
@@ -408,7 +388,7 @@
         @media (max-width: 1024px) {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.6rem;
+            gap: var(--offset);
         }
     }
 
@@ -418,10 +398,10 @@
         font-style: italic;
         width: 22.4rem;
         border: 1px solid var(--line-color);
-        padding: 0.8rem;
+        padding: var(--offset-xxs);
 
         &:not(:last-child) {
-            margin-bottom: 1.6rem;
+            margin-bottom: var(--offset);
         }
 
         &::placeholder {

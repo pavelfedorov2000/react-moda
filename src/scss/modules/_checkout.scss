@@ -50,8 +50,7 @@
 
     // .checkout-form__item-radio
 
-    &__item-radio {
-    }
+    &__item-radio {}
 
     // .checkout-form__comment
 
@@ -148,7 +147,7 @@
         justify-items: flex-start;
 
         @media (max-width: 500px) {
-            margin-left: 1rem;
+            margin-left: var(--offset-xs);
         }
     }
 
@@ -163,7 +162,7 @@
 
     &__list {
         @extend %text-14;
-        margin-top: 1.6rem;
+        margin-top: var(--offset);
 
         > div {
             display: flex;
@@ -218,7 +217,7 @@
 
     &--without-border {
         .checkout-radio__content {
-            gap: 1rem;
+            gap: var(--offset-xs);
         }
     }
 }
@@ -250,7 +249,7 @@
         display: block;
 
         &:not(:last-child) {
-            margin-bottom: 1rem;
+            margin-bottom: var(--offset-xs);
         }
     }
 
@@ -258,7 +257,7 @@
         small {
             @extend %text-12;
             display: block;
-            margin-top: 0.8rem;
+            margin-top: var(--offset-xxs);
         }
     }
 

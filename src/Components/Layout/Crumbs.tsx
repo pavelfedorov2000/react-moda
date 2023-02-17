@@ -17,7 +17,7 @@ const Crumbs = ({ title, id, url, product }: Props) => {
             <ol className="breadcrumbs__list">
                 <li className="breadcrumbs__item"><Link to={Pages.Home}>Главная</Link></li>
 
-                {product && <li className="breadcrumbs__item"><Link to={Pages.Catalog}>Каталог</Link></li>}
+                {product && <li className="breadcrumbs__item"><Link to={Pages.Catalog}>{Pages.Catalog.title}</Link></li>}
 
                 {id && <li className="breadcrumbs__item"><Link to={`/${url}`}>{prevRoute?.title}</Link></li>}
 
