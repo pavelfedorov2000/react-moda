@@ -2,6 +2,7 @@ import { EmptyBlock } from "./EmptyBlock";
 
 export interface Page {
     title?: string;
+    subtitle?: string;
     emptyBlock?: EmptyBlock;
 }
 

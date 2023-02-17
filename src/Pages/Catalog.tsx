@@ -10,7 +10,7 @@ import { useTypedSelector } from '../hooks/useTypedSelector';
 const Catalog = ({ title, emptyBlock }: Page) => {
     const { products, isLoaded } = useTypedSelector((state) => state.productsReducer);
     const { sortBy, sortPrices, sortBrands, sortColors, sortSizes, sortStyles } = useTypedSelector((state) => state.filtersReducer);
-    const {  popupProduct} = useTypedSelector((state) => state.productReducer);
+    const { popupProduct} = useTypedSelector((state) => state.productReducer);
 
     const { fetchProducts } = useActions();
 

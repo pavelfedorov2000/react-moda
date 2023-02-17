@@ -1,4 +1,4 @@
-import { formatDate } from "../utils/formatDate";
+import { formatDateTime } from "../utils/formatDateTime";
 
 interface Props {
     date?: string;
@@ -8,7 +8,7 @@ interface Props {
 
 const DateTime = ({ date, dateClass, className }: Props) => {
     return (
-        <time className={`date ${className === 'aside-blog__item' ? 'aside-blog__item-date' : 'blog-item__date'}`} dateTime={formatDate(date)}>{date}</time>
+        <time className={className && `date ${className === 'aside-blog__item' ? 'aside-blog__item-date' : 'blog-item__date'}`} dateTime={formatDateTime(date)}>{date}</time>
     );
 }
 

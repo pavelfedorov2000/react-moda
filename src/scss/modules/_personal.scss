@@ -62,7 +62,7 @@
             color: #000;
         }
 
-        .radio-box:checked+.radio-style {
+        .radio-box:checked + .radio-style {
             border-color: var(--dark);
             background-color: var(--dark);
 
@@ -112,14 +112,14 @@
         width: 2.4rem;
         height: 2.4rem;
         flex-shrink: 0;
-        margin-right: 0.8rem;
+        margin-right: var(--offset-xxs);
     }
 }
 
 .profile-notify {
     @extend %vertical-align;
     @extend %text-14;
-    padding: 1.6rem;
+    padding: var(--offset);
 
     &.success {
         background-color: rgba($green, 0.1);

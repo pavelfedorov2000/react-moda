@@ -8,28 +8,13 @@
             }
         }
 
-        &__label,
-        &__favorite {
-            @media (max-width: 500px) {
-                top: 0.8rem;
-            }
-        }
-
         &__label {
             @media (max-width: 500px) {
                 width: 3rem;
                 height: 3rem;
                 font-size: 1rem;
                 line-height: 1.5rem;
-                left: 0.8rem;
-            }
-        }
-
-        &__favorite {
-            @media (max-width: 500px) {
-                right: 0.8rem;
-                width: 1.6rem;
-                height: 1.6rem;
+                left: var(--offset-xxs);
             }
         }
 
@@ -48,7 +33,7 @@
 
             &:not(:last-child) {
                 @media (max-width: 500px) {
-                    margin-bottom: 0.4rem;
+                    margin-bottom: var(--offset-xxxs);
                 }
             }
         }
@@ -134,13 +119,13 @@
     }
 }
 
-.grid-btn {
+.grid-button {
     svg {
         @media (max-width: 767px) {
             display: none;
         }
 
-        &.row-btn {
+        &.row-button {
             display: none;
 
             @media (max-width: 767px) {
@@ -160,7 +145,7 @@
     }
 
     @media (max-width: 767px) {
-        gap: 1.2rem 1.6rem;
+        gap: var(--offset-s) var(--offset);
         grid-template-columns: 1fr;
     }
 

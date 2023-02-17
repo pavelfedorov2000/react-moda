@@ -27,8 +27,8 @@ const BlogDetail = () => {
         });
     }, []);
 
-    const activeBlog = blogItems.find(news => news.id == id);
-    const asideNews = news.filter(news => news.id !== id).splice(0, 4);
+    const activeBlog = blogItems.find((news) => news.id == id);
+    const asideNews = news.filter((news) => news.id !== id).splice(0, 4);
 
     return (
         <main className="page blog-text">

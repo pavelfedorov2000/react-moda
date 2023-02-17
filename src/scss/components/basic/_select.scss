@@ -71,6 +71,6 @@
 
     &__option-text {
         @extend %text-16;
-        margin-left: 1rem;
+        margin-left: var(--offset-xs);
     }
 }

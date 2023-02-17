@@ -15,7 +15,7 @@ const News = ({ title, emptyBlock }: Page) => {
     }, []);
 
     return (
-        <main className="page news-page">
+        <main className="page">
             <div className="container">
                 <Crumbs title={title} />
 

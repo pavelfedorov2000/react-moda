@@ -129,7 +129,7 @@
         svg {
             width: 1rem;
             height: 1rem;
-            margin-right: 1rem;
+            margin-right: var(--offset-xs);
 
             path {
                 transition: $transition fill;
@@ -226,7 +226,7 @@
         }
 
         .check-text {
-            margin-left: 0.8rem;
+            margin-left: var(--offset-xxs);
         }
     }
 
@@ -274,7 +274,7 @@
         font-weight: 500;
 
         &:not(:last-child) {
-            margin-bottom: 1.6rem;
+            margin-bottom: var(--offset);
         }
     }
 }

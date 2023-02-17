@@ -16,9 +16,19 @@
     --green-second: #2d703c;
     --red: #ee3333;
 
+    --icon-size_xs: 1rem;
+    --icon-size_s: 1.2rem;
     --icon-size: 1.6rem;
     --icon-size_m: 2.4rem;
     --icon-size_xl: 3.2rem;
+
+    --offset-l: 3.2rem;
+    --offset-m: 2.4rem;
+    --offset: 1.6rem;
+    --offset-s: 1.2rem;
+    --offset-xs: 1rem;
+    --offset-xxs: 0.8rem;
+    --offset-xxxs: 0.4rem;
 }
 
 $dark: #101112;
@@ -159,16 +169,19 @@ $transition: $duration $transition-timing;
 
 // positioning
 %pos-center-x {
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
 
 %pos-center-y {
+    position: absolute;
     top: 50%;
     transform: translateY(-50%);
 }
 
 %pos-center-xy {
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

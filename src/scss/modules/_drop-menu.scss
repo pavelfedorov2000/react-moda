@@ -55,14 +55,14 @@
     &__col-title {
         @extend %text-14;
         font-weight: 600;
-        margin-bottom: 1.6rem;
+        margin-bottom: var(--offset);
     }
 
     // .drop-menu__list-item
 
     &__list-item {
         &:not(:last-child) {
-            margin-bottom: 1rem;
+            margin-bottom: var(--offset-xs);
         }
     }
 

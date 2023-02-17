@@ -13,7 +13,7 @@ const CatalogHomeCard = ({ imageUrl, text, index }: Props) => {
     return (
         <Link onClick={() => setCategory(index)} className="catalog-home-card" to={Pages.Home.path}>
             <img className="catalog-home-card__img" src={imageUrl} alt="фото" width="465" height="610" />
-            <div className="catalog-home-card__title">{text}</div>
+            <span className="catalog-home-card__title">{text}</span>
         </Link>
     );
 }

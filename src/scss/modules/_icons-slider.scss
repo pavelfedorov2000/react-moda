@@ -22,7 +22,7 @@
         overflow: hidden;
 
         &:not(:last-child) {
-            margin-bottom: 1.6rem;
+            margin-bottom: var(--offset);
         }
 
         img {

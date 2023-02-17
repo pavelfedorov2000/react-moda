@@ -11,8 +11,6 @@ interface Props {
 }
 
 const SliderSection = ({ items, title }: Props) => {
-    //const filteredProducts = id ? products.filter(product => product.id !== id) : products;
-
     return (
         <section className="section">
             {items.length > 4 ?

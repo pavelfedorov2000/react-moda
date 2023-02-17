@@ -1,13 +1,8 @@
+import { PersonalData } from "../../interfaces/PersonalData";
 import { ActionType } from "../actionsList";
 
 export interface OrderState {
-    personalData: {
-        NAME: string;
-        SURNAME: string;
-        PHONE: string;
-        EMAIL: string;
-        CITY: string;
-    },
+    personalData: PersonalData,
     DELIVERY: string;
     PAYMENT: string;
     COMMENT?: string;

@@ -1,0 +1,34 @@
+.order-success-table {
+    &__body {
+        padding: 3rem;
+        border: 0.1rem solid var(--line-color);
+        border-top: none;
+
+        @media (max-width: 500px) {
+            padding: 1.5rem;
+        }
+    }
+
+    &__title {
+        &:not(:last-child) {
+            margin-bottom: 2.5rem;
+        }
+    }
+
+    &__products {
+        display: grid;
+        gap: calc(var(--gap) / 2) var(--gap);
+
+        @media (max-width: 1024px) {
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 1025px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}

@@ -13,8 +13,6 @@ const Brands = ({ title }: Page) => {
         });
     }, []);
 
-    //const alphabetMap = new Map(Object.entries(alphabet))
-
     const [activeBrand, setActiveBrand] = useState(null);
     const onAddActiveBrand = (e: any) => {
         const activeBrandArr = e.target.getAttribute('href').split('');
@@ -22,7 +20,7 @@ const Brands = ({ title }: Page) => {
     }
 
     return (
-        <main className="page brands-page">
+        <main className="page">
             <div className="container">
                 <Crumbs title={title} />
 

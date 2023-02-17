@@ -1,9 +1,10 @@
-import { AsideFilters, CatalogCard, Crumbs, EmptyBlock } from '../Components';
+import { AsideFilters, CatalogCard, Crumbs, EmptyBlock, ProductPopup } from '../Components';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { Page } from '../interfaces/Route';
 
 const Favorite = ({ title, emptyBlock }: Page) => {
     const { products } = useTypedSelector((state) => state.favoriteReducer);
+    const { popupProduct} = useTypedSelector((state) => state.productReducer);
 
     return (
         <>
@@ -36,6 +37,12 @@ const Favorite = ({ title, emptyBlock }: Page) => {
                     </div>
                 </div>
             </main>
+
+            {popupProduct &&
+                <div className="overlay active">
+                    <ProductPopup {...popupProduct} />
+                </div>
+            }
         </>
     );
 }

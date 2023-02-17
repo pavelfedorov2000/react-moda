@@ -52,7 +52,7 @@ const BasketProduct = ({ className, id, articul, name, brand, sizes, size, price
 
             <Link to={`/product-card/${id}`} className="product-title basket-product__title">{name} {brand}</Link>
 
-            <ProductList articul={articul} color={color} size={size} />
+            <ProductList className="basket-product__list" articul={articul} color={color} size={size} />
 
             <div className="basket-product__buttons">
                 <Button onClick={handleRemoveCartProduct} className="basket-product__btn basket-product__btn--delete" transparent remove icon />

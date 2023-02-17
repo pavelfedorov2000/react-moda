@@ -1,7 +1,9 @@
-import { OrderSuccessTable, OrderProduct, Crumbs } from '../Components';
+import { Crumbs, OrderProduct } from '../Components';
+import OrderDetailsTable from '../Components/OrderDetailsTable';
 import { useTypedSelector } from '../hooks/useTypedSelector';
+import { Page } from '../interfaces/Route';
 
-const OrderSuccess = ({ title }) => {
+const OrderSuccess = ({ title, subtitle }: Page) => {
     const { data } = useTypedSelector((state) => state.ordersReducer);
     const currentOrder = data[data.length - 1];
 
@@ -10,14 +12,17 @@ const OrderSuccess = ({ title }) => {
             <div className="container">
                 <Crumbs title={title} />
 
-                <h1 className="title page__title">{title}</h1>
-
-                <div className="page__subtitle">
-                    Наш менеджер свяжется с вами в ближайшее время
+                <div className="page__top">
+                    <h1 className="title">{title}</h1>
                 </div>
 
-                <div className="order-success-table">
-                    <OrderSuccessTable totalPrice={currentOrder.totalPrice} {...currentOrder} className="order-success-table__head" />
+                <div className="page__subtitle">
+                    {subtitle}
+                </div>
+
+                <article className="order-success-table">
+                    <OrderDetailsTable {...currentOrder} />
+
                     <div className="order-success-table__body">
                         <div className="product-title order-success-table__title">Товары:</div>
                         <ul className="order-success-table__products">
@@ -28,7 +33,7 @@ const OrderSuccess = ({ title }) => {
                             ))}
                         </ul>
                     </div>
-                </div>
+                </article>                
             </div>
         </main>
     );

@@ -20,7 +20,7 @@ const Profile = ({ title, emptyBlock, SubPage }: Props) => {
                 <Crumbs title={title} id={index} url={url.split('/')[1]} />
 
                 <div className="page__top">
-                    <h1 className="title">{Pages.Profile.title}</h1>
+                    <div className="title">{Pages.Profile.title}</div>
                 </div>
 
                 <div className="profile-page__inner">
@@ -29,7 +29,9 @@ const Profile = ({ title, emptyBlock, SubPage }: Props) => {
                     <div className="profile-page__body">
 
                         {!index &&
-                            <h2 className="profile-page__title">{title}</h2>
+                            <h1 className="profile-page__title">
+                                {title}
+                            </h1>
                         }
 
                         <SubPage emptyBlock={emptyBlock} />

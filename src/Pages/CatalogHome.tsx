@@ -1,7 +1,7 @@
 import { CatalogHomeCard } from '../Components';
 import { CATEGORIES } from '../constants/categories';
 
-function CatalogHome() {
+const CatalogHome = () => {
     return (
         <main className="page catalog-home">
             <div className="container">

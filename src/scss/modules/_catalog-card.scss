@@ -29,7 +29,7 @@
         transition: $transition height;
 
         &:not(:last-child) {
-            margin-bottom: 1.2rem;
+            margin-bottom: var(--offset-s);
         }
 
         img {
@@ -74,14 +74,14 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 1rem 2.6rem;
+        gap: var(--offset-xs) 2.6rem;
 
         @media (max-width: 767px) {
-            gap: 1rem;
+            gap: var(--offset-xs);
         }
 
         &:not(:last-child) {
-            margin-bottom: 1.2rem;
+            margin-bottom: var(--offset-s);
 
             @media (max-width: 500px) {
                 margin-bottom: 0.75rem;
@@ -169,6 +169,6 @@
 
     &__old-price {
         @extend %text-13;
-        margin-left: 0.8rem;
+        margin-left: var(--offset-xxs);
     }
 }

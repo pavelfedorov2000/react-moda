@@ -21,13 +21,15 @@ const Brands = () => {
                 <AllLink url={Pages.Brands.path} />
             </div>
 
-            <div className="brands__inner">
+            <ul className="brands__list">
                 {brands.map((brand) => (
-                    <Link key={brand.name} to={Pages.Catalog.path} className="brands__item" data-wow-duration="1s">
-                        <img className="brands__item-img" src={brand.imageUrl} alt={`логотип ${brand.name}`} width={brand.width} height={brand.height} />
-                    </Link>
+                    <li key={brand.name}>
+                        <Link to={Pages.Catalog.path} className="brands__item" data-wow-duration="1s">
+                            <img className="brands__item-img" src={brand.imageUrl} alt={`логотип ${brand.name}`} width={brand.width} height={brand.height} />
+                        </Link>
+                    </li>
                 ))}
-            </div>
+            </ul>
         </section>
     );
 }

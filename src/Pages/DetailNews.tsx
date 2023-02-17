@@ -18,8 +18,8 @@ const DetailNews = () => {
         });
     }, []);
 
-    const activeNews: NewsItem | undefined = news.find(news => news.id == id);
-    const otherNews: NewsItem[] = news.filter(news => news.id !== id);
+    const activeNews: NewsItem | undefined = news.find((news) => news.id == id);
+    const otherNews: NewsItem[] = news.filter((news) => news.id !== id);
 
     return (
         <main className="page">

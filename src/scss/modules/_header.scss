@@ -7,7 +7,7 @@
 
         @media (min-width: 1025px) {
             display: block;
-            padding: 1.2rem 0;
+            @include padding-y(var(--offset-s));
         }
     }
 
@@ -54,7 +54,7 @@
 
     &__main {
         @extend %text-16;
-        padding: 2.5rem 0 1rem;
+        padding: 2.5rem 0 var(--offset-xs);
 
         @media (max-width: 1024px) {
             padding-top: 2rem;
@@ -68,7 +68,7 @@
         @extend %flex-row-center;
         flex-wrap: wrap;
 
-        >* {
+        > * {
             @media (min-width: 1025px) {
                 width: 33.3333%;
             }
@@ -98,7 +98,7 @@
         }
 
         @media (max-width: 1024px) {
-            margin-left: 1.6rem;
+            margin-left: var(--offset);
             margin-right: auto;
         }
     }
@@ -131,7 +131,7 @@
             justify-content: flex-end;
         }
 
-        >* {
+        > * {
             svg {
                 @media (max-width: 1024px) {
                     margin-right: 0;
@@ -178,8 +178,8 @@
 
         &.active {
             @media (max-width: 1024px) {
-                left: 1.6rem;
-                right: 1.6rem;
+                left: var(--offset);
+                right: var(--offset);
             }
         }
     }

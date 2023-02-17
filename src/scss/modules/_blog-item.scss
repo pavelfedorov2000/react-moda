@@ -5,7 +5,7 @@
     gap: var(--gap);
 
     @media (max-width: 1024px) {
-        gap: 1.2rem;
+        gap: var(--offset-m);
     }
 
     @media (min-width: 1025px) {
@@ -19,7 +19,7 @@
         grid-column: span 2;
 
         @media (max-width: 1024px) {
-            gap: 1.2rem;
+            gap: var(--offset-m);
         }
 
         @media (min-width: 1025px) {
@@ -55,9 +55,9 @@
     &__content {
         @extend %flex-col;
 
-        >* {
+        > * {
             &:not(:last-child) {
-                margin-bottom: 0.8rem;
+                margin-bottom: var(--offset-xxs);
             }
         }
     }
@@ -90,7 +90,7 @@
         }
 
         &:not(:last-child) {
-            margin-bottom: 1.2rem;
+            margin-bottom: var(--offset-m);
         }
     }
 

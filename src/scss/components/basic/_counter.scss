@@ -5,8 +5,8 @@
     &__btn {
         @extend %vertical-align;
         position: relative;
-        width: 1rem;
-        height: 1rem;
+        width: var(--icon-size_xs);
+        height: var(--icon-size_xs);
 
         svg {
             width: 1rem;

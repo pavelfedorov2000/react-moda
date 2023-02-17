@@ -32,7 +32,7 @@
         width: 100%;
 
         @media(max-width: 1024px) {
-            width: calc(100vw - 3.2rem);
+            width: calc(100vw - var(--container-padding) * 2);
         }
 
         @media(min-width: 768px) and (max-width: 1024px) {
@@ -45,7 +45,7 @@
 
         .splide__pagination {
             position: absolute;
-            bottom: 5.4rem+1.2rem+2.5rem;
+            bottom: calc(5.4rem + var(--offset-s) + 2.5rem);
             left: 2.5rem;
         }
     }

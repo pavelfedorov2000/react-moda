@@ -17,5 +17,3 @@ const Checkout = () => {
 }
 
 export default Checkout;
-
-//<PersonalData personalData={personalData} orderData={orderData} />

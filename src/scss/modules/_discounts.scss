@@ -107,7 +107,7 @@
 
     &__label {
         &:not(:last-child) {
-            margin-right: 1.2rem;
+            margin-right: var(--offset-s);
         }
     }
 }

@@ -253,10 +253,10 @@
 
     &__list-item {
         &:not(:last-child) {
-            margin-bottom: 1.6rem;
+            margin-bottom: var(--offset);
 
             @media (max-width: 767px) {
-                margin-bottom: 1.2rem;
+                margin-bottom: var(--offset-s);
             }
         }
     }
@@ -278,7 +278,7 @@
         }
 
         @media (max-width: 767px) {
-            margin-top: -1rem;
+            margin-top: calc(var(--offset-xs) * (-1));
         }
     }
 

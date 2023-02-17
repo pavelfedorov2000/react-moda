@@ -98,7 +98,7 @@ const ProductPopup = ({ id, articul, name, brand, sizes, price, color, style, im
                     <div className="product-popup__content-top">
                         <div className="product-popup__title">{`${name} ${brand}`}</div>
 
-                        <Prices price={price} discount={discount} />
+                        <Prices className="product-popup__prices" price={price} discount={discount} />
                     </div>
 
                     <form className="product-popup__form product-card-form">

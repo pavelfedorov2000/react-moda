@@ -1,18 +1,3 @@
-.news-page {
-    &__grid {
-        display: grid;
-        gap: var(--gap);
-
-        @media (max-width: 1024px) {
-            gap: 3rem;
-        }
-
-        @media (min-width: 768px) {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-}
-
 .other-news {
     &__top {
         margin-bottom: 4rem;

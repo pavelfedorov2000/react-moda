@@ -11,7 +11,7 @@
 
     &__section-top {
         @extend %flex-row-center;
-        padding-bottom: 1rem;
+        padding-bottom: var(--offset-xs);
         border-bottom: 0.1rem solid var(--line-color);
     }
 
@@ -147,7 +147,7 @@
         left: calc(100% + 0.7rem);
         z-index: 25;
         width: 19.8rem;
-        padding: 1rem;
+        padding: var(--offset-xs);
         background-color: #fff;
         border: 0.1rem solid var(--line-color);
         box-sizing: border-box;

@@ -17,7 +17,7 @@
     @extend %vertical-align;
     @extend %text-14;
     font-weight: 500;
-    padding: 0.8rem 1rem;
+    padding: var(--offset-xxs) var(--offset-xs);
     border: 0.1rem solid var(--dark-gray);
     transition: $transition all;
 
@@ -43,7 +43,7 @@
         &:nth-child(10n + 1),
         &:nth-child(10n + 7) {
             grid-row: span 2;
-            gap: 1.2rem;
+            gap: var(--offset-s);
 
             @media (min-width: 768px) and (max-width: 1024px) {
                 grid-column: span 2;
@@ -182,7 +182,7 @@
         li {
             @extend %text-16;
             list-style-type: disc;
-            margin-left: 1rem;
+            margin-left: var(--offset-xs);
         }
 
         h3,

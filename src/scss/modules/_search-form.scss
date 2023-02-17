@@ -9,7 +9,7 @@
         border: 0.1rem solid var(--gray-777);
         width: 33.6rem;
         padding: 1.1rem 1.5rem 1.1rem 3.5rem;
-        background-size: 1.6rem 1.6rem;
+        background-size: var(--icon-size);
         background-position: 1rem 50%;
         background-repeat: no-repeat;
         transition: $transition width;
@@ -21,7 +21,7 @@
 
         @media (max-width: 1024px) {
             border-color: #2d703c;
-            padding: 1rem 2.7rem 1rem 3.4rem;
+            padding: var(--offset-xs) 2.7rem var(--offset-xs) 3.4rem;
         }
 
         &.active {
@@ -39,7 +39,7 @@
         left: 0;
         right: 0;
         z-index: 25;
-        padding: 1.6rem;
+        padding: var(--offset);
     }
 }
 
@@ -53,7 +53,7 @@
         @extend %text-12;
 
         &:not(:last-child) {
-            margin-bottom: 1rem;
+            margin-bottom: var(--offset-xs);
         }
 
         span {
