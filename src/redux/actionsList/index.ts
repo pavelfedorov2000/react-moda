@@ -46,6 +46,8 @@ export enum ActionType {
     OpenAsideBasket = 'OpenAsideBasket',
     CloseAuth = 'CloseAuth',
     CloseAsideBasket = 'CloseAsideBasket',
+    OpenPasswordRecovery = 'OpenPasswordRecovery',
+    ClosePasswordRecovery = 'ClosePasswordRecovery',
 
     AddProductToCart = 'AddProductToCart',
     RemoveCartProduct = 'RemoveCartProduct',
@@ -58,4 +60,9 @@ export enum ActionType {
     SetPersonalData = 'SetPersonalData',
     SetDelivery = 'SetDelivery',
     SetPayment = 'SetPayment',
+
+    SetProfileData = 'SetProfileData',
+    OpenEditProfilePopup = 'OpenEditProfilePopup',
+    CloseProfileEditPopup = 'CloseProfileEditPopup',
+    SetProfileDataUpdated = 'SetProfileDataUpdated',
 }

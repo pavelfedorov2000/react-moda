@@ -113,6 +113,7 @@
 }
 
 .input {
+    position: relative;
     @extend %text-13;
     border: 0.1rem solid var(--gray-c0);
     padding: 1.4rem;
@@ -120,13 +121,68 @@
     &::placeholder {
         color: var(--gray-777);
     }
+
+    &__label {
+        position: absolute;
+        top: 1.25rem;
+        left: 1.4rem;
+        z-index: 10;
+        @extend %text-13;
+        color: #777;
+        transition: $transition all;
+    }
+
+    input {
+        &::placeholder {
+            opacity: 0;
+        }
+
+        &:focus,
+        &:not(:placeholder-shown),
+        &:-webkit-autofill {
+            & ~ .input__label {
+                top: 0.4rem;
+                font-size: 1.1rem;
+                line-height: 1.6rem;
+                transform: none;
+            }
+        }
+
+        &[disabled] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #F4F4F6;
+            border-color: var(--gray-c0);
+            color: var(--gray-777);
+        }
+    }
+}
+
+.input-label {
+    height: 4.8rem;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 0.7rem;
+
+    label.error {
+        position: absolute;
+        left: 0;
+        bottom: -2rem;
+    }
 }
 
 .password-button {
     @extend %bg-cover;
     position: absolute;
-    top: var(--offset-m);
-    right: var(--offset-m);
+    top: var(--offset-s);
+    right: var(--offset-s);
+
+    svg {
+        fill: var(--dark);
+    }
 
     @media (any-hover: hover) {
         &:hover {

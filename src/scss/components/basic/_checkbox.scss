@@ -179,5 +179,40 @@
                 }
             }
         }
+
+        &_gender {
+            #{$this} {
+                &-style {
+                    @extend %flex-center;
+                    border: 0.1rem solid #d0d0d0;
+                    width: 100%;
+                    height: 4.6rem;
+                    border-radius: 0;
+
+                    span {
+                        width: auto;
+                        height: auto;
+                        opacity: 1;
+                    }
+                }
+
+                &-text {
+                    @extend %text-13;
+                    color: #000;
+                    white-space: nowrap;
+                }
+
+                &-box {
+                    &:checked + #{$this}-style {
+                        border-color: var(--dark);
+                        background-color: var(--dark);
+
+                        #{$this}-text {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

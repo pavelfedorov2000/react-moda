@@ -8,7 +8,9 @@ interface Props {
 const SliderArrows = ({ className, isRound }: Props) => {
     return (
         <div className={classNames('slider-arrows splide__arrows', className && className)}>
-            <button className="splide__arrow splide__arrow--round splide__arrow--prev">
+            <button className={classNames('splide__arrow splide__arrow--prev', {
+                'splide__arrow--round': isRound
+            })}>
                 {isRound ?
                     <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fillRule='evenodd' clipPath='evenodd'
@@ -23,7 +25,9 @@ const SliderArrows = ({ className, isRound }: Props) => {
                     </svg>
                 }
             </button>
-            <button className="splide__arrow splide__arrow--round splide__arrow--next">
+            <button className={classNames('splide__arrow splide__arrow--next', {
+                'splide__arrow--round': isRound
+            })}>
                 {isRound ?
                     <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fillRule='evenodd' clipPath='evenodd'

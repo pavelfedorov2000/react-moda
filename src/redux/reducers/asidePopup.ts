@@ -4,6 +4,7 @@ import { AsidePopupAction, AsidePopupState } from "../types/asidePopup";
 const initialState: AsidePopupState = {
     isAuthVisible: false,
     isAsideBasketVisible: false,
+    isPasswordRecoveryVisible: false,
 }
 
 const burgerReducer = (state = initialState, action: AsidePopupAction): AsidePopupState => {
@@ -28,6 +29,16 @@ const burgerReducer = (state = initialState, action: AsidePopupAction): AsidePop
                 ...state,
                 isAsideBasketVisible: false,
             };
+        case ActionType.OpenPasswordRecovery:
+            return {
+                ...state,
+                isPasswordRecoveryVisible: true,
+            }
+        case ActionType.ClosePasswordRecovery:
+            return {
+                ...state,
+                isPasswordRecoveryVisible: false,
+            }
         default:
             return state;
     }

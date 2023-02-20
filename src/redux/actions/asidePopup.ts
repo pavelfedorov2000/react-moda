@@ -15,3 +15,11 @@ export const openAsideBasket = () => ({
 export const closeAsideBasket = () => ({
     type: ActionType.CloseAsideBasket
 });
+
+export const openPasswordRecovery = () => ({
+    type: ActionType.OpenPasswordRecovery
+});
+
+export const closePasswordRecovery = () => ({
+    type: ActionType.ClosePasswordRecovery
+});

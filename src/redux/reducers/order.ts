@@ -18,7 +18,6 @@ const initialState: OrderState = {
 const orderReducer = (state = initialState, action: OrderAction): OrderState => {
     switch (action.type) {
         case ActionType.SetPersonalData: {
-            console.log(action.payload.name, action.payload.value);
             return {
                 ...state,
                 personalData: {

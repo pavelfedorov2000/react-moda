@@ -10,6 +10,7 @@ import * as AsidePopupActionCreators from './asidePopup';
 import * as CartActionCreators from './cart';
 import * as OrdersActionCreators from './orders';
 import * as OrderActionCreators from './order';
+import * as ProfileActionCreators from './profile';
 
 export default {
     ...BlogActionCreators,
@@ -24,4 +25,5 @@ export default {
     ...CartActionCreators,
     ...OrdersActionCreators,
     ...OrderActionCreators,
+    ...ProfileActionCreators,
 }
