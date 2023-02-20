@@ -136,3 +136,10 @@ a {
         }
     }
 }
+
+.link-btn {
+    color: var(--gray-777);
+    text-decoration: underline;
+    text-align: left;
+    transition: $transition color;
+}

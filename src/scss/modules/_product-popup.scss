@@ -4,32 +4,6 @@
     }
 }
 
-.popup {
-    @extend %pos-center-xy;
-
-    &__close {
-        position: absolute;
-        top: 0;
-        right: -4rem;
-        z-index: 201;
-
-        svg {
-            width: var(--icon-size_xl);
-            height: var(--icon-size_xl);
-            fill: var(--gray-bg);
-            transition: $transition fill;
-        }
-
-        @media (any-hover: hover) {
-            &:hover {
-                svg {
-                    fill: var(--red);
-                }
-            }
-        }
-    }
-}
-
 .product-popup {
     //display: none;
     background-color: #fff;

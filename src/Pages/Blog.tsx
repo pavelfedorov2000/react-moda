@@ -25,7 +25,7 @@ const Blog = ({ title, emptyBlock }: Page) => {
                     <h1 className="title">{title}</h1>
                 </div>
 
-                {blogItems && blogItems.length !== 0 ?
+                {blogItems.length !== 0 ?
                     <>
                         <ul className="grid blog-grid">
                             {

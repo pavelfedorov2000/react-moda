@@ -3,12 +3,13 @@ import '@splidejs/react-splide/css/core';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Gaps } from '../enums/Gap';
 import { Pages } from '../enums/Page';
 import { CategoriesSliderItem } from '../interfaces/CategoriesSliderItem';
 
 const splideOptions = {
     autoWidth: true,
-    gap: `${getComputedStyle(document.documentElement).getPropertyValue('--gap')}`,
+    gap: Gaps.XL,
     pagination: false,
     arrows: false,
 };

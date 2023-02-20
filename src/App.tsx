@@ -16,11 +16,10 @@ const App = () => {
                 'active': isAuthVisible || isAsideBasketVisible
             })}>
                 <DropBasket />
+                <Auth />
             </div>
         </div>
     );
 }
 
 export default App;
-
-//<Auth />

@@ -14,15 +14,17 @@ interface Props {
 const HeaderActions = ({ onClickSearch }: Props) => {
     const { products } = useTypedSelector((state) => state.favoriteReducer);
     const { items } = useTypedSelector((state) => state.cartReducer);
+    const profileState = useTypedSelector((state) => state.profileReducer);
+
     const { openAuth, openAsideBasket } = useActions();
 
     const totalCount = Object.keys(items).length;
 
     const headerActions: HeaderAction[] = useMemo(() => [{
-        href: SubPages.Orders.path,
+        href: Object.values(profileState).every((value) => value !== '') ? SubPages.Personal.path : undefined,
         icon: <UserIcon />,
         text: Pages.Profile.title,
-        onClick: openAuth
+        onClick: Object.values(profileState).some((value) => value === '') ? openAuth : undefined,
     }, {
         href: Pages.Favorite.path,
         icon: <FavoriteIcon />,

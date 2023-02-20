@@ -1,6 +1,4 @@
-import { PersonalData } from './Checkouts';
-import Delivery from './Checkouts/Delivery';
-import Payment from './Checkouts/Payment';
+import { PersonalData, Delivery, Payment } from './Checkouts';
 
 const Checkout = () => {
     return (

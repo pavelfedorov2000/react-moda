@@ -79,6 +79,7 @@ export { default as ProductCardInfo } from './ProductCardInfo';
 export { default as OrderProduct } from './OrderProduct';
 export { default as OrderTableItem } from './OrderTableItem';
 
+export { default as AsidePopupClose } from './AsidePopupClose';
 export { default as DropBasket } from './DropBasket';
 export { default as Auth } from './Auth';
 
@@ -86,7 +87,6 @@ export { default as FormRow } from './FormRow';
 export { default as FormAgree } from './FormAgree';
 
 export { default as SliderSection } from './SliderSection';
-//export { default as SliderArrows } from './SliderArrows';
 
 export { default as NewsDetail } from './NewsDetail';
 export { default as OtherNews } from './OtherNews';
@@ -107,3 +107,8 @@ export { default as BrandCategory } from './Brands/BrandCategory';
 export { default as BrandsIndexList } from './Brands/BrandsIndexList';
 export { default as BrandsAlphabet } from './Brands/BrandsAlphabet';
 export { default as CancelBrandLetter } from './Brands/CancelBrandLetter';
+
+
+export { default as Gender } from './Gender';
+export { default as SmallPopup } from './SmallPopup';
+export { default as ProfileNotify } from './ProfileNotify';

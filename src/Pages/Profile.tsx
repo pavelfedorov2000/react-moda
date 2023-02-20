@@ -1,12 +1,11 @@
 import { useRouteMatch } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { Crumbs, PageNav } from '../Components';
+import { Crumbs, PageNav, SmallPopup } from '../Components';
 import { Pages } from '../enums/Page';
-import { EmptyBlock } from '../interfaces/EmptyBlock';
+import { useTypedSelector } from '../hooks/useTypedSelector';
+import { Page } from '../interfaces/Route';
 
-interface Props {
-    title: string;
-    emptyBlock: EmptyBlock;
+interface Props extends Page {
     SubPage: any;
 }
 
@@ -14,31 +13,37 @@ const Profile = ({ title, emptyBlock, SubPage }: Props) => {
     const { index } = useParams();
     const { url } = useRouteMatch();
 
+    const { editPopup } = useTypedSelector((state) => state.profileReducer);
+
     return (
-        <main className="page profile-page">
-            <div className="container">
-                <Crumbs title={title} id={index} url={url.split('/')[1]} />
+        <>
+            <main className="page profile-page">
+                <div className="container">
+                    <Crumbs title={title} id={index} url={url.split('/')[1]} />
 
-                <div className="page__top">
-                    <div className="title">{Pages.Profile.title}</div>
-                </div>
+                    <div className="page__top">
+                        <div className="title">{Pages.Profile.title}</div>
+                    </div>
 
-                <div className="profile-page__inner">
-                    <PageNav />
+                    <div className="profile-page__inner">
+                        <PageNav />
 
-                    <div className="profile-page__body">
+                        <div className="profile-page__body">
 
-                        {!index &&
-                            <h1 className="profile-page__title">
-                                {title}
-                            </h1>
-                        }
+                            {!index &&
+                                <h1 className="profile-page__title">
+                                    {title}
+                                </h1>
+                            }
 
-                        <SubPage emptyBlock={emptyBlock} />
+                            <SubPage emptyBlock={emptyBlock} />
+                        </div>
                     </div>
                 </div>
-            </div>
-        </main>
+            </main>
+
+            {editPopup.isVisible && <SmallPopup />}
+        </>
     );
 }
 

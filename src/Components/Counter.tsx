@@ -7,7 +7,7 @@ interface Props {
     className?: string;
 }
 
-function Counter({ onMinus, onPlus, value, className }: Props) {
+const Counter = ({ onMinus, onPlus, value, className }: Props) => {
     return (
         <div className={classNames('counter', className)}>
             <button onClick={onMinus} className="counter__btn" type="button">
