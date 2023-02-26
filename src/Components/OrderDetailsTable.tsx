@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { useRouteMatch } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Pages, SubPages } from '../enums/Page';
+import { useActions } from '../hooks/useActions';
 import { OrderData } from '../interfaces/OrderData';
 import { formatDate } from '../utils/formatDate';
 import { formatDateTime } from '../utils/formatDateTime';
@@ -22,6 +23,8 @@ const OrderDetailsTable = ({ totalPrice, date, personalData, delivery, payment, 
     const { NAME, SURNAME, PHONE, EMAIL, CITY } = personalData;
 
     const { url } = useRouteMatch();
+
+    const { resetPersonalData } = useActions();
 
     return (
         <div className={classNames('order-details-table', className)}>
@@ -65,7 +68,7 @@ const OrderDetailsTable = ({ totalPrice, date, personalData, delivery, payment, 
 
             {url === Pages.OrderSuccess.path &&
                 <div className="order-details-table__item">
-                    <Link to={SubPages.Orders.path} className="button order-details-table__btn">Оплатить</Link>
+                    <Link onClick={() => resetPersonalData()} to={SubPages.Orders.path} className="button order-details-table__btn">Оплатить</Link>
                 </div>
             }
         </div>

@@ -1,7 +1,6 @@
 .social {
     display: flex;
     flex-wrap: wrap;
-    // .social__item
 
     &__item {
         flex-shrink: 0;
@@ -9,18 +8,28 @@
         svg {
             width: 2.6rem;
             height: 2.6rem;
+            fill: #fff;
             transition: $transition fill;
+
+            rect {
+                fill: var(--dark);
+                transition: $transition fill;
+            }
         }
 
         @media (any-hover: hover) {
             &:hover {
-                svg {
+                svg rect {
                     fill: var(--red);
                 }
             }
         }
 
         &--google {
+            svg {
+                fill: var(--black);
+            }
+
             @media (any-hover: hover) {
                 &:hover {
                     svg {

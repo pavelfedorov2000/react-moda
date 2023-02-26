@@ -1,6 +1,6 @@
 import { ProductBase } from "./CatalogItem";
 
 export interface OrderProduct extends ProductBase {
-    size: number;
+    sizes: number[];
     totalCount: number;
 }

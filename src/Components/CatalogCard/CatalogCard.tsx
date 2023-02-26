@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { useCallback } from 'react';
 import heart from '../../assets/images/icons/heart.svg';
 import heartFilled from '../../assets/images/icons/heart-filled.svg';
 import { Link } from 'react-router-dom';
@@ -8,6 +9,7 @@ import { SIZES } from '../../constants/sizes';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useActions } from '../../hooks/useActions';
 import { FavoriteAriaLabel } from '../../enums/FavoriteAriaLabel';
+import Labels from '../Labels';
 
 const CatalogCard = ({ id, articul, name, brand, imageUrl, price, color, sizes, style, discount, newProduct }: CatalogItem) => {
     const { products } = useTypedSelector((state) => state.favoriteReducer);
@@ -33,6 +35,10 @@ const CatalogCard = ({ id, articul, name, brand, imageUrl, price, color, sizes, 
         });
     }
 
+    const handleRemoveFavorite = useCallback(() => {
+        removeFavoriteProduct(id);
+    }, []);
+
     const handleOpenPopup = () => {
         openProductPopup({
             id,
@@ -51,19 +57,10 @@ const CatalogCard = ({ id, articul, name, brand, imageUrl, price, color, sizes, 
 
     return (
         <article className="catalog-card">
-            <div className="labels">
-                {discount && discount !== 0 ?
-                    <span className="label catalog-card__label label--discount">{discount}%</span>
-                    : null
-                }
-
-                {newProduct &&
-                    <span className="label catalog-card__label label--new">new</span>
-                }
-            </div>
+            <Labels discount={discount} isNew={newProduct} />
 
             {isFavorite ?
-                <button onClick={() => removeFavoriteProduct(id)} className="catalog-card__favorite" type="button" aria-label={FavoriteAriaLabel.Add} style={{ backgroundImage: `url(${heartFilled})` }}></button> :
+                <button onClick={handleRemoveFavorite} className="catalog-card__favorite" type="button" aria-label={FavoriteAriaLabel.Add} style={{ backgroundImage: `url(${heartFilled})` }}></button> :
                 <button onClick={handleAddFavorite} className="catalog-card__favorite" type="button" aria-label={FavoriteAriaLabel.Remove} style={{ backgroundImage: `url(${heart})` }}></button>
             }
 

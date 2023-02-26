@@ -6,7 +6,7 @@
     label.error {
         margin-top: 0.3rem;
 
-        & + .form-row__btn {
+        &+.form-row__btn {
             background-color: var(--red);
             border-color: var(--red);
         }
@@ -66,25 +66,27 @@
     align-items: flex-start;
     cursor: pointer;
 
-    .check-style {
-        width: 2rem;
-        height: 2rem;
-    }
+    .check {
+        &-style {
+            width: 2rem;
+            height: 2rem;
+        }
 
-    .check-box:checked ~ .check-style:before {
-        width: 1.3rem;
-        height: 1rem;
-    }
+        &-box {
+            &:checked~.check-style:before {
+                width: 1.3rem;
+                height: 1rem;
+            }
+        }
 
-    .check-text {
-        @extend %text-12;
-        margin-left: var(--offset-xs);
+        &-text {
+            @extend %text-12;
+            margin-left: var(--offset-xs);
+        }
     }
 }
 
 .subscribe-form {
-    // .subscribe-form__wrap
-
     &__wrap {
         &:not(:last-child) {
             margin-bottom: 1.4rem;
@@ -140,7 +142,7 @@
         &:focus,
         &:not(:placeholder-shown),
         &:-webkit-autofill {
-            & ~ .input__label {
+            &~.input__label {
                 top: 0.4rem;
                 font-size: 1.1rem;
                 line-height: 1.6rem;

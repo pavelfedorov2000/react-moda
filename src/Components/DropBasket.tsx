@@ -15,8 +15,13 @@ const DropBasket = () => {
         return items[key].items[0];
     });
 
+    const handleClose = () => {
+        document.body.classList.remove('_lock');
+        closeAsideBasket();
+    }
+
     return (
-        <div className={classNames('aside-popup drop-basket aside-popup--basket', {
+        <div id="drop-basket" className={classNames('aside-popup drop-basket aside-popup--basket', {
             'active': isAsideBasketVisible
         })}>
             <AsidePopupClose onClick={closeAsideBasket} ariaLabel="Закрыть корзину быстрого просмотра" />
@@ -49,7 +54,7 @@ const DropBasket = () => {
                     }
                 </div>
 
-                <Link onClick={closeAsideBasket} className="drop-basket__btn button" to={`${totalCount === 0 ? '/' : Pages.Cart.path}`}>
+                <Link onClick={handleClose} className="drop-basket__btn button" to={`${totalCount === 0 ? '/' : Pages.Cart.path}`}>
                     {totalCount === 0 ? DropBasketText.ContinueBuy : DropBasketText.Checkout}
                     <svg viewBox="0 0 56 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path clipRule="evenodd" fillRule="evenodd"

@@ -12,7 +12,7 @@ const BurgerButton = () => {
     }
 
     return (
-        <button onClick={handleOpenMenu} className="burger-btn" type="button" aria-label="Открыть меню" aria-expanded={isOpenMenu}>
+        <button onClick={handleOpenMenu} className="burger-btn" type="button" aria-label="Открыть меню" aria-expanded={isOpenMenu} aria-controls="burger-menu">
             <img src={burger} alt="кнопка бургер" width="20" height="20" />
         </button>
     );

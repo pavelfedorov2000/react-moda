@@ -22,6 +22,6 @@ export const PRODUCT_LIST: ProductListItem[] = [{
     key: "Рост модели на фото",
     value: "176 см"
 }, {
-    key: "Длина рукава:",
+    key: "Длина рукава",
     value: "60 см"
 }];

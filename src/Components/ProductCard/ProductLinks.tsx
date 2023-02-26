@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
-import loriata from '../assets/images/icons/loriata.png';
-import coat from '../assets/images/icons/coat.png';
-import certificate from '../assets/images/icons/certificate.svg';
-import { ProductLink as ProductLinkType } from '../interfaces/ProductLink';
-import ProductLink from './ProductLink';
+import loriata from '../../assets/images/icons/loriata.png';
+import coat from '../../assets/images/icons/coat.png';
+import certificate from '../../assets/images/icons/certificate.svg';
+import { ProductLink as ProductLinkType } from '../../interfaces/ProductLink';
+import ProductLink from '../ProductLink';
 
 // Костыльное склонение (просто для практики)
 function generateWord(text: string) {

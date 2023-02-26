@@ -13,6 +13,9 @@ export { default as BurgerButton } from './Burger/BurgerButton';
 export { default as Tag } from './Tag';
 export { default as BackLink } from './BackLink';
 
+export { default as Labels } from './Labels';
+export { default as Label } from './Label';
+
 export { default as HeaderActions } from './HeaderActions/HeaderActions';
 export { default as NavHeader } from './NavHeader';
 export { default as Logo } from './Logo';
@@ -68,13 +71,8 @@ export { default as Checkout } from './Checkout';
 
 export { default as ProductColors } from './ProductColors';
 export { default as ProductColor } from './ProductColor';
-export { default as ProductDetails } from './ProductDetails';
 export { default as ProductDetailsSection } from './ProductDetailsSection';
-export { default as ProductLinks } from './ProductLinks';
 export { default as ProductLink } from './ProductLink';
-export { default as ProductCardDelivery } from './ProductCardDelivery';
-export { default as ProductCardContent } from './ProductCardContent';
-export { default as ProductCardInfo } from './ProductCardInfo';
 
 export { default as OrderProduct } from './OrderProduct';
 export { default as OrderTableItem } from './OrderTableItem';

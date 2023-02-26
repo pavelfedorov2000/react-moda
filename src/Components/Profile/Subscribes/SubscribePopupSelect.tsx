@@ -21,7 +21,7 @@ const SubscribePopupSelect = ({ text, active }: Props) => {
                 'active': activeSelect
             })}>
                 <span>{active ? options[0] : options[1]}</span>
-                <svg className="icon icon--size_sm" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg className="icon icon--size_ms" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path fillRule='evenodd' clipRule='evenodd' d="M3.128 6L9.2 11.979L10 12.6338L10.8 11.9791L16.872 6L18 7.11218L10 15L2 7.11218L3.128 6Z" />
                 </svg>
             </div>

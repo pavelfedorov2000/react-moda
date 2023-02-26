@@ -25,7 +25,7 @@ const OrderTableItem = ({ totalPrice, index, date, delivery, items }: Props) => 
                     <span className="button order-item__status-label">Передан в доставку</span>
                     <button className="order-item__follow-link">
                         <span>Отследить посылку</span>
-                        <svg className="icon icon--size_s" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg className="icon icon--size_s" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path fillRule='evenodd' clipRule='evenodd'
                                 d="M3 10.295L6.79 6.5L7.20508 6L6.79008 5.5L3 1.705L3.705 1L8.705 6L3.705 11L3 10.295Z" />
                         </svg>

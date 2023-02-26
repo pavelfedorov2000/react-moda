@@ -21,20 +21,24 @@ const HeaderActions = ({ onClickSearch }: Props) => {
     const totalCount = Object.keys(items).length;
 
     const headerActions: HeaderAction[] = useMemo(() => [{
+        popupId: 'auth-popup',
         href: Object.values(profileState).every((value) => value !== '') ? SubPages.Personal.path : undefined,
         icon: <UserIcon />,
         text: Pages.Profile.title,
         onClick: Object.values(profileState).some((value) => value === '') ? openAuth : undefined,
+        hasPopup: 'dialog'
     }, {
         href: Pages.Favorite.path,
         icon: <FavoriteIcon />,
         text: "Избранное",
         quantity: products.length
     }, {
+        popupId: 'drop-basket',
         icon: <CartIcon />,
         text: Pages.Cart.title,
         onClick: openAsideBasket,
-        quantity: totalCount
+        quantity: totalCount,
+        hasPopup: 'dialog'
     }], [products, totalCount]);
 
     return (

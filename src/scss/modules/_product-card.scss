@@ -1,16 +1,6 @@
 .product-card {
-    > * {
-        &:not(:last-child) {
-            padding-bottom: 11rem;
-
-            @media (max-width: 500px) {
-                padding-bottom: 5rem;
-            }
-        }
-    }
-
     &__page {
-        > * {
+        >* {
             padding-bottom: 11rem;
 
             @media (max-width: 500px) {
@@ -322,7 +312,7 @@
 }
 
 .product-card-form {
-    > * {
+    >* {
         &:not(:last-child) {
             margin-bottom: 2rem;
         }
@@ -369,10 +359,7 @@
     &__title {
         @extend %text-16;
         font-weight: 600;
-
-        &:not(:last-child) {
-            margin-bottom: var(--offset-xxs);
-        }
+        margin-bottom: var(--offset-xxs);
     }
 
     // .about-product__list
@@ -384,7 +371,7 @@
             margin-bottom: var(--offset-xs);
         }
 
-        > div {
+        >div {
             &:not(:last-child) {
                 margin-bottom: var(--offset-xxxs);
             }

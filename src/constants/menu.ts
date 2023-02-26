@@ -1,7 +1,7 @@
 import { DropMenu } from "../interfaces/DropMenu";
 import { MenuLink } from "../interfaces/MenuLink";
 
-export const dropMenuCategories: MenuLink[] = [{
+export const DROP_MENU_CATEGORIES: MenuLink[] = [{
     title: "Одежда",
     path: "catalog"
 }, {
@@ -18,7 +18,7 @@ export const dropMenuCategories: MenuLink[] = [{
     path: "catalog"
 }];
 
-export const links: MenuLink[] = [{
+export const LINKS: MenuLink[] = [{
     title: "Распродажа",
     path: "catalog"
 }, {
@@ -29,7 +29,7 @@ export const links: MenuLink[] = [{
     path: "news"
 }];
 
-export const dropMenu: DropMenu = {
+export const DROP_MENU: DropMenu = {
     items: [{
         items: [
             "Блузки и рубашки",
@@ -66,7 +66,7 @@ export const dropMenu: DropMenu = {
     }]
 };
 
-export const footerMenu = [{
+export const FOOTER_MENU = [{
     name: 'catalog',
     title: {
         text: "Каталог"
@@ -171,7 +171,7 @@ export const footerMenu = [{
     }]
 }];
 
-export const footerLinks: string[][] = [
+export const FOOTER_LINKS: string[][] = [
     ['Женщинам', 'Мужчинам', 'Детям'],
     ['Распродажа', 'Новинки']
 ];

@@ -7,7 +7,7 @@ import { splideOptions } from '../constants/splide';
 import Tag from './Tag';
 import { BlogItem } from '../interfaces/BlogItem';
 
-const BlogText = ({ tags, imageUrl, content }: BlogItem) => {
+const BlogText = ({ tags, content }: BlogItem) => {
     return (
         <article className="blog-text__content">
             <ul className="tags blog-text__tags">
@@ -28,7 +28,7 @@ const BlogText = ({ tags, imageUrl, content }: BlogItem) => {
                 ...splideOptions,
                 perPage: 2
             }}>
-                <SliderArrows isRound />
+                <SliderArrows position="absolute" isRound />
                 <SplideTrack>
                     {Array(4).fill(0).map((_, index) => (
                         <SplideSlide className="blog-text__slider-item" key={index}>

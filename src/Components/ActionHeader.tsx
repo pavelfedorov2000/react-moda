@@ -6,27 +6,30 @@ interface Props extends HeaderAction {
     className?: string;
 }
 
-const ActionHeader = ({ className, href, icon, text, onClick, quantity }: Props) => {
+const ActionHeader = ({ popupId, className, href, icon, text, onClick, quantity }: Props) => {
+    const handleClick = () => {
+        document.body.classList.add('_lock');
+        onClick && onClick();
+    }
+
+    const children = <>
+        {icon}
+        <span>
+            {text}
+            {quantity && quantity !== 0 ? <span>({quantity})</span> : null}
+        </span>
+    </>;
+
     return (
         <>
             {
                 !href ?
-                    <button onClick={onClick} className={classNames('action-header', className)} type="button">
-                        <>
-                            {icon}
-                            <span>
-                                {text}
-                                {quantity !== 0 && <span>{quantity && '('}{quantity}{quantity && ')'}</span>}
-                            </span>
-                        </>
+                    <button aria-controls={popupId} onClick={handleClick} className={classNames('action-header', className)} type="button">
+                        {children}
                     </button>
                     :
                     <Link to={href} className={classNames('action-header', className)}>
-                        {icon}
-                        <span>
-                            {text}
-                            {quantity !== 0 && <span>{quantity && '('}{quantity}{quantity && ')'}</span>}
-                        </span>
+                        {children}
                     </Link>
             }
         </>

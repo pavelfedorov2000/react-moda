@@ -6,22 +6,23 @@ import { CatalogViewOption, CatalogViews } from '../enums/CatalogView';
 import { useActions } from '../hooks/useActions';
 import { Page } from '../interfaces/Route';
 import { useTypedSelector } from '../hooks/useTypedSelector';
+import PageTop from '../Components/Layout/PageTop';
 
 const Catalog = ({ title, emptyBlock }: Page) => {
     const { products, isLoaded } = useTypedSelector((state) => state.productsReducer);
     const { sortBy, sortPrices, sortBrands, sortColors, sortSizes, sortStyles } = useTypedSelector((state) => state.filtersReducer);
-    const { popupProduct} = useTypedSelector((state) => state.productReducer);
+    const { popupProduct } = useTypedSelector((state) => state.productReducer);
 
     const { fetchProducts } = useActions();
-
-    useEffect(() => {
-        fetchProducts(sortBy, sortPrices, sortColors, sortSizes, sortBrands, sortStyles);
-    }, [sortBy, sortPrices, sortColors, sortBrands, sortStyles, sortSizes]);
 
     const [catalogView, setCatalogView] = useState(CatalogViews[0]);
     const toggleCatalogView = () => {
         setCatalogView(CatalogViews.reverse()[0]);
     }
+
+    useEffect(() => {
+        fetchProducts(sortBy, sortPrices, sortColors, sortSizes, sortBrands, sortStyles);
+    }, [sortBy, sortPrices, sortColors, sortBrands, sortStyles, sortSizes]);
 
     return (
         <>
@@ -32,9 +33,7 @@ const Catalog = ({ title, emptyBlock }: Page) => {
                     <PromoCollection />
 
                     <div className="catalog__page">
-                        <div className="page__top">
-                            <h1 className="title">{title}</h1>
-                        </div>
+                        <PageTop title={title} />
 
                         <div className="catalog__inner">
                             <AsideFilters />

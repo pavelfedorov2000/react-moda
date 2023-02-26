@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { AsideBlog, BlogText, Crumbs } from '../Components';
+import PageTop from '../Components/Layout/PageTop';
 import { Pages } from '../enums/Page';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
@@ -36,9 +37,7 @@ const BlogDetail = () => {
                 <div className="container">
                     <Crumbs title={activeBlog.title} id={id} url={url.split('/')[1]} />
 
-                    <div className="page__top">
-                        <h1 className="title">{activeBlog.title}</h1>
-                    </div>
+                    <PageTop title={activeBlog.title} />
 
                     <div className="blog-text__inner">
                         <BlogText {...activeBlog} />

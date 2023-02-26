@@ -21,7 +21,7 @@ const Profile = ({ title, emptyBlock, SubPage }: Props) => {
                 <div className="container">
                     <Crumbs title={title} id={index} url={url.split('/')[1]} />
 
-                    <div className="page__top">
+                    <div className="page-top">
                         <div className="title">{Pages.Profile.title}</div>
                     </div>
 

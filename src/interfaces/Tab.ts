@@ -1,4 +1,4 @@
 export interface Tab {
-    href: string;
+    id: string;
     text: string;
 }

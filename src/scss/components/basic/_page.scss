@@ -11,11 +11,15 @@
         padding-bottom: 3rem;
     }
 
-    &__top {
-        margin-bottom: 4rem;
+    &-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding-bottom: 4rem;
 
         @media (max-width: 500px) {
-            margin-bottom: 2rem;
+            padding-bottom: 2rem;
         }
     }
 

@@ -1,18 +1,18 @@
 import { Link } from 'react-router-dom';
 import SaleItem from './SaleItem';
 import dropMenuSale from '../assets/images/content/drop-menu-img.jpg';
-import { dropMenu, dropMenuCategories, links } from '../constants/menu';
+import { DROP_MENU, DROP_MENU_CATEGORIES, LINKS } from '../constants/menu';
 
 const DropMenu = () => {
     return (
         <ul className="header__list">
-            {dropMenuCategories.map((item, index) => (
+            {DROP_MENU_CATEGORIES.map((item, index) => (
                 <li key={index} className="header__list-item">
                     <Link className="header__list-link" to={item.path}>{item.title}</Link>
 
                     <div className="drop-menu">
                         <div className="drop-menu__row">
-                            {dropMenu.items.map((link, i) => (
+                            {DROP_MENU.items.map((link, i) => (
                                 <div key={link.title ? link.title.toString() : link.items[0].toString()} className={`drop-menu__col drop-menu__col--${i + 1}`}>
                                     <div className="drop-menu__col-title">
                                         {i === 0 ? `Вс${(index === 0 || index === 1) ? 'я' : 'е'} ${item.title}` : link.title}
@@ -34,7 +34,7 @@ const DropMenu = () => {
                 </li>
             ))}
 
-            {links.map((link) => (
+            {LINKS.map((link) => (
                 <li key={link.path.toString()} className="header__list-item">
                     <Link className="header__list-link" to={link.path}>{link.title}</Link>
                 </li>
