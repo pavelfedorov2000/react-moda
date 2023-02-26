@@ -19,3 +19,7 @@ export const setPayment = (value: string) => ({
     type: ActionType.SetPayment,
     payload: value
 });
+
+export const resetPersonalData = () => ({
+    type: ActionType.ResetPersonalData,
+});

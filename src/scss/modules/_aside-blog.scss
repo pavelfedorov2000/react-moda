@@ -4,10 +4,7 @@
     &__title {
         @extend %text-20;
         font-weight: 500;
-
-        &:not(:last-child) {
-            margin-bottom: 2rem;
-        }
+        margin-bottom: 2rem;
     }
 
     // .aside-blog__items

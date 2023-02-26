@@ -1,4 +1,5 @@
 import { Crumbs, OrderProduct } from '../Components';
+import PageTop from '../Components/Layout/PageTop';
 import OrderDetailsTable from '../Components/OrderDetailsTable';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { Page } from '../interfaces/Route';
@@ -12,9 +13,7 @@ const OrderSuccess = ({ title, subtitle }: Page) => {
             <div className="container">
                 <Crumbs title={title} />
 
-                <div className="page__top">
-                    <h1 className="title">{title}</h1>
-                </div>
+                <PageTop title={title} />
 
                 <div className="page__subtitle">
                     {subtitle}
@@ -33,7 +32,7 @@ const OrderSuccess = ({ title, subtitle }: Page) => {
                             ))}
                         </ul>
                     </div>
-                </article>                
+                </article>
             </div>
         </main>
     );

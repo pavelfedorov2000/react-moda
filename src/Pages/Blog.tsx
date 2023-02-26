@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BlogItem, Crumbs, EmptyBlock, Pagination } from '../Components';
+import PageTop from '../Components/Layout/PageTop';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { BlogItem as BlogItemType } from '../interfaces/BlogItem';
@@ -21,9 +22,7 @@ const Blog = ({ title, emptyBlock }: Page) => {
             <div className="container">
                 <Crumbs title={title} />
 
-                <div className="page__top">
-                    <h1 className="title">{title}</h1>
-                </div>
+                <PageTop title={title} />
 
                 {blogItems.length !== 0 ?
                     <>
@@ -36,7 +35,6 @@ const Blog = ({ title, emptyBlock }: Page) => {
                                 ))
                             }
                         </ul>
-                        <Pagination align='center' />
                     </>
                     :
                     <EmptyBlock {...emptyBlock} />
@@ -47,3 +45,5 @@ const Blog = ({ title, emptyBlock }: Page) => {
 }
 
 export default Blog;
+
+//<Pagination align='center' />

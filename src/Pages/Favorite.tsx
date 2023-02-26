@@ -1,10 +1,11 @@
 import { AsideFilters, CatalogCard, Crumbs, EmptyBlock, ProductPopup } from '../Components';
+import PageTop from '../Components/Layout/PageTop';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { Page } from '../interfaces/Route';
 
 const Favorite = ({ title, emptyBlock }: Page) => {
     const { products } = useTypedSelector((state) => state.favoriteReducer);
-    const { popupProduct} = useTypedSelector((state) => state.productReducer);
+    const { popupProduct } = useTypedSelector((state) => state.productReducer);
 
     return (
         <>
@@ -13,9 +14,7 @@ const Favorite = ({ title, emptyBlock }: Page) => {
                     <Crumbs title={title} />
 
                     <div className="catalog__page">
-                        <div className="page__top">
-                            <h1 className="title">{title}</h1>
-                        </div>
+                        <PageTop title={title} />
 
                         <div className="catalog__inner">
                             <AsideFilters />

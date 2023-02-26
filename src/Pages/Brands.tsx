@@ -4,6 +4,7 @@ import { BrandsAlphabet, BrandsCategories, BrandsIndexList, CancelBrandLetter, C
 import { useEffect } from 'react';
 import { Page } from '../interfaces/Route';
 import { Alphabet } from '../interfaces/Alphabet';
+import PageTop from '../Components/Layout/PageTop';
 
 const Brands = ({ title }: Page) => {
     const [alphabet, setAlphabet] = useState<Alphabet[]>([]);
@@ -24,12 +25,10 @@ const Brands = ({ title }: Page) => {
             <div className="container">
                 <Crumbs title={title} />
 
-                <div className="page__top">
-                    <h1 className="title">{title}</h1>
-                </div>
+                <PageTop title={title} />
 
                 <div className="brands-page__body">
-                   <BrandsCategories />
+                    <BrandsCategories />
 
                     <div className="brands-wrap">
                         <BrandsIndexList onClick={onAddActiveBrand} brand={activeBrand} alphabet={alphabet} />

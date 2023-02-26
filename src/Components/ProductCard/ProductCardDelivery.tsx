@@ -1,5 +1,5 @@
-import delivery from '../assets/images/icons/delivery-issue.svg';
-import truck from '../assets/images/icons/truck.svg';
+import delivery from '../../assets/images/icons/delivery-issue.svg';
+import truck from '../../assets/images/icons/truck.svg';
 
 const ProductCardDelivery = () => {
     return (

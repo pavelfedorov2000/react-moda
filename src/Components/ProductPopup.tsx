@@ -10,8 +10,9 @@ import { splideOptions } from "../constants/splide";
 import { useActions } from "../hooks/useActions";
 import Button from "./Button";
 import { PRODUCT_LIST } from "../constants/product-list";
-import useHandleOutsideClick from "../hooks/useHandleOutsideClick";
+//import useHandleOutsideClick from "../hooks/useHandleOutsideClick";
 import { useTypedSelector } from "../hooks/useTypedSelector";
+import Labels from "./Labels";
 
 const ProductPopup = ({ id, articul, name, brand, sizes, price, color, style, imageUrl, discount, newProduct }: CatalogItem) => {
     //const catalogPopupRef = useRef<HTMLDivElement>(null);
@@ -63,28 +64,20 @@ const ProductPopup = ({ id, articul, name, brand, sizes, price, color, style, im
 
     return (
         <div className="popup product-popup">
-            <button onClick={closeProductPopup} className="popup__close" type="button">
-                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <button onClick={closeProductPopup} className="popup__close" type="button" aria-label="Закрыть попап">
+                <svg className="icon icon--size_l" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path fillRule="evenodd" clipRule="evenodd" d="M23.1871 7L16 14.1871L8.81286 7L7 8.81286L14.1871 16L7 23.1871L8.81286 25L16 17.8129L23.1871 25L25 23.1871L17.8129 16L25 8.81286L23.1871 7Z" />
                 </svg>
             </button>
 
-            <div className="labels">
-                {discount !== 0 &&
-                    <span className="label label--discount">{discount}%</span>
-                }
-
-                {newProduct &&
-                    <span className="label label--new">new</span>
-                }
-            </div>
+            <Labels discount={discount} isNew={newProduct} />
 
             <div className="product-popup__inner">
                 <Splide className="product-popup__slider" hasTrack={false} options={{
                     ...splideOptions,
                     perPage: 1
                 }}>
-                    <SliderArrows isRound />
+                    <SliderArrows position="absolute" isRound />
                     <SplideTrack>
                         {Array(4).fill(0).map((_, index) => (
                             <SplideSlide key={index + 1} className="product-popup__slider-item">
@@ -97,7 +90,6 @@ const ProductPopup = ({ id, articul, name, brand, sizes, price, color, style, im
                 <div className="product-popup__content">
                     <div className="product-popup__content-top">
                         <div className="product-popup__title">{`${name} ${brand}`}</div>
-
                         <Prices className="product-popup__prices" price={price} discount={discount} />
                     </div>
 
@@ -116,7 +108,7 @@ const ProductPopup = ({ id, articul, name, brand, sizes, price, color, style, im
                         <dl className="about-product__list">
                             {PRODUCT_LIST.map((item) => (
                                 <div key={item.key.toString()}>
-                                    <dt>{item.key}</dt>
+                                    <dt>{item.key}:</dt>
                                     <dd>{item.value}</dd>
                                 </div>
                             ))}

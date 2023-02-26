@@ -77,18 +77,12 @@
         @media (min-width: 768px) {
             grid-template-columns: repeat(3, 1fr);
         }
-    }
 
-    // .personal-data-form__input
-
-    &__input {
-        > * {
-            width: 100%;
-        }
-
-        &:last-child {
-            @media (min-width: 501px) {
-                grid-column: span 2;
+        >* {
+            &:last-child {
+                @media (min-width: 501px) {
+                    grid-column: span 2;
+                }
             }
         }
     }

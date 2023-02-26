@@ -21,11 +21,13 @@ export const AuthOptions = {
     }
 };
 
-export const AuthTabs = [{
+export const AUTH_TABS = [{
     name: [Auth.Enter],
+    id: 'enter',
     title: 'Вход'
 }, {
     name: [Auth.Register],
+    id: 'register',
     title: 'Регистрация'
 }];
 

@@ -15,9 +15,9 @@
             height: var(--icon-size_s);
         }
 
-        &_sm {
-            width: 2rem;
-            height: 2rem;
+        &_ms {
+            width: var(--icon-size_ms);
+            height: var(--icon-size_ms);
         }
 
         &_m {
@@ -25,9 +25,9 @@
             height: var(--icon-size_m);
         }
 
-        &_xl {
-            width: var(--icon-size_xl);
-            height: var(--icon-size_xl);
+        &_l {
+            width: var(--icon-size_l);
+            height: var(--icon-size_l);
         }
     }
 }

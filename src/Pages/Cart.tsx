@@ -2,6 +2,7 @@ import { BasketTable, BasketTotal, Checkout, Crumbs, EmptyBlock } from '../Compo
 import Sticky from "wil-react-sticky";
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { Page } from '../interfaces/Route';
+import PageTop from '../Components/Layout/PageTop';
 
 const Cart = ({ title, emptyBlock }: Page) => {
     const { items } = useTypedSelector((state) => state.cartReducer);
@@ -11,9 +12,7 @@ const Cart = ({ title, emptyBlock }: Page) => {
             <div className="container">
                 <Crumbs title={title} />
 
-                <div className="page__top">
-                    <h1 className="title">{title}</h1>
-                </div>
+                <PageTop title={title} />
 
                 <form action="#">
                     {Object.keys(items).length !== 0 ?

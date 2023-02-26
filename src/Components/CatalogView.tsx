@@ -18,7 +18,7 @@ const CatalogView = ({ onChange, view }: Props) => {
                     <rect x="11.5" y="11.5" width="7" height="7" rx="0.5" />
                     <rect x="0.5" y="11.5" width="7" height="7" rx="0.5" />
                 </svg>
-                <svg className="row-btn" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg className="row-button" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="0.5" y="0.5" width="17" height="6.57895" rx="0.5" />
                     <rect x="0.5" y="10.9214" width="17" height="6.57895" rx="0.5" />
                 </svg>

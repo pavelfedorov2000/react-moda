@@ -13,6 +13,10 @@ interface SetPersonalDataAction {
     payload: any;
 }
 
+interface ResetPersonalDataAction {
+    type: ActionType.ResetPersonalData;
+}
+
 interface SetDeliveryAction {
     type: ActionType.SetDelivery;
     payload: string;
@@ -23,4 +27,4 @@ interface SetPaymentAction {
     payload: string;
 }
 
-export type OrderAction = SetPersonalDataAction | SetDeliveryAction | SetPaymentAction;
+export type OrderAction = SetPersonalDataAction | SetDeliveryAction | SetPaymentAction | ResetPersonalDataAction;

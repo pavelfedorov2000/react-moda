@@ -8,19 +8,19 @@ export enum ProductTab {
     Video = 'video',
 }
 
-export const ProductTabs: Tab[] = [{
-    href: ProductTab.Details,
+export const PRODUCT_TABS: Tab[] = [{
+    id: ProductTab.Details,
     text: 'Детали',
 }, {
-    href: ProductTab.Delivery,
+    id: ProductTab.Delivery,
     text: 'Доставка',
 }, {
-    href: ProductTab.Payment,
+    id: ProductTab.Payment,
     text: 'Оплата',
 }, {
-    href: ProductTab.Shops,
+    id: ProductTab.Shops,
     text: 'Наличие в магазинах',
 }, {
-    href: ProductTab.Video,
+    id: ProductTab.Video,
     text: 'Видео',
 }];

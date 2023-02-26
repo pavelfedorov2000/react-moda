@@ -22,17 +22,18 @@ const DetailNews = () => {
     const otherNews: NewsItem[] = news.filter((news) => news.id !== id);
 
     return (
-        <main className="page">
-            {activeNews &&
-                <div className="container">
-                    <Crumbs title={activeNews.title} id={id} url={url.split('/')[1]} />
+        <div className="container">
+            <main>
+                {activeNews &&
+                    <>
+                        <Crumbs title={activeNews.title} id={id} url={url.split('/')[1]} />
 
-                    <NewsDetail {...activeNews} />
-
-                    <OtherNews items={otherNews} title="Другие новости и акции" />
-                </div>
-            }
-        </main>
+                        <NewsDetail {...activeNews} />
+                    </>
+                }
+            </main>
+            <OtherNews items={otherNews} title="Другие новости и акции" />
+        </div>
     );
 }
 

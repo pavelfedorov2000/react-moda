@@ -26,10 +26,7 @@ const Instagram = ({ title, dataUrl }: Props) => {
 
     return (
         <section className="section">
-            <Splide hasTrack={false} aria-label={title} options={{
-                ...splideOptions,
-                perPage: 4,
-            }}>
+            <Splide hasTrack={false} aria-label={title} options={splideOptions}>
                 <div className="section__top">
                     <h2 className="title">{title}</h2>
                     <SliderArrows />

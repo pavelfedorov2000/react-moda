@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { Page } from '../interfaces/Route';
 import { NewsItem } from '../interfaces/NewsItem';
 import { Pages } from '../enums/Page';
+import PageTop from '../Components/Layout/PageTop';
 
 const News = ({ title, emptyBlock }: Page) => {
     const [news, setNews] = useState<NewsItem[]>([]);
@@ -19,14 +20,12 @@ const News = ({ title, emptyBlock }: Page) => {
             <div className="container">
                 <Crumbs title={title} />
 
-                <div className="page__top">
-                    <h1 className="title">{title}</h1>
-                </div>
+                <PageTop title={title} />
 
                 {news.length !== 0 ?
                     <ul className="grid">
-                        {news.map(article => (
-                            <li>
+                        {news.map((article) => (
+                            <li key={article.id}>
                                 <BlogItem key={article.id} {...article} />
                             </li>
                         ))}

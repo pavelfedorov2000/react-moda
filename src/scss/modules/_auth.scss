@@ -19,7 +19,6 @@
 
     @media (any-hover: hover) {
         &:hover {
-            //color: var(--green);
             color: var(--dark);
         }
     }
@@ -60,10 +59,7 @@
         z-index: 201;
 
         svg {
-            width: var(--icon-size_xl);
-            height: var(--icon-size_xl);
             fill: var(--gray-bg);
-            transition: $transition fill;
         }
 
         @media (any-hover: hover) {
@@ -85,7 +81,7 @@
         padding-right: 3rem;
     }
 
-    > * {
+    >* {
         &:not(:last-child) {
             margin-bottom: 2rem;
         }

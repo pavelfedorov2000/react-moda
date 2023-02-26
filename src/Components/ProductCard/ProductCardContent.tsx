@@ -1,13 +1,14 @@
-import loriata from '../assets/images/logo/loriata.png';
+import loriata from '../../assets/images/logo/loriata.png';
 import { useCallback } from 'react';
-import { useActions } from '../hooks/useActions';
-import { useTypedSelector } from '../hooks/useTypedSelector';
-import { Product } from '../interfaces/CatalogItem';
-import Button from './Button';
-import Prices from './Prices';
+import { useActions } from '../../hooks/useActions';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { Product } from '../../interfaces/CatalogItem';
+import Button from '../Button';
+import Prices from '../Prices';
 import ProductCardDelivery from './ProductCardDelivery';
-import ProductColors from './ProductColors';
-import ProductSizes from './ProductSizes';
+import ProductColors from '../ProductColors';
+import ProductSizes from '../ProductSizes';
+import Labels from '../Labels';
 
 const ProductCardContent = ({ id, articul, name, brand, logo, sizes, color, imageUrl, style, price, discount, newProduct }: Product) => {
     const { items } = useTypedSelector((state) => state.cartReducer);
@@ -66,17 +67,7 @@ const ProductCardContent = ({ id, articul, name, brand, logo, sizes, color, imag
             <div className="product-card__prices-wrap">
                 <Prices price={price} discount={discount} className="product-card__prices" />
 
-                <div className="labels">
-                    {discount && discount !== 0 ?
-                        <span className="label label--discount">{discount}%</span>
-                        : null
-                    }
-
-                    {newProduct ?
-                        <span className="label label--new">new</span>
-                        : null
-                    }
-                </div>
+                <Labels discount={discount} isNew={newProduct} />
             </div>
 
             <section className="product-card__section">

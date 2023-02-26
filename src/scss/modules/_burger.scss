@@ -30,18 +30,11 @@
         margin-bottom: 3rem;
     }
 
-    &__close {
-        svg {
-            width: 2rem;
-            height: 2rem;
-        }
-    }
-
     &__list {
         @extend %text-14;
         margin-bottom: 2.8rem;
 
-        > * {
+        >* {
             &:last-child {
                 padding-right: 0;
 
@@ -71,7 +64,7 @@
     }
 
     &__bottom {
-        > * {
+        >* {
             &:not(:last-child) {
                 margin-bottom: 2.4rem;
             }

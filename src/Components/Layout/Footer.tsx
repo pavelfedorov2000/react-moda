@@ -4,10 +4,10 @@ import PaymentLogos from '../../assets/images/logo/payment.png';
 import { Link } from 'react-router-dom';
 import { developer } from '../../constants/developer';
 import { Pages } from '../../enums/Page';
-import { footerLinks } from '../../constants/menu';
+import { FOOTER_LINKS } from '../../constants/menu';
 import { FilterParam } from '../../enums/Social';
 
-const [sale, ...rest] = footerLinks[1]; // Достаем красную ссылку (распродажа)
+const [sale, ...rest] = FOOTER_LINKS[1]; // Достаем красную ссылку (распродажа)
 
 const Footer = () => {
     return (
@@ -19,7 +19,7 @@ const Footer = () => {
                     <Social className="footer__social" filterParam={FilterParam.Auth} />
 
                     <div className="footer__menus">
-                        {footerLinks.map((item) => (
+                        {FOOTER_LINKS.map((item) => (
                             <div key={item.toString()} className="footer__menu">
                                 {item.map((link) => (
                                     <Link key={link.toString()} to={Pages.Catalog.path} className={classnames('footer__link', {
@@ -36,7 +36,7 @@ const Footer = () => {
                 <div className="container">
                     <div className="footer__inner footer__inner--main">
                         <div className="footer__contact">
-                            <Phone className="footer__phone" />
+                            <Phone className="action-header footer__phone" />
                             <div className="footer__contact-descr">Круглосуточно без выходных</div>
                         </div>
 

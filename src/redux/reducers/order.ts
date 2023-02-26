@@ -38,6 +38,9 @@ const orderReducer = (state = initialState, action: OrderAction): OrderState => 
                 PAYMENT: action.payload
             };
         }
+        case ActionType.ResetPersonalData: {
+            return initialState;
+        }
         default:
             return state;
     }

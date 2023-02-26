@@ -12,15 +12,18 @@ interface Props {
 
 const OtherNews = ({ items, title }: Props) => {
     return (
-        <aside className="other-news">
-            <Splide className="slider-section" hasTrack={false} aria-label={title} options={splideOptions}>
-                <div className="other-news__top section__top">
+        <aside className="page">
+            <Splide hasTrack={false} aria-label={title} options={{
+                ...splideOptions,
+                perPage: 2
+            }}>
+                <div className="section__top">
                     <h2 className="title">{title}</h2>
                     <SliderArrows />
                 </div>
 
                 <SplideTrack>
-                    {items.map(news => (
+                    {items.map((news) => (
                         <SplideSlide key={news.id}>
                             <BlogItem {...news} isUrlSplice={true} />
                         </SplideSlide>

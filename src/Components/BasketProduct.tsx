@@ -13,7 +13,7 @@ interface Props extends CartItem {
     className?: string;
 }
 
-const BasketProduct = ({ className, id, articul, name, brand, sizes, size, price, imageUrl, color, style, discount, newProduct, totalCount, totalPrice, totalDiscount }: Props) => {
+const BasketProduct = ({ className, id, articul, name, brand, sizes, price, imageUrl, color, style, discount, newProduct, totalCount, totalPrice, totalDiscount }: Props) => {
     const { products } = useTypedSelector((state) => state.favoriteReducer);
     const { plusProduct, minusProduct, removeCartProduct, addFavoriteProduct, removeFavoriteProduct } = useActions();
     const { isAsideBasketVisible } = useTypedSelector((state) => state.asidePopupReducer);
@@ -52,7 +52,7 @@ const BasketProduct = ({ className, id, articul, name, brand, sizes, size, price
 
             <Link to={`/product-card/${id}`} className="product-title basket-product__title">{name} {brand}</Link>
 
-            <ProductList className="basket-product__list" articul={articul} color={color} size={size} />
+            <ProductList className="basket-product__list" articul={articul} color={color} size={sizes[0]} />
 
             <div className="basket-product__buttons">
                 <Button onClick={handleRemoveCartProduct} className="basket-product__btn basket-product__btn--delete" transparent remove icon />

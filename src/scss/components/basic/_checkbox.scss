@@ -48,7 +48,7 @@
             border: 0.1rem solid var(--gray-c0);
         }
 
-        & + .check-text {
+        & ~ #{$this}-text {
             margin-left: 0.5rem;
         }
     }
@@ -134,6 +134,13 @@
                             color: var(--gray);
                             border-color: var(--gray);
                             cursor: not-allowed;
+
+                            @media (any-hover: hover) {
+                                &:hover {
+                                    background-color: transparent;
+                                    color: var(--gray);
+                                }
+                            }
 
                             &:before {
                                 content: '';

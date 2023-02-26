@@ -49,8 +49,8 @@
         color: var(--dark);
 
         svg {
-            width: 2rem;
-            height: 2rem;
+            width: var(--icon-size_ms);
+            height: var(--icon-size_ms);
             fill: var(--dark);
         }
 

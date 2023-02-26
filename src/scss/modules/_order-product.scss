@@ -22,6 +22,10 @@
     &__item {
         padding: 1.5rem;
         width: max-content;
+        
+        @media(min-width: 1025px) {
+           max-width: 20%;
+        }
 
         @media (max-width: 767px) {
             width: 50%;
@@ -54,14 +58,11 @@
     // .order-table__item-title
 
     &__item-title {
+        margin-bottom: var(--offset-xs);
         font-weight: 600;
 
         span {
             margin-left: 0.5rem;
-        }
-
-        &:not(:last-child) {
-            margin-bottom: var(--offset-xs);
         }
     }
 
