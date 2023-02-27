@@ -6,6 +6,7 @@ import SaleItem from './SaleItem';
 import SliderArrows from './SliderArrows';
 import { Gaps } from '../enums/Gap';
 import { SaleItem as SaleItemType } from '../interfaces/SaleItem';
+import { database } from '../constants/db';
 
 const sliderOptions = {
     type: 'loop',
@@ -17,8 +18,8 @@ const sliderOptions = {
 const PromoSale = () => {
     const [promoSale, setPromoSale] = useState<SaleItemType[]>([]);
     useEffect(() => {
-        axios.get<SaleItemType[]>('/promo').then(({ data }) => {
-            setPromoSale(data);
+        axios.get(database).then(({ data }) => {
+            setPromoSale(data.promo);
         });
     }, []);
 

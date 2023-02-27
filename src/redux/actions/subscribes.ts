@@ -1,16 +1,16 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
-import { SubPages } from '../../enums/Page';
+import { database } from '../../constants/db';
 import { Subscribe } from '../../interfaces/Subscribe';
 import { ActionType } from '../actionsList';
 import { SubscibesAction } from "../types/subscribes";
 
 export const fetchSubscribes = () => {
     return async (dispatch: Dispatch<SubscibesAction>) => {
-        const response = await axios.get(SubPages.Subscribes.path);
+        const response = await axios.get(database);
         dispatch({
             type: ActionType.SetSubscribes,
-            payload: response.data,
+            payload: response.data.subscribes,
         });
     }
 };

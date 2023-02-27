@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { database } from '../constants/db';
 import { Pages } from '../enums/Page';
 import { Brand } from '../interfaces/Brand';
 import AllLink from './AllLink';
@@ -9,8 +10,8 @@ import AllLink from './AllLink';
 const Brands = () => {
     const [brands, setBrands] = useState<Brand[]>([]);
     useEffect(() => {
-        axios.get<Brand[]>(Pages.Brands.path).then(({ data }) => {
-            setBrands(data);
+        axios.get(database).then(({ data }) => {
+            setBrands(data.brands);
         });
     }, []);
 

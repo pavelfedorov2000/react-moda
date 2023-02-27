@@ -1,0 +1,1 @@
+export const database = 'https://github.com/pavelfedorov2000/react-moda/blob/master/public/db.json';

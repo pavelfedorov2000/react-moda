@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useRouteMatch } from 'react-router-dom';
 import { Crumbs, OtherNews, NewsDetail } from '../Components';
+import { database } from '../constants/db';
 import { Pages } from '../enums/Page';
 import { NewsItem } from '../interfaces/NewsItem';
 
@@ -13,8 +14,8 @@ const DetailNews = () => {
     const [news, setNews] = useState<NewsItem[]>([]);
 
     useEffect(() => {
-        axios.get<NewsItem[]>(Pages.News.path).then(({ data }) => {
-            setNews(data);
+        axios.get(database).then(({ data }) => {
+            setNews(data.news);
         });
     }, []);
 

@@ -5,6 +5,7 @@ import '@splidejs/react-splide/css/core';
 import SliderArrows from './SliderArrows';
 import { useEffect } from 'react';
 import { splideOptions } from '../constants/splide';
+import { database } from '../constants/db';
 
 interface InstagramItem {
     imageUrl: string;
@@ -12,15 +13,14 @@ interface InstagramItem {
 
 interface Props {
     title: string;
-    dataUrl: string;
 }
 
-const Instagram = ({ title, dataUrl }: Props) => {
+const Instagram = ({ title }: Props) => {
     const [instagramPhotos, setInstagramPhotos] = useState<InstagramItem[]>([]);
 
     useEffect(() => {
-        axios.get<InstagramItem[]>(dataUrl).then(({ data }) => {
-            setInstagramPhotos(data);
+        axios.get(database).then(({ data }) => {
+            setInstagramPhotos(data.instagram);
         });
     }, []);
 

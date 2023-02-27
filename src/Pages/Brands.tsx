@@ -5,12 +5,13 @@ import { useEffect } from 'react';
 import { Page } from '../interfaces/Route';
 import { Alphabet } from '../interfaces/Alphabet';
 import PageTop from '../Components/Layout/PageTop';
+import { database } from '../constants/db';
 
 const Brands = ({ title }: Page) => {
     const [alphabet, setAlphabet] = useState<Alphabet[]>([]);
     useEffect(() => {
-        axios.get<Alphabet[]>('/alphabet').then(({ data }) => {
-            setAlphabet(data);
+        axios.get(database).then(({ data }) => {
+            setAlphabet(data.alphabet);
         });
     }, []);
 

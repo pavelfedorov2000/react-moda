@@ -6,12 +6,13 @@ import { Page } from '../interfaces/Route';
 import { NewsItem } from '../interfaces/NewsItem';
 import { Pages } from '../enums/Page';
 import PageTop from '../Components/Layout/PageTop';
+import { database } from '../constants/db';
 
 const News = ({ title, emptyBlock }: Page) => {
     const [news, setNews] = useState<NewsItem[]>([]);
     useEffect(() => {
-        axios.get<NewsItem[]>(Pages.News.path).then(({ data }) => {
-            setNews(data);
+        axios.get(database).then(({ data }) => {
+            setNews(data.news);
         });
     }, []);
 

@@ -4,6 +4,7 @@ import { useRouteMatch } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { AsideBlog, BlogText, Crumbs } from '../Components';
 import PageTop from '../Components/Layout/PageTop';
+import { database } from '../constants/db';
 import { Pages } from '../enums/Page';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
@@ -23,8 +24,8 @@ const BlogDetail = () => {
     useEffect(() => {
         fetchBlog();
         setBlogItems(items);
-        axios.get<NewsItem[]>(Pages.News.path).then(({ data }) => {
-            setNews(data);
+        axios.get(database).then(({ data }) => {
+            setNews(data.news);
         });
     }, []);
 

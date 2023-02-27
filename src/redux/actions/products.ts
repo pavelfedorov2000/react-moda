@@ -12,7 +12,7 @@ export const setLoaded = (payload: boolean) => ({
 });
 
 export const fetchProducts = (sortBy: Sort, sortPrices: number[] | string[], sortColors: string[], sortSizes: number[], sortBrands: string[], sortStyles: string[]) => {
-    return async(dispatch: Dispatch<ProductsAction>) => {
+    return async (dispatch: Dispatch<ProductsAction>) => {
         dispatch({
             type: ActionType.SetLoaded,
             payload: false
@@ -30,8 +30,6 @@ export const fetchProducts = (sortBy: Sort, sortPrices: number[] | string[], sor
 
         const responseUrl = `/products?${sortColors.map((color: string) => `color=${color}`).join('&')}${sortSizes.map((size: number) => `q=${size}`).join('&')}${sortBrands.map((brand: string) => `brand=${brand}`).join('&')}${sortStyles.map((style: string) => `style=${style}`).join('&')}&price_gte=${sortPrices[0]}&price_lte=${sortPrices[1]}${sortByGenerate()}&_order=${sortBy.order}`;
 
-        console.log(responseUrl);
-            
         const response = await axios.get(responseUrl);
         dispatch({
             type: ActionType.SetProducts,

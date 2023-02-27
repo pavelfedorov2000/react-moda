@@ -1,14 +1,15 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { database } from '../constants/db';
 import { SaleItem as SaleItemType } from '../interfaces/SaleItem';
 import SaleItem from './SaleItem';
 
 const Actual = () => {
     const [actual, setActual] = useState<SaleItemType[]>([]);
     useEffect(() => {
-        axios.get<SaleItemType[]>('/actual').then(({ data }) => {
-            setActual(data);
+        axios.get(database).then(({ data }) => {
+            setActual(data.actual);
         });
     }, []);
 

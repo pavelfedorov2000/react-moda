@@ -3,6 +3,7 @@ import '@splidejs/react-splide/css/core';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { database } from '../constants/db';
 import { Gaps } from '../enums/Gap';
 import { Pages } from '../enums/Page';
 import { CategoriesSliderItem } from '../interfaces/CategoriesSliderItem';
@@ -18,8 +19,8 @@ const IconsSlider = () => {
     const [categoriesIcons, setCategoriesIcons] = useState<CategoriesSliderItem[]>([]);
 
     useEffect(() => {
-        axios.get<CategoriesSliderItem[]>('/iconsSlider').then(({ data }) => {
-            setCategoriesIcons(data);
+        axios.get(database).then(({ data }) => {
+            setCategoriesIcons(data.iconsSlider);
         });
     }, []);
 
