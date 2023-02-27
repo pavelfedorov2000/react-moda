@@ -1,0 +1,1601 @@
+{
+    "promo": [{
+        "id": 0,
+        "saleText": "Мега распродажа",
+        "title": "На верхнюю одежду",
+        "subtitle": "Подготовь себя к зиме",
+        "imageUrl": "https://i.ibb.co/C1CcWXr/01.jpg"
+    }, {
+        "id": 1,
+        "saleText": "до 30% ",
+        "title": "Уютные головные уборы",
+        "subtitle": "Точно не будет холодно",
+        "imageUrl": "https://i.ibb.co/p02K32W/02.jpg"
+    }, {
+        "id": 2,
+        "title": "Одежда для новорожденных",
+        "subtitle": "Комфортная и гипоаллергенная",
+        "imageUrl": "https://i.ibb.co/7JPMLKt/03.jpg"
+    }],
+    "iconsSlider": [{
+        "imageUrl": "https://i.ibb.co/DrdQ1V8/01.png",
+        "title": "Пуховики"
+    }, {
+        "imageUrl": "https://i.ibb.co/rkGyf40/02.png",
+        "title": "Джемперы"
+    }, {
+        "imageUrl": "https://i.ibb.co/VQ23Rwf/03.png",
+        "title": "Платья"
+    }, {
+        "imageUrl": "https://i.ibb.co/bb1NRqV/04.png",
+        "title": "Джинсы"
+    }, {
+        "imageUrl": "https://i.ibb.co/RNDpHF6/05.png",
+        "title": "Худи"
+    }, {
+        "imageUrl": "https://i.ibb.co/KxgqBFD/06.png",
+        "title": "Сумки"
+    }, {
+        "imageUrl": "https://i.ibb.co/RNwJNBn/07.png",
+        "title": "Перчатки"
+    }, {
+        "imageUrl": "https://i.ibb.co/gwHfcMw/08.png",
+        "title": "Головные уборы"
+    }, {
+        "imageUrl": "https://i.ibb.co/DrdQ1V8/01.png",
+        "title": "Пуховики"
+    }, {
+        "imageUrl": "https://i.ibb.co/rkGyf40/02.png",
+        "title": "Джемперы"
+    }],
+    "actual": [{
+        "id": 0,
+        "saleText": "до 30% ",
+        "title": "Яркие пальто",
+        "subtitle": "Стильные модели разных фасонов",
+        "imageUrl": "https://i.ibb.co/WVc1HW8/01.jpg"
+    }, {
+        "id": 1,
+        "saleText": "до 20% ",
+        "title": "Головные уборы",
+        "subtitle": "Сочетание моды и комфорта",
+        "imageUrl": "https://i.ibb.co/2dN2Swm/02.jpg"
+    }, {
+        "id": 2,
+        "saleText": "до 40% ",
+        "title": "Подростковая одежда",
+        "subtitle": "Недетские скидки",
+        "imageUrl": "https://i.ibb.co/d6GL3Y8/03.jpg"
+    }],
+    "brands": [{
+        "name": "rio",
+        "imageUrl": "https://i.ibb.co/sC5HvqW/rio-verti.jpg",
+        "width": "107",
+        "height": "86"
+    }, {
+        "name": "minoti",
+        "imageUrl": "https://i.ibb.co/yhtmDQS/minoti.jpg",
+        "width": "139",
+        "height": "46"
+    }, {
+        "name": "viola",
+        "imageUrl": "https://i.ibb.co/wM8jTN0/viola-stils.jpg",
+        "width": "145",
+        "height": "98"
+    }, {
+        "name": "deja",
+        "imageUrl": "https://i.ibb.co/QFqxGms/deja.jpg",
+        "width": "172",
+        "height": "49"
+    }, {
+        "name": "bibi",
+        "imageUrl": "https://i.ibb.co/gDRxZcv/bibi.jpg",
+        "width": "119",
+        "height": "60"
+    }, {
+        "name": "zaza",
+        "imageUrl": "https://i.ibb.co/znTmt43/zaza.jpg",
+        "width": "131",
+        "height": "78"
+    }],
+    "instagram": [{
+        "imageUrl": "https://i.ibb.co/xF2wB5Q/01.jpg"
+    }, {
+        "imageUrl": "https://i.ibb.co/VYgjyd3/02.jpg"
+    }, {
+        "imageUrl": "https://i.ibb.co/vHBcrrx/03.jpg"
+    }, {
+        "imageUrl": "https://i.ibb.co/DkkFPyW/04.jpg"
+    }, {
+        "imageUrl": "https://i.ibb.co/xF2wB5Q/01.jpg"
+    }, {
+        "imageUrl": "https://i.ibb.co/VYgjyd3/02.jpg"
+    }],
+    "products": [{
+        "id": "0",
+        "imageUrl": "https://i.ibb.co/t3rY4Vv/07.jpg",
+        "name": "Комбинезон",
+        "brand": "Loriata",
+        "sizes": [42, 44, 46],
+        "price": 7200,
+        "discount": 0,
+        "style": "спортивный",
+        "color": "зеленый",
+        "rating": 5,
+        "newProduct": true,
+        "articul": "MP002XW08J2L",
+        "details": [{
+            "title": "Общие характеристики",
+            "list": {
+                "items": [{
+                    "property": "Пол",
+                    "value": "Женский"
+                }, {
+                    "property": "Стиль",
+                    "value": "Повседневный"
+                }, {
+                    "property": "Сезон",
+                    "value": "Зима"
+                }, {
+                    "property": "Страна производитель",
+                    "value": "Италия"
+                }]
+            }
+        }, {
+            "title": "Размеры на модель",
+            "list": {
+                "items": [{
+                    "property": "Размер товара на модели",
+                    "value": "5"
+                }, {
+                    "property": "Параметры модели",
+                    "value": "80-60-86"
+                }, {
+                    "property": "Рост модели на фото",
+                    "value": "178"
+                }, {
+                    "property": "Длина",
+                    "value": "73 см"
+                }, {
+                    "property": "Длина рукава",
+                    "value": "57 см"
+                }]
+            }
+        }, {
+            "title": "Состав",
+            "list": {
+                "items": [{
+                    "property": "Материал верха",
+                    "value": "100% Альпака"
+                }, {
+                    "property": "Материал подкладки",
+                    "value": "100% Полиэстер"
+                }, {
+                    "property": "Материал утеплителя",
+                    "value": "100% Полиэстер"
+                }]
+            }
+        }, {
+            "title": "Конструктивные особенности",
+            "list": {
+                "items": [{
+                    "property": "Покрой",
+                    "value": "Прямой"
+                }, {
+                    "property": "Капюшон",
+                    "value": "Нет"
+                }, {
+                    "property": "Количество карманов",
+                    "value": "2"
+                }, {
+                    "property": "Застежка",
+                    "value": "Молния"
+                }]
+            }
+        }, {
+            "title": "Дополнительные характеристики",
+            "list": {
+                "items": [{
+                    "property": "Узор",
+                    "value": "Однотонный"
+                }, {
+                    "property": "Цвет",
+                    "value": "Бежевый"
+                }, {
+                    "property": "Артикул",
+                    "value": "MP002XW08J2L"
+                }]
+            }
+        }]
+    }, {
+        "id": "1",
+        "imageUrl": "https://i.ibb.co/BBxbKKX/08.jpg",
+        "name": "Пиджак",
+        "brand": "Bibi",
+        "logo": "https://i.ibb.co/gDRxZcv/bibi.jpg",
+        "sizes": [42, 46, 48],
+        "price": 5500,
+        "discount": 0,
+        "style": "деловой",
+        "color": "голубой",
+        "rating": 5,
+        "newProduct": true,
+        "articul": "MP002XW08J2L",
+        "details": [{
+            "title": "Общие характеристики",
+            "list": {
+                "items": [{
+                    "property": "Пол",
+                    "value": "Женский"
+                }, {
+                    "property": "Стиль",
+                    "value": "Повседневный"
+                }, {
+                    "property": "Сезон",
+                    "value": "Зима"
+                }, {
+                    "property": "Страна производитель",
+                    "value": "Италия"
+                }]
+            }
+        }, {
+            "title": "Размеры на модель",
+            "list": {
+                "items": [{
+                    "property": "Размер товара на модели",
+                    "value": "5"
+                }, {
+                    "property": "Параметры модели",
+                    "value": "80-60-86"
+                }, {
+                    "property": "Рост модели на фото",
+                    "value": "178"
+                }, {
+                    "property": "Длина",
+                    "value": "73 см"
+                }, {
+                    "property": "Длина рукава",
+                    "value": "57 см"
+                }]
+            }
+        }, {
+            "title": "Состав",
+            "list": {
+                "items": [{
+                    "property": "Материал верха",
+                    "value": "100% Альпака"
+                }, {
+                    "property": "Материал подкладки",
+                    "value": "100% Полиэстер"
+                }, {
+                    "property": "Материал утеплителя",
+                    "value": "100% Полиэстер"
+                }]
+            }
+        }, {
+            "title": "Конструктивные особенности",
+            "list": {
+                "items": [{
+                    "property": "Покрой",
+                    "value": "Прямой"
+                }, {
+                    "property": "Капюшон",
+                    "value": "Нет"
+                }, {
+                    "property": "Количество карманов",
+                    "value": "2"
+                }, {
+                    "property": "Застежка",
+                    "value": "Молния"
+                }]
+            }
+        }]
+    }, {
+        "id": "2",
+        "imageUrl": "https://i.ibb.co/vXCKF0h/09.jpg",
+        "name": "Юбка",
+        "brand": "AllSaints",
+        "logo": "https://i.ibb.co/sJBY3Hc/allsaints.png",
+        "sizes": [44, 46, 48],
+        "price": 20500,
+        "discount": 40,
+        "style": "вечерний",
+        "color": "голубой",
+        "rating": 5,
+        "newProduct": true,
+        "articul": "MP002XW08J2L",
+        "details": [{
+            "title": "Общие характеристики",
+            "list": {
+                "items": [{
+                    "property": "Пол",
+                    "value": "Женский"
+                }, {
+                    "property": "Стиль",
+                    "value": "Повседневный"
+                }, {
+                    "property": "Сезон",
+                    "value": "Зима"
+                }, {
+                    "property": "Страна производитель",
+                    "value": "Италия"
+                }]
+            }
+        }, {
+            "title": "Состав",
+            "list": {
+                "items": [{
+                    "property": "Материал верха",
+                    "value": "100% Альпака"
+                }, {
+                    "property": "Материал подкладки",
+                    "value": "100% Полиэстер"
+                }, {
+                    "property": "Материал утеплителя",
+                    "value": "100% Полиэстер"
+                }]
+            }
+        }, {
+            "title": "Конструктивные особенности",
+            "list": {
+                "items": [{
+                    "property": "Покрой",
+                    "value": "Прямой"
+                }, {
+                    "property": "Капюшон",
+                    "value": "Нет"
+                }, {
+                    "property": "Количество карманов",
+                    "value": "2"
+                }, {
+                    "property": "Застежка",
+                    "value": "Молния"
+                }]
+            }
+        }, {
+            "title": "Дополнительные характеристики",
+            "list": {
+                "items": [{
+                    "property": "Узор",
+                    "value": "Однотонный"
+                }, {
+                    "property": "Цвет",
+                    "value": "Бежевый"
+                }, {
+                    "property": "Артикул",
+                    "value": "MP002XW08J2L"
+                }]
+            }
+        }]
+    }, {
+        "id": "3",
+        "imageUrl": "https://i.ibb.co/6m9d8PX/10.jpg",
+        "name": "Джемпер",
+        "brand": "Allura",
+        "logo": "https://i.ibb.co/2SLMwHQ/allura.png",
+        "sizes": [42, 46, 50],
+        "price": 22300,
+        "discount": 0,
+        "style": "спортивный",
+        "color": "бирюзовый",
+        "rating": 4,
+        "newProduct": true,
+        "articul": "MP002XW08J2L",
+        "details": [{
+            "title": "Размеры на модель",
+            "list": {
+                "items": [{
+                    "property": "Размер товара на модели",
+                    "value": "5"
+                }, {
+                    "property": "Параметры модели",
+                    "value": "80-60-86"
+                }, {
+                    "property": "Рост модели на фото",
+                    "value": "178"
+                }, {
+                    "property": "Длина",
+                    "value": "73 см"
+                }, {
+                    "property": "Длина рукава",
+                    "value": "57 см"
+                }]
+            }
+        }, {
+            "title": "Состав",
+            "list": {
+                "items": [{
+                    "property": "Материал верха",
+                    "value": "100% Альпака"
+                }, {
+                    "property": "Материал подкладки",
+                    "value": "100% Полиэстер"
+                }, {
+                    "property": "Материал утеплителя",
+                    "value": "100% Полиэстер"
+                }]
+            }
+        }, {
+            "title": "Конструктивные особенности",
+            "list": {
+                "items": [{
+                    "property": "Покрой",
+                    "value": "Прямой"
+                }, {
+                    "property": "Капюшон",
+                    "value": "Нет"
+                }, {
+                    "property": "Количество карманов",
+                    "value": "2"
+                }, {
+                    "property": "Застежка",
+                    "value": "Молния"
+                }]
+            }
+        }, {
+            "title": "Дополнительные характеристики",
+            "list": {
+                "items": [{
+                    "property": "Узор",
+                    "value": "Однотонный"
+                }, {
+                    "property": "Цвет",
+                    "value": "Бежевый"
+                }, {
+                    "property": "Артикул",
+                    "value": "MP002XW08J2L"
+                }]
+            }
+        }]
+    }, {
+        "id": "4",
+        "imageUrl": "https://i.ibb.co/9NXCnsg/11.jpg",
+        "name": "Юбка",
+        "brand": "Allura",
+        "sizes": [42, 44, 50],
+        "price": 19200,
+        "discount": 0,
+        "style": "повседневный",
+        "color": "бежевый",
+        "rating": 4,
+        "newProduct": true,
+        "articul": "MP002XW08J2L",
+        "details": [{
+            "title": "Общие характеристики",
+            "list": {
+                "items": [{
+                    "property": "Пол",
+                    "value": "Женский"
+                }, {
+                    "property": "Стиль",
+                    "value": "Повседневный"
+                }, {
+                    "property": "Сезон",
+                    "value": "Зима"
+                }, {
+                    "property": "Страна производитель",
+                    "value": "Италия"
+                }]
+            }
+        }, {
+            "title": "Размеры на модель",
+            "list": {
+                "items": [{
+                    "property": "Размер товара на модели",
+                    "value": "5"
+                }, {
+                    "property": "Параметры модели",
+                    "value": "80-60-86"
+                }, {
+                    "property": "Рост модели на фото",
+                    "value": "178"
+                }, {
+                    "property": "Длина",
+                    "value": "73 см"
+                }, {
+                    "property": "Длина рукава",
+                    "value": "57 см"
+                }]
+            }
+        }, {
+            "title": "Состав",
+            "list": {
+                "items": [{
+                    "property": "Материал верха",
+                    "value": "100% Альпака"
+                }, {
+                    "property": "Материал подкладки",
+                    "value": "100% Полиэстер"
+                }, {
+                    "property": "Материал утеплителя",
+                    "value": "100% Полиэстер"
+                }]
+            }
+        }, {
+            "title": "Дополнительные характеристики",
+            "list": {
+                "items": [{
+                    "property": "Узор",
+                    "value": "Однотонный"
+                }, {
+                    "property": "Цвет",
+                    "value": "Бежевый"
+                }, {
+                    "property": "Артикул",
+                    "value": "MP002XW08J2L"
+                }]
+            }
+        }]
+    }, {
+        "id": "5",
+        "imageUrl": "https://i.ibb.co/MPZh1CD/12.jpg",
+        "name": "Юбка",
+        "brand": "Minoti",
+        "sizes": [46, 48, 50],
+        "price": 18300,
+        "discount": 0,
+        "style": "деловой",
+        "color": "бежевый",
+        "rating": 4,
+        "articul": "MP002XW08J2L",
+        "details": [{
+            "title": "Общие характеристики",
+            "list": {
+                "items": [{
+                    "property": "Пол",
+                    "value": "Женский"
+                }, {
+                    "property": "Стиль",
+                    "value": "Повседневный"
+                }, {
+                    "property": "Сезон",
+                    "value": "Зима"
+                }, {
+                    "property": "Страна производитель",
+                    "value": "Италия"
+                }]
+            }
+        }, {
+            "title": "Размеры на модель",
+            "list": {
+                "items": [{
+                    "property": "Размер товара на модели",
+                    "value": "5"
+                }, {
+                    "property": "Параметры модели",
+                    "value": "80-60-86"
+                }, {
+                    "property": "Рост модели на фото",
+                    "value": "178"
+                }, {
+                    "property": "Длина",
+                    "value": "73 см"
+                }, {
+                    "property": "Длина рукава",
+                    "value": "57 см"
+                }]
+            }
+        }, {
+            "title": "Состав",
+            "list": {
+                "items": [{
+                    "property": "Материал верха",
+                    "value": "100% Альпака"
+                }, {
+                    "property": "Материал подкладки",
+                    "value": "100% Полиэстер"
+                }, {
+                    "property": "Материал утеплителя",
+                    "value": "100% Полиэстер"
+                }]
+            }
+        }]
+    }, {
+        "id": "6",
+        "imageUrl": "https://i.ibb.co/hccrvkD/13.jpg",
+        "name": "Пальто",
+        "brand": "Allora",
+        "logo": "https://i.ibb.co/YXLwSH8/allora.png",
+        "sizes": [42, 44, 52],
+        "price": 15400,
+        "discount": 0,
+        "style": "деловой",
+        "color": "бежевый",
+        "rating": 4,
+        "articul": "MP002XW08J2L",
+        "details": [{
+            "title": "Состав",
+            "list": {
+                "items": [{
+                    "property": "Материал верха",
+                    "value": "100% Альпака"
+                }, {
+                    "property": "Материал подкладки",
+                    "value": "100% Полиэстер"
+                }, {
+                    "property": "Материал утеплителя",
+                    "value": "100% Полиэстер"
+                }]
+            }
+        }, {
+            "title": "Конструктивные особенности",
+            "list": {
+                "items": [{
+                    "property": "Покрой",
+                    "value": "Прямой"
+                }, {
+                    "property": "Капюшон",
+                    "value": "Нет"
+                }, {
+                    "property": "Количество карманов",
+                    "value": "2"
+                }, {
+                    "property": "Застежка",
+                    "value": "Молния"
+                }]
+            }
+        }, {
+            "title": "Дополнительные характеристики",
+            "list": {
+                "items": [{
+                    "property": "Узор",
+                    "value": "Однотонный"
+                }, {
+                    "property": "Цвет",
+                    "value": "Бежевый"
+                }, {
+                    "property": "Артикул",
+                    "value": "MP002XW08J2L"
+                }]
+            }
+        }]
+    }, {
+        "id": "7",
+        "imageUrl": "https://i.ibb.co/JcsS56N/14.jpg",
+        "name": "Брюки",
+        "brand": "Minoti",
+        "logo": "https://i.ibb.co/yhtmDQS/minoti.jpg",
+        "sizes": [44, 48, 52],
+        "price": 21500,
+        "discount": 0,
+        "style": "спортивный",
+        "color": "бордовый",
+        "rating": 4,
+        "articul": "MP002XW08J2L",
+        "details": [{
+            "title": "Общие характеристики",
+            "list": {
+                "items": [{
+                    "property": "Пол",
+                    "value": "Женский"
+                }, {
+                    "property": "Стиль",
+                    "value": "Повседневный"
+                }, {
+                    "property": "Сезон",
+                    "value": "Зима"
+                }, {
+                    "property": "Страна производитель",
+                    "value": "Италия"
+                }]
+            }
+        }, {
+            "title": "Конструктивные особенности",
+            "list": {
+                "items": [{
+                    "property": "Покрой",
+                    "value": "Прямой"
+                }, {
+                    "property": "Капюшон",
+                    "value": "Нет"
+                }, {
+                    "property": "Количество карманов",
+                    "value": "2"
+                }, {
+                    "property": "Застежка",
+                    "value": "Молния"
+                }]
+            }
+        }, {
+            "title": "Дополнительные характеристики",
+            "list": {
+                "items": [{
+                    "property": "Узор",
+                    "value": "Однотонный"
+                }, {
+                    "property": "Цвет",
+                    "value": "Бежевый"
+                }, {
+                    "property": "Артикул",
+                    "value": "MP002XW08J2L"
+                }]
+            }
+        }]
+    }, {
+        "id": "8",
+        "imageUrl": "https://i.ibb.co/9Z326wn/15.jpg",
+        "name": "Пуховик",
+        "brand": "Deja",
+        "logo": "https://i.ibb.co/QFqxGms/deja.jpg",
+        "sizes": [42, 44, 46],
+        "price": 21200,
+        "discount": 0,
+        "style": "повседневный",
+        "color": "золотой",
+        "rating": 4,
+        "articul": "MP002XW08J2L",
+        "details": [{
+            "title": "Общие характеристики",
+            "list": {
+                "items": [{
+                    "property": "Пол",
+                    "value": "Женский"
+                }, {
+                    "property": "Стиль",
+                    "value": "Повседневный"
+                }, {
+                    "property": "Сезон",
+                    "value": "Зима"
+                }, {
+                    "property": "Страна производитель",
+                    "value": "Италия"
+                }]
+            }
+        }, {
+            "title": "Размеры на модель",
+            "list": {
+                "items": [{
+                    "property": "Размер товара на модели",
+                    "value": "5"
+                }, {
+                    "property": "Параметры модели",
+                    "value": "80-60-86"
+                }, {
+                    "property": "Рост модели на фото",
+                    "value": "178"
+                }, {
+                    "property": "Длина",
+                    "value": "73 см"
+                }, {
+                    "property": "Длина рукава",
+                    "value": "57 см"
+                }]
+            }
+        }, {
+            "title": "Дополнительные характеристики",
+            "list": {
+                "items": [{
+                    "property": "Узор",
+                    "value": "Однотонный"
+                }, {
+                    "property": "Цвет",
+                    "value": "Бежевый"
+                }, {
+                    "property": "Артикул",
+                    "value": "MP002XW08J2L"
+                }]
+            }
+        }]
+    }, {
+        "id": "9",
+        "imageUrl": "https://i.ibb.co/YTDP2kx/16.jpg",
+        "name": "Джемпер",
+        "brand": "Viola",
+        "logo": "https://i.ibb.co/wM8jTN0/viola-stils.jpg",
+        "sizes": [42, 44, 46],
+        "price": 8500,
+        "discount": 40,
+        "style": "повседневный",
+        "color": "бордовый",
+        "rating": 3,
+        "articul": "MP002XW08J2L",
+        "details": [{
+            "title": "Общие характеристики",
+            "list": {
+                "items": [{
+                    "property": "Пол",
+                    "value": "Женский"
+                }, {
+                    "property": "Стиль",
+                    "value": "Повседневный"
+                }, {
+                    "property": "Сезон",
+                    "value": "Зима"
+                }, {
+                    "property": "Страна производитель",
+                    "value": "Италия"
+                }]
+            }
+        }, {
+            "title": "Размеры на модель",
+            "list": {
+                "items": [{
+                    "property": "Размер товара на модели",
+                    "value": "5"
+                }, {
+                    "property": "Параметры модели",
+                    "value": "80-60-86"
+                }, {
+                    "property": "Рост модели на фото",
+                    "value": "178"
+                }, {
+                    "property": "Длина",
+                    "value": "73 см"
+                }, {
+                    "property": "Длина рукава",
+                    "value": "57 см"
+                }]
+            }
+        }]
+    }, {
+        "id": "10",
+        "imageUrl": "https://i.ibb.co/6PLNQC6/17.jpg",
+        "name": "Юбка",
+        "brand": "Rio Verti",
+        "logo": "https://i.ibb.co/sC5HvqW/rio-verti.jpg",
+        "sizes": [42, 44, 46],
+        "price": 15200,
+        "discount": 0,
+        "style": "вечерний",
+        "color": "бежевый",
+        "rating": 3,
+        "articul": "MP002XW08J2L",
+        "details": [{
+            "title": "Общие характеристики",
+            "list": {
+                "items": [{
+                    "property": "Пол",
+                    "value": "Женский"
+                }, {
+                    "property": "Стиль",
+                    "value": "Повседневный"
+                }, {
+                    "property": "Сезон",
+                    "value": "Зима"
+                }, {
+                    "property": "Страна производитель",
+                    "value": "Италия"
+                }]
+            }
+        }, {
+            "title": "Размеры на модель",
+            "list": {
+                "items": [{
+                    "property": "Размер товара на модели",
+                    "value": "5"
+                }, {
+                    "property": "Параметры модели",
+                    "value": "80-60-86"
+                }, {
+                    "property": "Рост модели на фото",
+                    "value": "178"
+                }, {
+                    "property": "Длина",
+                    "value": "73 см"
+                }, {
+                    "property": "Длина рукава",
+                    "value": "57 см"
+                }]
+            }
+        }, {
+            "title": "Состав",
+            "list": {
+                "items": [{
+                    "property": "Материал верха",
+                    "value": "100% Альпака"
+                }, {
+                    "property": "Материал подкладки",
+                    "value": "100% Полиэстер"
+                }, {
+                    "property": "Материал утеплителя",
+                    "value": "100% Полиэстер"
+                }]
+            }
+        }, {
+            "title": "Конструктивные особенности",
+            "list": {
+                "items": [{
+                    "property": "Покрой",
+                    "value": "Прямой"
+                }, {
+                    "property": "Капюшон",
+                    "value": "Нет"
+                }, {
+                    "property": "Количество карманов",
+                    "value": "2"
+                }, {
+                    "property": "Застежка",
+                    "value": "Молния"
+                }]
+            }
+        }, {
+            "title": "Дополнительные характеристики",
+            "list": {
+                "items": [{
+                    "property": "Узор",
+                    "value": "Однотонный"
+                }, {
+                    "property": "Цвет",
+                    "value": "Бежевый"
+                }, {
+                    "property": "Артикул",
+                    "value": "MP002XW08J2L"
+                }]
+            }
+        }]
+    }, {
+        "id": "11",
+        "imageUrl": "https://i.ibb.co/cQhjRnh/18.jpg",
+        "name": "Пальто",
+        "brand": "Zaza",
+        "logo": "https://i.ibb.co/znTmt43/zaza.jpg",
+        "sizes": [42, 44, 46],
+        "price": 12500,
+        "discount": 0,
+        "style": "деловой",
+        "color": "бордовый",
+        "rating": 3,
+        "articul": "MP002XW08J2L",
+        "details": [{
+            "title": "Конструктивные особенности",
+            "list": {
+                "items": [{
+                    "property": "Покрой",
+                    "value": "Прямой"
+                }, {
+                    "property": "Капюшон",
+                    "value": "Нет"
+                }, {
+                    "property": "Количество карманов",
+                    "value": "2"
+                }, {
+                    "property": "Застежка",
+                    "value": "Молния"
+                }]
+            }
+        }, {
+            "title": "Дополнительные характеристики",
+            "list": {
+                "items": [{
+                    "property": "Узор",
+                    "value": "Однотонный"
+                }, {
+                    "property": "Цвет",
+                    "value": "Бежевый"
+                }, {
+                    "property": "Артикул",
+                    "value": "MP002XW08J2L"
+                }]
+            }
+        }]
+    }, {
+        "id": "12",
+        "imageUrl": "https://i.ibb.co/HzBz7ng/01.jpg",
+        "name": "Блузка",
+        "brand": "Loriata",
+        "sizes": [42, 44, 46],
+        "price": 14600,
+        "discount": 0,
+        "style": "повседневный",
+        "color": "бирюзовый",
+        "rating": 2,
+        "articul": "MP002XW08J2L",
+        "details": [{
+            "title": "Размеры на модель",
+            "list": {
+                "items": [{
+                    "property": "Размер товара на модели",
+                    "value": "5"
+                }, {
+                    "property": "Параметры модели",
+                    "value": "80-60-86"
+                }, {
+                    "property": "Рост модели на фото",
+                    "value": "178"
+                }, {
+                    "property": "Длина",
+                    "value": "73 см"
+                }, {
+                    "property": "Длина рукава",
+                    "value": "57 см"
+                }]
+            }
+        }, {
+            "title": "Конструктивные особенности",
+            "list": {
+                "items": [{
+                    "property": "Покрой",
+                    "value": "Прямой"
+                }, {
+                    "property": "Капюшон",
+                    "value": "Нет"
+                }, {
+                    "property": "Количество карманов",
+                    "value": "2"
+                }, {
+                    "property": "Застежка",
+                    "value": "Молния"
+                }]
+            }
+        }]
+    }, {
+        "id": "13",
+        "imageUrl": "https://i.ibb.co/JcsS56N/14.jpg",
+        "name": "Брюки",
+        "brand": "Loriata",
+        "sizes": [42, 44, 46],
+        "price": 17200,
+        "discount": 0,
+        "style": "спортивный",
+        "color": "бордовый",
+        "rating": 2,
+        "articul": "MP002XW08J2L",
+        "details": [{
+            "title": "Общие характеристики",
+            "list": {
+                "items": [{
+                    "property": "Пол",
+                    "value": "Женский"
+                }, {
+                    "property": "Стиль",
+                    "value": "Повседневный"
+                }, {
+                    "property": "Сезон",
+                    "value": "Зима"
+                }, {
+                    "property": "Страна производитель",
+                    "value": "Италия"
+                }]
+            }
+        }, {
+            "title": "Состав",
+            "list": {
+                "items": [{
+                    "property": "Материал верха",
+                    "value": "100% Альпака"
+                }, {
+                    "property": "Материал подкладки",
+                    "value": "100% Полиэстер"
+                }, {
+                    "property": "Материал утеплителя",
+                    "value": "100% Полиэстер"
+                }]
+            }
+        }, {
+            "title": "Дополнительные характеристики",
+            "list": {
+                "items": [{
+                    "property": "Узор",
+                    "value": "Однотонный"
+                }, {
+                    "property": "Цвет",
+                    "value": "Бежевый"
+                }, {
+                    "property": "Артикул",
+                    "value": "MP002XW08J2L"
+                }]
+            }
+        }]
+    }, {
+        "id": "14",
+        "imageUrl": "https://i.ibb.co/H2n8MBY/03.jpg",
+        "name": "Пуховик",
+        "brand": "Rio Verti",
+        "logo": "https://i.ibb.co/sC5HvqW/rio-verti.jpg",
+        "sizes": [42, 44, 46],
+        "price": 16500,
+        "discount": 25,
+        "style": "повседневный",
+        "color": "белый",
+        "rating": 2,
+        "articul": "MP002XW08J2L",
+        "details": [{
+            "title": "Общие характеристики",
+            "list": {
+                "items": [{
+                    "property": "Пол",
+                    "value": "Женский"
+                }, {
+                    "property": "Стиль",
+                    "value": "Повседневный"
+                }, {
+                    "property": "Сезон",
+                    "value": "Зима"
+                }, {
+                    "property": "Страна производитель",
+                    "value": "Италия"
+                }]
+            }
+        }]
+    }, {
+        "id": "15",
+        "imageUrl": "https://i.ibb.co/kM9ZfqL/04.jpg",
+        "name": "Джемпер",
+        "brand": "Loriata",
+        "sizes": [42, 44, 46],
+        "price": 15000,
+        "discount": 0,
+        "style": "повседневный",
+        "color": "бежевый",
+        "rating": 1,
+        "articul": "MP002XW08J2L",
+        "details": [{
+            "title": "Общие характеристики",
+            "list": {
+                "items": [{
+                    "property": "Пол",
+                    "value": "Женский"
+                }, {
+                    "property": "Стиль",
+                    "value": "Повседневный"
+                }, {
+                    "property": "Сезон",
+                    "value": "Зима"
+                }, {
+                    "property": "Страна производитель",
+                    "value": "Италия"
+                }]
+            }
+        }]
+    }, {
+        "id": "16",
+        "imageUrl": "https://i.ibb.co/kX1zYh6/05.jpg",
+        "name": "Джинсы",
+        "brand": "Loriata",
+        "sizes": [42, 44, 46],
+        "price": 12000,
+        "discount": 25,
+        "style": "повседневный",
+        "color": "голубой",
+        "rating": 1,
+        "articul": "MP002XW08J2L",
+        "details": [{
+            "title": "Общие характеристики",
+            "list": {
+                "items": [{
+                    "property": "Пол",
+                    "value": "Женский"
+                }, {
+                    "property": "Стиль",
+                    "value": "Повседневный"
+                }, {
+                    "property": "Сезон",
+                    "value": "Зима"
+                }, {
+                    "property": "Страна производитель",
+                    "value": "Италия"
+                }]
+            }
+        }]
+    }, {
+        "id": "17",
+        "imageUrl": "https://i.ibb.co/rcV6YYW/06.jpg",
+        "name": "Пижама",
+        "brand": "Loriata",
+        "sizes": [42, 44, 46],
+        "price": 19500,
+        "discount": 40,
+        "style": "вечерний",
+        "color": "бордовый",
+        "rating": 1,
+        "articul": "MP002XW08J2L",
+        "details": [{
+            "title": "Общие характеристики",
+            "list": {
+                "items": [{
+                    "property": "Пол",
+                    "value": "Женский"
+                }, {
+                    "property": "Стиль",
+                    "value": "Повседневный"
+                }, {
+                    "property": "Сезон",
+                    "value": "Зима"
+                }, {
+                    "property": "Страна производитель",
+                    "value": "Италия"
+                }]
+            }
+        }]
+    }],
+    "subscribes": [{
+        "id": 0,
+        "title": "Распродажи и акции для женщин и мужчин",
+        "items": [{
+            "name": "e-mail",
+            "active": true
+        }, {
+            "name": "sms",
+            "active": true
+        }]
+    }, {
+        "id": 1,
+        "title": "Новинка месяца",
+        "items": [{
+            "name": "e-mail",
+            "active": false
+        }, {
+            "name": "sms",
+            "active": true
+        }]
+    }, {
+        "id": 2,
+        "title": "Детские новые коллекции",
+        "items": [{
+            "name": "e-mail",
+            "active": true
+        }, {
+            "name": "sms",
+            "active": false
+        }]
+    }],
+    "blog": [{
+        "id": 0,
+        "imageUrl": "https://i.ibb.co/rxTV6Nx/01.jpg",
+        "date": "10.09.2021",
+        "title": "JUNGE новая коллеция осень 2021",
+        "text": "Новая коллекция представлена в трендовых цветах и дополнена классическими оттенками. Отличная теплоизоляция достигается благодаря наполнителю 90% пуха.",
+        "tags": ["коллекция", "женщинам", "осень"],
+        "content": {
+            "items": [{
+                "text": "Бренд LORIATA в новом сезоне дополнил свою коллекцию стильными пуховиками."
+            }, {
+                "text": "Для создания пуховиков используется пух белого гуся 90/10 от известного производителя MINARDI PIUME (Италия) с показателем Fill Power 700."
+            }, {
+                "text": "Уникальная NANO технология обработки пуха гарантирует экологичность и гипоаллергенность всей продукции. Благодаря специальной обработке, ткани обладают водонепроницаемостью и способностью “дышать”. Дизайн и крой изделий не только актуален, но и функционален, пуховики полностью адаптированы для холодной зимы с температурой до -25С. Коллекция Loriata подарит вам индивидуальный стиль, легкость и тепло в зимние дни!"
+            }, {
+                "text": "Наши менеджеры готовы организовать дистанционную презентацию коллекций любым удобном способом (Skype, Zoom, Whats App)."
+            }, {
+                "text": "Звоните по бесплатному номеру 8-800-250-30-05, задавайте вопросы нашим менеджерам."
+            }]
+        }
+    }, {
+        "id": 1,
+        "imageUrl": "https://i.ibb.co/2jKGH63/02.jpg",
+        "date": "10.11.2021",
+        "title": "MINOTI новая коллекция осень-зима 2021",
+        "text": "Осень уже перешагнула свой экватор, а в прогнозах погоды то и дело появляются сообщения о первом снеге. Приглашаем вас ознакомиться с новой коллекцией MINOTI.",
+        "tags": ["коллекция", "детям"],
+        "content": {
+            "items": [{
+                "text": "Бренд LORIATA в новом сезоне дополнил свою коллекцию стильными пуховиками."
+            }, {
+                "text": "Для создания пуховиков используется пух белого гуся 90/10 от известного производителя MINARDI PIUME (Италия) с показателем Fill Power 700."
+            }, {
+                "text": "Уникальная NANO технология обработки пуха гарантирует экологичность и гипоаллергенность всей продукции. Благодаря специальной обработке, ткани обладают водонепроницаемостью и способностью “дышать”. Дизайн и крой изделий не только актуален, но и функционален, пуховики полностью адаптированы для холодной зимы с температурой до -25С. Коллекция Loriata подарит вам индивидуальный стиль, легкость и тепло в зимние дни!"
+            }, {
+                "text": "Наши менеджеры готовы организовать дистанционную презентацию коллекций любым удобном способом (Skype, Zoom, Whats App)."
+            }, {
+                "text": "Звоните по бесплатному номеру 8-800-250-30-05, задавайте вопросы нашим менеджерам."
+            }]
+        }
+    }, {
+        "id": 2,
+        "imageUrl": "https://i.ibb.co/r77pkGn/03.jpg",
+        "date": "10.11.2021",
+        "title": "Новые домашние комплекты уже поступили в продажу!",
+        "text": "Женский пижамный комплект, который отлично подойдет не только для сна, но и для домашних дел.",
+        "tags": ["коллекция", "женщинам"],
+        "content": {
+            "items": [{
+                "text": "Бренд LORIATA в новом сезоне дополнил свою коллекцию стильными пуховиками."
+            }, {
+                "text": "Для создания пуховиков используется пух белого гуся 90/10 от известного производителя MINARDI PIUME (Италия) с показателем Fill Power 700."
+            }, {
+                "text": "Уникальная NANO технология обработки пуха гарантирует экологичность и гипоаллергенность всей продукции. Благодаря специальной обработке, ткани обладают водонепроницаемостью и способностью “дышать”. Дизайн и крой изделий не только актуален, но и функционален, пуховики полностью адаптированы для холодной зимы с температурой до -25С. Коллекция Loriata подарит вам индивидуальный стиль, легкость и тепло в зимние дни!"
+            }, {
+                "text": "Наши менеджеры готовы организовать дистанционную презентацию коллекций любым удобном способом (Skype, Zoom, Whats App)."
+            }, {
+                "text": "Звоните по бесплатному номеру 8-800-250-30-05, задавайте вопросы нашим менеджерам."
+            }]
+        }
+    }, {
+        "id": 3,
+        "imageUrl": "https://i.ibb.co/h8JYjMp/04.jpg",
+        "date": "10.11.2021",
+        "title": "MINOTI новая коллекция осень-зима 2021",
+        "text": "Осень уже перешагнула свой экватор, а в прогнозах погоды то и дело появляются сообщения о первом снеге. Приглашаем вас ознакомиться с новой коллекцией MINOTI.",
+        "tags": ["коллекция", "детям"],
+        "content": {
+            "items": [{
+                "text": "Бренд LORIATA в новом сезоне дополнил свою коллекцию стильными пуховиками."
+            }, {
+                "text": "Для создания пуховиков используется пух белого гуся 90/10 от известного производителя MINARDI PIUME (Италия) с показателем Fill Power 700."
+            }, {
+                "text": "Уникальная NANO технология обработки пуха гарантирует экологичность и гипоаллергенность всей продукции. Благодаря специальной обработке, ткани обладают водонепроницаемостью и способностью “дышать”. Дизайн и крой изделий не только актуален, но и функционален, пуховики полностью адаптированы для холодной зимы с температурой до -25С. Коллекция Loriata подарит вам индивидуальный стиль, легкость и тепло в зимние дни!"
+            }, {
+                "text": "Наши менеджеры готовы организовать дистанционную презентацию коллекций любым удобном способом (Skype, Zoom, Whats App)."
+            }, {
+                "text": "Звоните по бесплатному номеру 8-800-250-30-05, задавайте вопросы нашим менеджерам."
+            }]
+        }
+    }, {
+        "id": 4,
+        "imageUrl": "https://i.ibb.co/nk5TtJQ/05.jpg",
+        "date": "10.11.2021",
+        "title": "MINOTI новая коллекция осень-зима 2021",
+        "text": "Осень уже перешагнула свой экватор, а в прогнозах погоды то и дело появляются сообщения о первом снеге. Приглашаем вас ознакомиться с новой коллекцией MINOTI.",
+        "tags": ["коллекция", "детям"],
+        "content": {
+            "items": [{
+                "text": "Бренд LORIATA в новом сезоне дополнил свою коллекцию стильными пуховиками."
+            }, {
+                "text": "Для создания пуховиков используется пух белого гуся 90/10 от известного производителя MINARDI PIUME (Италия) с показателем Fill Power 700."
+            }, {
+                "text": "Уникальная NANO технология обработки пуха гарантирует экологичность и гипоаллергенность всей продукции. Благодаря специальной обработке, ткани обладают водонепроницаемостью и способностью “дышать”. Дизайн и крой изделий не только актуален, но и функционален, пуховики полностью адаптированы для холодной зимы с температурой до -25С. Коллекция Loriata подарит вам индивидуальный стиль, легкость и тепло в зимние дни!"
+            }, {
+                "text": "Наши менеджеры готовы организовать дистанционную презентацию коллекций любым удобном способом (Skype, Zoom, Whats App)."
+            }, {
+                "text": "Звоните по бесплатному номеру 8-800-250-30-05, задавайте вопросы нашим менеджерам."
+            }]
+        }
+    }, {
+        "id": 5,
+        "imageUrl": "https://i.ibb.co/VmbtzV2/06.jpg",
+        "date": "10.11.2021",
+        "title": "Новые домашние комплекты уже поступили в продажу!",
+        "text": "Женский пижамный комплект, который отлично подойдет не только для сна, но и для домашних дел.",
+        "tags": ["коллекция", "женщинам"],
+        "content": {
+            "items": [{
+                "text": "Бренд LORIATA в новом сезоне дополнил свою коллекцию стильными пуховиками."
+            }, {
+                "text": "Для создания пуховиков используется пух белого гуся 90/10 от известного производителя MINARDI PIUME (Италия) с показателем Fill Power 700."
+            }, {
+                "text": "Уникальная NANO технология обработки пуха гарантирует экологичность и гипоаллергенность всей продукции. Благодаря специальной обработке, ткани обладают водонепроницаемостью и способностью “дышать”. Дизайн и крой изделий не только актуален, но и функционален, пуховики полностью адаптированы для холодной зимы с температурой до -25С. Коллекция Loriata подарит вам индивидуальный стиль, легкость и тепло в зимние дни!"
+            }, {
+                "text": "Наши менеджеры готовы организовать дистанционную презентацию коллекций любым удобном способом (Skype, Zoom, Whats App)."
+            }, {
+                "text": "Звоните по бесплатному номеру 8-800-250-30-05, задавайте вопросы нашим менеджерам."
+            }]
+        }
+    }, {
+        "id": 6,
+        "imageUrl": "https://i.ibb.co/hHvN4zP/07.jpg",
+        "date": "10.09.2021",
+        "title": "JUNGE новая коллеция осень 2021",
+        "text": "Новая коллекция представлена в трендовых цветах и дополнена классическими оттенками. Отличная теплоизоляция достигается благодаря наполнителю 90% пуха.",
+        "tags": ["коллекция", "женщинам", "осень"],
+        "content": {
+            "items": [{
+                "text": "Бренд LORIATA в новом сезоне дополнил свою коллекцию стильными пуховиками."
+            }, {
+                "text": "Для создания пуховиков используется пух белого гуся 90/10 от известного производителя MINARDI PIUME (Италия) с показателем Fill Power 700."
+            }, {
+                "text": "Уникальная NANO технология обработки пуха гарантирует экологичность и гипоаллергенность всей продукции. Благодаря специальной обработке, ткани обладают водонепроницаемостью и способностью “дышать”. Дизайн и крой изделий не только актуален, но и функционален, пуховики полностью адаптированы для холодной зимы с температурой до -25С. Коллекция Loriata подарит вам индивидуальный стиль, легкость и тепло в зимние дни!"
+            }, {
+                "text": "Наши менеджеры готовы организовать дистанционную презентацию коллекций любым удобном способом (Skype, Zoom, Whats App)."
+            }, {
+                "text": "Звоните по бесплатному номеру 8-800-250-30-05, задавайте вопросы нашим менеджерам."
+            }]
+        }
+    }, {
+        "id": 7,
+        "imageUrl": "https://i.ibb.co/6FDCK8M/08.jpg",
+        "date": "10.11.2021",
+        "title": "MINOTI новая коллекция осень-зима 2021",
+        "text": "Осень уже перешагнула свой экватор, а в прогнозах погоды то и дело появляются сообщения о первом снеге. Приглашаем вас ознакомиться с новой коллекцией MINOTI.",
+        "tags": ["коллекция", "детям"],
+        "content": {
+            "items": [{
+                "text": "Бренд LORIATA в новом сезоне дополнил свою коллекцию стильными пуховиками."
+            }, {
+                "text": "Для создания пуховиков используется пух белого гуся 90/10 от известного производителя MINARDI PIUME (Италия) с показателем Fill Power 700."
+            }, {
+                "text": "Уникальная NANO технология обработки пуха гарантирует экологичность и гипоаллергенность всей продукции. Благодаря специальной обработке, ткани обладают водонепроницаемостью и способностью “дышать”. Дизайн и крой изделий не только актуален, но и функционален, пуховики полностью адаптированы для холодной зимы с температурой до -25С. Коллекция Loriata подарит вам индивидуальный стиль, легкость и тепло в зимние дни!"
+            }, {
+                "text": "Наши менеджеры готовы организовать дистанционную презентацию коллекций любым удобном способом (Skype, Zoom, Whats App)."
+            }, {
+                "text": "Звоните по бесплатному номеру 8-800-250-30-05, задавайте вопросы нашим менеджерам."
+            }]
+        }
+    }, {
+        "id": 8,
+        "imageUrl": "https://i.ibb.co/286C9ng/09.jpg",
+        "date": "10.11.2021",
+        "title": "Новые домашние комплекты уже поступили в продажу!",
+        "text": "Женский пижамный комплект, который отлично подойдет не только для сна, но и для домашних дел.",
+        "tags": ["коллекция", "женщинам"],
+        "content": {
+            "items": [{
+                "text": "Бренд LORIATA в новом сезоне дополнил свою коллекцию стильными пуховиками."
+            }, {
+                "text": "Для создания пуховиков используется пух белого гуся 90/10 от известного производителя MINARDI PIUME (Италия) с показателем Fill Power 700."
+            }, {
+                "text": "Уникальная NANO технология обработки пуха гарантирует экологичность и гипоаллергенность всей продукции. Благодаря специальной обработке, ткани обладают водонепроницаемостью и способностью “дышать”. Дизайн и крой изделий не только актуален, но и функционален, пуховики полностью адаптированы для холодной зимы с температурой до -25С. Коллекция Loriata подарит вам индивидуальный стиль, легкость и тепло в зимние дни!"
+            }, {
+                "text": "Наши менеджеры готовы организовать дистанционную презентацию коллекций любым удобном способом (Skype, Zoom, Whats App)."
+            }, {
+                "text": "Звоните по бесплатному номеру 8-800-250-30-05, задавайте вопросы нашим менеджерам."
+            }]
+        }
+    }, {
+        "id": 9,
+        "imageUrl": "https://i.ibb.co/PWWmjjn/10.jpg",
+        "date": "10.11.2021",
+        "title": "MINOTI новая коллекция осень-зима 2021",
+        "text": "Осень уже перешагнула свой экватор, а в прогнозах погоды то и дело появляются сообщения о первом снеге. Приглашаем вас ознакомиться с новой коллекцией MINOTI.",
+        "tags": ["коллекция", "детям"],
+        "content": {
+            "items": [{
+                "text": "Бренд LORIATA в новом сезоне дополнил свою коллекцию стильными пуховиками."
+            }, {
+                "text": "Для создания пуховиков используется пух белого гуся 90/10 от известного производителя MINARDI PIUME (Италия) с показателем Fill Power 700."
+            }, {
+                "text": "Уникальная NANO технология обработки пуха гарантирует экологичность и гипоаллергенность всей продукции. Благодаря специальной обработке, ткани обладают водонепроницаемостью и способностью “дышать”. Дизайн и крой изделий не только актуален, но и функционален, пуховики полностью адаптированы для холодной зимы с температурой до -25С. Коллекция Loriata подарит вам индивидуальный стиль, легкость и тепло в зимние дни!"
+            }, {
+                "text": "Наши менеджеры готовы организовать дистанционную презентацию коллекций любым удобном способом (Skype, Zoom, Whats App)."
+            }, {
+                "text": "Звоните по бесплатному номеру 8-800-250-30-05, задавайте вопросы нашим менеджерам."
+            }]
+        }
+    }, {
+        "id": 10,
+        "imageUrl": "https://i.ibb.co/YjhfTrq/11.jpg",
+        "date": "10.09.2021",
+        "title": "JUNGE новая коллеция осень 2021",
+        "text": "Новая коллекция представлена в трендовых цветах и дополнена классическими оттенками. Отличная теплоизоляция достигается благодаря наполнителю 90% пуха.",
+        "tags": ["коллекция", "женщинам", "лето"],
+        "content": {
+            "items": [{
+                "text": "Бренд LORIATA в новом сезоне дополнил свою коллекцию стильными пуховиками."
+            }, {
+                "text": "Для создания пуховиков используется пух белого гуся 90/10 от известного производителя MINARDI PIUME (Италия) с показателем Fill Power 700."
+            }, {
+                "text": "Уникальная NANO технология обработки пуха гарантирует экологичность и гипоаллергенность всей продукции. Благодаря специальной обработке, ткани обладают водонепроницаемостью и способностью “дышать”. Дизайн и крой изделий не только актуален, но и функционален, пуховики полностью адаптированы для холодной зимы с температурой до -25С. Коллекция Loriata подарит вам индивидуальный стиль, легкость и тепло в зимние дни!"
+            }, {
+                "text": "Наши менеджеры готовы организовать дистанционную презентацию коллекций любым удобном способом (Skype, Zoom, Whats App)."
+            }, {
+                "text": "Звоните по бесплатному номеру 8-800-250-30-05, задавайте вопросы нашим менеджерам."
+            }]
+        }
+    }, {
+        "id": 11,
+        "imageUrl": "https://i.ibb.co/m06v529/12.jpg",
+        "date": "10.11.2021",
+        "title": "Новые домашние комплекты уже поступили в продажу!",
+        "text": "Женский пижамный комплект, который отлично подойдет не только для сна, но и для домашних дел.",
+        "tags": ["коллекция", "женщинам"],
+        "content": {
+            "items": [{
+                "text": "Бренд LORIATA в новом сезоне дополнил свою коллекцию стильными пуховиками."
+            }, {
+                "text": "Для создания пуховиков используется пух белого гуся 90/10 от известного производителя MINARDI PIUME (Италия) с показателем Fill Power 700."
+            }, {
+                "text": "Уникальная NANO технология обработки пуха гарантирует экологичность и гипоаллергенность всей продукции. Благодаря специальной обработке, ткани обладают водонепроницаемостью и способностью “дышать”. Дизайн и крой изделий не только актуален, но и функционален, пуховики полностью адаптированы для холодной зимы с температурой до -25С. Коллекция Loriata подарит вам индивидуальный стиль, легкость и тепло в зимние дни!"
+            }, {
+                "text": "Наши менеджеры готовы организовать дистанционную презентацию коллекций любым удобном способом (Skype, Zoom, Whats App)."
+            }, {
+                "text": "Звоните по бесплатному номеру 8-800-250-30-05, задавайте вопросы нашим менеджерам."
+            }]
+        }
+    }, {
+        "id": 12,
+        "imageUrl": "https://i.ibb.co/N7S5bGK/13.jpg",
+        "date": "10.11.2021",
+        "title": "MINOTI новая коллекция осень-зима 2021",
+        "text": "Осень уже перешагнула свой экватор, а в прогнозах погоды то и дело появляются сообщения о первом снеге. Приглашаем вас ознакомиться с новой коллекцией MINOTI.",
+        "tags": ["коллекция", "детям"],
+        "content": {
+            "items": [{
+                "text": "Бренд LORIATA в новом сезоне дополнил свою коллекцию стильными пуховиками."
+            }, {
+                "text": "Для создания пуховиков используется пух белого гуся 90/10 от известного производителя MINARDI PIUME (Италия) с показателем Fill Power 700."
+            }, {
+                "text": "Уникальная NANO технология обработки пуха гарантирует экологичность и гипоаллергенность всей продукции. Благодаря специальной обработке, ткани обладают водонепроницаемостью и способностью “дышать”. Дизайн и крой изделий не только актуален, но и функционален, пуховики полностью адаптированы для холодной зимы с температурой до -25С. Коллекция Loriata подарит вам индивидуальный стиль, легкость и тепло в зимние дни!"
+            }, {
+                "text": "Наши менеджеры готовы организовать дистанционную презентацию коллекций любым удобном способом (Skype, Zoom, Whats App)."
+            }, {
+                "text": "Звоните по бесплатному номеру 8-800-250-30-05, задавайте вопросы нашим менеджерам."
+            }]
+        }
+    }],
+    "news": [{
+        "id": 0,
+        "imageUrl": "https://i.ibb.co/RhnntJS/01.jpg",
+        "date": "10.11.2021",
+        "title": "-15% на женские сумки",
+        "text": "С 15 октября во всех магазинах City Moda и онлайн действует скидка -15% на выборочный ассортимент женских сумок",
+        "tags": ["коллекция", "детям"],
+        "list": [{
+            "title": "Условия акции",
+            "text": "С 15 октября во всех магазинах City Moda и онлайн действует скидка -15% на выборочный ассортимент женских сумок. Большой выбор материалов и расцветок. Скидка рассчетывается автоматически и отображается в корзине."
+        }, {
+            "title": "Срок действия",
+            "text": "с 24 ноября по 24 декабря"
+        }, {
+            "title": "Ограничения",
+            "text": "скидка не распространяется на некоторые категории товаров и некоторые бренды"
+        }]
+    }, {
+        "id": 1,
+        "imageUrl": "https://i.ibb.co/YWv8vD4/02.jpg",
+        "date": "10.11.2021",
+        "title": "Открытие нового магазина",
+        "text": "Новый магазин City Moda по адресу ТЦ «Галерея»  Театральная, 30",
+        "tags": ["коллекция", "женщинам"],
+        "list": [{
+            "title": "Условия акции",
+            "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+        }, {
+            "title": "Срок действия",
+            "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+        }, {
+            "title": "Ограничения",
+            "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+        }]
+    }, {
+        "id": 2,
+        "imageUrl": "https://i.ibb.co/h8JYjMp/04.jpg",
+        "date": "10.11.2021",
+        "title": "Удваиваем бонусы",
+        "text": "Двойные бонусы за покупки новой коллекции MINOTY спри покупке с 26 по 30 ноября",
+        "tags": ["коллекция", "детям"],
+        "list": [{
+            "title": "Условия акции",
+            "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+        }, {
+            "title": "Срок действия",
+            "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+        }, {
+            "title": "Ограничения",
+            "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+        }]
+    }, {
+        "id": 3,
+        "imageUrl": "https://i.ibb.co/Lk1mFZZ/04.jpg",
+        "date": "10.11.2021",
+        "title": "-20% на одежду для новорожденных",
+        "text": "Акция действительна по 30 ноября включительно",
+        "tags": ["коллекция", "детям"],
+        "list": [{
+            "title": "Условия акции",
+            "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+        }, {
+            "title": "Срок действия",
+            "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+        }, {
+            "title": "Ограничения",
+            "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+        }]
+    }, {
+        "id": 4,
+        "imageUrl": "https://i.ibb.co/M2JsmDJ/05.jpg",
+        "date": "10.11.2021",
+        "title": "-40% на коллекцию женских свитеров",
+        "text": "Акция действительна по 30 ноября включительно",
+        "tags": ["коллекция", "детям"],
+        "list": [{
+            "title": "Условия акции",
+            "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+        }, {
+            "title": "Срок действия",
+            "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+        },{
+            "title": "Ограничения",
+            "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam facere vero quisquam expedita atque consectetur facilis! Ex beatae, id nihil aspernatur quia voluptatibus, ad magni explicabo incidunt, aperiam dolorem obcaecati."
+        }]
+    }],
+    "alphabet": {
+        "A": ["Allora", "AllSaints", "Allura", "Arch", "Arot"],
+        "B": ["Bibi", "B2B Black to Black", "BeMyMom"],
+        "D": ["Dirkje", "Djdutchjeans", "Deja Fashion"],
+        "F": ["Faba"],
+        "J": ["Jungle"],
+        "А-Я": ["Вишневолоцкий текстиль"],
+        "0-9": ["4F"]
+    },
+    "discounts": {
+        "list": [0, 3, 5, 7, 10, 13, 15, 17, 20],
+        "personalDiscount": 5,
+        "info": {
+            "items": [
+                "скидка распространяется на все товары City Moda, кроме производителей с предельными скидками",
+                "размер скидки зависит от количества доставленных Вам товаров за последние 12 месяцев от сегодняшнего числа",
+                "скидка не сбрасывается в конце календарного года и не начинается заново в начале, она действует все время",
+                "скидка автоматически пересчитывается после каждого доставленного Вам заказа"
+            ]
+        },
+        "addPercent": 25
+    }
+}
