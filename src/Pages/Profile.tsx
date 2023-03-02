@@ -1,6 +1,6 @@
-import { useRouteMatch } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
-import { Crumbs, PageNav, SmallPopup } from '../Components';
+import { useRouteMatch, useParams } from 'react-router-dom';
+import { SmallPopup } from '../Components';
+import { Crumbs, PageNav } from '../Components/Layout';
 import { Pages } from '../enums/Page';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { Page } from '../interfaces/Route';

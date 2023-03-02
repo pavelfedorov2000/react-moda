@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { BlogItem, Crumbs, EmptyBlock } from '../Components';
+import { BlogItem } from '../Components';
 import { useEffect } from 'react';
 import { Page } from '../interfaces/Route';
 import { NewsItem } from '../interfaces/NewsItem';
 import { Pages } from '../enums/Page';
 import PageTop from '../Components/Layout/PageTop';
+import { Crumbs, EmptyBlock } from '../Components/Layout';
 
 const News = ({ title, emptyBlock }: Page) => {
     const [news, setNews] = useState<NewsItem[]>([]);

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PromoCollection, AsideFilters, CatalogFilters, CatalogView, CatalogCard, SeoText, Loader, Crumbs, FiltersButton, ProductPopup, EmptyBlock } from '../Components';
+import { PromoCollection, AsideFilters, CatalogFilters, CatalogView, CatalogCard, SeoText, Loader, FiltersButton, ProductPopup } from '../Components';
 import classNames from 'classnames';
 import { useEffect } from 'react';
 import { CatalogViewOption, CatalogViews } from '../enums/CatalogView';
@@ -7,6 +7,7 @@ import { useActions } from '../hooks/useActions';
 import { Page } from '../interfaces/Route';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import PageTop from '../Components/Layout/PageTop';
+import { Crumbs, EmptyBlock } from '../Components/Layout';
 
 const Catalog = ({ title, emptyBlock }: Page) => {
     const { products, isLoaded } = useTypedSelector((state) => state.productsReducer);

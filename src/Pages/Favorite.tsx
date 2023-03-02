@@ -1,4 +1,5 @@
-import { AsideFilters, CatalogCard, Crumbs, EmptyBlock, ProductPopup } from '../Components';
+import { AsideFilters, CatalogCard, ProductPopup } from '../Components';
+import { Crumbs, EmptyBlock } from '../Components/Layout';
 import PageTop from '../Components/Layout/PageTop';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { Page } from '../interfaces/Route';

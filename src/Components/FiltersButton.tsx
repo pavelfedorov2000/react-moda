@@ -7,7 +7,7 @@ const FiltersButton = () => {
     const { openFilters } = useActions();
 
     return (
-        <button onClick={openFilters} className="filters-button" aria-expanded={isVisible ? true : false} aria-controls="filters" type="button" style={{ backgroundImage: `url(${filterIcon})` }}>
+        <button onClick={openFilters} className="filters-button" aria-expanded={isVisible} aria-controls="filters" type="button" style={{ backgroundImage: `url(${filterIcon})` }}>
             Фильтры
         </button>
     );

@@ -1,6 +1,7 @@
 import classNames from 'classnames';
-import { Header, Footer, Auth, DropBasket, BurgerMenu } from './Components';
+import { Auth, DropBasket, BurgerMenu } from './Components';
 import AppRouter from './Components/AppRouter';
+import { Footer, Header } from './Components/Layout';
 import { useTypedSelector } from './hooks/useTypedSelector';
 
 const App = () => {

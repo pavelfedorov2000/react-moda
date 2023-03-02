@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { SliderSection, Crumbs, ProductPopup } from '../Components';
+import { SliderSection, ProductPopup } from '../Components';
 import "@fancyapps/ui/dist/fancybox.css";
 import { useEffect } from 'react';
 import { Sections } from '../enums/Section';
@@ -7,6 +7,7 @@ import { useTypedSelector } from '../hooks/useTypedSelector';
 import { useParams } from 'react-router-dom';
 import { fetchProducts } from '../redux/actions/products';
 import { ProductCardContent, ProductCardInfo, ProductCardSlider, ProductLinks } from '../Components/ProductCard';
+import { Crumbs } from '../Components/Layout';
 
 const ProductCard = () => {
     const { id } = useParams();
@@ -45,7 +46,7 @@ const ProductCard = () => {
             {activeProduct &&
                 <div className="container">
                     <main className="page product-card">
-                        <Crumbs title={`${activeProduct.name} ${activeProduct.brand}`} product={true} />
+                        <Crumbs title={`${activeProduct.name} ${activeProduct.brand}`} product />
 
                         <div className="product-card__inner">
                             <ProductCardContent {...activeProduct} />
