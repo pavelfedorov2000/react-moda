@@ -1,1 +1,1 @@
-export const developer = 'https://www.imedia.by/';
+export const DEVELOPER = 'https://www.imedia.by/';

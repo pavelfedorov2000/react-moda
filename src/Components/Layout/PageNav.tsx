@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { useRouteMatch } from 'react-router-dom';
 import { Link, useParams } from 'react-router-dom';
-import { routes } from '../constants/routes';
+import { routes } from '../../constants/routes';
 
 const PageNav = () => {
     const url = useRouteMatch().url;

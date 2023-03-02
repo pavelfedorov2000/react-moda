@@ -10,7 +10,7 @@ interface Props {
 }
 
 const Crumbs = ({ title, id, url, product }: Props) => {
-    const prevRoute = routes.find(route => route.path === `/${url}`);
+    const prevRoute = routes.find((route) => route.path === `/${url}`);
 
     return (
         <nav className="breadcrumbs" aria-label="breadcrumbs">

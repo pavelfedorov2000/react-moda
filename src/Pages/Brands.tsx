@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { BrandsAlphabet, BrandsCategories, BrandsIndexList, CancelBrandLetter, Crumbs } from '../Components';
+import { BrandsAlphabet, BrandsCategories, BrandsIndexList, CancelBrandLetter } from '../Components';
 import { useEffect } from 'react';
 import { Page } from '../interfaces/Route';
 import { Alphabet } from '../interfaces/Alphabet';
 import PageTop from '../Components/Layout/PageTop';
+import { Crumbs } from '../Components/Layout';
 
 const Brands = ({ title }: Page) => {
     const [alphabet, setAlphabet] = useState<Alphabet[]>([]);
@@ -15,8 +16,8 @@ const Brands = ({ title }: Page) => {
     }, []);
 
     const [activeBrand, setActiveBrand] = useState(null);
-    const onAddActiveBrand = (e: any) => {
-        const activeBrandArr = e.target.getAttribute('href').split('');
+    const onAddActiveBrand = (event: any) => {
+        const activeBrandArr = event.target.getAttribute('href').split('');
         setActiveBrand(activeBrandArr.splice(1, activeBrandArr.length - 1).join(''));
     }
 

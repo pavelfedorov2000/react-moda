@@ -1,4 +1,4 @@
-import { phone } from '../constants/phone';
+import { PHONE } from '../constants/phone';
 import { formatPhone } from '../utils/formatPhone';
 import { PhoneIcon } from './HeaderActions/icons';
 
@@ -8,9 +8,9 @@ interface Props {
 
 const Phone = ({ className }: Props) => {
     return (
-        <a href={`tel:${formatPhone(phone)}`} className={className}>
+        <a href={`tel:${formatPhone(PHONE)}`} className={className}>
             <PhoneIcon />
-            <span>{phone}</span>
+            <span>{PHONE}</span>
         </a>
     );
 }

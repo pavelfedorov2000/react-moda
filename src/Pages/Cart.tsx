@@ -1,8 +1,9 @@
-import { BasketTable, BasketTotal, Checkout, Crumbs, EmptyBlock } from '../Components';
+import { BasketTable, BasketTotal, Checkout } from '../Components';
 import Sticky from "wil-react-sticky";
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { Page } from '../interfaces/Route';
 import PageTop from '../Components/Layout/PageTop';
+import { Crumbs, EmptyBlock } from '../Components/Layout';
 
 const Cart = ({ title, emptyBlock }: Page) => {
     const { items } = useTypedSelector((state) => state.cartReducer);

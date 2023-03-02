@@ -1,8 +1,8 @@
 import classnames from 'classnames';
-import { FormRow, FormAgree, Logo, FooterMenu, Phone, Social } from '..';
+import { Logo, FooterMenu, Phone, Social, SubscribeForm } from '..';
 import PaymentLogos from '../../assets/images/logo/payment.png';
 import { Link } from 'react-router-dom';
-import { developer } from '../../constants/developer';
+import { DEVELOPER } from '../../constants/developer';
 import { Pages } from '../../enums/Page';
 import { FOOTER_LINKS } from '../../constants/menu';
 import { FilterParam } from '../../enums/Social';
@@ -46,10 +46,7 @@ const Footer = () => {
                                 о новинках и скидках
                             </div>
 
-                            <form className="subscirbe-form">
-                                <FormRow actionText="Подписаться на рассылку" placeholder="Введите ваш Email" />
-                                <FormAgree />
-                            </form>
+                            <SubscribeForm />
                         </div>
 
                         <FooterMenu />
@@ -67,7 +64,7 @@ const Footer = () => {
                     </div>
 
                     <div className="footer__developer">
-                        Разработка сайта - <a href={developer} target="_blank">imedia solutions</a>
+                        Разработка сайта - <a href={DEVELOPER} target="_blank">imedia solutions</a>
                     </div>
 
                     <div className="footer__copy">&copy; {new Date().getFullYear()} City Stils. Все права защищены</div>

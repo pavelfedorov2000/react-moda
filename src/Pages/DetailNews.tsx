@@ -2,7 +2,8 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useRouteMatch } from 'react-router-dom';
-import { Crumbs, OtherNews, NewsDetail } from '../Components';
+import { OtherNews, NewsDetail } from '../Components';
+import { Crumbs } from '../Components/Layout';
 import { Pages } from '../enums/Page';
 import { NewsItem } from '../interfaces/NewsItem';
 

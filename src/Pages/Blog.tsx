@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { BlogItem, Crumbs, EmptyBlock, Pagination } from '../Components';
+import { BlogItem } from '../Components';
+import { Crumbs, EmptyBlock } from '../Components/Layout';
 import PageTop from '../Components/Layout/PageTop';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';

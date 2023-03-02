@@ -13,6 +13,6 @@ export interface Route extends Page {
     before?: string;
     profile?: boolean;
     component: any;
-    SubPage?: any;
     notVisible?: boolean;
+    SubPage?: any;
 }
