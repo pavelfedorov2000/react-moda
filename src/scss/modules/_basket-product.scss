@@ -4,10 +4,6 @@
 
     &__img {
         grid-area: image;
-
-        img {
-            @extend %cover;
-        }
     }
 
     // .basket-product__title
@@ -35,7 +31,7 @@
         font-size: 1.3rem;
         line-height: 1.9rem;
         color: var(--gray-777);
-        transition: $transition color;
+        transition: var(--transition) color;
 
         svg {
             margin-right: var(--offset-xxxs);
@@ -60,7 +56,7 @@
         &--favorite {
             svg {
                 stroke: var(--dark);
-                transition: $transition stroke;
+                transition: var(--transition) stroke;
 
                 &.favorite {
                     stroke: var(--green);

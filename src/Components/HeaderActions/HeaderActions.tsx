@@ -6,22 +6,19 @@ import ActionHeader from '../ActionHeader';
 import { useActions } from '../../hooks/useActions';
 import { useMemo } from 'react';
 import { HeaderAction } from '../../interfaces/HeaderAction';
+import { PopupId } from '../../enums/PopupId';
 
-interface Props {
-    onClickSearch: () => void;
-}
-
-const HeaderActions = ({ onClickSearch }: Props) => {
+const HeaderActions = ({ onClickSearch }: { onClickSearch: () => void; }) => {
     const { products } = useTypedSelector((state) => state.favoriteReducer);
     const { items } = useTypedSelector((state) => state.cartReducer);
     const profileState = useTypedSelector((state) => state.profileReducer);
 
     const { openAuth, openAsideBasket } = useActions();
 
-    const totalCount = Object.keys(items).length;
+    const cartItemsTotalCount = Object.keys(items).length;
 
     const headerActions: HeaderAction[] = useMemo(() => [{
-        popupId: 'auth-popup',
+        popupId: PopupId.AuthPopup,
         href: Object.values(profileState).every((value) => value !== '') ? SubPages.Personal.path : undefined,
         icon: <UserIcon />,
         text: Pages.Profile.title,
@@ -33,13 +30,13 @@ const HeaderActions = ({ onClickSearch }: Props) => {
         text: "Избранное",
         quantity: products.length
     }, {
-        popupId: 'drop-basket',
+        popupId: PopupId.DropBasket,
         icon: <CartIcon />,
         text: Pages.Cart.title,
         onClick: openAsideBasket,
-        quantity: totalCount,
+        quantity: cartItemsTotalCount,
         hasPopup: 'dialog'
-    }], [products, totalCount]);
+    }], [products, cartItemsTotalCount]);
 
     return (
         <div className="header__actions">

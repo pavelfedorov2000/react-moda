@@ -13,8 +13,7 @@
 
         svg {
             fill: var(--dark-gray);
-            transition: $transition fill,
-                $transition transform;
+            transition: var(--transition) fill, var(--transition) transform;
 
             @media (any-hover: hover) {
                 &:hover {
@@ -37,17 +36,17 @@
         right: 0;
         width: 100%;
         z-index: 25;
-        background-color: #fff;
+        background-color: var(--white);
         padding: 2rem 1.5rem;
         border: 0.1rem solid var(--gray-c0);
-        border-top-color: #fff;
+        border-top-color: var(--white);
     }
 
     &__input {
         display: none;
 
         &:checked {
-            & + .radio-style {
+            & + .radiobutton__style {
                 border-color: var(--dark);
 
                 span {

@@ -7,7 +7,7 @@
             width: 5.6rem;
             height: 1.6rem;
             fill: var(--gray-c0);
-            transition: $transition fill;
+            transition: var(--transition) fill;
 
             @media (max-width: 500px) {
                 width: 5rem;
@@ -29,8 +29,8 @@
             width: 4.2rem;
             height: 4.2rem;
             border-radius: 50%;
-            background-color: #fff;
-            transition: $transition background-color;
+            background-color: var(--white);
+            transition: var(--transition) background-color;
 
             svg {
                 width: 2.8rem;
@@ -43,7 +43,7 @@
                     background-color: var(--dark);
 
                     svg {
-                        fill: #fff;
+                        fill: var(--white);
                     }
                 }
             }
@@ -61,7 +61,7 @@
             width: 2rem;
             height: 0.4rem;
             border-radius: 0;
-            background-color: #fff;
+            background-color: var(--white);
             opacity: 0.3;
 
             &.is-active {

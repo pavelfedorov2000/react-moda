@@ -2,7 +2,7 @@
     @extend %text-16;
     @extend %vertical-align;
     font-weight: 600;
-    transition: $transition color;
+    transition: var(--transition) color;
 
     svg {
         margin-right: 0.6rem;

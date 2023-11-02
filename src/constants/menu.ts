@@ -1,32 +1,33 @@
+import { Pages } from "../enums/Page";
 import { DropMenu } from "../interfaces/DropMenu";
 import { MenuLink } from "../interfaces/MenuLink";
 
 export const DROP_MENU_CATEGORIES: MenuLink[] = [{
     title: "Одежда",
-    path: "catalog"
+    path: Pages.Catalog.path
 }, {
     title: "Обувь",
-    path: "catalog"
+    path: Pages.Catalog.path
 }, {
     title: "Аксессуары",
-    path: "catalog"
+    path: Pages.Catalog.path
 }, {
     title: "Бренды",
-    path: "brands"
+    path: Pages.Brands.path
 }, {
     title: "Новинки",
-    path: "catalog"
+    path: Pages.Catalog.path
 }];
 
 export const LINKS: MenuLink[] = [{
     title: "Распродажа",
-    path: "catalog"
+    path: Pages.Catalog.path
 }, {
     title: "Блог",
-    path: "blog"
+    path: Pages.News.path
 }, {
     title: "Новости",
-    path: "news"
+    path: Pages.Blog.path
 }];
 
 export const DROP_MENU: DropMenu = {

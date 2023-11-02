@@ -5,7 +5,17 @@
 
     --gap: 5.2rem;
 
-    --dark: #101112;
+    --opacity-60: 0.6;
+    --opacity-70: 0.7;
+    --opacity-80: 0.8;
+
+    --color-white-rgb: 255, 255, 255;
+    --color-dark-rgb: 16, 17, 18, 1;
+	--white: rgb(var(--color-white-rgb));
+    --white-opacity-70: rgba(var(--color-white-rgb), var(--opacity-70));
+    --white-opacity-80: rgba(var(--color-white-rgb), var(--opacity-80));
+    --dark: rgb(var(--color-dark-rgb));
+    --dark-opacity-60: rgba(var(--color-dark-rgb), var(--opacity-60));
     --dark-gray: #505661;
     --gray: #9b9b9b;
     --gray-777: #777;
@@ -30,17 +40,13 @@
     --offset-xs: 1rem;
     --offset-xxs: 0.8rem;
     --offset-xxxs: 0.4rem;
+
+    --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+    --duration: 0.3s;
+    --duration--long: 1s;
+    --delay: var(--duration);
+    --transition: var(--duration) var(--transition-timing);
 }
-
-$dark: #101112;
-$green: #479458;
-$red: #ee3333;
-
-$transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
-$duration: 0.3s;
-$duration--long: 1s;
-$delay: $duration;
-$transition: $duration $transition-timing;
 
 // Typography
 

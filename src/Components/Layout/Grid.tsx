@@ -1,21 +1,43 @@
 import classNames from "classnames";
-import { ReactNode } from "react";
+import { ClassName } from "../../enums/ClassName";
+import { WithClassName } from "../../types/types";
+import { useCallback } from "react";
 
 interface Props {
-    className?: string;
     items?: {
         breakpoint: string;
         value: number;
     };
     listItems: any[];
-    renderedItem: ReactNode;
+    listItem: any;
+    otherPage?: boolean;
+    actualPage?: string;
+    isUrlSplice?: boolean;
 }
 
-const Grid = ({ className, items, listItems, renderedItem }: Props) => {
-    return (
-        <ul className={classNames('grid', className && className, items && `grid--items-${items.breakpoint}_${items.value}`)}>
+const mainClass = ClassName.Grid;
 
-        </ul>
+const Grid = ({ className, items, listItems, listItem, ...props }: Props & WithClassName) => {
+    const RenderedItem = listItem;
+
+    const checkTwoColumnsItem = useCallback((index: number) => {
+        return items?.breakpoint === 'xl'
+            && items?.value === 4
+            && listItems.length === items?.value - 1
+            && index === 0;
+    }, [items, listItems]);
+    
+    return (
+        <div className={classNames(mainClass, className, {
+            [`${mainClass}--items-${items?.breakpoint}_${items?.value}`]: items
+        })}>
+            {listItems.map((item, index) => (
+                <RenderedItem key={item.id ?? index} className={classNames({
+                    [`${className}__item`]: className,
+                    'span-2': checkTwoColumnsItem(index)
+                })} {...item} {...props} />
+            ))}
+        </div>
     );
 };
 

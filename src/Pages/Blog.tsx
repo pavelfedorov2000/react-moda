@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
-import { BlogItem } from '../Components';
-import { Crumbs, EmptyBlock } from '../Components/Layout';
-import PageTop from '../Components/Layout/PageTop';
+import { BlogItem } from '../components';
+import { Container, Crumbs, EmptyBlock } from '../components/Layout';
+import PageTop from '../components/Layout/PageTop';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { BlogItem as BlogItemType } from '../interfaces/BlogItem';
 import { Page } from '../interfaces/Route';
+import Grid from '../components/Layout/Grid';
+import { ClassName } from '../enums/ClassName';
 
 const Blog = ({ title, emptyBlock }: Page) => {
     const { fetchBlog } = useActions();
@@ -19,28 +21,18 @@ const Blog = ({ title, emptyBlock }: Page) => {
     }, []);
 
     return (
-        <main className="page">
-            <div className="container">
+        <main className={ClassName.Page}>
+            <Container>
                 <Crumbs title={title} />
 
                 <PageTop title={title} />
 
                 {blogItems.length !== 0 ?
-                    <>
-                        <ul className="grid blog-grid">
-                            {
-                                blogItems.map((article) => (
-                                    <li key={article.id}>
-                                        <BlogItem {...article} />
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                    </>
+                    <Grid className="blog-grid" listItems={blogItems} listItem={BlogItem} />
                     :
                     <EmptyBlock {...emptyBlock} />
                 }
-            </div>
+            </Container>
         </main>
     );
 }

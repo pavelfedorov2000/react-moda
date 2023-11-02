@@ -1,9 +1,7 @@
-export const FILTERS_TITLE = 'Фильтры';
+import { Brand } from "../enums/Brand";
+import { Filter } from "../interfaces/Filter";
 
-export interface Filter {
-    text: string;
-    bg?: string;
-}
+export const FILTERS_TITLE = 'Фильтры';
 
 export const STYLES: Filter[] = [{
     text: 'деловой'
@@ -41,26 +39,10 @@ export const COLORS: Filter[] = [{
     bg: '135deg, #FFB156 0%, rgba(255, 177, 86, 0) 100%',
 }];
 
-export const BRANDS: Filter[] = [{
-    text: 'AllSaints'
-}, {
-    text: 'Allura'
-}, {
-    text: 'Allora'
-}, {
-    text: 'Bibi'
-}, {
-    text: 'Deja'
-}, {
-    text: 'Loriata'
-}, {
-    text: 'Minoti'
-}, {
-    text: 'Rio Verti'
-}, {
-    text: 'Viola'
-}, {
-    text: 'Zaza'
-}];
+export const BRANDS: Filter[] = Object.values(Brand).map((brand) => {
+    return {
+        text: brand
+    }
+});
 
 //export const decor = ['геометрия', 'горох', 'животное', 'камуфляж', 'клетка', 'леопардовый'];

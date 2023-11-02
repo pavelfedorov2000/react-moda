@@ -2,7 +2,7 @@ import { Route } from '../interfaces/Route';
 import emptyCatalog from '../assets/images/icons/empty-catalog.svg';
 import emptyBlog from '../assets/images/icons/empty-blog.svg';
 import { Catalog, CatalogHome, Favorite, Home, ProductCard, Cart, OrderSuccess, Brands, Blog, BlogDetail, News, DetailNews, Profile, NotFound } from '../Pages';
-import { Discounts, MyOrders, OrderDetail, Personal, Subscribes } from '../Components/Profile';
+import { Discounts, MyOrders, OrderDetail, Personal, Subscribes } from '../modules';
 import { Pages, SubPages } from '../enums/Page';
 
 export const routes: Route[] = [{

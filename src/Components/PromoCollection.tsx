@@ -1,21 +1,26 @@
 import collectionPicture from '../assets/images/content/collection.jpg';
+import { Pages } from '../enums/Page';
+import { TitleLevel } from '../enums/TitleLevel';
+import { Image, Title } from '../ui';
 import AllLink from './AllLink';
+
+const mainClass = 'promo-collection';
 
 const PromoCollection = () => {
     return (
-        <article className="promo-collection">
-            <div className="promo-collection__img">
-                <img src={collectionPicture} alt="жилетка" width="724" height="350" />
+        <article className={mainClass}>
+            <div className={`${mainClass}__img`}>
+                <Image src={collectionPicture} alt="жилетка" width={724} height={350} />
             </div>
 
-            <div className="promo-collection__suptitle">Ретро стиль в современной одежде</div>
+            <div className={`${mainClass}__suptitle`}>Ретро стиль в современной одежде</div>
 
-            <h3 className="title promo-collection__title">
+            <Title tag={TitleLevel.H3} className={`title ${mainClass}__title`}>
                 Свитеры и жилетки.<br />
                 Зима 2022
-            </h3>
+            </Title>
 
-            <AllLink className='promo-collection__link' url='catalog' text='Смотреть коллекцию' />
+            <AllLink className={`${mainClass}__link`} url={Pages.Catalog.path} text="Смотреть коллекцию" />
         </article>
     );
 }

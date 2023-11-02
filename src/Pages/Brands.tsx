@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { BrandsAlphabet, BrandsCategories, BrandsIndexList, CancelBrandLetter } from '../Components';
+import { BrandsAlphabet, BrandsCategories, BrandsIndexList, CancelBrandLetter } from '../components';
 import { useEffect } from 'react';
 import { Page } from '../interfaces/Route';
 import { Alphabet } from '../interfaces/Alphabet';
-import PageTop from '../Components/Layout/PageTop';
-import { Crumbs } from '../Components/Layout';
+import PageTop from '../components/Layout/PageTop';
+import { Crumbs } from '../components/Layout';
+import { generatePageClassName } from '../utils/generatePageClassName';
+import { ClassName } from '../enums/ClassName';
+
+const mainClass = 'brands-page';
 
 const Brands = ({ title }: Page) => {
     const [alphabet, setAlphabet] = useState<Alphabet[]>([]);
@@ -22,13 +26,13 @@ const Brands = ({ title }: Page) => {
     }
 
     return (
-        <main className="page">
-            <div className="container">
+        <main className={generatePageClassName(mainClass)}>
+            <div className={ClassName.Container}>
                 <Crumbs title={title} />
 
                 <PageTop title={title} />
 
-                <div className="brands-page__body">
+                <div className={`${mainClass}__body`}>
                     <BrandsCategories />
 
                     <div className="brands-wrap">

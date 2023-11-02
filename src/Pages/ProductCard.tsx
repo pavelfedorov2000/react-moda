@@ -1,16 +1,22 @@
 import { useMemo, useState } from 'react';
-import { SliderSection, ProductPopup } from '../Components';
+import { ProductPopup } from '../components';
 import "@fancyapps/ui/dist/fancybox.css";
 import { useEffect } from 'react';
 import { Sections } from '../enums/Section';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { useParams } from 'react-router-dom';
 import { fetchProducts } from '../redux/actions/products';
-import { ProductCardContent, ProductCardInfo, ProductCardSlider, ProductLinks } from '../Components/ProductCard';
-import { Crumbs } from '../Components/Layout';
+import { ProductCardContent, ProductCardInfo, ProductCardSlider, ProductLinks } from '../components/ProductCard';
+import { Crumbs } from '../components/Layout';
+import { ClassName } from '../enums/ClassName';
+import { SectionId } from '../enums/SectionId';
+import { SliderSection } from '../modules';
+
+const mainClass = 'product-card';
 
 const ProductCard = () => {
     const { id } = useParams();
+    
     const { products } = useTypedSelector((state) => state.productsReducer);
     const { popupProduct } = useTypedSelector((state) => state.productReducer);
     const { sortBy, sortPrices, sortBrands, sortColors, sortSizes, sortStyles } = useTypedSelector((state) => state.filtersReducer);
@@ -23,11 +29,11 @@ const ProductCard = () => {
     }
 
     const asideSections = useMemo(() => [{
-        name: 'recommended',
+        name: SectionId.Recommended,
         title: Sections.Recommend.title,
         items: products.filter((product) => product.id !== activeProduct?.id && product.discount)
     }, {
-        name: 'similar',
+        name: SectionId.Similar,
         title: Sections.SimilarGoods.title,
         items: products.filter((product) => {
             return product.id !== activeProduct?.id
@@ -44,31 +50,31 @@ const ProductCard = () => {
     return (
         <>
             {activeProduct &&
-                <div className="container">
-                    <main className="page product-card">
+                <div className={ClassName.Container}>
+                    <main className={`${ClassName.Page} ${mainClass}`}>
                         <Crumbs title={`${activeProduct.name} ${activeProduct.brand}`} product />
 
-                        <div className="product-card__inner">
-                            <ProductCardContent {...activeProduct} />
+                        <div className={`${mainClass}__inner`}>
+                            <ProductCardContent mainClass={mainClass} {...activeProduct} />
 
-                            <ProductCardSlider imageUrl={activeProduct.imageUrl} />
+                            <ProductCardSlider mainClass={mainClass} imageUrl={activeProduct.imageUrl} />
 
-                            <div className="product-card__links">
+                            <div className={`${mainClass}__links`}>
                                 <ProductLinks {...activeProduct} />
                             </div>
 
-                            <ProductCardInfo product={activeProduct} activeTab={activeTab} onClick={onClickTab} />
+                            <ProductCardInfo mainClass={mainClass} product={activeProduct} activeTab={activeTab} onClick={onClickTab} />
                         </div>
                     </main>
 
-                    <aside className="product-card__page">
+                    <aside className={`${mainClass}__page`}>
                         {asideSections.map((section) => (
                             <SliderSection key={section.name.toString()} items={section.items} title={section.title} />
                         ))}
                     </aside>
 
                     {popupProduct &&
-                        <div className="overlay active">
+                        <div className={`${ClassName.Overlay} ${ClassName.Active}`}>
                             <ProductPopup {...popupProduct} />
                         </div>
                     }

@@ -10,11 +10,11 @@
         right: 0;
         z-index: 101;
         width: 100%;
-        background-color: #fff;
+        background-color: var(--white);
         visibility: hidden;
         opacity: 0;
         pointer-events: none;
-        transition: $transition all;
+        transition: var(--transition) all;
     }
 
     // .drop-menu__row

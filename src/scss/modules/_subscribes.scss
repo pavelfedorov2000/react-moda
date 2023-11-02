@@ -1,4 +1,6 @@
-.profile-subscribes {
+$name: 'profile-subscribes';
+
+.#{$name} {
     // .profile-subscribes__inner
 
     display: grid;

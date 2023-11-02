@@ -4,42 +4,46 @@ import classNames from 'classnames';
 import ActionHeader from '../ActionHeader';
 import { PinIcon } from '../HeaderActions/icons';
 import NavHeader from '../NavHeader';
+import { ClassName } from '../../enums/ClassName';
+import Container from './Container';
+
+const mainClass = 'header';
 
 const Header = () => {
     const [visibleSearch, setVisibleSearch] = useState(false);
     const toggleSearch = () => {
-        setVisibleSearch((prevState) => !prevState);
+        setVisibleSearch((v) => !v);
     }
 
     return (
-        <header className="header">
-            <div className="header__top">
-                <div className="container header__top-inner">
+        <header className={mainClass}>
+            <div className={`${mainClass}__top`}>
+                <Container className={`${mainClass}__top-inner`}>
                     <HeaderRegion />
-                    <ActionHeader className="header__shops-search" icon={<PinIcon />} text="Найти магазины" href="#" />
+                    <ActionHeader className={`${mainClass}__shops-search`} icon={<PinIcon />} text="Найти магазины" href="#" />
                     <ContactsHeader className="contacts-header" />
-                    <WhatsApp className="header__whatsapp" />
-                </div>
+                    <WhatsApp className={`${mainClass}__whatsapp`} />
+                </Container>
             </div>
 
             <HeaderInfoLine />
 
-            <div className="header__main">
-                <div className="container">
-                    <div className="header__main-top">
-                        <NavHeader className="header__nav" />
+            <div className={`${mainClass}__main`}>
+                <Container>
+                    <div className={`${mainClass}__main-top`}>
+                        <NavHeader className={`${mainClass}__nav`} />
                         <BurgerButton />
-                        <Logo className="header" width={207} height={31} />
+                        <Logo className={mainClass} width={207} height={31} />
                         <HeaderActions onClickSearch={toggleSearch} />
                     </div>
 
-                    <div className={classNames('header__main-bottom', {
-                        'active': visibleSearch
+                    <div className={classNames(`${mainClass}__main-bottom`, {
+                        [ClassName.Active]: visibleSearch
                     })}>
                         <DropMenu />
-                        <SearchForm isVisible={visibleSearch} />
+                        <SearchForm className="header__search" isVisible={visibleSearch} />
                     </div>
-                </div>
+                </Container>
             </div>
         </header>
     );

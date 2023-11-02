@@ -7,14 +7,16 @@ interface Props {
     discount: number;
 }
 
+const mainClass = 'discounts-progress';
+
 const DiscountsProgress = ({ discounts, discount }: Props) => {
     const personalDiscountIndex = discounts.indexOf(discount);
 
     return (
-        <div className="discounts-progress">
-            <ol className="discounts-progress__list">
+        <div className={mainClass}>
+            <ol className={`${mainClass}__list`}>
                 {discounts.map((discount, i) => (
-                    <li key={discount} style={{ backgroundImage: `url(${i < personalDiscountIndex + 1 ? checkIcon : lockIcon})` }} className={classNames('discounts-progress__item', {
+                    <li key={discount} style={{ backgroundImage: `url(${i < personalDiscountIndex + 1 ? checkIcon : lockIcon})` }} className={classNames(`${mainClass}__item`, {
                         'completed': i <= personalDiscountIndex
                     })}>{`${discount}%`}</li>
                 ))}

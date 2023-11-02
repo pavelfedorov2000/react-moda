@@ -6,6 +6,7 @@ import { useActions } from '../hooks/useActions';
 import { OrderData } from '../interfaces/OrderData';
 import { formatDate } from '../utils/formatDate';
 import { formatDateTime } from '../utils/formatDateTime';
+import { WithClassName } from '../types/types';
 
 enum OrderDetailsTableTitle {
     Order = 'Заказ',
@@ -15,11 +16,9 @@ enum OrderDetailsTableTitle {
     Total = 'Итого',
 }
 
-interface Props extends OrderData {
-    className?: string;
-}
+const mainClass = 'order-details-table';
 
-const OrderDetailsTable = ({ totalPrice, date, personalData, delivery, payment, className }: Props) => {
+const OrderDetailsTable = ({ totalPrice, date, personalData, delivery, payment, className }: OrderData & WithClassName) => {
     const { NAME, SURNAME, PHONE, EMAIL, CITY } = personalData;
 
     const { url } = useRouteMatch();
@@ -27,34 +26,34 @@ const OrderDetailsTable = ({ totalPrice, date, personalData, delivery, payment, 
     const { resetPersonalData } = useActions();
 
     return (
-        <div className={classNames('order-details-table', className)}>
-            <div className="order-details-table__item">
-                <div className="order-details-table__item-title">{OrderDetailsTableTitle.Order}:</div>
+        <div className={classNames(mainClass, className)}>
+            <div className={`${mainClass}__item`}>
+                <div className={`${mainClass}__item-title`}>{OrderDetailsTableTitle.Order}:</div>
                 <p>№RU{formatDate(date)}</p>
                 <p>от <time dateTime={formatDateTime(date)}>{date}</time></p>
             </div>
 
-            <div className="order-details-table__item">
-                <div className="order-details-table__item-title">{OrderDetailsTableTitle.Receiver}:</div>
+            <div className={`${mainClass}__item`}>
+                <div className={`${mainClass}__item-title`}>{OrderDetailsTableTitle.Receiver}:</div>
                 <p>{NAME} {SURNAME}</p>
                 <p>{PHONE}</p>
                 <p>{EMAIL}</p>
                 <p>г.{CITY}</p>
             </div>
 
-            <div className="order-details-table__item">
-                <div className="order-details-table__item-title">{OrderDetailsTableTitle.Delivery}:</div>
+            <div className={`${mainClass}__item`}>
+                <div className={`${mainClass}__item-title`}>{OrderDetailsTableTitle.Delivery}:</div>
                 <p>{delivery}</p>
             </div>
 
-            <div className="order-details-table__item">
-                <div className="order-details-table__item-title">{OrderDetailsTableTitle.Payment}:</div>
+            <div className={`${mainClass}__item`}>
+                <div className={`${mainClass}__item-title`}>{OrderDetailsTableTitle.Payment}:</div>
                 <p>{payment}</p>
             </div>
 
-            <div className="order-details-table__item">
-                <div className="order-details-table__item-wrap">
-                    <div className="order-details-table__item-title">
+            <div className={`${mainClass}__item`}>
+                <div className={`${mainClass}__item-wrap`}>
+                    <div className={`${mainClass}__item-title`}>
                         {OrderDetailsTableTitle.Total}:
                         <span>{totalPrice} ₽</span>
                     </div>
@@ -62,13 +61,13 @@ const OrderDetailsTable = ({ totalPrice, date, personalData, delivery, payment, 
                 </div>
 
                 {`/${url.split('/')[1]}` === SubPages.Orders.path &&
-                    <Link to="/pay" className="button order-details-table__btn">Оплатить</Link>
+                    <Link to="/pay" className={`button ${mainClass}__btn`}>Оплатить</Link>
                 }
             </div>
 
             {url === Pages.OrderSuccess.path &&
-                <div className="order-details-table__item">
-                    <Link onClick={() => resetPersonalData()} to={SubPages.Orders.path} className="button order-details-table__btn">Оплатить</Link>
+                <div className={`${mainClass}__item`}>
+                    <Link onClick={() => resetPersonalData()} to={SubPages.Orders.path} className={`button ${mainClass}__btn`}>Оплатить</Link>
                 </div>
             }
         </div>

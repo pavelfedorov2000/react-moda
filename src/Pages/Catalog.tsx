@@ -1,13 +1,18 @@
 import { useState } from 'react';
-import { PromoCollection, AsideFilters, CatalogFilters, CatalogView, CatalogCard, SeoText, Loader, FiltersButton, ProductPopup } from '../Components';
+import { PromoCollection, AsideFilters, CatalogFilters, CatalogView, CatalogCard, SeoText, Loader, FiltersButton, ProductPopup, CatalogList } from '../components';
 import classNames from 'classnames';
 import { useEffect } from 'react';
 import { CatalogViewOption, CatalogViews } from '../enums/CatalogView';
 import { useActions } from '../hooks/useActions';
 import { Page } from '../interfaces/Route';
 import { useTypedSelector } from '../hooks/useTypedSelector';
-import PageTop from '../Components/Layout/PageTop';
-import { Crumbs, EmptyBlock } from '../Components/Layout';
+import PageTop from '../components/Layout/PageTop';
+import { Crumbs, EmptyBlock, Overlay } from '../components/Layout';
+import { ClassName } from '../enums/ClassName';
+import { generatePageClassName } from '../utils/generatePageClassName';
+import { fakeArray } from '../utils/fakeArray';
+
+const mainClass = 'catalog';
 
 const Catalog = ({ title, emptyBlock }: Page) => {
     const { products, isLoaded } = useTypedSelector((state) => state.productsReducer);
@@ -27,20 +32,20 @@ const Catalog = ({ title, emptyBlock }: Page) => {
 
     return (
         <>
-            <main className="page catalog">
-                <div className="container">
+            <main className={generatePageClassName(mainClass)}>
+                <div className={ClassName.Container}>
                     <Crumbs title={title} />
 
                     <PromoCollection />
 
-                    <div className="catalog__page">
+                    <div className={`${mainClass}__page`}>
                         <PageTop title={title} />
 
-                        <div className="catalog__inner">
+                        <div className={`${mainClass}__inner`}>
                             <AsideFilters />
 
-                            <div className="catalog__body">
-                                <div className="catalog__filters">
+                            <div className={`${mainClass}__body`}>
+                                <div className={`${mainClass}__filters`}>
                                     <CatalogFilters />
                                     <CatalogView onChange={toggleCatalogView} view={catalogView} />
                                     <FiltersButton />
@@ -50,25 +55,15 @@ const Catalog = ({ title, emptyBlock }: Page) => {
                                     <>
                                         {
                                             isLoaded ?
-                                                <ul className={classNames('catalog-list', {
-                                                    'catalog-list--two-cols': catalogView === CatalogViewOption.COL
-                                                })}>
-                                                    {
-                                                        products.map(product => (
-                                                            <li key={product.id}>
-                                                                <CatalogCard {...product} />
-                                                            </li>
-                                                        ))
-                                                    }
-                                                </ul>
+                                                <CatalogList products={products} catalogView={catalogView} />
                                                 :
                                                 <div className={classNames('catalog-list', {
                                                     'catalog-list--two-cols': catalogView === CatalogViewOption.COL
                                                 })}>
-                                                    {Array(18).fill(0).map((_, index) => <Loader key={index} />)}
+                                                    {fakeArray(18).map((_, index) => <Loader key={index} />)}
                                                 </div>
                                         }
-                                        <SeoText className="catalog__seo-text" />
+                                        <SeoText className={`${mainClass}__seo-text`} />
                                     </>
                                     :
                                     <EmptyBlock {...emptyBlock} />
@@ -79,11 +74,9 @@ const Catalog = ({ title, emptyBlock }: Page) => {
                 </div>
             </main>
 
-            {popupProduct &&
-                <div className="overlay active">
-                    <ProductPopup {...popupProduct} />
-                </div>
-            }
+            <Overlay isActive={popupProduct}>
+                {popupProduct && <ProductPopup {...popupProduct} />}
+            </Overlay>
         </>
     );
 }

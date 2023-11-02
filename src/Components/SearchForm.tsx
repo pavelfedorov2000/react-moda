@@ -1,15 +1,15 @@
 import classNames from 'classnames';
 import search from '../assets/images/icons/search.svg';
+import { WithClassName } from '../types/types';
+import { ClassName } from '../enums/ClassName';
 
-interface Props {
-    isVisible: boolean;
-}
+const mainClass = 'search-form';
 
-const SearchForm = ({ isVisible }: Props) => {
+const SearchForm = ({ className, isVisible }: { isVisible: boolean; } & WithClassName) => {
     return (
-        <form action="#" className="search-form header__search">
-            <input className={classNames('search-form__input', {
-                'active': isVisible
+        <form action="#" className={classNames(mainClass, className)}>
+            <input className={classNames(`${mainClass}__input`, {
+                [ClassName.Active]: isVisible
             })} placeholder="Введите фразу для поиска, например, платье" style={{ backgroundImage: `url(${search})` }} />
         </form>
     );

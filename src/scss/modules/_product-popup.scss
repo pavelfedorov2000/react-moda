@@ -6,7 +6,7 @@
 
 .product-popup {
     //display: none;
-    background-color: #fff;
+    background-color: var(--white);
 
     @media (min-width: 1025px) {
         width: 98.2rem;
@@ -61,11 +61,11 @@
             width: 100vw;
         }
 
-        img {
-            @extend %cover;
-        }
-
         .splide {
+            &__track {
+                height: 100%;
+            }
+            
             &__pagination {
                 @extend %pos-center-x;
                 bottom: 2rem;
@@ -183,7 +183,7 @@
             width: 5.6rem;
             height: 1.6rem;
             fill: var(--dark);
-            transition: $transition fill;
+            transition: var(--transition) fill;
         }
 
         @media (any-hover: hover) {

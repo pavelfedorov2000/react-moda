@@ -1,8 +1,4 @@
-interface Props {
-    onClick: () => void;
-}
-
-const CancelBrandLetter = ({ onClick }: Props) => {
+const CancelBrandLetter = ({ onClick }: { onClick: () => void; }) => {
     return (
         <button onClick={onClick} className="cancel-brand-letter" type="button">
             <span>Отменить</span>

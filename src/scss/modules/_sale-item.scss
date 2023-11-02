@@ -27,12 +27,12 @@
 
     &__discount {
         @extend %text-40;
-        font-weight: 500;
-        text-transform: uppercase;
-        color: #fff;
         position: absolute;
         top: 2.5rem;
         left: 2.5rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: var(--white);
 
         @media (max-width: 500px) {
             top: 1.5rem;

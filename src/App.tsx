@@ -1,24 +1,23 @@
 import classNames from 'classnames';
-import { Auth, DropBasket, BurgerMenu } from './Components';
-import AppRouter from './Components/AppRouter';
-import { Footer, Header } from './Components/Layout';
+import { Auth, DropBasket, BurgerMenu } from './components';
+import AppRouter from './components/AppRouter';
+import { Footer, Header, Overlay } from './components/Layout';
 import { useTypedSelector } from './hooks/useTypedSelector';
+import { ClassName } from './enums/ClassName';
 
 const App = () => {
     const { isAuthVisible, isAsideBasketVisible } = useTypedSelector((state) => state.asidePopupReducer);
 
     return (
-        <div className='wrapper'>
+        <div className={ClassName.Wrapper}>
             <Header />
             <BurgerMenu />
             <AppRouter />
             <Footer />
-            <div className={classNames('overlay', {
-                'active': isAuthVisible || isAsideBasketVisible
-            })}>
+            <Overlay isActive={isAuthVisible || isAsideBasketVisible}>
                 <DropBasket />
                 <Auth />
-            </div>
+            </Overlay>
         </div>
     );
 }

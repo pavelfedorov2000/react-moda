@@ -1,9 +1,11 @@
+import { TitleLevel } from "../../enums/TitleLevel";
 import { Page } from "../../interfaces/Route";
+import { Title } from "../../ui";
 
 const PageTop = ({ title }: Page) => {
     return (
         <div className="page-top">
-            <h1 className="title">{title}</h1>
+            <Title tag={TitleLevel.H1}>{title}</Title>
         </div>
     );
 };

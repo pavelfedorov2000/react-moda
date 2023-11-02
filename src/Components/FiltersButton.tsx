@@ -1,4 +1,5 @@
 import filterIcon from '../assets/images/icons/filter.svg';
+import { PopupId } from '../enums/PopupId';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 
@@ -7,7 +8,7 @@ const FiltersButton = () => {
     const { openFilters } = useActions();
 
     return (
-        <button onClick={openFilters} className="filters-button" aria-expanded={isVisible} aria-controls="filters" type="button" style={{ backgroundImage: `url(${filterIcon})` }}>
+        <button onClick={openFilters} className="filters-button" aria-expanded={isVisible} aria-controls={PopupId.Filters} type="button" style={{ backgroundImage: `url(${filterIcon})` }}>
             Фильтры
         </button>
     );

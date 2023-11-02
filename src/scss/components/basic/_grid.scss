@@ -16,6 +16,12 @@
                 @media (min-width: 1025px) {
                     grid-template-columns: repeat(4, 1fr);
                 }
+
+                .span-2 {
+                    @media (min-width: 768px) {
+                        grid-column: span 2;
+                    }
+                }
             }
         }
     }

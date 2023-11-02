@@ -2,9 +2,9 @@
     @extend %flex-center;
     @extend %text-14;
     background-color: var(--green);
-    color: #fff;
+    color: var(--white);
     text-align: center;
-    transition: $transition all;
+    transition: var(--transition) all;
 
     @media (any-hover: hover) {
         &:hover {
@@ -19,14 +19,14 @@
 
         @media (any-hover: hover) {
             &:hover {
-                color: #fff;
+                color: var(--white);
             }
         }
     }
 
     svg {
         margin-right: var(--offset-xxs);
-        fill: #fff;
+        fill: var(--white);
     }
 
     &--disabled {
@@ -84,7 +84,7 @@
         @media (any-hover: hover) {
             &:hover {
                 background-color: var(--green);
-                color: #fff;
+                color: var(--white);
             }
         }
     }
@@ -105,7 +105,7 @@ a {
     &.button {
         @media (any-hover: hover) {
             &:hover {
-                color: #fff;
+                color: var(--white);
             }
         }
     }
@@ -128,7 +128,7 @@ a {
 }
 
 .scroll-link {
-    transition: $transition color;
+    transition: var(--transition) color;
 
     @media (any-hover: hover) {
         &:hover {
@@ -141,5 +141,5 @@ a {
     color: var(--gray-777);
     text-decoration: underline;
     text-align: left;
-    transition: $transition color;
+    transition: var(--transition) color;
 }

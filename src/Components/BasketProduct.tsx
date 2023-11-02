@@ -5,15 +5,16 @@ import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { CartItem } from '../interfaces/CartItem';
 import { calcOldPrice } from '../utils/oldPrice';
-import Button from './Button';
+import Button from '../ui/Button';
 import Counter from './Counter';
 import ProductList from './ProductList';
+import { WithClassName } from '../types/types';
+import { Image } from '../ui';
+import { Pages } from '../enums/Page';
 
-interface Props extends CartItem {
-    className?: string;
-}
+const mainClass = 'basket-product';
 
-const BasketProduct = ({ className, id, articul, name, brand, sizes, price, imageUrl, color, style, discount, newProduct, totalCount, totalPrice, totalDiscount }: Props) => {
+const BasketProduct = ({ className, id, articul, name, brand, sizes, price, imageUrl, color, style, discount, newProduct, totalCount, totalPrice, totalDiscount }: CartItem & WithClassName) => {
     const { products } = useTypedSelector((state) => state.favoriteReducer);
     const { plusProduct, minusProduct, removeCartProduct, addFavoriteProduct, removeFavoriteProduct } = useActions();
     const { isAsideBasketVisible } = useTypedSelector((state) => state.asidePopupReducer);
@@ -45,28 +46,27 @@ const BasketProduct = ({ className, id, articul, name, brand, sizes, price, imag
     }
 
     return (
-        <article className={classNames('basket-product', className)}>
-            <Link to={`/product-card/${id}`} className="basket-product__img">
-                <img src={imageUrl} alt="фото" />
+        <article className={classNames(mainClass, className)}>
+            <Link to={`/product-card/${id}`} className={`${mainClass}__img`}>
+                <Image src={imageUrl} width={105} height={146} cover />
             </Link>
 
             <Link to={`/product-card/${id}`} className="product-title basket-product__title">{name} {brand}</Link>
 
-            <ProductList className="basket-product__list" articul={articul} color={color} size={sizes[0]} />
+            <ProductList className={`${mainClass}__list`} articul={articul} color={color} size={sizes[0]} />
 
-            <div className="basket-product__buttons">
+            <div className={`${mainClass}__buttons`}>
                 <Button onClick={handleRemoveCartProduct} className="basket-product__btn basket-product__btn--delete" transparent remove icon />
 
                 {!isAsideBasketVisible && <Button onClick={isFavorite ? handleRemoveFavoriteProduct : handleAddFavorite} isFavoriteProduct={isFavorite} className="basket-product__btn basket-product__btn--favorite" transparent favorite icon />}
             </div>
 
-            <Counter className="basket-product__counter" value={totalCount} onMinus={() => minusProduct(id)} onPlus={() => plusProduct(id)} />
+            <Counter className={`${mainClass}__counter`} value={totalCount} onMinus={() => minusProduct(id)} onPlus={() => plusProduct(id)} />
 
-            <div className="basket-product__prices">
-                <div className="basket-product__prices-wrap">
+            <div className={`${mainClass}__prices`}>
+                <div className={`${mainClass}__prices-wrap`}>
                     {discount && discount !== 0 ?
-                        <div className="old-price basket-product__old-price">{calcOldPrice(discount, price)} ₽</div>
-                        : null
+                        <div className="old-price basket-product__old-price">{calcOldPrice(discount, price)} ₽</div> : null
                     }
 
                     <div className={classNames({
@@ -76,11 +76,14 @@ const BasketProduct = ({ className, id, articul, name, brand, sizes, price, imag
                 </div>
 
                 {!isAsideBasketVisible && discount && discount !== 0 ?
-                    <div className="basket-product__discount">
-                        <div className="basket-product__discount-percent">Сумма скидки {discount}%</div>
-                        <div className="basket-product__discount-sum">({totalDiscount} ₽)</div>
-                    </div>
-                    : null
+                    <div className={`${mainClass}__discount`}>
+                        <div className={`${mainClass}__discount-percent`}>
+                            Сумма скидки {discount}%
+                        </div>
+                        <div className={`${mainClass}__discount-sum`}>
+                            ({totalDiscount} ₽)
+                        </div>
+                    </div> : null
                 }
             </div>
         </article>

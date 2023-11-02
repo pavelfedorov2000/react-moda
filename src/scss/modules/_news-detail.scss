@@ -1,4 +1,6 @@
-.news-detail {
+$name: 'news-detail';
+
+.#{$name} {
     padding-bottom: 9.6rem;
 
     @media (max-width: 1024px) {

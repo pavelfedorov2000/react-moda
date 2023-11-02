@@ -1,15 +1,18 @@
 import { useState } from 'react';
 import { InputType } from '../../enums/InputType';
+import Button from '../../ui/Button';
+import { ButtonType } from '../../enums/ButtonType';
 
 const PasswordRecovery = () => {
     const [email, setEmail] = useState('');
-    const onChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setEmail(e.target.value);
+    const onChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setEmail(event.target.value);
     }
 
     const [success, setSuccess] = useState(false);
-    const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
-        e.preventDefault();
+    const handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        
         setSuccess(true);
         setTimeout(() => {
             setEmail('');
@@ -22,7 +25,7 @@ const PasswordRecovery = () => {
             <div className="aside-popup__form-inputs">
                 <input onInput={onChangeEmail} className="input aside-popup__form-input" type={InputType.Email} placeholder="Введите e-mail" value={email} />
             </div>
-            <button className="button aside-popup__form-btn" type="submit" disabled={email === ''}>Отправить</button>
+            <Button className="aside-popup__form-btn" text="Отправить" type={ButtonType.Submit} isDisabled={email === ''} />
 
             {success &&
                 <p className="form-success aside-popup__form-success">

@@ -2,10 +2,12 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useRouteMatch } from 'react-router-dom';
-import { OtherNews, NewsDetail } from '../Components';
-import { Crumbs } from '../Components/Layout';
+import { OtherNews } from '../components';
+import { Container, Crumbs } from '../components/Layout';
 import { Pages } from '../enums/Page';
 import { NewsItem } from '../interfaces/NewsItem';
+import { ClassName } from '../enums/ClassName';
+import { NewsDetail } from '../modules';
 
 const DetailNews = () => {
     const { id } = useParams();
@@ -23,18 +25,17 @@ const DetailNews = () => {
     const otherNews: NewsItem[] = news.filter((news) => news.id !== id);
 
     return (
-        <div className="container">
+        <>
             <main>
                 {activeNews &&
-                    <>
+                    <Container>
                         <Crumbs title={activeNews.title} id={id} url={url.split('/')[1]} />
-
                         <NewsDetail {...activeNews} />
-                    </>
+                    </Container>
                 }
             </main>
             <OtherNews items={otherNews} title="Другие новости и акции" />
-        </div>
+        </>
     );
 }
 

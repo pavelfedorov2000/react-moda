@@ -5,56 +5,66 @@ import { DropBasketText } from '../enums/DropBasketText';
 import { Pages } from '../enums/Page';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
+import { ClassName } from '../enums/ClassName';
+import { PopupId } from '../enums/PopupId';
+import { useMemo } from 'react';
+
+const mainClass = PopupId.DropBasket;
+const popupClass = `${ClassName.AsidePopup} ${mainClass} ${ClassName.AsidePopup}--${mainClass.split('-')[1]}`;
 
 const DropBasket = () => {
     const { totalPrice, totalCount, items } = useTypedSelector((state) => state.cartReducer);
     const { isAsideBasketVisible } = useTypedSelector((state) => state.asidePopupReducer);
     const { closeAsideBasket } = useActions();
 
-    const basketProducts = Object.keys(items).map(key => {
+    const basketProducts = Object.keys(items).map((key) => {
         return items[key].items[0];
     });
 
     const handleClose = () => {
-        document.body.classList.remove('_lock');
+        document.body.classList.remove(ClassName.Lock);
         closeAsideBasket();
     }
 
+    const buttonHref = useMemo(() => {
+        return totalCount === 0 ? Pages.Catalog.path : Pages.Cart.path
+    }, [totalCount]);
+
     return (
-        <div id="drop-basket" className={classNames('aside-popup drop-basket aside-popup--basket', {
-            'active': isAsideBasketVisible
+        <div id={PopupId.DropBasket} className={classNames(popupClass, {
+            [ClassName.Active]: isAsideBasketVisible
         })}>
             <AsidePopupClose onClick={closeAsideBasket} ariaLabel="Закрыть корзину быстрого просмотра" />
 
-            <div className="drop-basket__body">
-                <div className="drop-basket__inner">
-                    <div className="aside-popup__title">{Pages.Cart.title}</div>
+            <div className={`${mainClass}__body`}>
+                <div className={`${mainClass}__inner`}>
+                    <div className={`${ClassName.AsidePopup}__title`}>{Pages.Cart.title}</div>
 
                     {totalCount === 0 ?
-                        <div className="drop-basket__empty">
+                        <div className={`${mainClass}__empty`}>
                             {DropBasketText.Empty}
                         </div>
                         :
                         <>
-                            <ul className="drop-basket__products">
+                            <ul className={`${mainClass}__products`}>
                                 {basketProducts.map((product) => (
                                     <li key={product.id}>
-                                        <BasketProduct {...product} className="drop-basket__product" totalPrice={items[product.id].totalPrice} totalCount={items[product.id].items.length} />
+                                        <BasketProduct {...product} className={`${PopupId}__product`} totalPrice={items[product.id].totalPrice} totalCount={items[product.id].items.length} />
                                     </li>
                                 ))}
                             </ul>
 
-                            <div className="drop-basket__total">
-                                <div className="drop-basket__total-title">
+                            <div className={`${mainClass}__total`}>
+                                <div className={`${mainClass}__total-title`}>
                                     {DropBasketText.TotalSum}
                                 </div>
-                                <div className="drop-basket__total-sum">{totalPrice} ₽</div>
+                                <div className={`${mainClass}__total-sum`}>{totalPrice} ₽</div>
                             </div>
                         </>
                     }
                 </div>
 
-                <Link onClick={handleClose} className="drop-basket__btn button" to={`${totalCount === 0 ? '/' : Pages.Cart.path}`}>
+                <Link onClick={handleClose} className={`${ClassName.Button} ${mainClass}__btn`} to={buttonHref}>
                     {totalCount === 0 ? DropBasketText.ContinueBuy : DropBasketText.Checkout}
                     <svg viewBox="0 0 56 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path clipRule="evenodd" fillRule="evenodd"

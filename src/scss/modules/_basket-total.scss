@@ -26,7 +26,7 @@
     &__auth-btn {
         @extend %text-14;
         font-weight: 600;
-        transition: $transition color;
+        transition: var(--transition) color;
 
         @media (any-hover: hover) {
             &:hover {

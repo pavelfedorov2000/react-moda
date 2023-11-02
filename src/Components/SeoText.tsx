@@ -1,10 +1,7 @@
 import classNames from 'classnames';
+import { WithClassName } from '../types/types';
 
-interface Props {
-    className?: string;
-}
-
-const SeoText = ({ className }: Props) => {
+const SeoText = ({ className }: WithClassName) => {
     return (
         <aside className={classNames('seo-text', className)}>
             <p>

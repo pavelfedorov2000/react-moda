@@ -12,7 +12,7 @@
             width: 1rem;
 
             line {
-                transition: $transition stroke;
+                transition: var(--transition) stroke;
             }
         }
 

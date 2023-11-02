@@ -2,14 +2,18 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { AsideBlog, BlogText } from '../Components';
-import { Crumbs } from '../Components/Layout';
-import PageTop from '../Components/Layout/PageTop';
+import { Crumbs } from '../components/Layout';
+import PageTop from '../components/Layout/PageTop';
 import { Pages } from '../enums/Page';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { BlogItem } from '../interfaces/BlogItem';
 import { NewsItem } from '../interfaces/NewsItem';
+import { generatePageClassName } from '../utils/generatePageClassName';
+import { ClassName } from '../enums/ClassName';
+import { AsideBlog, BlogText } from '../modules';
+
+const mainClass = 'blog-text';
 
 const BlogDetail = () => {
     const { id } = useParams();
@@ -33,14 +37,14 @@ const BlogDetail = () => {
     const asideNews = news.filter((news) => news.id !== id).splice(0, 4);
 
     return (
-        <main className="page blog-text">
+        <main className={generatePageClassName(mainClass)}>
             {activeBlog &&
-                <div className="container">
+                <div className={ClassName.Container}>
                     <Crumbs title={activeBlog.title} id={id} url={url.split('/')[1]} />
 
                     <PageTop title={activeBlog.title} />
 
-                    <div className="blog-text__inner">
+                    <div className={`${mainClass}__inner`}>
                         <BlogText {...activeBlog} />
                         <AsideBlog items={asideNews} />
                     </div>

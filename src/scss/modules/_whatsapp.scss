@@ -1,4 +1,6 @@
-.whatsapp {
+$name: 'whatsapp';
+
+.#{$name} {
     @extend .action-header;
     color: #4caf50;
 

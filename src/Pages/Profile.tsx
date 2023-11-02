@@ -1,15 +1,14 @@
 import { useRouteMatch, useParams } from 'react-router-dom';
-import { SmallPopup } from '../Components';
-import { Crumbs, PageNav } from '../Components/Layout';
+import { SmallPopup } from '../components';
+import { Crumbs, PageNav } from '../components/Layout';
 import { Pages } from '../enums/Page';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { Page } from '../interfaces/Route';
+import { ClassName } from '../enums/ClassName';
 
-interface Props extends Page {
-    SubPage: any;
-}
+const mainClass = 'profile-page';
 
-const Profile = ({ title, emptyBlock, SubPage }: Props) => {
+const Profile = ({ title, emptyBlock, SubPage }: Page & { SubPage: any; }) => {
     const { index } = useParams();
     const { url } = useRouteMatch();
 
@@ -17,21 +16,21 @@ const Profile = ({ title, emptyBlock, SubPage }: Props) => {
 
     return (
         <>
-            <main className="page profile-page">
-                <div className="container">
+            <main className={`${ClassName.Page} ${mainClass}`}>
+                <div className={ClassName.Container}>
                     <Crumbs title={title} id={index} url={url.split('/')[1]} />
 
                     <div className="page-top">
                         <div className="title">{Pages.Profile.title}</div>
                     </div>
 
-                    <div className="profile-page__inner">
+                    <div className={`${mainClass}__inner`}>
                         <PageNav />
 
-                        <div className="profile-page__body">
+                        <div className={`${mainClass}__body`}>
 
                             {!index &&
-                                <h1 className="profile-page__title">
+                                <h1 className={`${mainClass}__title`}>
                                     {title}
                                 </h1>
                             }

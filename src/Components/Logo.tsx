@@ -1,18 +1,24 @@
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import logo from '../assets/images/logo/logo.svg';
+import { WithClassName } from '../types/types';
 
 interface Props {
-    className?: string;
-    width: string | number;
-    height: string | number;
+    width: number;
+    height: number;
 }
 
-const Logo = ({ className, width, height }: Props) => {
+const mainClass = 'logo';
+
+const Logo = ({ className, width, height }: Props & WithClassName) => {
     return (
-        <div className={classNames('logo', className && `${className}__logo`)}>
-            <Link to="/" className="logo__link">
-                <img className={classNames('logo__img', className && `${className}__logo-img`)} src={logo} alt="Логотип City Moda" width={width} height={height} />
+        <div className={classNames(mainClass, {
+            [`${className}__${mainClass}`]: className
+        })}>
+            <Link to="/" className={`${mainClass}__link`}>
+                <img className={classNames(`${mainClass}__img`, {
+                    [`${className}__${mainClass}-img`]: className
+                })} src={logo} alt="Логотип City Moda" width={width} height={height} />
             </Link>
         </div>
     );

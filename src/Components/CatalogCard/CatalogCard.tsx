@@ -8,8 +8,13 @@ import { CatalogItem } from '../../interfaces/CatalogItem';
 import { SIZES } from '../../constants/sizes';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useActions } from '../../hooks/useActions';
-import { FavoriteAriaLabel } from '../../enums/FavoriteAriaLabel';
 import Labels from '../Labels';
+import { FavoriteAction } from '../../enums/FavoriteAriaLabel';
+import { Pages } from '../../enums/Page';
+import { Image } from '../../ui';
+import { ClassName } from '../../enums/ClassName';
+
+const mainClass = 'catalog-card';
 
 const CatalogCard = ({ id, articul, name, brand, imageUrl, price, color, sizes, style, discount, newProduct }: CatalogItem) => {
     const { products } = useTypedSelector((state) => state.favoriteReducer);
@@ -40,6 +45,7 @@ const CatalogCard = ({ id, articul, name, brand, imageUrl, price, color, sizes, 
     }, []);
 
     const handleOpenPopup = () => {
+        //document.body.classList.add(ClassName.Lock);
         openProductPopup({
             id,
             articul,
@@ -56,33 +62,33 @@ const CatalogCard = ({ id, articul, name, brand, imageUrl, price, color, sizes, 
     }
 
     return (
-        <article className="catalog-card">
+        <article className={mainClass}>
             <Labels discount={discount} isNew={newProduct} />
 
             {isFavorite ?
-                <button onClick={handleRemoveFavorite} className="catalog-card__favorite" type="button" aria-label={FavoriteAriaLabel.Add} style={{ backgroundImage: `url(${heartFilled})` }}></button> :
-                <button onClick={handleAddFavorite} className="catalog-card__favorite" type="button" aria-label={FavoriteAriaLabel.Remove} style={{ backgroundImage: `url(${heart})` }}></button>
+                <button onClick={handleRemoveFavorite} className={`${mainClass}__favorite`} type="button" aria-label={FavoriteAction.Add} style={{ backgroundImage: `url(${heartFilled})` }}></button> :
+                <button onClick={handleAddFavorite} className={`${mainClass}__favorite`} type="button" aria-label={FavoriteAction.Remove} style={{ backgroundImage: `url(${heart})` }}></button>
             }
 
-            <div className="catalog-card__img">
-                <img src={imageUrl} alt={`${name} ${brand}`} width="336" height="448" />
+            <div className={`${mainClass}__img`}>
+                <Image src={imageUrl} alt={`${name} ${brand}`} width={336} height={448} cover />
 
-                <div className="catalog-card__info">
-                    <div className="catalog-card__sizes">
+                <div className={`${mainClass}__info`}>
+                    <div className={`${mainClass}__sizes`}>
                         {sizes && SIZES.map(size => (
-                            <span key={size} className={classNames('catalog-card__size', {
-                                'catalog-card__size--disabled': !SIZES.includes(sizes[sizes.indexOf(size)])
+                            <span key={size} className={classNames(`${mainClass}__size`, {
+                                [`${mainClass}__size--disabled`]: !SIZES.includes(sizes[sizes.indexOf(size)])
                             })}>{size}</span>
                         ))}
                     </div>
 
-                    <button onClick={handleOpenPopup} className="catalog-card__info-link popup-link" type="button">Быстрый просмотр</button>
+                    <button onClick={handleOpenPopup} className={`popup-link ${mainClass}__info-link`} type="button">Быстрый просмотр</button>
                 </div>
             </div>
 
-            <Link to={`/product-card/${id}`} className="catalog-card__title">{name}</Link>
+            <Link to={`/product-card/${id}`} className={`${mainClass}__title`}>{name}</Link>
 
-            <div className="catalog-card__subtitle">{brand}</div>
+            <div className={`${mainClass}__subtitle`}>{brand}</div>
 
             <Prices price={price} discount={discount} />
         </article>

@@ -1,8 +1,12 @@
 import { useEffect } from 'react';
-import { PromoCollection, Brands, Actual, PromoSale, IconsSlider, SliderSection, Instagram, SeoText, BlogSection, ProductPopup } from '../Components';
+import { PromoCollection, SeoText, ProductPopup, CatalogCard } from '../components';
 import { Sections } from '../enums/Section';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
+import { ClassName } from '../enums/ClassName';
+import { Section, Slider } from '../components/Layout';
+import { Actual, BlogSection, IconsSlider, PromoSale, Brands } from '../modules';
+import { Instagram } from 'react-content-loader';
 
 const Home = () => {
     const { products } = useTypedSelector((state) => state.productsReducer);
@@ -18,25 +22,29 @@ const Home = () => {
 
     useEffect(() => {
         fetchProducts(sortBy, sortPrices, sortColors, sortSizes, sortBrands, sortStyles);
-    }, [sortBy, sortPrices, sortColors, sortBrands, sortStyles, sortSizes]);
+    }, []);
 
     return (
         <>
-            <main className="page page--padding-bottom_xs">
-                <div className="container">
+            <main className={`${ClassName.Page} ${ClassName.Page}--padding-bottom_xs`}>
+                <div className={ClassName.Container}>
                     <PromoSale />
 
                     <IconsSlider />
 
-                    <SliderSection items={products} title={Sections.Popular.title} />
+                    <Section isSlider>
+                        <Slider className={ClassName.Section} isSliderSection ariaLabel={Sections.Popular.title} slides={products} item={CatalogCard} />
+                    </Section>
 
                     <Actual />
 
                     <Brands />
 
-                    <SliderSection items={products.filter((product) => product.newProduct)} title={Sections.New.title} />
+                    <Section isSlider>
+                        <Slider className={ClassName.Section} isSliderSection ariaLabel={Sections.New.title} slides={products.filter((product) => product.newProduct)} item={CatalogCard} />
+                    </Section>
 
-                    <div className="section">
+                    <div className={ClassName.Section}>
                         <PromoCollection />
                     </div>
 

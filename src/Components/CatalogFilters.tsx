@@ -5,6 +5,10 @@ import { Filter, FILTERS } from '../enums/Filter';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import CatalogFilter from './CatalogFilter';
+import { ClassName } from '../enums/ClassName';
+import { PopupId } from '../enums/PopupId';
+
+const mainClass = 'catalog-filters';
 
 const CatalogFilters = () => {
     const { isVisible } = useTypedSelector((state) => state.filtersReducer);
@@ -13,12 +17,12 @@ const CatalogFilters = () => {
     const [activeFilter, setActiveFilter] = useState(FILTERS_TITLE);
 
     return (
-        <form id="filters" action="#" className={classNames('catalog-filters', {
-            'active': isVisible
+        <form id={PopupId.Filters} action="#" className={classNames(mainClass, {
+            [ClassName.Active]: isVisible
         })}>
-            <div className="catalog-filters__header">
+            <div className={`${mainClass}__header`}>
                 {activeFilter !== FILTERS_TITLE &&
-                    <button className="catalog-filters__back-btn" type="button" aria-label="Назад">
+                    <button className={`${mainClass}__back-btn`} type="button" aria-label="Назад">
                         <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" clipRule="evenodd"
                                 d="M12.8572 14.1072L8.57146 9.28578L12.8572 4.46436L11.4286 2.85721L5.71432 9.28578L11.4286 15.7144L12.8572 14.1072Z" />
@@ -26,9 +30,9 @@ const CatalogFilters = () => {
                     </button>
                 }
 
-                <div className="catalog-filters__title">{activeFilter}</div>
+                <div className={`${mainClass}__title`}>{activeFilter}</div>
 
-                <button onClick={closeFilters} className="catalog-filters__close" type="button" aria-label="Закрыть фильтры">
+                <button onClick={closeFilters} className={`${mainClass}__close`} type="button" aria-label="Закрыть фильтры">
                     <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <line x1="2.64645" y1="16.6464" x2="16.7886" y2="2.50431" stroke="black" />
                         <line x1="3.35355" y1="2.64645" x2="17.4957" y2="16.7886" stroke="black" />
@@ -36,7 +40,7 @@ const CatalogFilters = () => {
                 </button>
             </div>
 
-            <div className="catalog-filters__row">
+            <div className={`${mainClass}__row`}>
                 <CatalogFilter name={Filter.Sort} {...FILTERS.sort} />
                 <CatalogFilter name={Filter.Brand} {...FILTERS.brand} onSelect={setSortBrands} onReset={resetSortBrands} />
                 <CatalogFilter name={Filter.Color} {...FILTERS.color} onSelect={setSortColors} onReset={resetSortColors} />
@@ -45,7 +49,7 @@ const CatalogFilters = () => {
                 <CatalogFilter name={Filter.Style} {...FILTERS.style} onSelect={setSortStyles} onReset={resetSortStyles} />
             </div>
 
-            <button onClick={resetFilters} className="catalog-filters__reset-btn" type="reset">
+            <button onClick={resetFilters} className={`${mainClass}__reset-btn`} type="reset">
                 <span>Очистить все</span>
                 <svg className="icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path fillRule="evenodd"

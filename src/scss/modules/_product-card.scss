@@ -253,7 +253,7 @@
             width: 0%;
             height: 0.2rem;
             background-color: var(--dark);
-            transition: $transition width;
+            transition: var(--transition) width;
         }
 
         &.tab--active {

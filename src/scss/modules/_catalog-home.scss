@@ -1,5 +1,4 @@
 .catalog-home {
-
     padding-top: 1.5rem;
     // .catalog-home__grid
 
@@ -58,17 +57,17 @@
     // .catalog-home-card__title
 
     &__title {
+        @extend %flex-center;
+        @extend %text-25;
         position: absolute;
         bottom: 0;
         left: 0;
         right: 0;
-        background-color: rgba($dark, .6);
+        background-color: var(--dark-opacity-60);
         padding: 0 2.4rem;
-        @extend %flex-center;
         text-align: center;
-        @extend %text-25;
         font-weight: 500;
-        color: #fff;
+        color: var(--white);
         height: 8.6rem;
         transition: .5s height;
 
@@ -77,9 +76,5 @@
             font-size: 2rem;
             line-height: 3rem;
         }
-    }
-
-    &__img {
-        @extend %cover;
     }
 }

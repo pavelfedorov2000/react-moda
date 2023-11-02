@@ -3,14 +3,19 @@ import { useCallback } from 'react';
 import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { Product } from '../../interfaces/CatalogItem';
-import Button from '../Button';
+import Button from '../../ui/Button';
 import Prices from '../Prices';
 import ProductCardDelivery from './ProductCardDelivery';
 import ProductColors from '../ProductColors';
 import ProductSizes from '../ProductSizes';
 import Labels from '../Labels';
+import { Image, Title } from '../../ui';
+import { TitleLevel } from '../../enums/TitleLevel';
 
-const ProductCardContent = ({ id, articul, name, brand, logo, sizes, color, imageUrl, style, price, discount, newProduct }: Product) => {
+const mainClass = 'product-card';
+const formClass = `${mainClass}-form`;
+
+const ProductCardContent = ({ mainClass, id, articul, name, brand, logo, sizes, color, imageUrl, style, price, discount, newProduct }: Product & { mainClass: string; }) => {
     const { items } = useTypedSelector((state) => state.cartReducer);
     const { products } = useTypedSelector((state) => state.favoriteReducer);
     const { addFavoriteProduct, removeFavoriteProduct, addProductToCart } = useActions();
@@ -55,23 +60,23 @@ const ProductCardContent = ({ id, articul, name, brand, logo, sizes, color, imag
     }, []);
 
     return (
-        <div className="product-card__content">
-            <div className="product-card__top-wrap">
-                <h1 className="product-card__title">
+        <div className={`${mainClass}__content`}>
+            <div className={`${mainClass}__top-wrap`}>
+                <Title tag={TitleLevel.H1} className={`${mainClass}__title`}>
                     {name} {brand}
-                </h1>
+                </Title>
 
-                <img className="product-card__logo" src={brand === 'Loriata' || !logo ? loriata : logo} alt={`логотип ${brand}`} width="76" height="38" />
+                <Image className={`${mainClass}__logo`} src={brand === 'Loriata' || !logo ? loriata : logo} alt={`логотип ${brand}`} width={76} height={38} />
             </div>
 
-            <div className="product-card__prices-wrap">
-                <Prices price={price} discount={discount} className="product-card__prices" />
+            <div className={`${mainClass}__prices-wrap`}>
+                <Prices price={price} discount={discount} className={`${mainClass}__prices`} />
 
                 <Labels discount={discount} isNew={newProduct} />
             </div>
 
-            <section className="product-card__section">
-                <h4 className="product-card__section-title">О товаре</h4>
+            <section className={`${mainClass}__section`}>
+                <h4 className={`${mainClass}__section-title`}>О товаре</h4>
                 <p>
                     Пальто на запах выполнено из мягкого шерстяного драпа. Модель приталенного кроя дополнена
                     поясом в тон.
@@ -80,16 +85,16 @@ const ProductCardContent = ({ id, articul, name, brand, logo, sizes, color, imag
                 <button className="scroll-link" data-link="details" type="button">Подробнее</button>
             </section>
 
-            <ProductCardDelivery />
+            <ProductCardDelivery mainClass={mainClass} />
 
-            <form action="#" className="product-card-form">
+            <form action="#" className={formClass}>
                 <ProductColors />
 
                 <ProductSizes sizes={sizes} />
 
-                <div className="product-card-form__buttons">
-                    <Button onClick={handleAddProductToCart} isBasketProduct={isInBasket} className="product-card-form__btn product-cart-btn" icon cart />
-                    <Button onClick={isFavorite ? handleRemoveFavoriteProduct : handleAddFavorite} isFavoriteProduct={isFavorite} className="product-card-form__btn product-favorite-btn" border favorite icon />
+                <div className={`${formClass}__buttons`}>
+                    <Button onClick={handleAddProductToCart} isBasketProduct={isInBasket} className={`${formClass}__btn product-cart-btn`} icon cart />
+                    <Button onClick={isFavorite ? handleRemoveFavoriteProduct : handleAddFavorite} isFavoriteProduct={isFavorite} className={`${formClass}__btn product-favorite-btn`} border favorite icon />
                 </div>
             </form>
         </div>

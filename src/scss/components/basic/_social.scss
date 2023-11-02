@@ -8,12 +8,12 @@
         svg {
             width: 2.6rem;
             height: 2.6rem;
-            fill: #fff;
-            transition: $transition fill;
+            fill: var(--white);
+            transition: var(--transition) fill;
 
             rect {
                 fill: var(--dark);
-                transition: $transition fill;
+                transition: var(--transition) fill;
             }
         }
 

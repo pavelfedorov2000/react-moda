@@ -5,6 +5,7 @@ import { Product } from '../../interfaces/CatalogItem';
 import { Sort } from '../../interfaces/Sort';
 import { ActionType } from '../actionsList';
 import { ProductsAction } from '../types/products';
+import { FetchFilter } from '../../enums/FetchFilter';
 
 export const setLoaded = (payload: boolean) => ({
     type: ActionType.SetLoaded,
@@ -22,15 +23,13 @@ export const fetchProducts = (sortBy: Sort, sortPrices: number[] | string[], sor
             if (sortBy.type === SortFilterType.NewProduct) {
                 return `&${SortFilterType.NewProduct}=true`;
             } else if (sortBy.type === SortFilterType.Discount) {
-                return `&_sort=${sortBy.type}&${sortBy.type}_ne=0`;
+                return `&${FetchFilter.Sort}=${sortBy.type}&${sortBy.type}_ne=0`;
             } else {
-                return `&_sort=${sortBy.type}`;
+                return `&${FetchFilter.Sort}=${sortBy.type}`;
             }
         }
 
-        const responseUrl = `/products?${sortColors.map((color: string) => `color=${color}`).join('&')}${sortSizes.map((size: number) => `q=${size}`).join('&')}${sortBrands.map((brand: string) => `brand=${brand}`).join('&')}${sortStyles.map((style: string) => `style=${style}`).join('&')}&price_gte=${sortPrices[0]}&price_lte=${sortPrices[1]}${sortByGenerate()}&_order=${sortBy.order}`;
-
-        console.log(responseUrl);
+        const responseUrl = `/products?${sortColors.map((color: string) => `color=${color}`).join('&')}${sortSizes.map((size: number) => `q=${size}`).join('&')}${sortBrands.map((brand: string) => `brand=${brand}`).join('&')}${sortStyles.map((style: string) => `style=${style}`).join('&')}&price${FetchFilter.GreaterThen}=${sortPrices[0]}&price${FetchFilter.LessThen}=${sortPrices[1]}${sortByGenerate()}&${FetchFilter.Order}=${sortBy.order}`;
             
         const response = await axios.get(responseUrl);
         dispatch({

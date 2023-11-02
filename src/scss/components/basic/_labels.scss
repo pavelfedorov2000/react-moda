@@ -8,7 +8,7 @@
     @extend %flex-center;
     @extend %text-14;
     font-weight: 600;
-    color: #fff;
+    color: var(--white);
     width: 4.5rem;
     height: 4.5rem;
     border-radius: 50%;

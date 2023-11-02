@@ -3,8 +3,8 @@
     width: 8rem;
     height: 8rem;
     border-radius: 50%;
-    border: 0.1rem solid rgba(#fff, 0.7);
-    transition: $transition background-color;
+    border: 0.1rem solid var(--white-opacity-70);
+    transition: var(--transition) background-color;
 
     &::before {
         @extend %pos-center-y;
@@ -12,14 +12,14 @@
         left: calc(50% - 2.1rem / 2);
         width: 2.1rem;
         height: 2.4rem;
-        background-color: #fff;
+        background-color: var(--white);
         clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-        transition: $transition background-color;
+        transition: var(--transition) background-color;
     }
 
     @media (any-hover: hover) {
         &:hover {
-            background-color: #fff;
+            background-color: var(--white);
 
             &::before {
                 background-color: var(--dark);

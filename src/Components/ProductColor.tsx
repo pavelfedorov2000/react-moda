@@ -1,14 +1,10 @@
 import { useState } from 'react';
 import { ProductColor as ProductColorType } from '../interfaces/ProductColor';
 
-interface Props extends ProductColorType {
-    index: number;
-}
-
-const ProductColor = ({ hex, index }: Props) => {
+const ProductColor = ({ hex, index }: ProductColorType & { index: number; }) => {
     const [checkedColor, setCheckedColor] = useState(false);
     const onCheckColor = () => {
-        setCheckedColor(!checkedColor);
+        setCheckedColor((checked) => !checked);
     }
 
     return (

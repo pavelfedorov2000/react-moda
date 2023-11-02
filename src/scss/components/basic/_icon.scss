@@ -2,7 +2,7 @@
     flex-shrink: 0;
     width: var(--icon-size);
     height: var(--icon-size);
-    transition: $transition fill;
+    transition: var(--transition) fill;
 
     &--size {
         &_xs {

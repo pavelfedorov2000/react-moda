@@ -1,18 +1,21 @@
 import classNames from "classnames";
+import { ClassName } from "../../enums/ClassName";
 
 interface Props {
-    onClick: (event: any) => void;
+    onClick: (event: React.MouseEvent<HTMLAnchorElement>) => void;
     brand: string | null;
     alphabet: any;
 }
 
+const mainClass = 'brands-index-list';
+
 const BrandsIndexList = ({ onClick, brand, alphabet }: Props) => {
     return (
-        <ul className="brands-index-list">
+        <ul className={mainClass}>
             {Object.keys(alphabet).map((key) => (
                 <li key={key.toString()}>
-                    <a onClick={onClick} href={`#${key}`} className={classNames('brands-index-list__item', {
-                        'active': brand === key
+                    <a onClick={onClick} href={`#${key}`} className={classNames(`${mainClass}__item`, {
+                        [ClassName.Active]: brand === key
                     })}>{key}</a>
                 </li>
             ))}

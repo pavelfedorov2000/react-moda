@@ -1,12 +1,9 @@
 import { PHONE } from '../constants/phone';
+import { WithClassName } from '../types/types';
 import { formatPhone } from '../utils/formatPhone';
 import { PhoneIcon } from './HeaderActions/icons';
 
-interface Props {
-    className?: string;
-}
-
-const Phone = ({ className }: Props) => {
+const Phone = ({ className }: WithClassName) => {
     return (
         <a href={`tel:${formatPhone(PHONE)}`} className={className}>
             <PhoneIcon />

@@ -14,7 +14,7 @@
         position: relative;
         display: inline-block;
         @extend %text-13;
-        transition: $transition color;
+        transition: var(--transition) color;
 
         @media (max-width: 500px) {
             font-size: 1.2rem;

@@ -4,7 +4,6 @@ export { default as Banner } from './Banner';
 export { default as BurgerMenu } from './Burger/BurgerMenu';
 export { default as BurgerButton } from './Burger/BurgerButton';
 
-export { default as Button } from './Button';
 export { default as Tag } from './Tag';
 export { default as BackLink } from './BackLink';
 export { default as AllLink } from './AllLink';
@@ -33,17 +32,11 @@ export { default as SearchForm } from './SearchForm';
 export { default as SaleItem } from './SaleItem';
 export { default as PromoCollection } from './PromoCollection';
 
-export { default as FooterMenu } from './FooterMenu';
-
 export { default as CatalogHomeCard } from './CatalogHomeCard';
 
 // Home page
-export { default as PromoSale } from './PromoSale';
-export { default as IconsSlider } from './IconsSlider';
-export { default as Actual } from './Actual';
-export { default as BlogSection } from './BlogSection';
-export { default as Brands } from './Brands';
-export { default as Instagram } from './Instagram';
+export { default as CategoryItem } from './CategoryItem';
+export { default as BrandsList } from './BrandsList';
 
 export { default as AsideFilters } from './AsideFilters';
 export { default as CatalogFilters } from './CatalogFilters';
@@ -52,7 +45,7 @@ export { default as CatalogDropFilterItem } from './CatalogDropFilterItem';
 export { default as PriceRange } from './PriceRange';
 export { default as FiltersButton } from './FiltersButton';
 export { default as CatalogView } from './CatalogView';
-
+export { default as CatalogList } from './CatalogList';
 export { default as CatalogCard } from './CatalogCard/CatalogCard';
 export { default as Loader } from './CatalogCard/Loader';
 export { default as ProductPopup } from './ProductPopup';
@@ -64,14 +57,12 @@ export { default as ProductList } from './ProductList';
 export { default as BasketTable } from './BasketTable';
 export { default as BasketProduct } from './BasketProduct';
 export { default as BasketTotal } from './BasketTotal';
-export { default as Checkout } from './Checkout';
 
 export { default as ProductColors } from './ProductColors';
 export { default as ProductColor } from './ProductColor';
-export { default as ProductDetailsSection } from './ProductDetailsSection';
+export { default as ProductDetailsSection } from '../modules/ProductDetailsSection';
 export { default as ProductLink } from './ProductLink';
 
-export { default as OrderSuccessTable } from './OrderSuccessTable';
 export { default as OrderDetailsTable } from './OrderDetailsTable';
 export { default as OrderProduct } from './OrderProduct';
 export { default as OrderTableItem } from './OrderTableItem';
@@ -84,17 +75,9 @@ export { default as SubscribeForm } from './SubscribeForm';
 export { default as FormRow } from './FormRow';
 export { default as FormAgree } from './FormAgree';
 
-export { default as SliderSection } from './SliderSection';
-
-export { default as NewsDetail } from './NewsDetail';
 export { default as OtherNews } from './OtherNews';
 export { default as BlogItem } from './BlogItem';
-export { default as BlogText } from './BlogText';
-export { default as AsideBlog } from './AsideBlog';
 
-export { default as Personal } from './Profile/Personal';
-export { default as Subscribes } from './Profile/Subscribes/Subscribes';
-export { default as Discounts } from './Profile/Discounts';
 export { default as DiscountsProgress } from './Discounts/DiscountsProgress';
 export { default as DiscountAdd } from './Discounts/DiscountAdd';
 export { default as PersonalDiscount } from './Discounts/PersonalDiscount';

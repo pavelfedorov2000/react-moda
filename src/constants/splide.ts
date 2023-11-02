@@ -1,7 +1,7 @@
 import { Gaps } from "../enums/Gap";
 
-export const splideOptions = {
-    loop: true,
+export const SPLIDE_OPTIONS = {
+    type: 'loop',
     speed: 1000,
     gap: Gaps.XL,
     perPage: 4,

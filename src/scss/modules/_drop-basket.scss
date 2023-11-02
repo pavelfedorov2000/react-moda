@@ -1,7 +1,7 @@
 .drop-basket {
     &__body {
-        height: 100vh;
         @extend %flex-col;
+        height: 100vh;
     }
 
     &__inner {
@@ -62,8 +62,8 @@
     }
 
     &__product-wrap {
-        grid-area: bottom;
         @extend %flex-row;
+        grid-area: bottom;
         align-items: flex-end;
     }
 
@@ -91,7 +91,7 @@
 
         @media (any-hover: hover) {
             &:hover {
-                color: #fff;
+                color: var(--white);
 
                 &:before,
                 &:after {

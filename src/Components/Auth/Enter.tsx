@@ -3,15 +3,13 @@ import { useState } from 'react';
 import { EnterOption, FIELDS } from '../../enums/Auth';
 import { InputType } from '../../enums/InputType';
 import { useActions } from '../../hooks/useActions';
-import Button from '../Button';
+import Button from '../../ui/Button';
 import Social from '../Social';
-//import PasswordInput from './PasswordInput';
+import { ButtonType } from '../../enums/ButtonType';
+import { ClassName } from '../../enums/ClassName';
+import { WithClassName } from '../../types/types';
 
-interface Props {
-    isVisible: boolean;
-}
-
-const Enter = ({ isVisible }: Props) => {
+const Enter = ({ isVisible }: { isVisible: boolean; } & WithClassName) => {
     const { openPasswordRecovery } = useActions();
 
     const enterOptions = Object.keys(EnterOption);
@@ -22,8 +20,8 @@ const Enter = ({ isVisible }: Props) => {
     }
 
     return (
-        <div className={classNames('tabs-content', {
-            'active': isVisible
+        <div className={classNames(ClassName.TabsContent, {
+            [ClassName.Active]: isVisible
         })} role="tabpanel" id="auth-panel-enter" aria-labelledby="enter" tabIndex={isVisible ? 0 : -1}>
             <div className="aside-popup__body">
                 <form action="#" className="aside-popup__form">
@@ -40,9 +38,9 @@ const Enter = ({ isVisible }: Props) => {
                         {enterOption === EnterOption.Email ?
                             <div className="aside-popup__form-wrap">
                                 <label className="form-agree">
-                                    <input className="check-box" type="checkbox" />
-                                    <span className="check-style"></span>
-                                    <span className="check-text">
+                                    <input className="checkbox__inpur" type="checkbox" />
+                                    <span className="checkbox__style"></span>
+                                    <span className="checkbox__text">
                                         Запомнить меня
                                     </span>
                                 </label>
@@ -53,9 +51,9 @@ const Enter = ({ isVisible }: Props) => {
                             : null
                         }
                     </div>
-                    <Button className="aside-popup__form-btn" text="Войти" type="submit" />
+                    <Button className="aside-popup__form-btn" text="Войти" type={ButtonType.Submit} />
                 </form>
-                <button onClick={onEnterOption} className="aside-popup__link-btn" type="button">
+                <button onClick={onEnterOption} className="aside-popup__link-btn" type={ButtonType.Button}>
                     {`Войти с помощью ${enterOption === EnterOption.Email ? 'e-mail и пароля' : 'номера телефона'}`}
                 </button>
             </div>

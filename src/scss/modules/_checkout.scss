@@ -48,10 +48,6 @@
         gap: 1.5rem;
     }
 
-    // .checkout-form__item-radio
-
-    &__item-radio {}
-
     // .checkout-form__comment
 
     &__comment {
@@ -97,7 +93,7 @@
         padding-right: 1.5rem;
     }
 
-    .radio-style {
+    .radiobutton__style {
         position: relative;
         width: 2.4rem;
         height: 2.4rem;
@@ -106,16 +102,16 @@
         border: 0.1rem solid var(--gray-c0);
     }
 
-    .radio-box:checked + .checkout-radio__wrap {
+    .radiobutton__input:checked + .checkout-radio__wrap {
         border-color: var(--green);
 
-        .radio-style {
+        .radiobutton__style {
             border-color: var(--green);
 
             &:before {
+                @extend %pos-center-xy;
                 content: '';
                 position: absolute;
-                @extend %pos-center-xy;
                 width: 1rem;
                 height: 1rem;
                 border-radius: 50%;

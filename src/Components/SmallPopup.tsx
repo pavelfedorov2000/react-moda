@@ -1,12 +1,19 @@
 import { Field as FieldType, ProfileData, FIELDS } from '../enums/Auth';
+import { ButtonType } from '../enums/ButtonType';
+import { ClassName } from '../enums/ClassName';
+import { IconSize } from '../enums/IconSize';
 import { InputType } from "../enums/InputType";
 import { useActions } from "../hooks/useActions";
 import { useTypedSelector } from "../hooks/useTypedSelector";
+import { Button } from '../ui';
+import { generateIconClassName } from '../utils/generateIconClassName';
 import Field from './Field';
 
-interface EditField extends FieldType {
+type EditField = FieldType & {
     value?: string;
 }
+
+const mainClass = 'small-popup';
 
 const SmallPopup = () => {
     const profileData = useTypedSelector((state) => state.profileReducer);
@@ -46,6 +53,7 @@ const SmallPopup = () => {
 
     const handleClose = (event: React.SyntheticEvent<HTMLFormElement>) => {
         event.preventDefault();
+        
         closeProfileEditPopup();
         setProfileDataUpdated(true);
         setTimeout(() => {
@@ -60,21 +68,19 @@ const SmallPopup = () => {
         || PASSWORD !== REPEAT_PASSWORD;
 
     return (
-        <div className="overlay active">
-            <div className="popup small-popup">
+        <div className={`${ClassName.Overlay} ${ClassName.Active}`}>
+            <div className={`${ClassName.Popup} ${mainClass}`}>
                 <button onClick={closeProfileEditPopup} className="popup__close" type="button">
-                    <svg className="icon icon--size_l" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <svg className={generateIconClassName(IconSize.L)} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path fillRule="evenodd" clipRule="evenodd" d="M23.1871 7L16 14.1871L8.81286 7L7 8.81286L14.1871 16L7 23.1871L8.81286 25L16 17.8129L23.1871 25L25 23.1871L17.8129 16L25 8.81286L23.1871 7Z" />
                     </svg>
                 </button>
-                <div className="small-popup__title">{editPopup.title}</div>
-                <form onSubmit={handleClose} action="#" className="small-popup__form">
+                <div className={`${mainClass}__title`}>{editPopup.title}</div>
+                <form onSubmit={handleClose} action="#" className={`${mainClass}__form`}>
                     {editFields.map((field) => (
                         <Field key={field.name} onInput={handleChange} {...field} />
                     ))}
-                    <button className="button small-popup__form-btn"
-                        type="submit"
-                        disabled={isDisabledButton}>Сохранить</button>
+                    <Button className={`${mainClass}__form-btn`} type={ButtonType.Submit} isDisabled={isDisabledButton} text="Сохранить" />
                 </form>
             </div>
         </div>

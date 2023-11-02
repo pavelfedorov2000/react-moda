@@ -1,19 +1,30 @@
 import classNames from "classnames";
-import { ReactNode } from "react";
+import { WithChildren, WithClassName } from "../../types/types";
+import { Title } from "../../ui";
+import { TitleLevel } from "../../enums/TitleLevel";
+import AllLink from "../AllLink";
+import Container from "./Container";
+
+const mainClass = 'section';
 
 interface Props {
-    className?: string;
-    title: string;
-    content: ReactNode;
+    title?: string;
+    isSlider?: boolean;
+    link?: string;
 }
 
-const Section = ({ className, title, content }: Props) => {
+const Section = ({ className, isSlider, title, link, children }: Props & WithClassName & WithChildren) => {
     return (
-        <section className={classNames('section', className)}>
-            <div className="section__top">
-                <h2 className="title">{title}</h2>
-            </div>
-            {content}
+        <section className={classNames(mainClass, className)}>
+            <Container>
+                {!isSlider &&
+                    <div className={`${mainClass}__top`}>
+                        {title && <Title tag={TitleLevel.H2}>{title}</Title>}
+                        {link && <AllLink url={link} />}
+                    </div>
+                }
+                {children}
+            </Container>
         </section>
     );
 };

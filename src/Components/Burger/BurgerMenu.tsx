@@ -7,23 +7,28 @@ import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useActions } from '../../hooks/useActions';
 import ActionHeader from '../ActionHeader';
 import { PinIcon } from '../HeaderActions/icons';
+import { ClassName } from '../../enums/ClassName';
+import { PopupId } from '../../enums/PopupId';
+import { Image } from '../../ui';
+
+const mainClass = 'burger-menu';
 
 const BurgerMenu = () => {
     const { isOpenMenu } = useTypedSelector((state) => state.burgerReducer);
     const { closeBurgerMenu } = useActions();
 
     const handleClose = () => {
-        document.body.classList.remove('_lock');
+        document.body.classList.remove(ClassName.Lock);
         closeBurgerMenu();
     }
 
     return (
-        <div id="burger-menu" className={classNames('burger-menu', {
-            'active': isOpenMenu
+        <div id={PopupId.BurgerMenu} className={classNames(mainClass, {
+            [ClassName.Active]: isOpenMenu
         })}>
-            <div className="burger-menu__top">
-                <button onClick={handleClose} className="burger-menu__close" type="button" aria-label="Закрыть меню">
-                    <img src={closeIcon} alt="крестик" width="20" height="20" />
+            <div className={`${mainClass}__top`}>
+                <button onClick={handleClose} className={`${mainClass}__close`} type="button" aria-label="Закрыть меню">
+                    <Image src={closeIcon} alt="крестик" width={20} height={20} />
                 </button>
 
                 <NavHeader />
@@ -31,23 +36,23 @@ const BurgerMenu = () => {
 
             <HeaderRegion />
 
-            <ul className="burger-menu__list">
+            <ul className={`${mainClass}__list`}>
                 {DROP_MENU_CATEGORIES.map((link, index) => (
                     <li key={index}>
-                        <Link className="burger-menu__link" to={link.path}>{link.title}</Link>
+                        <Link className={`${mainClass}__link`} to={link.path}>{link.title}</Link>
                     </li>
                 ))}
 
-                {LINKS.reverse().map((link, i) => (
-                    <li key={link.path.toString()}>
-                        <Link className={classNames('burger-menu__link', {
-                            'burger-menu__link--red': i === LINKS.reverse().length - 1
+                {[...LINKS].reverse().map((link, index) => (
+                    <li key={index}>
+                        <Link className={classNames(`${mainClass}__link`, {
+                            [`${mainClass}__link--red`]: index === [...LINKS].reverse().length - 1
                         })} to={link.path}>{link.title}</Link>
                     </li>
                 ))}
             </ul>
 
-            <div className="burger-menu__bottom">
+            <div className={`${mainClass}__bottom`}>
                 <ActionHeader icon={<PinIcon />} text="Найти магазины" href="#" />
                 <ContactsHeader />
                 <WhatsApp />

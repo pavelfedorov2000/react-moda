@@ -39,7 +39,7 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: $transition all;
+    transition: var(--transition) all;
 
     &.active {
         opacity: 1;
@@ -50,7 +50,7 @@
 
 .popup {
     @extend %pos-center-xy;
-    background-color: #fff;
+    background-color: var(--white);
 
     &__close {
         position: absolute;
@@ -144,8 +144,8 @@
     overflow-y: auto;
     overflow-y: auto;
     width: 51.5rem;
-    background-color: #fff;
-    transition: $transition all;
+    background-color: var(--white);
+    transition: var(--transition) all;
     @include scrollbar;
 
     &--basket {
@@ -203,7 +203,7 @@
         @extend %vertical-align;
         @extend %text-14;
         color: var(--gray);
-        transition: $transition color;
+        transition: var(--transition) color;
         margin-bottom: var(--gap);
 
         @media (max-width: 500px) {

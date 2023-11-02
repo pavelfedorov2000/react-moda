@@ -1,20 +1,19 @@
-// ===================== CHECKBOXES ==================== //
-.check {
+.checkbox {
     $this: &;
 
-    &-box {
+    &__input {
         width: 1px;
         height: 1px;
         overflow: hidden;
         position: absolute;
         clip: rect(0 0 0 0);
 
-        &:checked ~ #{$this}-style span {
+        &:checked ~ #{$this}__input span {
             opacity: 1;
         }
     }
 
-    &-style {
+    &__style {
         position: relative;
         flex-shrink: 0;
         width: var(--icon-size);
@@ -27,11 +26,11 @@
             width: 1rem;
             height: 0.8rem;
             opacity: 0;
-            transition: $transition opacity;
+            transition: var(--transition) opacity;
         }
     }
 
-    &-text {
+    &__text {
         a {
             text-decoration: underline;
         }
@@ -44,18 +43,18 @@
         margin-left: var(--offset-xs);
 
         &--white {
-            background: #fff;
+            background: var(--white);
             border: 0.1rem solid var(--gray-c0);
         }
 
-        & ~ #{$this}-text {
+        & ~ #{$this}__text {
             margin-left: 0.5rem;
         }
     }
 }
 
-.check-text,
-.radio-text {
+.checkbox__text,
+.radiobutton__text {
     @extend %text-14;
 }
 
@@ -94,12 +93,12 @@
             width: 0.9rem;
             height: 0.6rem;
             opacity: 0;
-            transition: $transition opacity;
+            transition: var(--transition) opacity;
         }
 
         /* span {
             opacity: 0;
-            transition: $transition opacity;
+            transition: var(--transition) opacity;
         } */
     }
 
@@ -117,7 +116,7 @@
                     @media (any-hover: hover) {
                         &:hover {
                             background-color: var(--dark);
-                            color: #fff;
+                            color: var(--white);
                         }
                     }
                 }
@@ -125,7 +124,7 @@
                 &-box {
                     &:checked + #{$this}-text {
                         background-color: var(--dark);
-                        color: #fff;
+                        color: var(--white);
                     }
 
                     &:disabled {
@@ -215,7 +214,7 @@
                         background-color: var(--dark);
 
                         #{$this}-text {
-                            color: #fff;
+                            color: var(--white);
                         }
                     }
                 }

@@ -3,13 +3,17 @@ interface Props {
     list: string[];
 }
 
+const mainClass = 'personal-discout';
+
 const PersonalDiscount = ({ discount, list }: Props) => {
     return (
-        <div className="personal-discout">
-            <div className="personal-discout__title">{`Ваша персональная скидка - ${discount}%`}</div>
-            <ul className="personal-discout__list">
-                {list.map((item, i) => (
-                    <li key={item.toString()}>{`- ${item}`}{i === list.length - 1 ? ';' : '.'}</li>
+        <div className={mainClass}>
+            <div className={`${mainClass}__title`}>
+                {`Ваша персональная скидка - ${discount}%`}
+            </div>
+            <ul className={`${mainClass}__list`}>
+                {list.map((item, index) => (
+                    <li key={index}>{`- ${item}`}{index === list.length - 1 ? ';' : '.'}</li>
                 ))}
             </ul>
         </div>

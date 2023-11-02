@@ -8,7 +8,7 @@ const CatalogDropSort = ({ name, type, order }: Sort) => {
     const { setSortBy } = useActions();
 
     return (
-        <label key={type} className="catalog-drop-filter__item">
+        <label key={type} className="catalog-drop-filter__item radio">
             <input onChange={() => setSortBy({ type, order })} className="radio-box" type="radio" name="SORT" checked={sortBy.type === type && sortBy.order === order ? true : false} />
                 <span className="radio-style">
                     <span style={{ backgroundImage: `url(${checkIcon})` }}></span>

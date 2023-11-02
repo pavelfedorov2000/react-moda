@@ -21,21 +21,21 @@ const CatalogDropFilterItem = ({ item, items, checkedItems, setCheckedItems }: P
                 ]
                 : checkedItems.filter((item) => item !== text)
         );
-        setChecked((prevState) => !prevState);
+        setChecked((checked) => !checked);
     }
 
     return (
         <label key={item.text ? item.text.toString() : item} className="catalog-drop-filter__item">
-            <input onChange={() => onCheckItem(item.text ?? item)} className="check-box" type="checkbox" checked={checked && checkedItems.length !== 0} />
-            <span className="check-style">
+            <input onChange={() => onCheckItem(item.text ?? item)} className="checkbox__input" type="checkbox" checked={checked && checkedItems.length !== 0} />
+            <span className="checkbox__style">
                 <span style={{ backgroundImage: `url(${checkIcon})` }}></span>
             </span>
             {item.bg &&
-                <span style={{ background: `linear-gradient(${item.bg})` }} className={classNames('check-color', {
-                'check-color--white': item.bg === '#fff'
+                <span style={{ background: `linear-gradient(${item.bg})` }} className={classNames('checkbox__color', {
+                'checkbox__color--white': item.bg === '#fff'
             })}></span>
             }
-            <span className="check-text">{item.text ?? item}</span>
+            <span className="checkbox__text">{item.text ?? item}</span>
         </label>
     );
 };

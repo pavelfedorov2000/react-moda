@@ -1,15 +1,14 @@
 import classNames from 'classnames';
 import Phone from './Phone';
+import { WithClassName } from '../types/types';
 
-interface Props {
-    className?: string;
-}
+const mainClass = 'contacts-header';
 
-const ContactsHeader = ({ className }: Props) => {
+const ContactsHeader = ({ className }: WithClassName) => {
     return (
-        <div className={classNames('contacts-header', className)}>
+        <div className={classNames(mainClass, className)}>
             <Phone className="action-header" />
-            <span className="contacts-header__descr">Звонок бесплатный</span>
+            <span className={`${mainClass}__descr`}>Звонок бесплатный</span>
         </div>
     );
 }

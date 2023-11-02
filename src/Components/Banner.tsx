@@ -1,12 +1,14 @@
 import classNames from "classnames";
+import { WithClassName } from "../types/types";
+import { ClassName } from "../enums/ClassName";
 
-interface Props {
-    className?: string;
-}
+const mainClass = ClassName.Banner;
 
-const Banner = ({ className }: Props) => {
+const Banner = ({ className }: WithClassName) => {
     return (
-        <a href="#" className={classNames('banner', className && `${className}__banner`)}>
+        <a href="#" className={classNames(mainClass, {
+            [`${className}__${mainClass}`]: className
+        })}>
             Рекламный баннер
         </a>
     );

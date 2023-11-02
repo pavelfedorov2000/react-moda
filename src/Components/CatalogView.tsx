@@ -1,16 +1,19 @@
 import classNames from 'classnames';
 import { CatalogViewOption } from '../enums/CatalogView';
+import { ClassName } from '../enums/ClassName';
 
 interface Props {
     onChange: () => void;
     view: string;
 }
 
+const mainClass = 'catalog-view';
+
 const CatalogView = ({ onChange, view }: Props) => {
     return (
-        <div className="catalog-view">
-            <button onClick={onChange} type="button" className={classNames('catalog-view__btn grid-button', {
-                'active': view === CatalogViewOption.GRID
+        <div className={mainClass}>
+            <button onClick={onChange} type="button" className={classNames(`${mainClass}__btn grid-button`, {
+                [ClassName.Active]: view === CatalogViewOption.GRID
             })}>
                 <svg viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="0.5" y="0.5" width="7" height="7" rx="0.5" />
@@ -23,8 +26,8 @@ const CatalogView = ({ onChange, view }: Props) => {
                     <rect x="0.5" y="10.9214" width="17" height="6.57895" rx="0.5" />
                 </svg>
             </button>
-            <button onClick={onChange} type="button" className={classNames('catalog-view__btn col-button', {
-                'active': view === CatalogViewOption.COL
+            <button onClick={onChange} type="button" className={classNames(`${mainClass}__btn col-button`, {
+                [ClassName.Active]: view === CatalogViewOption.COL
             })}>
                 <svg viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="0.5" y="0.5" width="7" height="18" rx="0.5" />

@@ -54,7 +54,7 @@
             width: 5.6rem;
             height: 1.6rem;
             fill: var(--dark);
-            transition: $transition fill;
+            transition: var(--transition) fill;
 
             @media (max-width: 767px) {
                 width: 4rem;

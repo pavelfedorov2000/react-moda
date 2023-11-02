@@ -1,15 +1,15 @@
 import classNames from "classnames";
 import { ProductListText } from "../enums/ProductListText";
+import { WithClassName } from "../types/types";
 
 interface Props {
     articul: string;
     color: string;
     size: number;
     totalCount?: number;
-    className?: string;
 }
 
-const ProductList = ({ articul, color, size, totalCount, className }: Props) => {
+const ProductList = ({ articul, color, size, totalCount, className }: Props & WithClassName) => {
     return (
         <dl className={classNames('product-list', className)}>
             <div>

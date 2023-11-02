@@ -1,6 +1,6 @@
-import { AsideFilters, CatalogCard, ProductPopup } from '../Components';
-import { Crumbs, EmptyBlock } from '../Components/Layout';
-import PageTop from '../Components/Layout/PageTop';
+import { AsideFilters, CatalogCard, CatalogList, ProductPopup } from '../components';
+import { Crumbs, EmptyBlock } from '../components/Layout';
+import PageTop from '../components/Layout/PageTop';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { Page } from '../interfaces/Route';
 
@@ -24,13 +24,7 @@ const Favorite = ({ title, emptyBlock }: Page) => {
                                 {products.length === 0 ?
                                     <EmptyBlock {...emptyBlock} />
                                     :
-                                    <ul className="catalog-list">
-                                        {products.map((product) => (
-                                            <li key={product.id}>
-                                                <CatalogCard {...product} />
-                                            </li>
-                                        ))}
-                                    </ul>
+                                    <CatalogList products={products} />
                                 }
                             </div>
                         </div>

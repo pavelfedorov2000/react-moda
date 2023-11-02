@@ -1,14 +1,14 @@
 import classNames from "classnames";
 import { ProfileData } from "../enums/Auth";
 import { useTypedSelector } from "../hooks/useTypedSelector";
+import { WithClassName } from "../types/types";
 
 interface Props {
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    className?: string;
     gender: string;
 }
 
-const Gender = ({ onChange, className, gender }: Props) => {
+const Gender = ({ onChange, className, gender }: Props & WithClassName) => {
     const { GENDER } = useTypedSelector((state) => state.profileReducer);
 
     return (

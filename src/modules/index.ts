@@ -1,0 +1,20 @@
+export { default as SliderSection } from './SliderSection';
+export { default as PromoSale } from './PromoSale';
+export { default as Actual } from './Actual';
+export { default as Brands } from './Brands';
+export { default as BlogSection } from './BlogSection';
+export { default as BlogText } from './BlogText';
+export { default as AsideBlog } from './AsideBlog';
+export { default as ProductDetails } from './ProductDetails';
+export { default as ProductDetailsSection } from './ProductDetailsSection';
+export { default as NewsDetail } from './NewsDetail';
+export { default as OrderSuccessTable } from './OrderSuccessTable';
+export { default as Checkout } from './Checkout';
+export { default as Instagram } from './Instagram';
+export { default as IconsSlider } from './IconsSlider';
+
+export { default as MyOrders } from './MyOrders';
+export { default as OrderDetail } from './OrderDetail';
+export { default as Personal } from './Personal';
+export { default as Discounts } from './Discounts';
+export { default as Subscribes } from './Subscribes';

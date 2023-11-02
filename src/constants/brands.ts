@@ -1,1 +1,3 @@
-export const BRANDS: string[] = ['AllSaints', 'Allura', 'Allora', 'Bibi', 'Deja', 'Loriata', 'Minoti', 'Rio Verti', 'Viola', 'Zaza'];
+import { Brand } from "../enums/Brand";
+
+export const BRANDS: string[] = Object.values(Brand);

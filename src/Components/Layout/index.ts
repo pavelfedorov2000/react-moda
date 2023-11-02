@@ -1,3 +1,5 @@
+export { default as Container } from './Container';
+export { default as Overlay } from './Overlay';
 export { default as Header } from './Header';
 export { default as Footer } from './Footer';
 export { default as Section } from './Section';
@@ -5,3 +7,4 @@ export { default as EmptyBlock } from './EmptyBlock';
 export { default as Crumbs } from './Crumbs';
 export { default as Pagination } from './Pagination';
 export { default as PageNav } from './PageNav';
+export { default as Slider } from './Slider';

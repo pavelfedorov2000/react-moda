@@ -19,7 +19,7 @@
     font-weight: 500;
     padding: var(--offset-xxs) var(--offset-xs);
     border: 0.1rem solid var(--dark-gray);
-    transition: $transition all;
+    transition: var(--transition) all;
 
     svg {
         margin-left: 0.5rem;
@@ -28,18 +28,17 @@
     @media (any-hover: hover) {
         &:hover {
             background-color: var(--dark-gray);
-            color: #fff;
+            color: var(--white);
 
             svg {
-                fill: #fff;
+                fill: var(--white);
             }
         }
     }
 }
 
 .blog-grid {
-    > * {
-
+    &__item {
         &:nth-child(10n + 1),
         &:nth-child(10n + 7) {
             grid-row: span 2;
@@ -49,11 +48,11 @@
                 grid-column: span 2;
             }
 
-            .blog-item {
-                @media (min-width: 1025px) {
-                    grid-template-columns: 1fr;
-                }
+            @media (min-width: 1025px) {
+                grid-template-columns: 1fr;
+            }
 
+            .blog-item {
                 &__img {
                     height: 33.6rem;
 
@@ -65,12 +64,12 @@
         }
 
         &:nth-child(10n + 7) {
-            .blog-item {
-                @media (max-width: 1024px) {
-                    grid-column: unset;
-                    grid-row: unset;
-                }
+            @media (max-width: 1024px) {
+                grid-column: unset;
+                grid-row: unset;
+            }
 
+            .blog-item {
                 &__img {
                     @media (max-width: 1024px) {
                         height: 22.3rem;

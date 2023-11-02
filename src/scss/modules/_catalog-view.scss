@@ -24,7 +24,7 @@
 
             rect {
                 stroke: var(--gray-c0);
-                transition: $transition stroke;
+                transition: var(--transition) stroke;
             }
         }
 

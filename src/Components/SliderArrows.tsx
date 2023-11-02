@@ -1,16 +1,21 @@
 import classNames from 'classnames';
+import { WithClassName } from '../types/types';
 
 interface Props {
-    className?: string;
     isRound?: boolean;
     position?: string;
 }
 
-const SliderArrows = ({ className, isRound, position }: Props) => {
+const arrowClass = 'splide__arrow';
+const arrowsClass = 'slider-arrows';
+
+const SliderArrows = ({ className, isRound, position }: Props & WithClassName) => {
     return (
-        <div className={classNames('slider-arrows splide__arrows', className && className, position && `slider-arrows--position_${position}`)}>
-            <button className={classNames('splide__arrow splide__arrow--prev', {
-                'splide__arrow--round': isRound
+        <div className={classNames(arrowsClass, 'splide__arrows', className, {
+            [`${arrowsClass}--position_${position}`]: position
+        })}>
+            <button className={classNames(`${arrowClass} ${arrowClass}--prev`, {
+                [`${arrowClass}--round`]: isRound
             })}>
                 {isRound ?
                     <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,8 +31,8 @@ const SliderArrows = ({ className, isRound, position }: Props) => {
                     </svg>
                 }
             </button>
-            <button className={classNames('splide__arrow splide__arrow--next', {
-                'splide__arrow--round': isRound
+            <button className={classNames(`${arrowClass} ${arrowClass}--next`, {
+                [`${arrowClass}--round`]: isRound
             })}>
                 {isRound ?
                     <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">

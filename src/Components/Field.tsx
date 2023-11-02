@@ -12,7 +12,7 @@ interface Props extends FieldType {
 const Field = ({ onInput, name, placeholder, type, value, readOnly }: Props) => {
     const [visiblePassword, setVisiblePassword] = useState(false);
     const onChangePasswordVisibility = () => {
-        setVisiblePassword((prevState) => !prevState);
+        setVisiblePassword((v) => !v);
     }
 
     return (
