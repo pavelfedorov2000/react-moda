@@ -39,3 +39,7 @@ Online-store of clothes - City-moda
 
 # TO DO:
 - pagination for catalog, blog and orders pages
+- rewrite data fetching sections
+- wrap sections into Suspence
+- rewrite with RTK-query instead of Redux
+- json auth
