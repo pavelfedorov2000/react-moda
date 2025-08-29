@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
@@ -19,7 +19,7 @@ const BasketProduct = ({ className, id, articul, name, brand, sizes, price, imag
     const { plusProduct, minusProduct, removeCartProduct, addFavoriteProduct, removeFavoriteProduct } = useActions();
     const { isAsideBasketVisible } = useTypedSelector((state) => state.asidePopupReducer);
 
-    const isFavorite = products.findIndex((product) => product.id === id) !== -1;
+    const isFavorite = useMemo(() => products.findIndex((product) => product.id === id) !== -1, [id]);
 
     const handleRemoveCartProduct = useCallback(() => {
         removeCartProduct(id);
