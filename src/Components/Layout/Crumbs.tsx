@@ -13,7 +13,7 @@ interface Props {
 const mainClass = ClassName.Crumbs;
 
 const Crumbs = ({ title, id, url, product }: Props) => {
-    const prevRoute = routes.find((route) => route.path === `/${url}`);
+    const prevRoute = useMemo(() => routes.find((route) => route.path === `/${url}`), [url]);
 
     return (
         <nav className={mainClass} aria-label="Хлебные крошки">
