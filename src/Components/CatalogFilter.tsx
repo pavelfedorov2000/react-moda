@@ -42,14 +42,14 @@ const CatalogFilter = ({ name, toggleTitle, title, items, onSelect, onReset }: P
     const onChangeTo = (event: React.ChangeEvent<HTMLInputElement>) => {
         const priceToArr = priceTo.split('');
         setPriceTo(event.target.value);
-        setCheckedItems([+priceFrom, +`${priceTo}${priceToArr[priceToArr.length - 1]}`]);
+        setCheckedItems([+priceFrom, +`${priceTo}${priceToArr?.at(-1)}`]);
     }
 
     const handleReset = () => {
         setCheckedItems([]);
         setPriceFrom('');
         setPriceTo('');
-        onReset && onReset();
+        onReset?.();
     }
 
     useHandleOutsideClick(filterRef, setIsOpen);
@@ -111,7 +111,7 @@ const CatalogFilter = ({ name, toggleTitle, title, items, onSelect, onReset }: P
                                     d="M11.9929 3L8 6.99286L4.00714 3L3 4.00714L6.99286 8L3 11.9929L4.00714 13L8 9.00714L11.9929 13L13 11.9929L9.00714 8L13 4.00714L11.9929 3Z" />
                             </svg>
                         </button>
-                        <Button className={`${dropClass}__btn`} onClick={() => onSelect && onSelect(checkedItems)} text="Применить" />
+                        <Button className={`${dropClass}__btn`} onClick={() => onSelect?.(checkedItems)} text="Применить" />
                     </div>
                 }
             </div>
