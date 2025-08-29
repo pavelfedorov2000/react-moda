@@ -5,7 +5,7 @@ const mainClass = 'order-success-table';
 
 const OrderSuccessTable = () => {
     const { data } = useTypedSelector((state) => state.ordersReducer);
-    const currentOrder = data[data.length - 1];
+    const currentOrder = data?.at(-1);
 
     return (
         <article className={mainClass}>
