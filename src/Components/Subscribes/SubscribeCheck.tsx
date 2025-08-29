@@ -7,7 +7,7 @@ import { useTypedSelector } from '../../hooks/useTypedSelector';
 const SubscribeCheck = ({ text }: { text: string; }) => {
     const { changeSubscribe } = useActions();
     const { currentSubscribe } = useTypedSelector((state) => state.subscribesReducer);
-    const isChecked = currentSubscribe?.items?.find((item) => item.name === text)?.active;
+    const isChecked = React.useMemo(() => currentSubscribe?.items?.find((item) => item.name === text)?.active, [text]);
 
     return (
         <label className="sale-popup__form-check">
