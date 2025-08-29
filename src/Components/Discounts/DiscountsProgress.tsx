@@ -10,7 +10,7 @@ interface Props {
 const mainClass = 'discounts-progress';
 
 const DiscountsProgress = ({ discounts, discount }: Props) => {
-    const personalDiscountIndex = discounts.indexOf(discount);
+    const personalDiscountIndex = React.useMemo(() => discounts.indexOf(discount), [discounts, discount]);
 
     return (
         <div className={mainClass}>
