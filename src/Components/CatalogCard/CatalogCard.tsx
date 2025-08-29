@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import heart from '../../assets/images/icons/heart.svg';
 import heartFilled from '../../assets/images/icons/heart-filled.svg';
 import { Link } from 'react-router-dom';
@@ -22,7 +22,7 @@ const CatalogCard = ({ id, articul, name, brand, imageUrl, price, color, sizes, 
 
     const { openProductPopup } = useActions();
 
-    const isFavorite = products.findIndex((product) => product.id === id) !== -1;
+    const isFavorite = useMemo(() => products.findIndex((product) => product.id === id) !== -1, [id]);
 
     const handleAddFavorite = () => {
         addFavoriteProduct({
