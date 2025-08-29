@@ -21,7 +21,7 @@ const ProductCard = () => {
     const { popupProduct } = useTypedSelector((state) => state.productReducer);
     const { sortBy, sortPrices, sortBrands, sortColors, sortSizes, sortStyles } = useTypedSelector((state) => state.filtersReducer);
 
-    const activeProduct = products.find((product) => product.id == id);
+    const activeProduct = useMemo(() => products.find((product) => product.id == id), [id]);
 
     const [activeTab, setActiveTab] = useState(0);
     const onClickTab = (index: number) => {
