@@ -10,7 +10,7 @@ const mainClass = 'action-header';
 const ActionHeader = ({ className, popupId, href, icon, text, onClick, quantity }: HeaderAction & WithClassName) => {
     const handleClick = () => {
         document.body.classList.add(ClassName.Lock);
-        onClick && onClick();
+        onClick?.();
     }
 
     const children = useMemo(() => {
@@ -21,7 +21,7 @@ const ActionHeader = ({ className, popupId, href, icon, text, onClick, quantity 
                 {quantity && quantity !== 0 ? <span>({quantity})</span> : null}
             </span>
         </>;
-    }, [quantity]);
+    }, [text, quantity]);
 
     return (
         <>
