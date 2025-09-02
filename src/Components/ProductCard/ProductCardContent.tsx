@@ -1,5 +1,5 @@
 import loriata from '../../assets/images/logo/loriata.png';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { Product } from '../../interfaces/CatalogItem';
@@ -20,8 +20,8 @@ const ProductCardContent = ({ mainClass, id, articul, name, brand, logo, sizes, 
     const { products } = useTypedSelector((state) => state.favoriteReducer);
     const { addFavoriteProduct, removeFavoriteProduct, addProductToCart } = useActions();
 
-    const isFavorite = products.findIndex((product) => product.id === id) !== -1;
-    const isInBasket = Object.keys(items).includes(id);
+    const isFavorite = useMemo(() => products.findIndex((product) => product.id === id) !== -1, [id]);
+    const isInBasket = useMemo(() => Object.keys(items).includes(id), [id]);
 
     const handleAddProductToCart = () => {
         addProductToCart({
