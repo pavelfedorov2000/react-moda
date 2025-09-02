@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { useRouteMatch } from 'react-router-dom';
 import { OtherNews } from '../components';
@@ -21,18 +21,18 @@ const DetailNews = () => {
         });
     }, []);
 
-    const activeNews: NewsItem | undefined = news.find((news) => news.id == id);
-    const otherNews: NewsItem[] = news.filter((news) => news.id !== id);
+    const activeNews: NewsItem | undefined = useMemo(() => news?.find((news) => news.id == id), [id]);
+    const otherNews: NewsItem[] = useMemo(() => news?.filter((news) => news.id !== id), [id]);
+
+    if (!activeNews) return null;
 
     return (
         <>
             <main>
-                {activeNews &&
-                    <Container>
-                        <Crumbs title={activeNews.title} id={id} url={url.split('/')[1]} />
-                        <NewsDetail {...activeNews} />
-                    </Container>
-                }
+                <Container>
+                    <Crumbs title={activeNews.title} id={id} url={url.split('/')[1]} />
+                    <NewsDetail {...activeNews} />
+                </Container>
             </main>
             <OtherNews items={otherNews} title="Другие новости и акции" />
         </>
