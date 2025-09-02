@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { Crumbs } from '../components/Layout';
@@ -20,36 +20,34 @@ const BlogDetail = () => {
     const { url } = useRouteMatch();
 
     const { fetchBlog } = useActions();
-    const { items } = useTypedSelector((state) => state.blogReducer);
+    const { items as blogItems } = useTypedSelector((state) => state.blogReducer);
 
     const [news, setNews] = useState<NewsItem[]>([]);
-    const [blogItems, setBlogItems] = useState<BlogItem[]>([]);
 
     useEffect(() => {
         fetchBlog();
-        setBlogItems(items);
         axios.get<NewsItem[]>(Pages.News.path).then(({ data }) => {
             setNews(data);
         });
     }, []);
 
-    const activeBlog = blogItems.find((news) => news.id == id);
-    const asideNews = news.filter((news) => news.id !== id).splice(0, 4);
+    const activeBlog = useMemo(() => blogItems?.find((news) => news.id == id, [id]);
+    const asideNews = useMemo(() => news?.filter((news) => news?.id !== id).splice(0, 4), [id]);
+
+    if (!activeBlog) return null;
 
     return (
         <main className={generatePageClassName(mainClass)}>
-            {activeBlog &&
-                <div className={ClassName.Container}>
-                    <Crumbs title={activeBlog.title} id={id} url={url.split('/')[1]} />
+            <div className={ClassName.Container}>
+                <Crumbs title={activeBlog.title} id={id} url={url.split('/')[1]} />
 
-                    <PageTop title={activeBlog.title} />
+                <PageTop title={activeBlog.title} />
 
-                    <div className={`${mainClass}__inner`}>
-                        <BlogText {...activeBlog} />
-                        <AsideBlog items={asideNews} />
-                    </div>
+                <div className={`${mainClass}__inner`}>
+                    <BlogText {...activeBlog} />
+                    <AsideBlog items={asideNews} />
                 </div>
-            }
+            </div>
         </main>
     );
 }
