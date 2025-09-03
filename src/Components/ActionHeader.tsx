@@ -1,17 +1,17 @@
 import classNames from "classnames";
 import { Link } from "react-router-dom";
 import { HeaderAction } from "../interfaces/HeaderAction";
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { ClassName } from "../enums/ClassName";
 import { WithClassName } from "../types/types";
 
 const mainClass = 'action-header';
 
 const ActionHeader = ({ className, popupId, href, icon, text, onClick, quantity }: HeaderAction & WithClassName) => {
-    const handleClick = () => {
+    const handleClick = useCallback(() => {
         document.body.classList.add(ClassName.Lock);
         onClick?.();
-    }
+    }, [onClick]);
 
     const children = useMemo(() => {
         return <>
