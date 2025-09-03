@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useRef, useState } from 'react';
+import { useRef, useState, useCallback } from 'react';
 import { Filter } from '../enums/Filter';
 import useHandleOutsideClick from '../hooks/useHandleOutsideClick';
 import { useTypedSelector } from '../hooks/useTypedSelector';
@@ -45,12 +45,12 @@ const CatalogFilter = ({ name, toggleTitle, title, items, onSelect, onReset }: P
         setCheckedItems([+priceFrom, +`${priceTo}${priceToArr?.at(-1)}`]);
     }
 
-    const handleReset = () => {
+    const handleReset = useCallback(() => {
         setCheckedItems([]);
         setPriceFrom('');
         setPriceTo('');
         onReset?.();
-    }
+    }, [onReset]);
 
     useHandleOutsideClick(filterRef, setIsOpen);
 
