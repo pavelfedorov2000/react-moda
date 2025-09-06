@@ -7,7 +7,6 @@ import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { ClassName } from '../enums/ClassName';
 import { PopupId } from '../enums/PopupId';
-import { useMemo } from 'react';
 
 const mainClass = PopupId.DropBasket;
 const popupClass = `${ClassName.AsidePopup} ${mainClass} ${ClassName.AsidePopup}--${mainClass.split('-')[1]}`;
@@ -26,10 +25,6 @@ const DropBasket = () => {
         closeAsideBasket();
     }
 
-    const buttonHref = useMemo(() => {
-        return totalCount === 0 ? Pages.Catalog.path : Pages.Cart.path
-    }, [totalCount]);
-
     return (
         <div id={PopupId.DropBasket} className={classNames(popupClass, {
             [ClassName.Active]: isAsideBasketVisible
@@ -40,7 +35,7 @@ const DropBasket = () => {
                 <div className={`${mainClass}__inner`}>
                     <div className={`${ClassName.AsidePopup}__title`}>{Pages.Cart.title}</div>
 
-                    {totalCount === 0 ?
+                    {totalCount == 0 ?
                         <div className={`${mainClass}__empty`}>
                             {DropBasketText.Empty}
                         </div>
@@ -64,8 +59,8 @@ const DropBasket = () => {
                     }
                 </div>
 
-                <Link onClick={handleClose} className={`${ClassName.Button} ${mainClass}__btn`} to={buttonHref}>
-                    {totalCount === 0 ? DropBasketText.ContinueBuy : DropBasketText.Checkout}
+                <Link onClick={handleClose} className={`${ClassName.Button} ${mainClass}__btn`} to={totalCount == 0 ? Pages.Catalog.path : Pages.Cart.path}>
+                    {totalCount == 0 ? DropBasketText.ContinueBuy : DropBasketText.Checkout}
                     <svg viewBox="0 0 56 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path clipRule="evenodd" fillRule="evenodd"
                             d="M55.7071 8.70711C56.0976 8.31658 56.0976 7.68342 55.7071 7.29289L49.3431 0.928932C48.9526 0.538408 48.3195 0.538408 47.9289 0.928932C47.5384 1.31946 47.5384 1.95262 47.9289 2.34315L53.5858 8L47.9289 13.6569C47.5384 14.0474 47.5384 14.6805 47.9289 15.0711C48.3195 15.4616 48.9526 15.4616 49.3431 15.0711L55.7071 8.70711ZM0 9H55V7H0V9Z" />
